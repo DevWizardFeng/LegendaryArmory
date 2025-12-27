@@ -8,6 +8,7 @@
     "pages/AbilityList",
     "pages/CultureList",
     "pages/BlacksmithList",
-    "pages/BlacksmithDetail"
+    "pages/BlacksmithDetail",
+    "pages/Quiz"
   ]
 }

@@ -1,6 +1,7 @@
 /**
  * 神兵图录 - 对战模拟页
  * 选择两件神兵进行对战模拟
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
@@ -262,14 +263,14 @@ struct BattleSimulator {
           Text('对战模拟')
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .fontColor(ThemeColors.TEXT_TITLE)
             .margin({ left: Spacing.MEDIUM })
 
           Blank()
 
           Text('随机')
             .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
             .onClick(() => this.randomSelect())
         }
         .width('100%')
@@ -284,7 +285,7 @@ struct BattleSimulator {
       }
       .width('100%')
       .height('100%')
-      .backgroundColor(ThemeColors.PRIMARY_BG)
+      .backgroundColor(ThemeColors.BASE_0)
 
       // 武器选择器弹窗
       if (this.showWeaponPicker) {
@@ -304,7 +305,7 @@ struct BattleSimulator {
       LoadingProgress()
         .width(48)
         .height(48)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
     }
     .width('100%')
     .layoutWeight(1)
@@ -327,7 +328,7 @@ struct BattleSimulator {
           Text('VS')
             .fontSize(FontSizes.TITLE)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
         }
         .width(60)
         .justifyContent(FlexAlign.Center)
@@ -343,13 +344,13 @@ struct BattleSimulator {
         Column() {
           Text('开始对战')
             .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.PRIMARY_BG)
+            .fontColor(ThemeColors.BASE_0)
             .fontWeight(FontWeight.Bold)
         }
         .width(160)
         .height(48)
         .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.ACCENT)
+        .backgroundColor(ThemeColors.GOLD_PRIMARY)
         .borderRadius(24)
         .onClick(() => this.startBattle())
       }
@@ -360,7 +361,7 @@ struct BattleSimulator {
           LoadingProgress()
             .width(40)
             .height(40)
-            .color(ThemeColors.ACCENT)
+            .color(ThemeColors.GOLD_PRIMARY)
           Text('激战中...')
             .fontSize(FontSizes.BODY)
             .fontColor(ThemeColors.TEXT_SECONDARY)
@@ -400,7 +401,7 @@ struct BattleSimulator {
               Column() {
                 Text(this.battleResult.winner === 'draw' ? '平' : '胜')
                   .fontSize(FontSizes.BODY_SMALL)
-                  .fontColor(ThemeColors.PRIMARY_BG)
+                  .fontColor(ThemeColors.BASE_0)
                   .fontWeight(FontWeight.Bold)
               }
               .width(32)
@@ -413,7 +414,7 @@ struct BattleSimulator {
               Column() {
                 Text('败')
                   .fontSize(FontSizes.BODY_SMALL)
-                  .fontColor(ThemeColors.PRIMARY_BG)
+                  .fontColor(ThemeColors.BASE_0)
                   .fontWeight(FontWeight.Bold)
               }
               .width(32)
@@ -430,7 +431,7 @@ struct BattleSimulator {
         Text(weapon.name.cn)
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .margin({ top: Spacing.SMALL })
           .maxLines(1)
 
@@ -443,7 +444,7 @@ struct BattleSimulator {
           Text((side === 'left' ? this.battleResult.leftScore : this.battleResult.rightScore).toString())
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
             .margin({ top: Spacing.SMALL })
         }
       } else {
@@ -462,7 +463,7 @@ struct BattleSimulator {
         .width('100%')
         .height(120)
         .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.CARD_BG)
+        .backgroundColor(ThemeColors.SURFACE_0)
         .borderRadius(Spacing.MEDIUM)
         .border({
           width: 2,
@@ -511,8 +512,9 @@ struct BattleSimulator {
       .width('100%')
       .padding(Spacing.MEDIUM)
       .margin({ top: Spacing.MEDIUM })
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(Spacing.MEDIUM)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
     }
     .width('100%')
     .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
@@ -541,7 +543,7 @@ struct BattleSimulator {
         Text('选择神兵')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Blank()
 
@@ -559,7 +561,7 @@ struct BattleSimulator {
         TextInput({ placeholder: '搜索神兵...', text: this.searchText })
           .placeholderColor(ThemeColors.TEXT_TERTIARY)
           .fontColor(ThemeColors.TEXT_PRIMARY)
-          .backgroundColor(ThemeColors.CARD_BG)
+          .backgroundColor(ThemeColors.SURFACE_0)
           .borderRadius(Spacing.SMALL)
           .height(40)
           .layoutWeight(1)
@@ -605,7 +607,7 @@ struct BattleSimulator {
     }
     .width('100%')
     .height('70%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
     .borderRadius({ topLeft: Spacing.LARGE, topRight: Spacing.LARGE })
     .position({ x: 0, y: '30%' })
   }

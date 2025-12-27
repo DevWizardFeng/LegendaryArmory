@@ -417,9 +417,10 @@ struct BlacksmithDetail {
       .layoutWeight(1)
 
       Image($r('app.media.icon_arrow_right'))
-        .width(16)
-        .height(16)
+        .width(20)
+        .height(20)
         .fillColor(ThemeColors.TEXT_TERTIARY)
+        .margin({ left: Spacing.MEDIUM })
     }
     .width('100%')
     .padding(Spacing.MEDIUM)

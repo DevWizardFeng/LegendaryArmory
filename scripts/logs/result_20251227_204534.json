@@ -1,0 +1,23 @@
+[
+  {
+    "id": "icon_quiz",
+    "name_cn": "挑战答题图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_quiz.png",
+    "tokens": 16384
+  },
+  {
+    "id": "icon_divination",
+    "name_cn": "每日占卜图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_divination.png",
+    "tokens": 16384
+  },
+  {
+    "id": "icon_battle",
+    "name_cn": "对战模拟图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_battle.png",
+    "tokens": 16384
+  }
+]

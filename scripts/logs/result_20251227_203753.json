@@ -1,0 +1,26 @@
+[
+  {
+    "id": "icon_culture",
+    "name_cn": "文化体系图标",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "icon_sword",
+    "name_cn": "兵器类型图标",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "icon_element",
+    "name_cn": "元素属性图标",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "icon_rarity",
+    "name_cn": "品质分类图标",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  }
+]

@@ -1,9 +1,9 @@
 /**
- * 神兵图录 - 筛选栏组件
+ * 神兵图录 - 筛选栏组件（博物馆典藏风格）
  * 提供多维度筛选功能
  */
 
-import { ThemeColors, FontSizes, Spacing, getRarityColor, getAttributeColor } from '../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getRarityColor, getAttributeColor, getAttributeLightColor } from '../common/Theme'
 import { CultureNames, WeaponTypeNames, RarityNames, AttributeNames } from '../common/Constants'
 
 /**
@@ -96,38 +96,38 @@ export struct FilterBar {
         }
         .width('100%')
         .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.MEDIUM })
-        .backgroundColor(ThemeColors.SECONDARY_BG)
+        .backgroundColor(ThemeColors.BASE_1)
       }
     }
     .width('100%')
-    .backgroundColor(ThemeColors.SECONDARY_BG)
+    .backgroundColor(ThemeColors.BASE_1)
   }
 
   /**
-   * 筛选按钮
+   * 筛选按钮 - 展柜控制面板风格
    */
   @Builder
   FilterButton(label: string, type: FilterType, selectedValue: string) {
     Row() {
       Text(label)
         .fontSize(FontSizes.BODY_SMALL)
-        .fontColor(this.activeFilterType === type ? ThemeColors.ACCENT : ThemeColors.TEXT_SECONDARY)
+        .fontColor(this.activeFilterType === type ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_SECONDARY)
 
       Text(this.getSelectedLabel(type, selectedValue))
         .fontSize(FontSizes.BODY_SMALL)
-        .fontColor(selectedValue ? ThemeColors.ACCENT : ThemeColors.TEXT_TERTIARY)
+        .fontColor(selectedValue ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_TERTIARY)
         .margin({ left: 4 })
         .maxLines(1)
 
       Image($r('app.media.icon_arrow_down'))
-        .width(12)
-        .height(12)
-        .fillColor(this.activeFilterType === type ? ThemeColors.ACCENT : ThemeColors.TEXT_TERTIARY)
+        .width(20)
+        .height(20)
+        .fillColor(this.activeFilterType === type ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_TERTIARY)
         .rotate({ angle: this.activeFilterType === type ? 180 : 0 })
         .margin({ left: 4 })
     }
     .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
-    .backgroundColor(this.activeFilterType === type ? ThemeColors.CARD_BG : Color.Transparent)
+    .backgroundColor(this.activeFilterType === type ? ThemeColors.SURFACE_0 : Color.Transparent)
     .borderRadius(Spacing.LARGE)
     .onClick(() => {
       if (this.activeFilterType === type) {
@@ -192,15 +192,15 @@ export struct FilterBar {
   }
 
   /**
-   * 筛选选项项
+   * 筛选选项项 - 博物馆标签风格
    */
   @Builder
   FilterOptionItem(option: FilterOption) {
     Text(option.label)
       .fontSize(FontSizes.BODY_SMALL)
-      .fontColor(this.isSelected(option.key) ? ThemeColors.PRIMARY_BG : (option.color || ThemeColors.TEXT_PRIMARY))
+      .fontColor(this.isSelected(option.key) ? ThemeColors.BASE_0 : (option.color ? getAttributeLightColor(option.key) || option.color : ThemeColors.TEXT_PRIMARY))
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
-      .backgroundColor(this.isSelected(option.key) ? (option.color || ThemeColors.ACCENT) : ThemeColors.CARD_BG)
+      .backgroundColor(this.isSelected(option.key) ? (option.color || ThemeColors.GOLD_PRIMARY) : ThemeColors.SURFACE_0)
       .borderRadius(Spacing.LARGE)
       .border({
         width: 1,

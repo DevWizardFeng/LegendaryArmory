@@ -1,6 +1,7 @@
 /**
  * 神兵图录 - 互动Tab
  * 提供挑战答题、每日占卜、对战模拟等游戏入口
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
@@ -24,7 +25,7 @@ interface GameEntry {
  */
 @Component
 export struct GameContent {
-  // 游戏入口配置
+  // 游戏入口配置（使用博物馆典藏风配色）
   private gameEntries: GameEntry[] = [
     {
       id: 'quiz',
@@ -66,12 +67,12 @@ export struct GameContent {
         Text('互动娱乐')
           .fontSize(FontSizes.TITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.ACCENT)
+          .fontColor(ThemeColors.TEXT_TITLE)
       }
       .height(56)
       .width('100%')
       .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
-      .backgroundColor(ThemeColors.PRIMARY_BG)
+      .backgroundColor(ThemeColors.BASE_1)
 
       // 游戏入口列表
       Scroll() {
@@ -99,7 +100,7 @@ export struct GameContent {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -108,25 +109,19 @@ export struct GameContent {
   @Builder
   GameEntryCard(entry: GameEntry) {
     Row() {
-      // 图标
-      Column() {
-        Image(entry.icon)
-          .width(40)
-          .height(40)
-          .fillColor(ThemeColors.PRIMARY_BG)
-      }
-      .width(80)
-      .height(80)
-      .justifyContent(FlexAlign.Center)
-      .backgroundColor(entry.iconBg)
-      .borderRadius(Spacing.LARGE)
+      // 图标 - 全尺寸显示
+      Image(entry.icon)
+        .width(80)
+        .height(80)
+        .objectFit(ImageFit.Cover)
+        .borderRadius(Spacing.LARGE)
 
       // 信息
       Column() {
         Text(entry.title)
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Text(entry.subtitle)
           .fontSize(FontSizes.BODY)
@@ -145,8 +140,9 @@ export struct GameContent {
     }
     .width('100%')
     .padding(Spacing.LARGE)
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor(ThemeColors.SURFACE_0)
     .borderRadius(Spacing.LARGE)
+    .border({ width: 1, color: ThemeColors.DIVIDER })
     .margin({ bottom: Spacing.LARGE })
     .onClick(() => this.navigateToGame(entry.route))
   }

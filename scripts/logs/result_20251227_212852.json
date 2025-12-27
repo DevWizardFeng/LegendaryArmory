@@ -1,0 +1,58 @@
+[
+  {
+    "id": "topic_chinese_swords",
+    "name_cn": "中国十大名剑传奇",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_chinese_swords.png",
+    "tokens": 16384
+  },
+  {
+    "id": "topic_japanese_katana",
+    "name_cn": "日本刀的锻造艺术",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_japanese_katana.png",
+    "tokens": 16384
+  },
+  {
+    "id": "topic_european_swords",
+    "name_cn": "欧洲圣剑传说",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_european_swords.png",
+    "tokens": 16384
+  },
+  {
+    "id": "topic_norse_weapons",
+    "name_cn": "北欧神器谱系",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_norse_weapons.png",
+    "tokens": 16384
+  },
+  {
+    "id": "topic_real_weapons",
+    "name_cn": "历史上真实存在的名刀名剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_real_weapons.png",
+    "tokens": 16384
+  },
+  {
+    "id": "topic_east_west_comparison",
+    "name_cn": "东西方兵器文化对比",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_east_west_comparison.png",
+    "tokens": 16384
+  },
+  {
+    "id": "topic_greek_weapons",
+    "name_cn": "希腊众神的武器",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_greek_weapons.png",
+    "tokens": 16384
+  },
+  {
+    "id": "topic_forging",
+    "name_cn": "古代铸剑术揭秘",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/topic_forging.png",
+    "tokens": 16384
+  }
+]

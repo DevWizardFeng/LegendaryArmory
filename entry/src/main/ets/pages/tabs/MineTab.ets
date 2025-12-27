@@ -1,10 +1,11 @@
 /**
  * 神兵图录 - 我的Tab
  * 收藏、历史、设置
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
-import { ThemeColors, FontSizes, Spacing, getRarityColor } from '../../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getRarityColor, getRarityDarkColor } from '../../common/Theme'
 import { RouterPath, RarityNames, CultureNames, WeaponTypeNames, AppConstants } from '../../common/Constants'
 import { DataLoader } from '../../utils/DataLoader'
 import { StorageManager } from '../../utils/Storage'
@@ -176,7 +177,7 @@ export struct MineContent {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -188,7 +189,7 @@ export struct MineContent {
       LoadingProgress()
         .width(48)
         .height(48)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
     }
     .width('100%')
     .layoutWeight(1)
@@ -205,17 +206,17 @@ export struct MineContent {
       Column() {
         Text('神')
           .fontSize(32)
-          .fontColor(ThemeColors.ACCENT)
+          .fontColor(ThemeColors.GOLD_PRIMARY)
           .fontWeight(FontWeight.Bold)
       }
       .width(72)
       .height(72)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(36)
       .border({
         width: 2,
-        color: ThemeColors.ACCENT
+        color: ThemeColors.GOLD_PRIMARY
       })
 
       // 信息
@@ -223,12 +224,12 @@ export struct MineContent {
         Text('神兵收藏家')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Row() {
           Text(`收藏 ${this.favoriteWeapons.length}`)
             .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
 
           Text(' | ')
             .fontSize(FontSizes.BODY_SMALL)
@@ -253,19 +254,19 @@ export struct MineContent {
   @Builder
   FunctionEntries() {
     Row() {
-      // 技能百科 → 切换到百科Tab（子Tab索引2）
+      // 技能百科 - 切换到百科Tab（子Tab索引2）
       this.FunctionButton('技能百科', $r('app.media.icon_ability'), () => {
         this.navigateToEncyclopedia(2)
       })
-      // 文化体系 → 切换到百科Tab（子Tab索引1）
+      // 文化体系 - 切换到百科Tab（子Tab索引1）
       this.FunctionButton('文化体系', $r('app.media.icon_culture'), () => {
         this.navigateToEncyclopedia(1)
       })
-      // 铸造大师 → 切换到百科Tab（子Tab索引0）
+      // 铸造大师 - 切换到百科Tab（子Tab索引0）
       this.FunctionButton('铸造大师', $r('app.media.icon_blacksmith'), () => {
         this.navigateToEncyclopedia(0)
       })
-      // 挑战答题 → 保持router.pushUrl（独立页面）
+      // 挑战答题 - 保持router.pushUrl（独立页面）
       this.FunctionButton('挑战答题', $r('app.media.icon_quiz'), () => {
         router.pushUrl({ url: RouterPath.QUIZ })
       })
@@ -285,13 +286,14 @@ export struct MineContent {
         Image(icon)
           .width(28)
           .height(28)
-          .fillColor(ThemeColors.ACCENT)
+          .fillColor(ThemeColors.GOLD_PRIMARY)
       }
       .width(52)
       .height(52)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(Spacing.MEDIUM)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
 
       Text(title)
         .fontSize(FontSizes.CAPTION)
@@ -337,18 +339,18 @@ export struct MineContent {
         Text(title)
           .fontSize(FontSizes.BODY)
           .fontWeight(isActive ? FontWeight.Bold : FontWeight.Normal)
-          .fontColor(isActive ? ThemeColors.TEXT_PRIMARY : ThemeColors.TEXT_TERTIARY)
+          .fontColor(isActive ? ThemeColors.TEXT_TITLE : ThemeColors.TEXT_TERTIARY)
 
         Text(` (${count})`)
           .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(isActive ? ThemeColors.ACCENT : ThemeColors.TEXT_TERTIARY)
+          .fontColor(isActive ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_TERTIARY)
       }
 
       // 下划线
       Column()
         .width(40)
         .height(3)
-        .backgroundColor(isActive ? ThemeColors.ACCENT : Color.Transparent)
+        .backgroundColor(isActive ? ThemeColors.GOLD_PRIMARY : Color.Transparent)
         .borderRadius(2)
         .margin({ top: Spacing.SMALL })
     }
@@ -421,6 +423,7 @@ export struct MineContent {
         .height(56)
         .objectFit(ImageFit.Cover)
         .borderRadius(Spacing.SMALL)
+        .border({ width: 1, color: getRarityDarkColor(weapon.rarity) })
 
       // 信息
       Column() {
@@ -428,7 +431,7 @@ export struct MineContent {
           Text(weapon.name.cn)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .fontColor(ThemeColors.TEXT_TITLE)
 
           Text(RarityNames[weapon.rarity] || weapon.rarity)
             .fontSize(FontSizes.SMALL)
@@ -446,14 +449,16 @@ export struct MineContent {
       .layoutWeight(1)
 
       Image($r('app.media.icon_arrow_right'))
-        .width(16)
-        .height(16)
+        .width(20)
+        .height(20)
         .fillColor(ThemeColors.TEXT_TERTIARY)
+        .margin({ left: Spacing.MEDIUM })
     }
     .width('100%')
     .padding(Spacing.MEDIUM)
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor(ThemeColors.SURFACE_0)
     .borderRadius(Spacing.MEDIUM)
+    .border({ width: 1, color: ThemeColors.DIVIDER })
     .margin({ bottom: Spacing.SMALL })
     .onClick(() => this.navigateToWeaponDetail(weapon.id))
   }
@@ -467,7 +472,7 @@ export struct MineContent {
       Text('关于')
         .fontSize(FontSizes.SUBTITLE)
         .fontWeight(FontWeight.Bold)
-        .fontColor(ThemeColors.TEXT_PRIMARY)
+        .fontColor(ThemeColors.TEXT_TITLE)
         .margin({ bottom: Spacing.MEDIUM })
 
       Column() {
@@ -513,8 +518,9 @@ export struct MineContent {
       }
       .width('100%')
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(Spacing.MEDIUM)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
     }
     .width('100%')
     .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })

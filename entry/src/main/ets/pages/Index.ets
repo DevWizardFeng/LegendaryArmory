@@ -283,9 +283,10 @@ struct Index {
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_TERTIARY)
           Image($r('app.media.icon_arrow_right'))
-            .width(16)
-            .height(16)
+            .width(20)
+            .height(20)
             .fillColor(ThemeColors.TEXT_TERTIARY)
+            .margin({ left: Spacing.SMALL })
         }
         .onClick(() => this.navigateToWeaponList())
       }

@@ -22,6 +22,7 @@ export class RouterPath {
   static readonly WEAPON_DETAIL = 'pages/WeaponDetail'
   static readonly BLACKSMITH_LIST = 'pages/BlacksmithList'
   static readonly BLACKSMITH_DETAIL = 'pages/BlacksmithDetail'
+  static readonly TOPIC_DETAIL = 'pages/TopicDetail'
   static readonly ABILITY_LIST = 'pages/AbilityList'
   static readonly CULTURE_LIST = 'pages/CultureList'
   static readonly SEARCH = 'pages/SearchPage'

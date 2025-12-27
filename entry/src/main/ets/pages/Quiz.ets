@@ -1,6 +1,7 @@
 /**
  * 神兵图录 - 挑战答题页
  * 实现多种答题模式
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
@@ -284,7 +285,7 @@ struct Quiz {
    */
   getTimeColor(): string {
     if (this.timeLeft <= 3) return ThemeColors.ERROR
-    if (this.timeLeft <= 5) return ThemeColors.WARNING
+    if (this.timeLeft <= 5) return ThemeColors.EMBER
     return ThemeColors.SUCCESS
   }
 
@@ -300,7 +301,7 @@ struct Quiz {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -320,7 +321,7 @@ struct Quiz {
         Text('挑战答题')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .margin({ left: Spacing.MEDIUM })
       }
       .width('100%')
@@ -334,7 +335,7 @@ struct Quiz {
             Text('选择答题模式')
               .fontSize(FontSizes.TITLE)
               .fontWeight(FontWeight.Bold)
-              .fontColor(ThemeColors.TEXT_PRIMARY)
+              .fontColor(ThemeColors.TEXT_TITLE)
 
             Text('测试你对神兵的了解程度')
               .fontSize(FontSizes.BODY)
@@ -371,7 +372,7 @@ struct Quiz {
         Text(config.name)
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Text(config.description)
           .fontSize(FontSizes.BODY_SMALL)
@@ -384,20 +385,21 @@ struct Quiz {
       Column() {
         Text('开始')
           .fontSize(FontSizes.BODY)
-          .fontColor(ThemeColors.PRIMARY_BG)
+          .fontColor(ThemeColors.BASE_0)
           .fontWeight(FontWeight.Bold)
       }
       .width(64)
       .height(36)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor(ThemeColors.ACCENT)
+      .backgroundColor(ThemeColors.GOLD_PRIMARY)
       .borderRadius(18)
     }
     .width('100%')
     .padding(Spacing.LARGE)
     .margin({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.MEDIUM })
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor(ThemeColors.SURFACE_0)
     .borderRadius(Spacing.MEDIUM)
+    .border({ width: 1, color: ThemeColors.DIVIDER })
     .onClick(() => this.startGame(config.mode))
   }
 
@@ -443,7 +445,7 @@ struct Quiz {
           Text(this.score.toString())
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
         }
         .alignItems(HorizontalAlign.Center)
 
@@ -456,7 +458,7 @@ struct Quiz {
               Image($r('app.media.icon_favorite_filled'))
                 .width(20)
                 .height(20)
-                .fillColor(i <= this.lives ? ThemeColors.ERROR : ThemeColors.TEXT_TERTIARY)
+                .fillColor(i <= this.lives ? ThemeColors.RUST : ThemeColors.TEXT_TERTIARY)
                 .margin({ left: 2 })
             })
           }
@@ -479,7 +481,7 @@ struct Quiz {
         if (this.combo > 1) {
           Text(`${this.combo} 连击!`)
             .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.WARNING)
+            .fontColor(ThemeColors.EMBER)
             .fontWeight(FontWeight.Bold)
         }
 
@@ -505,7 +507,7 @@ struct Quiz {
         .width('100%')
         .height(4)
         .color(this.getTimeColor())
-        .backgroundColor(ThemeColors.CARD_BG)
+        .backgroundColor(ThemeColors.SURFACE_0)
     }
     .width('100%')
   }
@@ -522,7 +524,7 @@ struct Quiz {
           Text(this.questions[this.currentQuestionIndex].question)
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Medium)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .fontColor(ThemeColors.TEXT_TITLE)
             .textAlign(TextAlign.Center)
             .padding(Spacing.LARGE)
             .lineHeight(28)
@@ -588,11 +590,11 @@ struct Quiz {
    */
   getOptionLetterColor(index: number): string {
     if (!this.isAnswerRevealed) {
-      return this.selectedAnswer === index ? ThemeColors.PRIMARY_BG : ThemeColors.TEXT_PRIMARY
+      return this.selectedAnswer === index ? ThemeColors.BASE_0 : ThemeColors.TEXT_PRIMARY
     }
     const correctAnswer = this.questions[this.currentQuestionIndex].correct_answer
-    if (index === correctAnswer) return ThemeColors.PRIMARY_BG
-    if (index === this.selectedAnswer) return ThemeColors.PRIMARY_BG
+    if (index === correctAnswer) return ThemeColors.BASE_0
+    if (index === this.selectedAnswer) return ThemeColors.BASE_0
     return ThemeColors.TEXT_TERTIARY
   }
 
@@ -601,12 +603,12 @@ struct Quiz {
    */
   getOptionBgColor(index: number): string {
     if (!this.isAnswerRevealed) {
-      return this.selectedAnswer === index ? ThemeColors.ACCENT : ThemeColors.SECONDARY_BG
+      return this.selectedAnswer === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.BASE_1
     }
     const correctAnswer = this.questions[this.currentQuestionIndex].correct_answer
     if (index === correctAnswer) return ThemeColors.SUCCESS
     if (index === this.selectedAnswer) return ThemeColors.ERROR
-    return ThemeColors.SECONDARY_BG
+    return ThemeColors.BASE_1
   }
 
   /**
@@ -626,7 +628,7 @@ struct Quiz {
    * 获取选项卡片背景
    */
   getOptionCardBg(index: number): string {
-    return ThemeColors.CARD_BG
+    return ThemeColors.SURFACE_0
   }
 
   /**
@@ -634,7 +636,7 @@ struct Quiz {
    */
   getOptionBorderColor(index: number): string {
     if (!this.isAnswerRevealed) {
-      return this.selectedAnswer === index ? ThemeColors.ACCENT : ThemeColors.DIVIDER
+      return this.selectedAnswer === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.DIVIDER
     }
     const correctAnswer = this.questions[this.currentQuestionIndex].correct_answer
     if (index === correctAnswer) return ThemeColors.SUCCESS
@@ -654,14 +656,14 @@ struct Quiz {
           Text('答题完成!')
             .fontSize(FontSizes.TITLE_LARGE)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
             .margin({ top: Spacing.XXLARGE })
 
           // 分数
           Text(this.score.toString())
             .fontSize(64)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .fontColor(ThemeColors.TEXT_TITLE)
             .margin({ top: Spacing.LARGE })
 
           Text('分')
@@ -672,7 +674,7 @@ struct Quiz {
           if (this.score >= this.highScore && this.score > 0) {
             Text('新纪录!')
               .fontSize(FontSizes.SUBTITLE)
-              .fontColor(ThemeColors.WARNING)
+              .fontColor(ThemeColors.EMBER)
               .fontWeight(FontWeight.Bold)
               .margin({ top: Spacing.MEDIUM })
           }
@@ -682,14 +684,15 @@ struct Quiz {
             this.StatRow('正确', `${this.correctCount} 题`, ThemeColors.SUCCESS)
             this.StatRow('错误', `${this.wrongCount} 题`, ThemeColors.ERROR)
             this.StatRow('正确率', `${this.correctCount + this.wrongCount > 0 ? Math.round(this.correctCount / (this.correctCount + this.wrongCount) * 100) : 0}%`, ThemeColors.INFO)
-            this.StatRow('最高连击', `${this.maxCombo} 连`, ThemeColors.WARNING)
-            this.StatRow('历史最高', `${this.highScore} 分`, ThemeColors.ACCENT)
+            this.StatRow('最高连击', `${this.maxCombo} 连`, ThemeColors.EMBER)
+            this.StatRow('历史最高', `${this.highScore} 分`, ThemeColors.GOLD_PRIMARY)
           }
           .width('100%')
           .padding(Spacing.LARGE)
           .margin({ top: Spacing.XLARGE })
-          .backgroundColor(ThemeColors.CARD_BG)
+          .backgroundColor(ThemeColors.SURFACE_0)
           .borderRadius(Spacing.MEDIUM)
+          .border({ width: 1, color: ThemeColors.DIVIDER })
 
           // 按钮
           Row() {
@@ -701,20 +704,21 @@ struct Quiz {
             .width(120)
             .height(48)
             .justifyContent(FlexAlign.Center)
-            .backgroundColor(ThemeColors.CARD_BG)
+            .backgroundColor(ThemeColors.SURFACE_0)
             .borderRadius(24)
+            .border({ width: 1, color: ThemeColors.DIVIDER })
             .onClick(() => this.backToMenu())
 
             Column() {
               Text('再来一局')
                 .fontSize(FontSizes.BODY)
-                .fontColor(ThemeColors.PRIMARY_BG)
+                .fontColor(ThemeColors.BASE_0)
                 .fontWeight(FontWeight.Bold)
             }
             .width(120)
             .height(48)
             .justifyContent(FlexAlign.Center)
-            .backgroundColor(ThemeColors.ACCENT)
+            .backgroundColor(ThemeColors.GOLD_PRIMARY)
             .borderRadius(24)
             .margin({ left: Spacing.MEDIUM })
             .onClick(() => this.startGame(this.currentMode))

@@ -1,5 +1,5 @@
 /**
- * 神兵图录 - 搜索栏组件
+ * 神兵图录 - 搜索栏组件（博物馆典藏风格）
  * 提供搜索入口和热门搜索推荐
  */
 
@@ -22,7 +22,7 @@ export struct SearchBar {
 
   build() {
     Column() {
-      // 搜索输入框
+      // 搜索输入框 - 展柜搜索风格
       Row() {
         // 搜索图标
         Image($r('app.media.icon_search'))
@@ -73,14 +73,14 @@ export struct SearchBar {
       .width('100%')
       .height(44)
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(22)
       .border({
         width: 1,
-        color: this.isFocused ? ThemeColors.ACCENT : ThemeColors.DIVIDER
+        color: this.isFocused ? ThemeColors.GOLD_PRIMARY : ThemeColors.DIVIDER
       })
 
-      // 热门搜索
+      // 热门搜索 - 典藏标签风格
       if (this.showHotSearch) {
         Column() {
           Text('热门搜索')
@@ -94,8 +94,12 @@ export struct SearchBar {
                 .fontSize(FontSizes.BODY_SMALL)
                 .fontColor(ThemeColors.TEXT_PRIMARY)
                 .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
-                .backgroundColor(ThemeColors.SECONDARY_BG)
+                .backgroundColor(ThemeColors.BASE_1)
                 .borderRadius(16)
+                .border({
+                  width: 1,
+                  color: ThemeColors.DIVIDER
+                })
                 .margin({ right: Spacing.SMALL, bottom: Spacing.SMALL })
                 .onClick(() => {
                   this.searchText = keyword

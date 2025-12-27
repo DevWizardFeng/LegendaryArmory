@@ -1,9 +1,9 @@
 /**
- * 神兵图录 - 神兵卡片组件
+ * 神兵图录 - 神兵卡片组件（博物馆典藏风格）
  * 用于列表和网格展示的神兵卡片
  */
 
-import { ThemeColors, FontSizes, Spacing, getRarityColor, getAttributeColor } from '../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getRarityColor, getRarityDarkColor, getAttributeColor, getAttributeLightColor } from '../common/Theme'
 import { CultureNames, WeaponTypeNames, RarityNames, AttributeNames } from '../common/Constants'
 import { LegendaryWeapon } from '../model/LegendaryWeapon'
 
@@ -45,23 +45,28 @@ export struct WeaponCard {
           .objectFit(ImageFit.Cover)
           .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
 
-        // 品质标签
+        // 品质标签 - 展柜铭牌风格
         Text(RarityNames[this.weapon.rarity] || this.weapon.rarity)
           .fontSize(FontSizes.SMALL)
           .fontColor(getRarityColor(this.weapon.rarity))
           .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-          .backgroundColor('rgba(0,0,0,0.6)')
+          .backgroundColor('rgba(26,34,51,0.85)')
           .borderRadius(4)
+          .border({
+            width: 1,
+            color: getRarityDarkColor(this.weapon.rarity)
+          })
           .margin({ top: Spacing.SMALL, right: Spacing.SMALL })
       }
       .width('100%')
 
       // 信息区域
       Column() {
+        // 名称使用羊皮纸色
         Text(this.weapon.name.cn)
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
@@ -98,7 +103,13 @@ export struct WeaponCard {
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 1,
-      color: getRarityColor(this.weapon.rarity)
+      color: getRarityDarkColor(this.weapon.rarity)
+    })
+    .shadow({
+      radius: 8,
+      color: `${getRarityColor(this.weapon.rarity)}15`,
+      offsetX: 0,
+      offsetY: 2
     })
     .onClick(() => {
       if (this.onCardClick) {
@@ -125,7 +136,7 @@ export struct WeaponCard {
         Text(this.weapon.name.cn)
           .fontSize(FontSizes.BODY_SMALL)
           .fontWeight(FontWeight.Medium)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
@@ -174,13 +185,13 @@ export struct WeaponCard {
           .objectFit(ImageFit.Cover)
           .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
 
-        // 渐变遮罩
+        // 渐变遮罩 - 使用 BASE_0 深炭黑
         Column()
           .width('100%')
           .height('50%')
           .linearGradient({
             angle: 180,
-            colors: [['rgba(0,0,0,0)', 0], ['rgba(0,0,0,0.7)', 1]]
+            colors: [['rgba(11,13,16,0)', 0], ['rgba(11,13,16,0.8)', 1]]
           })
 
         // 品质和属性
@@ -190,8 +201,12 @@ export struct WeaponCard {
             .fontColor(getRarityColor(this.weapon.rarity))
             .fontWeight(FontWeight.Bold)
             .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-            .backgroundColor('rgba(0,0,0,0.5)')
+            .backgroundColor('rgba(26,34,51,0.85)')
             .borderRadius(4)
+            .border({
+              width: 1,
+              color: getRarityDarkColor(this.weapon.rarity)
+            })
 
           Blank()
 
@@ -211,7 +226,7 @@ export struct WeaponCard {
           Text(this.weapon.name.cn)
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .fontColor(ThemeColors.TEXT_TITLE)
 
           if (this.weapon.name.en) {
             Text(this.weapon.name.en)
@@ -242,7 +257,13 @@ export struct WeaponCard {
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 2,
-      color: getRarityColor(this.weapon.rarity)
+      color: getRarityDarkColor(this.weapon.rarity)
+    })
+    .shadow({
+      radius: 12,
+      color: `${getRarityColor(this.weapon.rarity)}18`,
+      offsetX: 0,
+      offsetY: 4
     })
     .onClick(() => {
       if (this.onCardClick) {
@@ -252,17 +273,17 @@ export struct WeaponCard {
   }
 
   /**
-   * 属性标签
+   * 属性标签 - 矿物颜料风格
    */
   @Builder
   AttributeTag(attribute: string) {
     Row() {
       Text(AttributeNames[attribute] || attribute)
         .fontSize(FontSizes.SMALL)
-        .fontColor(getAttributeColor(attribute))
+        .fontColor(getAttributeLightColor(attribute))
     }
     .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-    .backgroundColor('rgba(0,0,0,0.3)')
+    .backgroundColor('rgba(26,34,51,0.7)')
     .borderRadius(4)
     .border({
       width: 1,

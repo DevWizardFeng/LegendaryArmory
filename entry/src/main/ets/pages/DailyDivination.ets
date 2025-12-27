@@ -1,10 +1,11 @@
 /**
  * 神兵图录 - 每日占卜页
  * 每日抽取一件神兵作为今日运势
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
-import { ThemeColors, FontSizes, Spacing, getRarityColor } from '../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getRarityColor, getRarityDarkColor } from '../common/Theme'
 import { RouterPath, CultureNames, WeaponTypeNames, RarityNames, AttributeNames } from '../common/Constants'
 import { DataLoader } from '../utils/DataLoader'
 import { LegendaryWeapon } from '../model/LegendaryWeapon'
@@ -133,7 +134,7 @@ struct DailyDivination {
         Text('每日占卜')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .margin({ left: Spacing.MEDIUM })
       }
       .width('100%')
@@ -150,7 +151,7 @@ struct DailyDivination {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -162,7 +163,7 @@ struct DailyDivination {
       LoadingProgress()
         .width(48)
         .height(48)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
     }
     .width('100%')
     .layoutWeight(1)
@@ -186,7 +187,7 @@ struct DailyDivination {
       Text('今日神兵')
         .fontSize(FontSizes.TITLE_LARGE)
         .fontWeight(FontWeight.Bold)
-        .fontColor(ThemeColors.ACCENT)
+        .fontColor(ThemeColors.GOLD_PRIMARY)
         .margin({ top: Spacing.MEDIUM })
 
       // 寄语
@@ -203,16 +204,16 @@ struct DailyDivination {
           Text('开')
             .fontSize(32)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
         }
         .width(120)
         .height(120)
         .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.CARD_BG)
+        .backgroundColor(ThemeColors.SURFACE_0)
         .borderRadius(60)
         .border({
           width: 3,
-          color: ThemeColors.ACCENT
+          color: ThemeColors.GOLD_PRIMARY
         })
       }
       .margin({ top: Spacing.XXLARGE })
@@ -274,7 +275,7 @@ struct DailyDivination {
               .height('50%')
               .linearGradient({
                 angle: 180,
-                colors: [['rgba(0,0,0,0)', 0], ['rgba(37,37,64,1)', 1]]
+                colors: [['rgba(0,0,0,0)', 0], [ThemeColors.SURFACE_0, 1]]
               })
           }
           .width('100%')
@@ -294,7 +295,7 @@ struct DailyDivination {
             Text(this.selectedWeapon!.name.cn)
               .fontSize(FontSizes.TITLE)
               .fontWeight(FontWeight.Bold)
-              .fontColor(ThemeColors.TEXT_PRIMARY)
+              .fontColor(ThemeColors.TEXT_TITLE)
               .margin({ top: Spacing.SMALL })
 
             // 文化和类型
@@ -307,17 +308,17 @@ struct DailyDivination {
             Row() {
               Text(AttributeNames[this.selectedWeapon!.attributes.primary] || this.selectedWeapon!.attributes.primary)
                 .fontSize(FontSizes.BODY_SMALL)
-                .fontColor(ThemeColors.ACCENT)
+                .fontColor(ThemeColors.GOLD_PRIMARY)
                 .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-                .backgroundColor(ThemeColors.SECONDARY_BG)
+                .backgroundColor(ThemeColors.BASE_1)
                 .borderRadius(4)
 
               if (this.selectedWeapon!.attributes.secondary) {
                 Text(AttributeNames[this.selectedWeapon!.attributes.secondary] || this.selectedWeapon!.attributes.secondary)
                   .fontSize(FontSizes.BODY_SMALL)
-                  .fontColor(ThemeColors.ACCENT)
+                  .fontColor(ThemeColors.GOLD_PRIMARY)
                   .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-                  .backgroundColor(ThemeColors.SECONDARY_BG)
+                  .backgroundColor(ThemeColors.BASE_1)
                   .borderRadius(4)
                   .margin({ left: Spacing.SMALL })
               }
@@ -335,13 +336,13 @@ struct DailyDivination {
             Column() {
               Text('查看详情')
                 .fontSize(FontSizes.BODY)
-                .fontColor(ThemeColors.PRIMARY_BG)
+                .fontColor(ThemeColors.BASE_0)
                 .fontWeight(FontWeight.Bold)
             }
             .width('100%')
             .height(48)
             .justifyContent(FlexAlign.Center)
-            .backgroundColor(ThemeColors.ACCENT)
+            .backgroundColor(ThemeColors.GOLD_PRIMARY)
             .borderRadius(24)
             .margin({ top: Spacing.LARGE })
             .onClick(() => this.navigateToWeaponDetail())
@@ -351,12 +352,12 @@ struct DailyDivination {
           .alignItems(HorizontalAlign.Start)
         }
         .width('100%')
-        .backgroundColor(ThemeColors.CARD_BG)
+        .backgroundColor(ThemeColors.SURFACE_0)
         .borderRadius(Spacing.MEDIUM)
         .margin({ top: Spacing.XLARGE, left: Spacing.LARGE, right: Spacing.LARGE })
         .border({
-          width: 2,
-          color: getRarityColor(this.selectedWeapon!.rarity)
+          width: 1,
+          color: getRarityDarkColor(this.selectedWeapon!.rarity)
         })
 
         // 再次占卜提示

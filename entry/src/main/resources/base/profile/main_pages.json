@@ -4,6 +4,7 @@
     "pages/WeaponDetail",
     "pages/SearchPage",
     "pages/BlacksmithDetail",
+    "pages/TopicDetail",
     "pages/Index",
     "pages/WeaponList",
     "pages/Mine",

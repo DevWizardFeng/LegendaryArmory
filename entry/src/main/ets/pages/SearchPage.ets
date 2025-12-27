@@ -1,6 +1,7 @@
 /**
  * 神兵图录 - 搜索页
  * 搜索神兵、铸造师、典故
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
@@ -133,7 +134,9 @@ struct SearchPage {
    * 返回上一页
    */
   goBack(): void {
-    router.back()
+    router.back({
+      url: RouterPath.MAIN
+    })
   }
 
   /**
@@ -166,7 +169,7 @@ struct SearchPage {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -229,8 +232,9 @@ struct SearchPage {
       .height(44)
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
       .margin({ left: Spacing.MEDIUM })
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(22)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
     }
     .width('100%')
     .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.MEDIUM, bottom: Spacing.MEDIUM })
@@ -253,12 +257,16 @@ struct SearchPage {
 
         // 推荐标签
         this.RecommendTagsSection()
+
+        // 底部间距
+        Blank().height(100)
       }
       .width('100%')
       .alignItems(HorizontalAlign.Start)
     }
     .layoutWeight(1)
     .scrollBar(BarState.Off)
+    .align(Alignment.Top)
   }
 
   /**
@@ -271,7 +279,7 @@ struct SearchPage {
         Text('搜索历史')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Blank()
 
@@ -305,7 +313,7 @@ struct SearchPage {
       Text('热门搜索')
         .fontSize(FontSizes.SUBTITLE)
         .fontWeight(FontWeight.Bold)
-        .fontColor(ThemeColors.TEXT_PRIMARY)
+        .fontColor(ThemeColors.TEXT_TITLE)
         .margin({ bottom: Spacing.MEDIUM })
 
       Flex({ wrap: FlexWrap.Wrap }) {
@@ -331,7 +339,7 @@ struct SearchPage {
       Text('推荐分类')
         .fontSize(FontSizes.SUBTITLE)
         .fontWeight(FontWeight.Bold)
-        .fontColor(ThemeColors.TEXT_PRIMARY)
+        .fontColor(ThemeColors.TEXT_TITLE)
         .margin({ bottom: Spacing.MEDIUM })
 
       Flex({ wrap: FlexWrap.Wrap }) {
@@ -357,7 +365,7 @@ struct SearchPage {
       .fontSize(FontSizes.BODY_SMALL)
       .fontColor(ThemeColors.TEXT_PRIMARY)
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
-      .backgroundColor(ThemeColors.SECONDARY_BG)
+      .backgroundColor(ThemeColors.BASE_1)
       .borderRadius(Spacing.LARGE)
       .margin({ right: Spacing.SMALL, bottom: Spacing.SMALL })
       .onClick(onClick)
@@ -370,13 +378,13 @@ struct SearchPage {
   ColorTagItem(text: string, onClick: () => void) {
     Text(text)
       .fontSize(FontSizes.BODY_SMALL)
-      .fontColor(ThemeColors.ACCENT)
+      .fontColor(ThemeColors.GOLD_PRIMARY)
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(Spacing.LARGE)
       .border({
         width: 1,
-        color: ThemeColors.ACCENT
+        color: ThemeColors.GOLD_SECONDARY
       })
       .margin({ right: Spacing.SMALL, bottom: Spacing.SMALL })
       .onClick(onClick)
@@ -391,7 +399,7 @@ struct SearchPage {
       LoadingProgress()
         .width(40)
         .height(40)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
       Text('搜索中...')
         .fontSize(FontSizes.BODY_SMALL)
         .fontColor(ThemeColors.TEXT_SECONDARY)
@@ -478,7 +486,7 @@ struct SearchPage {
           Text(weapon.name.cn)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .fontColor(ThemeColors.TEXT_TITLE)
 
           Text(RarityNames[weapon.rarity] || weapon.rarity)
             .fontSize(FontSizes.SMALL)
@@ -504,8 +512,9 @@ struct SearchPage {
     }
     .width('100%')
     .padding(Spacing.MEDIUM)
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor(ThemeColors.SURFACE_0)
     .borderRadius(Spacing.MEDIUM)
+    .border({ width: 1, color: ThemeColors.DIVIDER })
     .onClick(() => this.navigateToDetail(weapon.id))
   }
 }

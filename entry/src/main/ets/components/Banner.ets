@@ -1,9 +1,9 @@
 /**
- * 神兵图录 - 首页轮播组件
+ * 神兵图录 - 首页轮播组件（博物馆典藏风格）
  * 展示精选神兵或专题
  */
 
-import { ThemeColors, getRarityColor } from '../common/Theme'
+import { ThemeColors, getRarityColor, getRarityDarkColor } from '../common/Theme'
 import { Spacing, FontSizes } from '../common/Theme'
 
 /**
@@ -40,7 +40,7 @@ export struct Banner {
         .indicator(
           Indicator.dot()
             .color(ThemeColors.TEXT_TERTIARY)
-            .selectedColor(ThemeColors.ACCENT)
+            .selectedColor(ThemeColors.GOLD_PRIMARY)
         )
         .loop(true)
         .onChange((index: number) => {
@@ -63,32 +63,37 @@ export struct Banner {
         .objectFit(ImageFit.Cover)
         .borderRadius(Spacing.MEDIUM)
 
-      // 渐变遮罩
+      // 渐变遮罩 - 使用 BASE_0 深炭黑
       Column()
         .width('100%')
         .height('60%')
         .linearGradient({
           angle: 180,
-          colors: [['rgba(0,0,0,0)', 0], ['rgba(0,0,0,0.8)', 1]]
+          colors: [['rgba(11,13,16,0)', 0], ['rgba(11,13,16,0.85)', 1]]
         })
 
       // 文字信息
       Column() {
-        // 品质标签
+        // 品质标签 - 展柜铭牌风格
         if (item.rarity) {
           Text(this.getRarityText(item.rarity))
             .fontSize(FontSizes.SMALL)
             .fontColor(getRarityColor(item.rarity))
             .fontWeight(FontWeight.Bold)
             .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-            .backgroundColor('rgba(0,0,0,0.5)')
+            .backgroundColor('rgba(26,34,51,0.85)')
             .borderRadius(4)
+            .border({
+              width: 1,
+              color: getRarityDarkColor(item.rarity)
+            })
             .margin({ bottom: Spacing.TINY })
         }
 
+        // 标题使用羊皮纸色
         Text(item.title)
           .fontSize(FontSizes.TITLE)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .fontWeight(FontWeight.Bold)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })

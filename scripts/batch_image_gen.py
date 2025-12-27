@@ -47,7 +47,7 @@ HARMONY_MEDIA_DIR = PROJECT_ROOT / "entry" / "src" / "main" / "resources" / "bas
 LOG_DIR = Path(__file__).parent / "logs"
 
 # 支持的文化分类
-CULTURES = ["chinese", "greek", "norse", "japanese", "indian", "egyptian", "celtic", "icon", "background"]
+CULTURES = ["chinese", "greek", "norse", "japanese", "indian", "egyptian", "celtic", "icon", "background", "topic"]
 
 
 def setup_logging():

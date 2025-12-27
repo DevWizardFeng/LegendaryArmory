@@ -1,5 +1,5 @@
 /**
- * 神兵图录 - 主页面容器
+ * 神兵图录 - 主页面容器（博物馆典藏风格）
  * 包含5个Tab的底部导航栏（扩展模式）
  * - Tab切换无动画（animationDuration: 0）
  * - TabBar点击弹性动效（SpringMotion）
@@ -28,7 +28,7 @@ interface RouterParams {
 @Entry
 @Component
 struct MainPage {
-  @State currentTabIndex: number = 0
+  @StorageLink('currentTabIndex') currentTabIndex: number = 0
   @State tabPressedStates: boolean[] = [false, false, false, false, false]  // 追踪每个Tab的按下状态
   private tabsController: TabsController = new TabsController()
 
@@ -49,7 +49,7 @@ struct MainPage {
   }
 
   /**
-   * 自定义TabBar构建器（带弹性点击动效）
+   * 自定义TabBar构建器（带弹性点击动效）- 博物馆导航风格
    */
   @Builder
   customTabBar(name: string, iconNormal: Resource, iconSelected: Resource, index: number) {
@@ -57,10 +57,10 @@ struct MainPage {
       Image(this.currentTabIndex === index ? iconSelected : iconNormal)
         .width(24)
         .height(24)
-        .fillColor(this.currentTabIndex === index ? ThemeColors.ACCENT : ThemeColors.TEXT_TERTIARY)
+        .fillColor(this.currentTabIndex === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_TERTIARY)
       Text(name)
         .fontSize(FontSizes.SMALL)
-        .fontColor(this.currentTabIndex === index ? ThemeColors.ACCENT : ThemeColors.TEXT_TERTIARY)
+        .fontColor(this.currentTabIndex === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_TERTIARY)
         .margin({ top: Spacing.TINY })
     }
     .width('100%')
@@ -149,8 +149,8 @@ struct MainPage {
       .barMode(BarMode.Fixed)  // 固定模式（适合5个tab）
       .scrollable(false)  // 禁止滑动切换
       .animationDuration(0)  // 用户要求：Tab切换无动画
-      .backgroundColor(ThemeColors.PRIMARY_BG)
-      .barBackgroundColor(ThemeColors.SECONDARY_BG)
+      .backgroundColor(ThemeColors.BASE_0)
+      .barBackgroundColor(ThemeColors.BASE_1)
       .onSelected((index: number) => {
         this.currentTabIndex = index
         // 同步到全局状态
@@ -159,6 +159,6 @@ struct MainPage {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 }

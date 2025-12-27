@@ -393,6 +393,103 @@
       "name_cn": "日本文化背景",
       "culture": "background",
       "prompt": "Dark Japanese dojo weapon hall, katana display racks, sliding paper doors with moonlight, cherry blossom petals, zen aesthetic with dark atmosphere, no people"
+    },
+    {
+      "id": "icon_culture",
+      "name_cn": "文化体系图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist golden globe icon on pure black background, ancient world map style with meridian and latitude lines, elegant metallic gold finish, clean vector style, centered composition, no text, flat design icon for mobile app, single object only"
+    },
+    {
+      "id": "icon_sword",
+      "name_cn": "兵器类型图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist crossed swords icon on pure black background, elegant Chinese jian sword design, golden metallic finish, clean vector style, centered composition, no text, simple silhouette, flat design icon for mobile app, single object only"
+    },
+    {
+      "id": "icon_element",
+      "name_cn": "元素属性图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist four elements magic symbol icon on pure black background, fire water wind earth combined in a circular yin-yang style pattern, golden metallic finish, clean vector style, centered composition, no text, flat design icon for mobile app, single object only"
+    },
+    {
+      "id": "icon_rarity",
+      "name_cn": "品质分类图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist royal crown icon on pure black background, elegant three-pointed medieval crown design, golden metallic finish with small gem details, clean vector style, centered composition, no text, flat design icon for mobile app, single object only"
+    },
+    {
+      "id": "icon_quiz",
+      "name_cn": "挑战答题图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist quiz game icon on pure black background, glowing question mark symbol with ancient scroll and feather quill, golden and warm amber colors, knowledge and wisdom theme, clean vector style, centered composition, no text, flat design icon for mobile app"
+    },
+    {
+      "id": "icon_divination",
+      "name_cn": "每日占卜图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist fortune telling icon on pure black background, mystical crystal ball with swirling cosmic energy inside, golden rim with purple and blue magical glow, divination theme, clean vector style, centered composition, no text, flat design icon for mobile app"
+    },
+    {
+      "id": "icon_battle",
+      "name_cn": "对战模拟图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist battle simulation icon on pure black background, two crossed legendary swords clashing with sparks and energy waves, golden and fiery orange colors, epic combat theme, clean vector style, centered composition, no text, flat design icon for mobile app"
+    },
+    {
+      "id": "topic_chinese_swords",
+      "name_cn": "中国十大名剑传奇",
+      "culture": "topic",
+      "prompt": "Epic Chinese legendary swords collection artwork, ten ancient Chinese jian swords arranged in a sacred circle, golden and crimson aura, dragon engravings, ancient temple background, divine light beams, cinematic dramatic lighting, dark fantasy atmosphere"
+    },
+    {
+      "id": "topic_japanese_katana",
+      "name_cn": "日本刀的锻造艺术",
+      "culture": "topic",
+      "prompt": "Japanese katana forging art masterpiece, a glowing katana emerging from traditional forge fire, master swordsmith silhouette, sparks and smoke, cherry blossom petals, hamon pattern visible on blade, dark workshop background with warm orange fire glow"
+    },
+    {
+      "id": "topic_european_swords",
+      "name_cn": "欧洲圣剑传说",
+      "culture": "topic",
+      "prompt": "European legendary holy swords collection, Excalibur Durandal Joyeuse three swords with divine light, medieval castle cathedral background, stained glass window glow, crusader cross motifs, golden and silver metallic sheen, holy aura"
+    },
+    {
+      "id": "topic_norse_weapons",
+      "name_cn": "北欧神器谱系",
+      "culture": "topic",
+      "prompt": "Norse divine weapons collection, Mjolnir hammer Gungnir spear Gram sword arranged with runic circle, lightning and cosmic energy, Yggdrasil world tree background, Viking rune inscriptions glowing, aurora borealis sky, epic mythology scene"
+    },
+    {
+      "id": "topic_real_weapons",
+      "name_cn": "历史上真实存在的名刀名剑",
+      "culture": "topic",
+      "prompt": "Museum archaeological exhibit of ancient swords, Goujian sword with turquoise inlays Damascus blade displayed on velvet, professional museum lighting, glass display cases, bronze and iron age artifacts, scholarly documentation feel, photorealistic"
+    },
+    {
+      "id": "topic_east_west_comparison",
+      "name_cn": "东西方兵器文化对比",
+      "culture": "topic",
+      "prompt": "East meets West weapon culture artwork, Chinese jian sword facing European longsword, Japanese katana beside Nordic axe, yin-yang divided composition, cultural symbols from both civilizations, world map background, harmony and contrast theme"
+    },
+    {
+      "id": "topic_greek_weapons",
+      "name_cn": "希腊众神的武器",
+      "culture": "topic",
+      "prompt": "Greek Olympian gods weapons collection, Zeus thunderbolt Poseidon trident Hades bident arranged in triangle, Mount Olympus marble temple background, divine golden light, Greek column architecture, laurel wreath decorations, mythological epic scene"
+    },
+    {
+      "id": "topic_forging",
+      "name_cn": "古代铸剑术揭秘",
+      "culture": "topic",
+      "prompt": "Ancient sword forging techniques masterpiece, glowing red hot blade on anvil, master blacksmith hands with hammer, molten metal and sparks, traditional forge with bellows, tools hanging on stone walls, cross-section diagram of Damascus steel layers"
     }
   ]
 }

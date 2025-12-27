@@ -1,10 +1,11 @@
 /**
  * 神兵图录 - 神兵Tab
  * 展示所有神兵，支持多维度筛选
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
-import { ThemeColors, FontSizes, Spacing, getRarityColor } from '../../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getRarityColor, getRarityDarkColor } from '../../common/Theme'
 import { RouterPath, CultureNames, WeaponTypeNames, RarityNames, AttributeNames } from '../../common/Constants'
 import { DataLoader } from '../../utils/DataLoader'
 import { LegendaryWeapon } from '../../model/LegendaryWeapon'
@@ -119,20 +120,20 @@ export struct WeaponListContent {
 
   build() {
     Column() {
-      // 顶部导航栏（移除返回按钮）
+      // 顶部导航栏
       Row() {
         Text('神兵图鉴')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Blank()
 
         // 显示模式切换
         Image(this.displayMode === 'grid' ? $r('app.media.icon_list') : $r('app.media.icon_grid'))
-          .width(24)
-          .height(24)
-          .fillColor(ThemeColors.TEXT_SECONDARY)
+          .width(28)
+          .height(28)
+          .fillColor(ThemeColors.GOLD_PRIMARY)
           .onClick(() => {
             this.displayMode = this.displayMode === 'grid' ? 'list' : 'grid'
           })
@@ -140,7 +141,7 @@ export struct WeaponListContent {
       .width('100%')
       .height(56)
       .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
-      .backgroundColor(ThemeColors.PRIMARY_BG)
+      .backgroundColor(ThemeColors.BASE_1)
 
       // 筛选栏
       FilterBar({
@@ -161,7 +162,7 @@ export struct WeaponListContent {
           Blank()
           Text('清除筛选')
             .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
             .onClick(() => this.clearAllFilters())
         }
       }
@@ -183,7 +184,7 @@ export struct WeaponListContent {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -195,7 +196,7 @@ export struct WeaponListContent {
       LoadingProgress()
         .width(48)
         .height(48)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
       Text('正在加载...')
         .fontSize(FontSizes.BODY_SMALL)
         .fontColor(ThemeColors.TEXT_SECONDARY)

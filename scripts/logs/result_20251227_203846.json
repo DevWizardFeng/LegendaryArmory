@@ -1,0 +1,30 @@
+[
+  {
+    "id": "icon_culture",
+    "name_cn": "文化体系图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_culture.png",
+    "tokens": 16384
+  },
+  {
+    "id": "icon_sword",
+    "name_cn": "兵器类型图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_sword.png",
+    "tokens": 16384
+  },
+  {
+    "id": "icon_element",
+    "name_cn": "元素属性图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_element.png",
+    "tokens": 16384
+  },
+  {
+    "id": "icon_rarity",
+    "name_cn": "品质分类图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_rarity.png",
+    "tokens": 16384
+  }
+]

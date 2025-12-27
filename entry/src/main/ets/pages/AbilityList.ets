@@ -257,8 +257,8 @@ struct AbilityList {
 
         // 展开/收起按钮
         Image($r('app.media.icon_arrow_down'))
-          .width(16)
-          .height(16)
+          .width(20)
+          .height(20)
           .fillColor(ThemeColors.TEXT_TERTIARY)
           .rotate({ angle: this.expandedAbilityId === ability.id ? 180 : 0 })
       }

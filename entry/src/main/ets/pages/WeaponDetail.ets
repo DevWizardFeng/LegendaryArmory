@@ -1,10 +1,10 @@
 /**
- * 神兵图录 - 神兵详情页
+ * 神兵图录 - 神兵详情页（博物馆典藏风格）
  * 展示神兵完整信息
  */
 
 import { router } from '@kit.ArkUI'
-import { ThemeColors, FontSizes, Spacing, getRarityColor, getAttributeColor } from '../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getRarityColor, getRarityDarkColor, getAttributeColor } from '../common/Theme'
 import { RouterPath, CultureNames, WeaponTypeNames, RarityNames, AttributeNames } from '../common/Constants'
 import { DataLoader } from '../utils/DataLoader'
 import { StorageManager } from '../utils/Storage'
@@ -114,7 +114,7 @@ struct WeaponDetail {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -126,7 +126,7 @@ struct WeaponDetail {
       LoadingProgress()
         .width(48)
         .height(48)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
       Text('正在加载...')
         .fontSize(FontSizes.BODY_SMALL)
         .fontColor(ThemeColors.TEXT_SECONDARY)
@@ -149,7 +149,7 @@ struct WeaponDetail {
 
       Text('返回')
         .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.ACCENT)
+        .fontColor(ThemeColors.GOLD_PRIMARY)
         .margin({ top: Spacing.MEDIUM })
         .onClick(() => this.goBack())
     }
@@ -209,7 +209,7 @@ struct WeaponDetail {
   }
 
   /**
-   * 悬浮导航栏
+   * 悬浮导航栏 - 展柜控制风格
    */
   @Builder
   FloatingNavBar() {
@@ -224,7 +224,7 @@ struct WeaponDetail {
       .width(40)
       .height(40)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor('rgba(0,0,0,0.5)')
+      .backgroundColor('rgba(26,34,51,0.85)')
       .borderRadius(20)
       .onClick(() => this.goBack())
 
@@ -235,12 +235,12 @@ struct WeaponDetail {
         Image(this.isFavorite ? $r('app.media.icon_favorite_filled') : $r('app.media.icon_favorite'))
           .width(24)
           .height(24)
-          .fillColor(this.isFavorite ? ThemeColors.ACCENT : ThemeColors.TEXT_PRIMARY)
+          .fillColor(this.isFavorite ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_PRIMARY)
       }
       .width(40)
       .height(40)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor('rgba(0,0,0,0.5)')
+      .backgroundColor('rgba(26,34,51,0.85)')
       .borderRadius(20)
       .onClick(() => this.toggleFavorite())
     }
@@ -254,41 +254,41 @@ struct WeaponDetail {
   @Builder
   HeaderSection() {
     Stack({ alignContent: Alignment.BottomStart }) {
-      // 背景图片
+      // 背景图片 - 全屏展示
       Image($rawfile(`images/${this.weapon!.image}`))
         .width('100%')
-        .height(300)
+        .height('100%')
         .objectFit(ImageFit.Cover)
 
-      // 渐变遮罩
+      // 渐变遮罩 - 轻柔渐变，只遮底部文字区域
       Column()
         .width('100%')
-        .height('60%')
+        .height('50%')
         .linearGradient({
           angle: 180,
-          colors: [['rgba(10,10,26,0)', 0], ['rgba(10,10,26,1)', 1]]
+          colors: [['rgba(11,13,16,0)', 0], ['rgba(11,13,16,0.8)', 1]]
         })
 
       // 名称和品质
       Column() {
-        // 品质标签
+        // 品质标签 - 展柜铭牌风格
         Text(RarityNames[this.weapon!.rarity] || this.weapon!.rarity)
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(getRarityColor(this.weapon!.rarity))
           .fontWeight(FontWeight.Bold)
           .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-          .backgroundColor('rgba(0,0,0,0.5)')
+          .backgroundColor('rgba(26,34,51,0.85)')
           .borderRadius(4)
           .border({
             width: 1,
-            color: getRarityColor(this.weapon!.rarity)
+            color: getRarityDarkColor(this.weapon!.rarity)
           })
 
-        // 中文名
+        // 中文名 - 使用羊皮纸色
         Text(this.weapon!.name.cn)
           .fontSize(FontSizes.TITLE_LARGE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .margin({ top: Spacing.SMALL })
 
         // 英文名
@@ -303,6 +303,8 @@ struct WeaponDetail {
       .padding(Spacing.LARGE)
     }
     .width('100%')
+    .height(360)
+    .clip(true)
   }
 
   /**
@@ -338,20 +340,24 @@ struct WeaponDetail {
         .fontColor(ThemeColors.TEXT_SECONDARY)
         .lineHeight(24)
 
-      // 铭文
+      // 铭文 - 羊皮纸卷轴风格
       if (this.weapon!.inscription) {
         Column() {
           Text('"' + this.weapon!.inscription + '"')
             .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.PARCHMENT)
             .fontStyle(FontStyle.Italic)
             .textAlign(TextAlign.Center)
         }
         .width('100%')
         .padding(Spacing.MEDIUM)
         .margin({ top: Spacing.MEDIUM })
-        .backgroundColor(ThemeColors.CARD_BG)
+        .backgroundColor(ThemeColors.SURFACE_0)
         .borderRadius(Spacing.SMALL)
+        .border({
+          width: 1,
+          color: ThemeColors.DIVIDER
+        })
       }
     }
     .width('100%')
@@ -368,8 +374,12 @@ struct WeaponDetail {
       .fontSize(FontSizes.BODY_SMALL)
       .fontColor(ThemeColors.TEXT_SECONDARY)
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(Spacing.LARGE)
+      .border({
+        width: 1,
+        color: ThemeColors.DIVIDER
+      })
       .margin({ right: Spacing.SMALL })
   }
 
@@ -382,10 +392,10 @@ struct WeaponDetail {
       this.SectionTitle('属性数据')
 
       Row() {
-        this.StatItem('攻击', this.weapon!.stats.attack, ThemeColors.ERROR)
+        this.StatItem('攻击', this.weapon!.stats.attack, ThemeColors.RUST)
         this.StatItem('防御', this.weapon!.stats.defense, ThemeColors.INFO)
         this.StatItem('速度', this.weapon!.stats.speed, ThemeColors.SUCCESS)
-        this.StatItem('暴击', this.weapon!.stats.critical || 0, ThemeColors.WARNING)
+        this.StatItem('暴击', this.weapon!.stats.critical || 0, ThemeColors.EMBER)
       }
       .width('100%')
       .justifyContent(FlexAlign.SpaceAround)
@@ -406,7 +416,7 @@ struct WeaponDetail {
           .width(60)
           .height(60)
           .color(color)
-          .backgroundColor(ThemeColors.CARD_BG)
+          .backgroundColor(ThemeColors.SURFACE_0)
           .style({ strokeWidth: 6 })
 
         Text(value.toString())
@@ -423,7 +433,7 @@ struct WeaponDetail {
   }
 
   /**
-   * 区块标题
+   * 区块标题 - 展签风格
    */
   @Builder
   SectionTitle(title: string) {
@@ -431,13 +441,13 @@ struct WeaponDetail {
       Column()
         .width(4)
         .height(20)
-        .backgroundColor(ThemeColors.ACCENT)
+        .backgroundColor(ThemeColors.GOLD_PRIMARY)
         .borderRadius(2)
 
       Text(title)
         .fontSize(FontSizes.SUBTITLE)
         .fontWeight(FontWeight.Bold)
-        .fontColor(ThemeColors.TEXT_PRIMARY)
+        .fontColor(ThemeColors.TEXT_TITLE)
         .margin({ left: Spacing.SMALL })
     }
     .width('100%')
@@ -494,12 +504,12 @@ struct WeaponDetail {
             Column() {
               Text((index + 1).toString())
                 .fontSize(FontSizes.BODY_SMALL)
-                .fontColor(ThemeColors.ACCENT)
+                .fontColor(ThemeColors.GOLD_PRIMARY)
             }
             .width(24)
             .height(24)
             .justifyContent(FlexAlign.Center)
-            .backgroundColor(ThemeColors.CARD_BG)
+            .backgroundColor(ThemeColors.SURFACE_0)
             .borderRadius(12)
 
             Text(abilityId)
@@ -510,8 +520,12 @@ struct WeaponDetail {
           .width('100%')
           .padding(Spacing.MEDIUM)
           .margin({ bottom: Spacing.SMALL })
-          .backgroundColor(ThemeColors.SECONDARY_BG)
+          .backgroundColor(ThemeColors.BASE_1)
           .borderRadius(Spacing.SMALL)
+          .border({
+            width: 1,
+            color: ThemeColors.DIVIDER
+          })
         })
       }
       .width('100%')
@@ -535,7 +549,7 @@ struct WeaponDetail {
               Text(owner.name)
                 .fontSize(FontSizes.BODY)
                 .fontWeight(FontWeight.Medium)
-                .fontColor(ThemeColors.TEXT_PRIMARY)
+                .fontColor(ThemeColors.TEXT_TITLE)
 
               Text(owner.story)
                 .fontSize(FontSizes.BODY_SMALL)
@@ -550,8 +564,12 @@ struct WeaponDetail {
           .width('100%')
           .padding(Spacing.MEDIUM)
           .margin({ bottom: Spacing.SMALL })
-          .backgroundColor(ThemeColors.CARD_BG)
+          .backgroundColor(ThemeColors.SURFACE_0)
           .borderRadius(Spacing.SMALL)
+          .border({
+            width: 1,
+            color: ThemeColors.DIVIDER
+          })
         })
       }
       .width('100%')
@@ -600,7 +618,7 @@ struct WeaponDetail {
       Column() {
         Text(weapon.name.cn)
           .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
@@ -614,11 +632,17 @@ struct WeaponDetail {
       .padding(Spacing.SMALL)
     }
     .width(100)
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor(ThemeColors.SURFACE_0)
     .borderRadius(Spacing.SMALL)
     .border({
       width: 1,
-      color: getRarityColor(weapon.rarity)
+      color: getRarityDarkColor(weapon.rarity)
+    })
+    .shadow({
+      radius: 6,
+      color: `${getRarityColor(weapon.rarity)}12`,
+      offsetX: 0,
+      offsetY: 2
     })
     .margin({ right: Spacing.MEDIUM })
     .onClick(() => this.navigateToWeapon(weapon.id))

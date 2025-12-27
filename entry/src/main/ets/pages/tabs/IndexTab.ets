@@ -1,13 +1,12 @@
 /**
- * 神兵图录 - 首页Tab
+ * 神兵图录 - 首页Tab（博物馆典藏风格）
  * 展示轮播推荐、快速入口、传说神兵列表
  */
 
 import { router } from '@kit.ArkUI'
-import { ThemeColors, FontSizes, Spacing, getRarityColor } from '../../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getRarityColor, getRarityDarkColor } from '../../common/Theme'
 import { RouterPath, CultureNames, WeaponTypeNames, RarityNames } from '../../common/Constants'
 import { Banner, BannerItem } from '../../components/Banner'
-import { SearchBar } from '../../components/SearchBar'
 import { DataLoader } from '../../utils/DataLoader'
 import { LegendaryWeapon } from '../../model/LegendaryWeapon'
 
@@ -36,7 +35,7 @@ export struct IndexContent {
   private quickEntries: QuickEntry[] = [
     { id: 'culture', name: '文化体系', icon: $r('app.media.icon_culture'), type: 'culture' },
     { id: 'type', name: '兵器类型', icon: $r('app.media.icon_sword'), type: 'weaponType' },
-    { id: 'attribute', name: '元素属性', icon: $r('app.media.icon_fire'), type: 'attribute' },
+    { id: 'attribute', name: '元素属性', icon: $r('app.media.icon_element'), type: 'attribute' },
     { id: 'rarity', name: '品质分类', icon: $r('app.media.icon_rarity'), type: 'rarity' }
   ]
 
@@ -122,12 +121,12 @@ export struct IndexContent {
     Column() {
       // 顶部区域
       Column() {
-        // 标题栏
+        // 标题栏 - 使用旧金色
         Row() {
           Text('神兵图录')
             .fontSize(FontSizes.TITLE)
             .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
 
           Blank()
 
@@ -144,18 +143,32 @@ export struct IndexContent {
         .height(56)
         .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
 
-        // 搜索栏
+        // 搜索栏（点击入口，非真实输入框）
         Row() {
-          SearchBar({
-            placeholder: '搜索神兵、铸造师、典故...',
-            onSearchFocus: () => this.navigateToSearch()
-          })
+          Row() {
+            Image($r('app.media.icon_search'))
+              .width(20)
+              .height(20)
+              .fillColor(ThemeColors.TEXT_TERTIARY)
+              .margin({ right: Spacing.SMALL })
+
+            Text('搜索神兵、铸造师、典故...')
+              .fontSize(FontSizes.BODY)
+              .fontColor(ThemeColors.TEXT_TERTIARY)
+          }
+          .width('100%')
+          .height(44)
+          .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
+          .backgroundColor(ThemeColors.SURFACE_0)
+          .borderRadius(22)
+          .border({ width: 1, color: ThemeColors.DIVIDER })
+          .onClick(() => this.navigateToSearch())
         }
         .width('100%')
         .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.MEDIUM })
       }
       .width('100%')
-      .backgroundColor(ThemeColors.PRIMARY_BG)
+      .backgroundColor(ThemeColors.BASE_0)
 
       // 主内容区
       if (this.isLoading) {
@@ -195,11 +208,11 @@ export struct IndexContent {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
-   * 加载中视图
+   * 加载中视图 - 使用旧金色
    */
   @Builder
   LoadingView() {
@@ -207,7 +220,7 @@ export struct IndexContent {
       LoadingProgress()
         .width(48)
         .height(48)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
       Text('正在加载...')
         .fontSize(FontSizes.BODY_SMALL)
         .fontColor(ThemeColors.TEXT_SECONDARY)
@@ -224,31 +237,36 @@ export struct IndexContent {
   @Builder
   QuickEntrySection() {
     Column() {
-      // 标题
+      // 标题 - 使用羊皮纸色
       Row() {
         Text('快速入口')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
       }
       .width('100%')
       .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE, bottom: Spacing.MEDIUM })
 
-      // 入口网格
+      // 入口网格 - 博物馆展柜风格
       Row() {
-        ForEach(this.quickEntries, (entry: QuickEntry) => {
+        ForEach(this.quickEntries, (entry: QuickEntry, index: number) => {
           Column() {
             Column() {
               Image(entry.icon)
-                .width(32)
-                .height(32)
-                .fillColor(ThemeColors.ACCENT)
+                .width(40)
+                .height(40)
+                .objectFit(ImageFit.Contain)
+                .borderRadius(8)
             }
             .width(56)
             .height(56)
             .justifyContent(FlexAlign.Center)
-            .backgroundColor(ThemeColors.CARD_BG)
+            .backgroundColor(ThemeColors.SURFACE_0)
             .borderRadius(16)
+            .border({
+              width: 1,
+              color: ThemeColors.DIVIDER
+            })
 
             Text(entry.name)
               .fontSize(FontSizes.CAPTION)
@@ -260,7 +278,7 @@ export struct IndexContent {
             // 切换到神兵Tab并应用预设筛选
             this.navigateToWeaponTab(entry.type)
           })
-        })
+        }, (entry: QuickEntry, index: number) => entry.id + index)
       }
       .width('100%')
       .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
@@ -279,7 +297,7 @@ export struct IndexContent {
         Text('热门神兵')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Blank()
 
@@ -288,9 +306,10 @@ export struct IndexContent {
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_TERTIARY)
           Image($r('app.media.icon_arrow_right'))
-            .width(16)
-            .height(16)
+            .width(20)
+            .height(20)
             .fillColor(ThemeColors.TEXT_TERTIARY)
+            .margin({ left: Spacing.SMALL })
         }
         .onClick(() => {
           // 切换到神兵Tab
@@ -319,7 +338,7 @@ export struct IndexContent {
   }
 
   /**
-   * 神兵卡片
+   * 神兵卡片 - 博物馆展柜风格
    */
   @Builder
   WeaponCard(weapon: LegendaryWeapon) {
@@ -332,23 +351,28 @@ export struct IndexContent {
           .objectFit(ImageFit.Cover)
           .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
 
-        // 品质标签
+        // 品质标签 - 展柜铭牌风格
         Text(RarityNames[weapon.rarity] || weapon.rarity)
           .fontSize(FontSizes.SMALL)
           .fontColor(getRarityColor(weapon.rarity))
           .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-          .backgroundColor('rgba(0,0,0,0.6)')
+          .backgroundColor('rgba(26,34,51,0.85)')
           .borderRadius(4)
+          .border({
+            width: 1,
+            color: getRarityDarkColor(weapon.rarity)
+          })
           .margin({ top: Spacing.SMALL, right: Spacing.SMALL })
       }
       .width('100%')
 
       // 信息区域
       Column() {
+        // 名称使用羊皮纸色
         Text(weapon.name.cn)
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
@@ -372,11 +396,17 @@ export struct IndexContent {
       .padding(Spacing.MEDIUM)
     }
     .width('100%')
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor(ThemeColors.SURFACE_0)
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 1,
-      color: getRarityColor(weapon.rarity)
+      color: getRarityDarkColor(weapon.rarity)
+    })
+    .shadow({
+      radius: 8,
+      color: `${getRarityColor(weapon.rarity)}15`,
+      offsetX: 0,
+      offsetY: 2
     })
     .onClick(() => this.navigateToWeaponDetail(weapon.id))
   }

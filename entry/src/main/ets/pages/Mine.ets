@@ -1,6 +1,7 @@
 /**
  * 神兵图录 - 我的页面
  * 收藏、历史、设置
+ * 视觉风格：博物馆典藏风
  */
 
 import { router } from '@kit.ArkUI'
@@ -123,7 +124,7 @@ struct Mine {
         Text('我的')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
           .margin({ left: Spacing.MEDIUM })
       }
       .width('100%')
@@ -162,7 +163,7 @@ struct Mine {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
+    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -174,7 +175,7 @@ struct Mine {
       LoadingProgress()
         .width(48)
         .height(48)
-        .color(ThemeColors.ACCENT)
+        .color(ThemeColors.GOLD_PRIMARY)
     }
     .width('100%')
     .layoutWeight(1)
@@ -191,17 +192,17 @@ struct Mine {
       Column() {
         Text('神')
           .fontSize(32)
-          .fontColor(ThemeColors.ACCENT)
+          .fontColor(ThemeColors.GOLD_PRIMARY)
           .fontWeight(FontWeight.Bold)
       }
       .width(72)
       .height(72)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(36)
       .border({
         width: 2,
-        color: ThemeColors.ACCENT
+        color: ThemeColors.GOLD_PRIMARY
       })
 
       // 信息
@@ -209,12 +210,12 @@ struct Mine {
         Text('神兵收藏家')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
+          .fontColor(ThemeColors.TEXT_TITLE)
 
         Row() {
           Text(`收藏 ${this.favoriteWeapons.length}`)
             .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.ACCENT)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
 
           Text(' | ')
             .fontSize(FontSizes.BODY_SMALL)
@@ -267,13 +268,14 @@ struct Mine {
         Image(icon)
           .width(28)
           .height(28)
-          .fillColor(ThemeColors.ACCENT)
+          .fillColor(ThemeColors.GOLD_PRIMARY)
       }
       .width(52)
       .height(52)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(Spacing.MEDIUM)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
 
       Text(title)
         .fontSize(FontSizes.CAPTION)
@@ -319,18 +321,18 @@ struct Mine {
         Text(title)
           .fontSize(FontSizes.BODY)
           .fontWeight(isActive ? FontWeight.Bold : FontWeight.Normal)
-          .fontColor(isActive ? ThemeColors.TEXT_PRIMARY : ThemeColors.TEXT_TERTIARY)
+          .fontColor(isActive ? ThemeColors.TEXT_TITLE : ThemeColors.TEXT_TERTIARY)
 
         Text(` (${count})`)
           .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(isActive ? ThemeColors.ACCENT : ThemeColors.TEXT_TERTIARY)
+          .fontColor(isActive ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_TERTIARY)
       }
 
       // 下划线
       Column()
         .width(40)
         .height(3)
-        .backgroundColor(isActive ? ThemeColors.ACCENT : Color.Transparent)
+        .backgroundColor(isActive ? ThemeColors.GOLD_PRIMARY : Color.Transparent)
         .borderRadius(2)
         .margin({ top: Spacing.SMALL })
     }
@@ -410,7 +412,7 @@ struct Mine {
           Text(weapon.name.cn)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .fontColor(ThemeColors.TEXT_TITLE)
 
           Text(RarityNames[weapon.rarity] || weapon.rarity)
             .fontSize(FontSizes.SMALL)
@@ -428,14 +430,15 @@ struct Mine {
       .layoutWeight(1)
 
       Image($r('app.media.icon_arrow_right'))
-        .width(16)
-        .height(16)
+        .width(20)
+        .height(20)
         .fillColor(ThemeColors.TEXT_TERTIARY)
     }
     .width('100%')
     .padding(Spacing.MEDIUM)
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor(ThemeColors.SURFACE_0)
     .borderRadius(Spacing.MEDIUM)
+    .border({ width: 1, color: ThemeColors.DIVIDER })
     .margin({ bottom: Spacing.SMALL })
     .onClick(() => this.navigateToWeaponDetail(weapon.id))
   }
@@ -449,7 +452,7 @@ struct Mine {
       Text('关于')
         .fontSize(FontSizes.SUBTITLE)
         .fontWeight(FontWeight.Bold)
-        .fontColor(ThemeColors.TEXT_PRIMARY)
+        .fontColor(ThemeColors.TEXT_TITLE)
         .margin({ bottom: Spacing.MEDIUM })
 
       Column() {
@@ -495,8 +498,9 @@ struct Mine {
       }
       .width('100%')
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
-      .backgroundColor(ThemeColors.CARD_BG)
+      .backgroundColor(ThemeColors.SURFACE_0)
       .borderRadius(Spacing.MEDIUM)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
     }
     .width('100%')
     .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })

@@ -1,9 +1,9 @@
 /**
- * 神兵图录 - 属性标签组件
+ * 神兵图录 - 属性标签组件（博物馆典藏风格）
  * 用于展示神兵的元素属性
  */
 
-import { ThemeColors, FontSizes, Spacing, getAttributeColor } from '../common/Theme'
+import { ThemeColors, FontSizes, Spacing, getAttributeColor, getAttributeLightColor, getRarityColor, getRarityDarkColor } from '../common/Theme'
 import { AttributeNames } from '../common/Constants'
 
 /**
@@ -28,18 +28,18 @@ export struct AttributeTag {
         Image(this.getAttributeIcon())
           .width(this.getIconSize())
           .height(this.getIconSize())
-          .fillColor(getAttributeColor(this.attribute))
+          .fillColor(getAttributeLightColor(this.attribute))
           .margin({ right: this.tagSize === 'small' ? 2 : Spacing.TINY })
       }
 
-      // 属性名称
+      // 属性名称 - 使用亮色增强可读性
       Text(AttributeNames[this.attribute] || this.attribute)
         .fontSize(this.getFontSize())
-        .fontColor(getAttributeColor(this.attribute))
+        .fontColor(getAttributeLightColor(this.attribute))
         .fontWeight(this.tagSize === 'large' ? FontWeight.Bold : FontWeight.Normal)
     }
     .padding(this.getPadding())
-    .backgroundColor('rgba(0,0,0,0.3)')
+    .backgroundColor('rgba(26,34,51,0.7)')
     .borderRadius(this.getBorderRadius())
     .border({
       width: 1,
@@ -140,21 +140,14 @@ export struct RarityBorder {
     }
     .border({
       width: 2,
-      color: this.getRarityColor()
+      color: getRarityDarkColor(this.rarity)
     })
     .borderRadius(Spacing.MEDIUM)
-  }
-
-  /**
-   * 获取品质颜色
-   */
-  private getRarityColor(): string {
-    switch (this.rarity) {
-      case 'artifact': return ThemeColors.RARITY_ARTIFACT
-      case 'legendary': return ThemeColors.RARITY_LEGENDARY
-      case 'epic': return ThemeColors.RARITY_EPIC
-      case 'rare': return ThemeColors.RARITY_RARE
-      default: return ThemeColors.DIVIDER
-    }
+    .shadow({
+      radius: 8,
+      color: `${getRarityColor(this.rarity)}15`,
+      offsetX: 0,
+      offsetY: 2
+    })
   }
 }

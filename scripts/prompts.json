@@ -582,6 +582,13 @@
       "name_cn": "秦青铜剑",
       "culture": "chinese",
       "prompt": "Authentic Qin Dynasty Terracotta Army bronze sword, chromium oxide protective coating still gleaming after 2000 years, long straight blade with central ridge, bronze and dark green patina, advanced ancient metallurgy, archaeological artifact, museum exhibit quality"
+    },
+    {
+      "id": "bg_tabbar",
+      "name_cn": "TabBar通用背景",
+      "culture": "background",
+      "size": "2048x2048",
+      "prompt": "Dark metallic texture background for mobile app, deep blue-black gradient from #0a0a1a to #1a1a2e, subtle ancient Chinese weapon patterns embossed in background (swords, axes, spears as decorative elements), mysterious epic atmosphere, forge sparks and embers floating, soft golden rim light accents, intricate metal engravings, cinematic lighting with deep shadows, 4K ultra HD, realistic metal material, no people, no complete weapons in focus, abstract legendary armory aesthetic, suitable for tab bar background"
     }
   ]
 }

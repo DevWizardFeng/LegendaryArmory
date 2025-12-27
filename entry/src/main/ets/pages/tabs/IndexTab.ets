@@ -118,97 +118,108 @@ export struct IndexContent {
   }
 
   build() {
-    Column() {
-      // 顶部区域
-      Column() {
-        // 标题栏 - 使用旧金色
-        Row() {
-          Text('神兵图录')
-            .fontSize(FontSizes.TITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.GOLD_PRIMARY)
-
-          Blank()
-
-          // 设置按钮（切换到我的Tab）
-          Image($r('app.media.icon_settings'))
-            .width(24)
-            .height(24)
-            .fillColor(ThemeColors.TEXT_SECONDARY)
-            .onClick(() => {
-              this.navigateToMineTab()
-            })
-        }
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_tabbar'))
         .width('100%')
-        .height(56)
-        .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+        .height('100%')
+        .objectFit(ImageFit.Cover)
 
-        // 搜索栏（点击入口，非真实输入框）
-        Row() {
+      Column() {
+        // 顶部区域 - 添加毛玻璃效果
+        Column() {
+          // 标题栏 - 使用旧金色
           Row() {
-            Image($r('app.media.icon_search'))
-              .width(20)
-              .height(20)
-              .fillColor(ThemeColors.TEXT_TERTIARY)
-              .margin({ right: Spacing.SMALL })
+            Text('神兵图录')
+              .fontSize(FontSizes.TITLE)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(ThemeColors.GOLD_PRIMARY)
 
-            Text('搜索神兵、铸造师、典故...')
-              .fontSize(FontSizes.BODY)
-              .fontColor(ThemeColors.TEXT_TERTIARY)
+            Blank()
+
+            // 设置按钮（切换到我的Tab）
+            Image($r('app.media.icon_settings'))
+              .width(24)
+              .height(24)
+              .fillColor(ThemeColors.TEXT_SECONDARY)
+              .onClick(() => {
+                this.navigateToMineTab()
+              })
           }
           .width('100%')
-          .height(44)
-          .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
-          .backgroundColor(ThemeColors.SURFACE_0)
-          .borderRadius(22)
-          .border({ width: 1, color: ThemeColors.DIVIDER })
-          .onClick(() => this.navigateToSearch())
+          .height(56)
+          .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+
+          // 搜索栏（点击入口，非真实输入框）
+          Row() {
+            Row() {
+              Image($r('app.media.icon_search'))
+                .width(20)
+                .height(20)
+                .fillColor(ThemeColors.TEXT_TERTIARY)
+                .margin({ right: Spacing.SMALL })
+
+              Text('搜索神兵、铸造师、典故...')
+                .fontSize(FontSizes.BODY)
+                .fontColor(ThemeColors.TEXT_TERTIARY)
+            }
+            .width('100%')
+            .height(44)
+            .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
+            .backgroundColor('rgba(26,34,51,0.6)')
+            .backdropBlur(10)
+            .borderRadius(22)
+            .border({ width: 1, color: ThemeColors.DIVIDER })
+            .onClick(() => this.navigateToSearch())
+          }
+          .width('100%')
+          .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.MEDIUM })
         }
         .width('100%')
-        .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.MEDIUM })
+        .backgroundColor('rgba(11,13,16,0.7)')
+        .backdropBlur(10)
+
+        // 主内容区
+        if (this.isLoading) {
+          this.LoadingView()
+        } else {
+          Scroll() {
+            Column() {
+              // Banner 轮播
+              if (this.bannerItems.length > 0) {
+                Column() {
+                  Banner({
+                    items: this.bannerItems,
+                    onItemClick: (item: BannerItem) => {
+                      this.navigateToWeaponDetail(item.id)
+                    }
+                  })
+                }
+                .width('100%')
+                .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.MEDIUM })
+              }
+
+              // 快速入口
+              this.QuickEntrySection()
+
+              // 热门神兵
+              this.FeaturedWeaponsSection()
+
+              // 底部间距
+              Blank().height(Spacing.XXLARGE)
+            }
+            .width('100%')
+          }
+          .layoutWeight(1)
+          .scrollBar(BarState.Off)
+          .edgeEffect(EdgeEffect.Spring)
+        }
       }
       .width('100%')
-      .backgroundColor(ThemeColors.BASE_0)
-
-      // 主内容区
-      if (this.isLoading) {
-        this.LoadingView()
-      } else {
-        Scroll() {
-          Column() {
-            // Banner 轮播
-            if (this.bannerItems.length > 0) {
-              Column() {
-                Banner({
-                  items: this.bannerItems,
-                  onItemClick: (item: BannerItem) => {
-                    this.navigateToWeaponDetail(item.id)
-                  }
-                })
-              }
-              .width('100%')
-              .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.MEDIUM })
-            }
-
-            // 快速入口
-            this.QuickEntrySection()
-
-            // 热门神兵
-            this.FeaturedWeaponsSection()
-
-            // 底部间距
-            Blank().height(Spacing.XXLARGE)
-          }
-          .width('100%')
-        }
-        .layoutWeight(1)
-        .scrollBar(BarState.Off)
-        .edgeEffect(EdgeEffect.Spring)
-      }
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -261,7 +272,8 @@ export struct IndexContent {
             .width(56)
             .height(56)
             .justifyContent(FlexAlign.Center)
-            .backgroundColor(ThemeColors.SURFACE_0)
+            .backgroundColor('rgba(26,34,51,0.6)')
+            .backdropBlur(10)
             .borderRadius(16)
             .border({
               width: 1,
@@ -396,7 +408,8 @@ export struct IndexContent {
       .padding(Spacing.MEDIUM)
     }
     .width('100%')
-    .backgroundColor(ThemeColors.SURFACE_0)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 1,

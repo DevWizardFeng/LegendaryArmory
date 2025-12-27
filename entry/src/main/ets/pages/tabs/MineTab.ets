@@ -124,37 +124,46 @@ export struct MineContent {
   }
 
   build() {
-    Column() {
-      if (this.isLoading) {
-        this.LoadingView()
-      } else {
-        Scroll() {
-          Column() {
-            // 用户信息卡片
-            this.UserInfoCard()
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_tabbar'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
 
-            // 功能入口
-            this.FunctionEntries()
+      Column() {
+        if (this.isLoading) {
+          this.LoadingView()
+        } else {
+          Scroll() {
+            Column() {
+              // 用户信息卡片
+              this.UserInfoCard()
 
-            // 我的收藏和浏览历史
-            this.MyCollectionSection()
+              // 功能入口
+              this.FunctionEntries()
 
-            // 关于应用
-            this.AboutSection()
+              // 我的收藏和浏览历史
+              this.MyCollectionSection()
 
-            // 底部间距
-            Blank().height(Spacing.XXLARGE)
+              // 关于应用
+              this.AboutSection()
+
+              // 底部间距
+              Blank().height(Spacing.XXLARGE)
+            }
+            .width('100%')
           }
-          .width('100%')
+          .layoutWeight(1)
+          .scrollBar(BarState.Off)
+          .edgeEffect(EdgeEffect.Spring)
         }
-        .layoutWeight(1)
-        .scrollBar(BarState.Off)
-        .edgeEffect(EdgeEffect.Spring)
       }
+      .width('100%')
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -189,7 +198,8 @@ export struct MineContent {
       .width(72)
       .height(72)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor(ThemeColors.SURFACE_0)
+      .backgroundColor('rgba(26,34,51,0.6)')
+      .backdropBlur(15)
       .borderRadius(36)
       .border({
         width: 2,
@@ -268,7 +278,8 @@ export struct MineContent {
       .width(52)
       .height(52)
       .justifyContent(FlexAlign.Center)
-      .backgroundColor(ThemeColors.SURFACE_0)
+      .backgroundColor('rgba(26,34,51,0.6)')
+      .backdropBlur(15)
       .borderRadius(Spacing.MEDIUM)
       .border({ width: 1, color: ThemeColors.DIVIDER })
 
@@ -335,7 +346,8 @@ export struct MineContent {
       }
       .width('100%')
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
-      .backgroundColor(ThemeColors.SURFACE_0)
+      .backgroundColor('rgba(26,34,51,0.6)')
+      .backdropBlur(15)
       .borderRadius(Spacing.MEDIUM)
       .border({ width: 1, color: ThemeColors.DIVIDER })
     }
@@ -399,7 +411,8 @@ export struct MineContent {
       }
       .width('100%')
       .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
-      .backgroundColor(ThemeColors.SURFACE_0)
+      .backgroundColor('rgba(26,34,51,0.6)')
+      .backdropBlur(15)
       .borderRadius(Spacing.MEDIUM)
       .border({ width: 1, color: ThemeColors.DIVIDER })
     }

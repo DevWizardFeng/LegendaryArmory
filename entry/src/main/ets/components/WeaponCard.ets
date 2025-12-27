@@ -99,7 +99,8 @@ export struct WeaponCard {
       .padding(Spacing.MEDIUM)
     }
     .width('100%')
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 1,
@@ -158,7 +159,8 @@ export struct WeaponCard {
     }
     .width('100%')
     .padding(Spacing.MEDIUM)
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 1,
@@ -253,7 +255,8 @@ export struct WeaponCard {
       .padding(Spacing.LARGE)
     }
     .width('100%')
-    .backgroundColor(ThemeColors.CARD_BG)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 2,

@@ -1,0 +1,10 @@
+背景图占位符说明
+
+bg_tabbar.png 需要通过AI生成。
+
+生成方法：
+cd /Users/zyb/Desktop/Harmony/LegendaryArmory
+python3 scripts/batch_image_gen.py --id bg_tabbar
+
+在生成之前，请临时注释掉所有使用bg_tabbar的代码，或使用现有图片作为占位符。
+

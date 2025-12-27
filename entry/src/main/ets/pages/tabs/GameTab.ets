@@ -61,46 +61,56 @@ export struct GameContent {
   }
 
   build() {
-    Column() {
-      // 顶部标题栏
-      Row() {
-        Text('互动娱乐')
-          .fontSize(FontSizes.TITLE)
-          .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_TITLE)
-      }
-      .height(56)
-      .width('100%')
-      .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
-      .backgroundColor(ThemeColors.BASE_1)
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_tabbar'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
 
-      // 游戏入口列表
-      Scroll() {
-        Column() {
-          // 顶部说明
-          Text('选择一个游戏开始体验')
-            .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.TEXT_SECONDARY)
-            .margin({ top: Spacing.XLARGE, bottom: Spacing.XLARGE })
-
-          // 游戏入口卡片
-          ForEach(this.gameEntries, (entry: GameEntry) => {
-            this.GameEntryCard(entry)
-          }, (entry: GameEntry) => entry.id)
-
-          // 底部间距（避免被TabBar遮挡）
-          Blank().height(76)
+      Column() {
+        // 顶部标题栏 - 添加毛玻璃效果
+        Row() {
+          Text('互动娱乐')
+            .fontSize(FontSizes.TITLE)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.TEXT_TITLE)
         }
+        .height(56)
         .width('100%')
         .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+        .backgroundColor('rgba(18,24,38,0.7)')
+        .backdropBlur(10)
+
+        // 游戏入口列表
+        Scroll() {
+          Column() {
+            // 顶部说明
+            Text('选择一个游戏开始体验')
+              .fontSize(FontSizes.BODY)
+              .fontColor(ThemeColors.TEXT_SECONDARY)
+              .margin({ top: Spacing.XLARGE, bottom: Spacing.XLARGE })
+
+            // 游戏入口卡片
+            ForEach(this.gameEntries, (entry: GameEntry) => {
+              this.GameEntryCard(entry)
+            }, (entry: GameEntry) => entry.id)
+
+            // 底部间距（避免被TabBar遮挡）
+            Blank().height(76)
+          }
+          .width('100%')
+          .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+        }
+        .layoutWeight(1)
+        .scrollBar(BarState.Off)
+        .edgeEffect(EdgeEffect.Spring)
       }
-      .layoutWeight(1)
-      .scrollBar(BarState.Off)
-      .edgeEffect(EdgeEffect.Spring)
+      .width('100%')
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -140,7 +150,8 @@ export struct GameContent {
     }
     .width('100%')
     .padding(Spacing.LARGE)
-    .backgroundColor(ThemeColors.SURFACE_0)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.LARGE)
     .border({ width: 1, color: ThemeColors.DIVIDER })
     .margin({ bottom: Spacing.LARGE })

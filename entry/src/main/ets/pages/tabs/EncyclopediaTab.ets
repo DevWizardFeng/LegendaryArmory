@@ -42,47 +42,57 @@ export struct EncyclopediaContent {
   }
 
   build() {
-    Column() {
-      // 顶部标题栏
-      Row() {
-        Text('兵器百科')
-          .fontSize(FontSizes.TITLE)
-          .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_TITLE)
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_tabbar'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
+
+      Column() {
+        // 顶部标题栏 - 添加毛玻璃效果
+        Row() {
+          Text('兵器百科')
+            .fontSize(FontSizes.TITLE)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.TEXT_TITLE)
+        }
+        .height(56)
+        .width('100%')
+        .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+        .backgroundColor('rgba(18,24,38,0.7)')
+        .backdropBlur(10)
+
+        // 二级Tab导航
+        Tabs({ controller: this.subTabController, index: this.currentSubTab }) {
+          TabContent() {
+            BlacksmithContent()
+          }
+          .tabBar(this.customSubTabBar('铸造大师', 0))
+
+          TabContent() {
+            CultureContent()
+          }
+          .tabBar(this.customSubTabBar('文化体系', 1))
+
+          TabContent() {
+            TopicContent()
+          }
+          .tabBar(this.customSubTabBar('专题故事', 2))
+        }
+        .barMode(BarMode.Fixed)
+        .barPosition(BarPosition.Start)
+        .animationDuration(0)
+        .onChange((index: number) => {
+          this.currentSubTab = index
+        })
+        .layoutWeight(1)
       }
-      .height(56)
       .width('100%')
-      .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
-      .backgroundColor(ThemeColors.BASE_1)
-
-      // 二级Tab导航
-      Tabs({ controller: this.subTabController, index: this.currentSubTab }) {
-        TabContent() {
-          BlacksmithContent()
-        }
-        .tabBar(this.customSubTabBar('铸造大师', 0))
-
-        TabContent() {
-          CultureContent()
-        }
-        .tabBar(this.customSubTabBar('文化体系', 1))
-
-        TabContent() {
-          TopicContent()
-        }
-        .tabBar(this.customSubTabBar('专题故事', 2))
-      }
-      .barMode(BarMode.Fixed)
-      .barPosition(BarPosition.Start)
-      .animationDuration(0)
-      .onChange((index: number) => {
-        this.currentSubTab = index
-      })
-      .layoutWeight(1)
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**
@@ -170,7 +180,6 @@ struct BlacksmithContent {
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   @Builder
@@ -182,7 +191,7 @@ struct BlacksmithContent {
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(this.selectedCulture === culture ? ThemeColors.BASE_0 : ThemeColors.TEXT_SECONDARY)
             .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
-            .backgroundColor(this.selectedCulture === culture ? ThemeColors.GOLD_PRIMARY : ThemeColors.SURFACE_0)
+            .backgroundColor(this.selectedCulture === culture ? ThemeColors.GOLD_PRIMARY : 'rgba(26,34,51,0.6)')
             .borderRadius(Spacing.LARGE)
             .border({ width: 1, color: this.selectedCulture === culture ? ThemeColors.GOLD_PRIMARY : ThemeColors.DIVIDER })
             .margin({ right: Spacing.SMALL })
@@ -297,7 +306,8 @@ struct BlacksmithContent {
     }
     .width('100%')
     .padding(Spacing.MEDIUM)
-    .backgroundColor(ThemeColors.SURFACE_0)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({ width: 1, color: ThemeColors.DIVIDER })
     .onClick(() => this.navigateToDetail(blacksmith.id))
@@ -493,7 +503,8 @@ struct CultureContent {
     }
     .width('100%')
     .padding(Spacing.LARGE)
-    .backgroundColor(ThemeColors.SURFACE_0)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({ width: 1, color: ThemeColors.DIVIDER })
     .onClick(() => this.selectCulture(culture))
@@ -528,7 +539,8 @@ struct CultureContent {
         .width(64)
         .height(64)
         .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.SURFACE_0)
+        .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
         .borderRadius(Spacing.MEDIUM)
         .border({
           width: 2,
@@ -586,7 +598,8 @@ struct CultureContent {
           }
           .width('100%')
           .padding(Spacing.MEDIUM)
-          .backgroundColor(ThemeColors.SURFACE_0)
+          .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
           .borderRadius(Spacing.SMALL)
           .border({ width: 1, color: ThemeColors.DIVIDER })
           .margin({ bottom: Spacing.SMALL })
@@ -667,7 +680,8 @@ struct CultureContent {
     }
     .width('100%')
     .padding(Spacing.MEDIUM)
-    .backgroundColor(ThemeColors.SURFACE_0)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({ width: 1, color: ThemeColors.DIVIDER })
     .margin({ bottom: Spacing.SMALL })
@@ -886,7 +900,8 @@ struct TopicContent {
       .alignItems(HorizontalAlign.Start)
     }
     .width('100%')
-    .backgroundColor(ThemeColors.SURFACE_0)
+    .backgroundColor('rgba(26,34,51,0.6)')
+    .backdropBlur(15)
     .borderRadius(Spacing.MEDIUM)
     .border({ width: 1, color: ThemeColors.DIVIDER })
     .onClick(() => this.navigateToDetail(topic.id))

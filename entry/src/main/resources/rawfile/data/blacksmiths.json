@@ -1,0 +1,344 @@
+{
+  "blacksmiths": [
+    {
+      "id": "ouye",
+      "name": {
+        "original": "欧冶子",
+        "cn": "欧冶子",
+        "en": "Ou Yezi"
+      },
+      "culture": "chinese",
+      "era": "春秋时期 (公元前6世纪)",
+      "title": "铸剑鼻祖",
+      "description": "春秋时期越国铸剑大师，中国历史上最伟大的铸剑师之一。相传为越王铸剑，开创中国铸剑技艺的巅峰。",
+      "legend": "欧冶子在湛卢山中寻得神铁，于深谷密林中建炉铸剑。他引天火淬炼，取寒泉淬刃，历时三年铸成五大名剑。传说铸剑时有神龙现身，赐予神铁精华。",
+      "forging_technique": "引天火淬炼法：利用雷电之力为剑注入天地精华；五金合炼术：融合金、银、铜、铁、锡五种金属精华。",
+      "masterworks": ["zhanlu_sword", "taie_sword", "gongbu_sword", "juque_sword", "chunjun_sword"],
+      "specialty": "引天火淬炼，剑成必有异象，擅长锻造至刚至纯之剑",
+      "image": "blacksmith_ouye.png"
+    },
+    {
+      "id": "ganjiang_moye",
+      "name": {
+        "original": "干将莫邪",
+        "cn": "干将莫邪",
+        "en": "Gan Jiang & Mo Ye"
+      },
+      "culture": "chinese",
+      "era": "春秋时期 (公元前5世纪)",
+      "title": "铸剑伉俪",
+      "description": "干将与妻子莫邪是春秋时期的夫妻铸剑师，为吴王铸造雌雄双剑。他们的故事是中国铸剑史上最感人的传奇。",
+      "legend": "干将奉吴王之命铸剑，三年不成。莫邪为助夫成剑，投身炉火，以身殉剑。炉中神铁终于化开，铸成雌雄双剑。雄剑为干将，雌剑为莫邪。",
+      "forging_technique": "血祭铸剑法：以铸剑者的鲜血或生命为祭，赋予剑魂灵性；夫妻合铸：阴阳相济，成就雌雄双剑。",
+      "masterworks": ["ganjiang_sword", "moye_sword"],
+      "specialty": "以血祭剑，剑具灵性，雌雄双剑千里相鸣",
+      "image": "blacksmith_ganjiang.png"
+    },
+    {
+      "id": "fenghuzi",
+      "name": {
+        "original": "风胡子",
+        "cn": "风胡子",
+        "en": "Feng Huzi"
+      },
+      "culture": "chinese",
+      "era": "春秋时期",
+      "title": "无形剑匠",
+      "description": "传说中的铸剑宗师，擅长锻造薄如蝉翼、锋利无比的名剑，其剑薄而不脆，锐而不折。",
+      "legend": "风胡子云游四方，寻访天下名山神铁。他在泰山之巅悟得铸剑之道，锻造出三把举世无双的轻灵之剑。",
+      "forging_technique": "百炼轻薄术：反复折叠锻打，使剑身薄如蝉翼却坚韧无比；寒月淬火：以满月之夜的露水淬剑。",
+      "masterworks": ["chengying_sword", "hanguang_sword", "xiaolian_sword"],
+      "specialty": "剑锋薄如蝉翼，挥之如无物",
+      "image": "blacksmith_fenghuzi.png"
+    },
+    {
+      "id": "masamune",
+      "name": {
+        "original": "正宗",
+        "cn": "冈崎正宗",
+        "en": "Goro Nyudo Masamune"
+      },
+      "culture": "japanese",
+      "era": "�的仓时代 (13世纪末)",
+      "title": "日本刀圣",
+      "description": "日本历史上最伟大的刀匠，相州传的创始人。他的作品以美丽的刃纹和完美的锻造技术著称，被誉为日本刀的最高境界。",
+      "legend": "正宗潜心修行，以禅意入刀。传说他锻刀时，刀中不含杀意，反而带有祥和之气。他的刀只斩该斩之物，落叶顺水而过不为所伤。",
+      "forging_technique": "相州传锻造：独创的刃纹样式；心刀合一：以禅意融入锻造，刀身纯净无杀意。",
+      "masterworks": ["masamune_tachi", "honjo_masamune"],
+      "specialty": "刀中无杀意，锋利而不嗜血，正道之刀",
+      "image": "blacksmith_masamune.png"
+    },
+    {
+      "id": "muramasa_smith",
+      "name": {
+        "original": "村正",
+        "cn": "千子村正",
+        "en": "Sengo Muramasa"
+      },
+      "culture": "japanese",
+      "era": "室町时代 (16世纪)",
+      "title": "妖刀匠",
+      "description": "伊势国著名刀匠，所锻之刀锋利无比却带有诡异的嗜血之气。因德川家康一族多死于村正刀下，其刀被称为妖刀。",
+      "legend": "村正心中充满执念与愤怒，将这些情绪注入刀中。传说他的刀一旦出鞘必须见血，即便主人亦可能被刀反噬。",
+      "forging_technique": "怨念锻刀法：将情绪与执念融入刀身；嗜血刃纹：独特的刃纹暗藏凶兆。",
+      "masterworks": ["muramasa"],
+      "specialty": "刀具嗜血之性，出鞘必见血，妖异之刃",
+      "image": "blacksmith_muramasa.png"
+    },
+    {
+      "id": "amatsumara",
+      "name": {
+        "original": "天目一箇神",
+        "cn": "天目一箇神",
+        "en": "Amatsumara"
+      },
+      "culture": "japanese",
+      "era": "神话时代",
+      "title": "独眼神匠",
+      "description": "日本神话中的锻造之神，独眼神明。传说他参与锻造了天丛云剑(草薙剑)等神器。",
+      "legend": "天目一箇神是高天原的神匠，曾为天照大神锻造神器。他以独眼凝视炉火，看透金属的本质，锻造出不朽的神兵。",
+      "forging_technique": "神火锻造：以高天原的神火熔炼神铁；独眼洞察：以神目看透万物本质。",
+      "masterworks": ["kusanagi", "ama_no_habakiri"],
+      "specialty": "神器锻造，赋予武器神性与不朽之力",
+      "image": "blacksmith_amatsumara.png"
+    },
+    {
+      "id": "hephaestus",
+      "name": {
+        "original": "Ἥφαιστος",
+        "cn": "赫菲斯托斯",
+        "en": "Hephaestus"
+      },
+      "culture": "greek",
+      "era": "希腊神话时代",
+      "title": "火神锻造神",
+      "description": "希腊神话中的火神与铁匠之神，奥林匹斯众神的武器皆出自他手。他在火山中的神炉里为众神打造神器。",
+      "legend": "赫菲斯托斯虽生来貌丑且跛足，却拥有超凡的锻造技艺。他在西西里岛的埃特纳火山下建立神炉，为宙斯锻造雷霆，为阿喀琉斯打造神盾。",
+      "forging_technique": "神火冶金：以神圣火焰熔炼天界金属；奥林匹斯锻造术：赋予武器神力与永恒。",
+      "masterworks": ["zeus_thunderbolt", "achilles_shield", "hermes_sandals", "helios_chariot"],
+      "specialty": "众神御用神匠，所铸之物皆具神力",
+      "image": "blacksmith_hephaestus.png"
+    },
+    {
+      "id": "brokk_sindri",
+      "name": {
+        "original": "Brokkr & Sindri",
+        "cn": "布洛克与辛德里",
+        "en": "Brokk & Sindri"
+      },
+      "culture": "norse",
+      "era": "北欧神话时代",
+      "title": "矮人神匠兄弟",
+      "description": "北欧神话中最伟大的矮人铁匠兄弟，居住在尼德威阿尔。他们为诸神锻造了众多神器，包括雷神之锤妙尔尼尔。",
+      "legend": "洛基与矮人兄弟打赌，若他们能锻造出超越伊瓦尔迪之子作品的神器，便可得到洛基的头颅。在洛基的干扰下，布洛克仍坚持鼓风，最终锻造出雷神之锤。",
+      "forging_technique": "卢恩符文锻造：将符文魔力融入神器；矮人秘术：以地底神铁和魔法火焰锻造。",
+      "masterworks": ["mjolnir", "draupnir", "gullinbursti"],
+      "specialty": "符文附魔，锻造具有魔力的神器",
+      "image": "blacksmith_brokk_sindri.png"
+    },
+    {
+      "id": "ivaldi_sons",
+      "name": {
+        "original": "Ívaldi's sons",
+        "cn": "伊瓦尔迪之子",
+        "en": "Sons of Ivaldi"
+      },
+      "culture": "norse",
+      "era": "北欧神话时代",
+      "title": "矮人工匠团",
+      "description": "北欧神话中著名的矮人工匠家族，以精湛技艺著称。他们锻造了众多神器，包括奥丁的永恒之枪冈尼尔。",
+      "legend": "当洛基剪掉希芙的金发后，为平息托尔之怒，他请求伊瓦尔迪之子为希芙锻造金发，并顺便锻造了多件神器献给诸神。",
+      "forging_technique": "精密锻造：能锻造如真发般的金丝；魔法材质：善于处理世界树的神秘材料。",
+      "masterworks": ["gungnir", "skidbladnir", "sif_golden_hair"],
+      "specialty": "精细工艺，能锻造任何形态的神器",
+      "image": "blacksmith_ivaldi_sons.png"
+    },
+    {
+      "id": "wayland",
+      "name": {
+        "original": "Wayland",
+        "cn": "维兰德",
+        "en": "Wayland the Smith"
+      },
+      "culture": "medieval_europe",
+      "era": "日耳曼神话时代",
+      "title": "传奇铁匠",
+      "description": "日耳曼神话中的传奇铁匠，精灵族后裔。他的锻造技艺无人能及，即使被囚禁也能打造出神兵利器。",
+      "legend": "维兰德被瑞典国王俘获，被割断脚筋囚禁。他在囚禁中锻造了翅膀飞离，并用自己的技艺复仇。他锻造的剑能斩开任何铠甲。",
+      "forging_technique": "精灵锻造术：融合人类与精灵的锻造技艺；意志铸剑：将复仇之心注入刀剑。",
+      "masterworks": ["gram", "mimung", "wayland_sword"],
+      "specialty": "精灵血脉赋予的超凡技艺，剑能斩断一切",
+      "image": "blacksmith_wayland.png"
+    },
+    {
+      "id": "vishvakarma",
+      "name": {
+        "original": "विश्वकर्मा",
+        "cn": "毗首羯磨",
+        "en": "Vishvakarma"
+      },
+      "culture": "indian",
+      "era": "印度神话时代",
+      "title": "天界工匠神",
+      "description": "印度神话中的工匠之神、建筑之神，为众神锻造武器和建造宫殿。他是三界最伟大的工匠。",
+      "legend": "毗首羯磨从太阳神苏利耶身上削下八分之一的光芒，用这些神圣材料锻造了众神的武器，包括湿婆的三叉戟和毗湿奴的神轮。",
+      "forging_technique": "神光锻造：以太阳光芒为材料；天界秘术：赋予武器毁天灭地之力。",
+      "masterworks": ["sudarshana_chakra", "trishula", "vajra", "pushpaka_vimana"],
+      "specialty": "以星辰之力锻造神器，作品拥有宇宙级的力量",
+      "image": "blacksmith_vishvakarma.png"
+    },
+    {
+      "id": "munechika",
+      "name": {
+        "original": "三条宗近",
+        "cn": "三条宗近",
+        "en": "Sanjo Munechika"
+      },
+      "culture": "japanese",
+      "era": "平安时代 (10世纪)",
+      "title": "三条派祖师",
+      "description": "平安时代著名刀匠，京都三条派的创始人。他锻造的三日月宗近被列为天下五剑之首。",
+      "legend": "一条天皇命三条宗近锻刀，宗近独自难以完成。稻荷神派遣狐仙相助，化为名为「小�的子」的助手，共同完成了名刀小狐丸。",
+      "forging_technique": "三条流锻刀术：优雅细腻的锻造风格；神助锻刀：传说有神灵相助。",
+      "masterworks": ["mikazuki_munechika", "kogitsune_maru"],
+      "specialty": "刀身优美如新月，刃纹精致典雅",
+      "image": "blacksmith_munechika.png"
+    },
+    {
+      "id": "yasutsuna",
+      "name": {
+        "original": "安纲",
+        "cn": "大原安纲",
+        "en": "Ohara Yasutsuna"
+      },
+      "culture": "japanese",
+      "era": "平安时代 (10世纪)",
+      "title": "伯耆派祖师",
+      "description": "平安时代伯耆国的著名刀匠，伯耆派的创始人。他锻造的童子切安纲被列为天下五剑之一。",
+      "legend": "源赖光用安纲锻造的刀斩杀了大江山的酒吞童子，此刀因此得名「童子切」，成为斩妖除魔的名刀。",
+      "forging_technique": "伯耆流锻刀术：刚健有力的锻造风格；破魔锻法：刀具斩妖除魔之力。",
+      "masterworks": ["dojigiri_yasutsuna"],
+      "specialty": "刀具破魔之力，专克妖魔鬼怪",
+      "image": "blacksmith_yasutsuna.png"
+    },
+    {
+      "id": "nagamitsu",
+      "name": {
+        "original": "长光",
+        "cn": "长船长光",
+        "en": "Osafune Nagamitsu"
+      },
+      "culture": "japanese",
+      "era": "镰仓时代 (13世纪)",
+      "title": "长船派名匠",
+      "description": "备前长船派的代表刀匠，以华丽的丁子刃纹闻名。他的作品被视为日本刀的艺术巅峰。",
+      "legend": "长船长光的刀被称为「物斩」，意为能斩断一切物体。他的刀兼具实用与美观，深受武将喜爱。",
+      "forging_technique": "长船流锻刀术：华丽的丁子刃纹；备前传统：经典的日本刀锻造。",
+      "masterworks": ["osafune_nagamitsu"],
+      "specialty": "刃纹华美，锋利与美观并重",
+      "image": "blacksmith_nagamitsu.png"
+    },
+    {
+      "id": "kunihiro",
+      "name": {
+        "original": "国广",
+        "cn": "堀川国广",
+        "en": "Horikawa Kunihiro"
+      },
+      "culture": "japanese",
+      "era": "安土桃山时代 (16世纪)",
+      "title": "新刀之祖",
+      "description": "安土桃山时代著名刀匠，新刀期的代表人物。他开创了新刀锻造的新时代，影响深远。",
+      "legend": "国广曾为山中�的猿作刀，此人后来成为战国名将。国广的刀被认为能带来武运。",
+      "forging_technique": "堀川流新刀术：革新的锻造技法；实战锻法：注重刀的实用性能。",
+      "masterworks": ["horikawa_kunihiro", "yamanaka_kunihiro"],
+      "specialty": "新刀锻造革新者，刀身坚韧实用",
+      "image": "blacksmith_kunihiro.png"
+    },
+    {
+      "id": "kanemitsu",
+      "name": {
+        "original": "兼光",
+        "cn": "长船兼光",
+        "en": "Osafune Kanemitsu"
+      },
+      "culture": "japanese",
+      "era": "南北朝时代 (14世纪)",
+      "title": "南北朝名工",
+      "description": "南北朝时代备前长船派的名匠，所作刀剑锋利异常，被誉为「斩铁如泥」。",
+      "legend": "传说兼光的刀能一刀两断武士的铠甲连同身体，战场上无人敢与持兼光刀者交战。",
+      "forging_technique": "长船流极锐锻法：追求极致锋利；战国锻刀：为战场需求打造。",
+      "masterworks": ["osafune_kanemitsu"],
+      "specialty": "极致锋利，斩铁如泥",
+      "image": "blacksmith_kanemitsu.png"
+    },
+    {
+      "id": "sadamune",
+      "name": {
+        "original": "贞宗",
+        "cn": "相州贞宗",
+        "en": "Soshu Sadamune"
+      },
+      "culture": "japanese",
+      "era": "镰仓时代末期 (14世纪)",
+      "title": "正宗继承者",
+      "description": "正宗的弟子或养子，继承并发扬了相州传的锻造技艺。他的作品同样达到了极高水准。",
+      "legend": "贞宗继承了正宗的衣钵，但作品数量稀少，每一把都是无价之宝。",
+      "forging_technique": "相州传继承：完美继承正宗技艺；清净锻法：刀身无杂质，纯净无瑕。",
+      "masterworks": ["sadamune_tanto"],
+      "specialty": "继承正宗风格，作品珍稀难得",
+      "image": "blacksmith_sadamune.png"
+    },
+    {
+      "id": "st_dunstan",
+      "name": {
+        "original": "Saint Dunstan",
+        "cn": "圣丹斯坦",
+        "en": "Saint Dunstan"
+      },
+      "culture": "medieval_europe",
+      "era": "盎格鲁-撒克逊时代 (10世纪)",
+      "title": "铁匠圣徒",
+      "description": "英格兰坎特伯雷大主教，同时也是一位精通铁匠技艺的圣徒。传说他曾用铁钳夹住魔鬼的鼻子。",
+      "legend": "魔鬼化身美女诱惑丹斯坦，被他识破后用烧红的铁钳夹住魔鬼的鼻子，将其驱逐。此后他成为铁匠的主保圣人。",
+      "forging_technique": "圣火锻造：以信仰之火净化金属；驱魔锻法：锻造的武器能驱逐邪灵。",
+      "masterworks": [],
+      "specialty": "圣洁锻造，武器具有驱魔辟邪之力",
+      "image": "blacksmith_st_dunstan.png"
+    },
+    {
+      "id": "tubal_cain",
+      "name": {
+        "original": "Tubal-cain",
+        "cn": "土八该隐",
+        "en": "Tubal-cain"
+      },
+      "culture": "medieval_europe",
+      "era": "圣经时代",
+      "title": "铁匠始祖",
+      "description": "《圣经》记载的人类第一位铁匠，该隐的后裔。他是所有铜铁工匠的祖师。",
+      "legend": "土八该隐发现了冶炼金属的方法，成为人类锻造技术的开创者。他的名字成为铁匠行业的象征。",
+      "forging_technique": "原始锻造：人类最早的金属锻造技术。",
+      "masterworks": [],
+      "specialty": "人类锻造技术的开创者",
+      "image": "blacksmith_tubal_cain.png"
+    },
+    {
+      "id": "jiang_ziya",
+      "name": {
+        "original": "姜子牙",
+        "cn": "姜子牙",
+        "en": "Jiang Ziya"
+      },
+      "culture": "chinese",
+      "era": "商周时期",
+      "title": "封神军师",
+      "description": "周朝开国功臣，封神演义中的核心人物。虽非专职铸剑师，但传说参与了多件神器的锻造与封印。",
+      "legend": "姜子牙辅佐周武王伐纣，掌管封神榜。传说他能以符咒和法术为武器开光，赋予其神力。",
+      "forging_technique": "符咒开光：以道家符咒赋予武器神力；封神之术：能封印和解放武器中的神灵。",
+      "masterworks": ["taiji_tu", "fengshen_banner"],
+      "specialty": "以法术和符咒强化武器，非锻造而是赋能",
+      "image": "blacksmith_jiang_ziya.png"
+    }
+  ]
+}

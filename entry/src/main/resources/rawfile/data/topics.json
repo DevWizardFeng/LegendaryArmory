@@ -1,0 +1,58 @@
+{
+  "topics": [
+    {
+      "id": "topic_chinese_ten_swords",
+      "title": "中国十大名剑传奇",
+      "category": "culture",
+      "summary": "探索中国古代十大名剑的铸造传说与英雄故事",
+      "content": "中国十大名剑是中国古代兵器文化的巅峰代表。从轩辕剑的帝王之气，到湛卢剑的仁者之风，每一把名剑都承载着独特的文化内涵和传奇故事。\n\n一、轩辕剑\n黄帝铸此剑以诛蚩尤，是中华民族的象征。\n\n二、湛卢剑\n欧冶子所铸，能辨善恶，是仁道之剑。\n\n三、赤霄剑\n刘邦斩白蛇起义之剑，开创大汉四百年基业。\n\n四、泰阿剑\n威道之剑，曾退楚国三军。\n\n五、干将莫邪\n夫妻铸剑师的传奇，以身殉剑铸成绝世双剑。",
+      "related_weapons": ["xuanyuan_sword", "zhanlu_sword", "chixiao_sword", "taie_sword", "ganjiang_sword", "moye_sword"],
+      "image": "topic_chinese_swords.png"
+    },
+    {
+      "id": "topic_japanese_katana",
+      "title": "日本刀的锻造艺术",
+      "category": "technique",
+      "summary": "揭秘日本刀独特的折叠锻打技术与刃纹美学",
+      "content": "日本刀被誉为'武士之魂'，其锻造工艺代表了东方冶金技术的最高成就。\n\n玉钢冶炼\n日本刀使用特制的玉钢作为材料，经过反复折叠锻打，形成数万层的钢材结构。\n\n刃纹艺术\n不同流派有不同的刃纹风格：三条派优雅细腻，备前长船派华丽奔放，相州派刚柔并济。\n\n淬火技术\n使用特殊的土取技法，使刀刃坚硬锋利，刀背柔韧有弹性。\n\n名匠传承\n从平安时代的三条宗近，到镰仓时代的正宗，再到室町时代的村正，每个时代都有其代表性的刀匠。",
+      "related_weapons": ["kusanagi", "mikazuki_munechika", "muramasa", "dojigiri_yasutsuna"],
+      "image": "topic_japanese_katana.png"
+    },
+    {
+      "id": "topic_norse_weapons",
+      "title": "北欧神器谱系",
+      "category": "culture",
+      "summary": "解读北欧神话中的传说神器与矮人锻造秘术",
+      "content": "北欧神话中的神器多由矮人铁匠锻造，蕴含着卢恩符文的魔力。\n\n妙尔尼尔(Mjolnir)\n雷神托尔的神锤，能召唤雷霆，投出必返。因锻造时洛基的干扰，锤柄略短，但这反而成为其标志性特征。\n\n冈尼尔(Gungnir)\n众神之父奥丁的永恒之枪，投必中目标，是王权与誓言的象征。\n\n格拉墨(Gram)\n屠龙英雄西格尔德的神剑，能斩断龙的铁鳞。\n\n提尔锋(Tyrfing)\n被诅咒的魔剑，出鞘必见血，持有者难逃厄运。\n\n矮人铁匠\n布洛克与辛德里、伊瓦尔迪之子是北欧神话中最伟大的工匠，他们用神铁和魔法为诸神打造神器。",
+      "related_weapons": ["mjolnir", "gungnir", "gram", "tyrfing"],
+      "image": "topic_norse_weapons.png"
+    },
+    {
+      "id": "topic_excalibur",
+      "title": "圣剑Excalibur的传说",
+      "category": "legend",
+      "summary": "追溯亚瑟王圣剑的起源与不列颠王权的传承",
+      "content": "Excalibur是西方最著名的传说圣剑，与亚瑟王的传奇紧密相连。\n\n石中剑与湖中剑\n有两种传说：一说亚瑟从石中拔出圣剑证明王者身份(Caliburn)；一说Excalibur是湖中仙女所赐。也有学者认为两者是同一把剑的不同名称。\n\n圣剑之力\n剑刃闪耀如三十支火炬，能斩断任何铠甲。更神奇的是，剑鞘能使持有者不流血。\n\n圣剑的归宿\n亚瑟王重伤后，命骑士将Excalibur投入湖中归还仙女。一只手从湖中伸出接住圣剑，带入水底。\n\n文化影响\nExcalibur成为王权正统和骑士精神的象征，影响了无数后世作品。",
+      "related_weapons": ["excalibur", "caliburn", "clarent"],
+      "image": "topic_excalibur.png"
+    },
+    {
+      "id": "topic_greek_weapons",
+      "title": "希腊众神的武器",
+      "category": "culture",
+      "summary": "探索奥林匹斯众神手中的神器与其象征意义",
+      "content": "希腊神话中的神器代表着众神的力量与权威。\n\n宙斯的雷霆\n众神之王的标志，由独眼巨人锻造，能发出毁天灭地的雷电。\n\n波塞冬的三叉戟\n海神的权杖，能掀起海啸、引发地震，是海洋的绝对主宰。\n\n哈迪斯的双叉戟\n冥王的神器，能开启冥界之门，管理死者的灵魂。\n\n赫菲斯托斯的神炉\n火神在埃特纳火山下的神炉，为众神打造武器与装备，包括阿喀琉斯之盾。\n\n英雄的武器\n除了神明，许多英雄也拥有传说武器：珀尔修斯的弯刀、赫拉克勒斯的大棒、阿喀琉斯的矛与盾。",
+      "related_weapons": ["zeus_thunderbolt", "poseidon_trident", "hades_bident"],
+      "image": "topic_greek_weapons.png"
+    },
+    {
+      "id": "topic_forging_techniques",
+      "title": "古代铸剑术揭秘",
+      "category": "technique",
+      "summary": "解析世界各地的传统锻造技艺与独特工艺",
+      "content": "古代铸剑术凝结了人类冶金智慧的精华。\n\n中国百炼钢\n将铁块反复加热锻打，去除杂质，形成钢材。春秋战国时期达到巅峰。\n\n日本折叠锻打\n将玉钢反复折叠锻打，形成数万层结构。使刀具备锋利与韧性。\n\n大马士革钢\n来自印度的乌兹钢，经阿拉伯工匠锻造后形成独特的花纹，锋利无比。\n\n北欧符文锻造\n将卢恩符文刻入武器，赋予其魔法力量。矮人铁匠是此技艺的大师。\n\n淬火技术\n不同地区发展出不同的淬火方法：水淬、油淬、盐淬，以及日本的土取法。",
+      "related_weapons": [],
+      "image": "topic_forging.png"
+    }
+  ]
+}

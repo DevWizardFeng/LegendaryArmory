@@ -1,0 +1,172 @@
+{
+  "attributes": [
+    {
+      "id": "fire",
+      "name_cn": "火",
+      "name_en": "Fire",
+      "color": "#ff4500",
+      "symbol": "icon_fire",
+      "meaning": "代表烈焰与毁灭，象征热情与力量",
+      "category": "natural",
+      "strengths": ["ice", "nature"],
+      "weaknesses": ["water"],
+      "representative_weapons": ["xuanyuan_sword", "flame_sword"]
+    },
+    {
+      "id": "water",
+      "name_cn": "水",
+      "name_en": "Water",
+      "color": "#1e90ff",
+      "symbol": "icon_water",
+      "meaning": "代表流动与变化，象征智慧与包容",
+      "category": "natural",
+      "strengths": ["fire"],
+      "weaknesses": ["thunder", "ice"],
+      "representative_weapons": ["poseidon_trident"]
+    },
+    {
+      "id": "ice",
+      "name_cn": "冰",
+      "name_en": "Ice",
+      "color": "#00bfff",
+      "symbol": "icon_ice",
+      "meaning": "代表寒冷与封印，象征冷静与决断",
+      "category": "natural",
+      "strengths": ["wind", "water"],
+      "weaknesses": ["fire"],
+      "representative_weapons": ["frost_giant_axe"]
+    },
+    {
+      "id": "thunder",
+      "name_cn": "雷",
+      "name_en": "Thunder",
+      "color": "#9370db",
+      "symbol": "icon_thunder",
+      "meaning": "代表雷霆与惩罚，象征天威与正义",
+      "category": "natural",
+      "strengths": ["water", "wind"],
+      "weaknesses": ["earth"],
+      "representative_weapons": ["mjolnir", "zeus_thunderbolt", "raijin_katana"]
+    },
+    {
+      "id": "wind",
+      "name_cn": "风",
+      "name_en": "Wind",
+      "color": "#7fffd4",
+      "symbol": "icon_wind",
+      "meaning": "代表自由与速度，象征无拘与飘逸",
+      "category": "natural",
+      "strengths": ["earth"],
+      "weaknesses": ["ice", "thunder"],
+      "representative_weapons": ["fujin_fan"]
+    },
+    {
+      "id": "earth",
+      "name_cn": "土",
+      "name_en": "Earth",
+      "color": "#8b4513",
+      "symbol": "icon_earth",
+      "meaning": "代表大地与稳固，象征坚韧与防护",
+      "category": "natural",
+      "strengths": ["thunder"],
+      "weaknesses": ["wind", "nature"],
+      "representative_weapons": ["earth_hammer"]
+    },
+    {
+      "id": "light",
+      "name_cn": "光",
+      "name_en": "Light",
+      "color": "#ffd700",
+      "symbol": "icon_light",
+      "meaning": "代表光明与圣洁，象征希望与救赎",
+      "category": "mystical",
+      "strengths": ["dark", "death"],
+      "weaknesses": ["chaos"],
+      "representative_weapons": ["excalibur", "claomh_solais"]
+    },
+    {
+      "id": "dark",
+      "name_cn": "暗",
+      "name_en": "Dark",
+      "color": "#2f4f4f",
+      "symbol": "icon_dark",
+      "meaning": "代表黑暗与隐秘，象征深邃与神秘",
+      "category": "mystical",
+      "strengths": ["light"],
+      "weaknesses": ["light"],
+      "representative_weapons": ["muramasa", "tyrfing"]
+    },
+    {
+      "id": "poison",
+      "name_cn": "毒",
+      "name_en": "Poison",
+      "color": "#228b22",
+      "symbol": "icon_poison",
+      "meaning": "代表剧毒与腐蚀，象征阴险与致命",
+      "category": "special",
+      "strengths": ["nature"],
+      "weaknesses": ["fire", "light"],
+      "representative_weapons": ["poison_dagger"]
+    },
+    {
+      "id": "nature",
+      "name_cn": "木",
+      "name_en": "Nature",
+      "color": "#32cd32",
+      "symbol": "icon_nature",
+      "meaning": "代表自然与生命，象征成长与生机",
+      "category": "natural",
+      "strengths": ["earth", "water"],
+      "weaknesses": ["fire", "poison"],
+      "representative_weapons": ["yggdrasil_staff"]
+    },
+    {
+      "id": "time_space",
+      "name_cn": "时空",
+      "name_en": "Time & Space",
+      "color": "#9400d3",
+      "symbol": "icon_time_space",
+      "meaning": "代表时间与空间，象征超越与永恒",
+      "category": "mystical",
+      "strengths": [],
+      "weaknesses": ["chaos"],
+      "representative_weapons": ["chronos_scythe"]
+    },
+    {
+      "id": "death",
+      "name_cn": "死亡",
+      "name_en": "Death",
+      "color": "#4a4a4a",
+      "symbol": "icon_death",
+      "meaning": "代表死亡与终结，象征轮回与必然",
+      "category": "mystical",
+      "strengths": ["nature"],
+      "weaknesses": ["light"],
+      "representative_weapons": ["hades_bident", "anubis_staff"]
+    },
+    {
+      "id": "chaos",
+      "name_cn": "混沌",
+      "name_en": "Chaos",
+      "color": "#ff1493",
+      "symbol": "icon_chaos",
+      "meaning": "代表混沌与无序，象征原始与本源",
+      "category": "special",
+      "strengths": ["light", "time_space"],
+      "weaknesses": [],
+      "representative_weapons": ["chaos_blade"]
+    },
+    {
+      "id": "special",
+      "name_cn": "特殊",
+      "name_en": "Special",
+      "color": "#ff69b4",
+      "symbol": "icon_special",
+      "meaning": "代表独特属性，如血、心灵、音波等",
+      "category": "special",
+      "strengths": [],
+      "weaknesses": [],
+      "representative_weapons": []
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+{
+  "abilities": [
+    {
+      "id": "dragon_slash",
+      "name_cn": "龙斩",
+      "name_en": "Dragon Slash",
+      "category": "elemental",
+      "description": "释放蕴含龙之力量的斩击，对龙类生物造成额外伤害",
+      "attribute": "fire",
+      "famous_usage": [
+        {"weapon_id": "xuanyuan_sword", "description": "轩辕剑的招牌技能，黄帝以此斩蚩尤"}
+      ]
+    },
+    {
+      "id": "thunder_strike",
+      "name_cn": "雷霆一击",
+      "name_en": "Thunder Strike",
+      "category": "elemental",
+      "description": "召唤雷霆之力注入武器，造成强大的雷电伤害",
+      "attribute": "thunder",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "雷神之锤的标志性技能"},
+        {"weapon_id": "zeus_thunderbolt", "description": "宙斯雷霆的核心力量"}
+      ]
+    },
+    {
+      "id": "divine_protection",
+      "name_cn": "神圣守护",
+      "name_en": "Divine Protection",
+      "category": "passive",
+      "description": "武器散发神圣光芒，为持有者提供神圣庇护",
+      "attribute": "light",
+      "famous_usage": [
+        {"weapon_id": "excalibur", "description": "圣剑Excalibur的被动防护能力"}
+      ]
+    },
+    {
+      "id": "soul_bind",
+      "name_cn": "灵魂绑定",
+      "name_en": "Soul Bind",
+      "category": "special",
+      "description": "武器与持有者的灵魂绑定，只有被认可者才能发挥其力量",
+      "famous_usage": [
+        {"weapon_id": "excalibur", "description": "唯有真王才能拔出此剑"}
+      ]
+    },
+    {
+      "id": "blood_thirst",
+      "name_cn": "嗜血",
+      "name_en": "Blood Thirst",
+      "category": "passive",
+      "description": "武器渴望鲜血，每次命中恢复持有者少量生命",
+      "attribute": "dark",
+      "famous_usage": [
+        {"weapon_id": "muramasa", "description": "村正刀的诅咒特性"}
+      ]
+    },
+    {
+      "id": "curse_breaker",
+      "name_cn": "破咒",
+      "name_en": "Curse Breaker",
+      "category": "special",
+      "description": "能够解除敌人的诅咒和负面效果",
+      "attribute": "light",
+      "famous_usage": []
+    },
+    {
+      "id": "flame_wave",
+      "name_cn": "烈焰波动",
+      "name_en": "Flame Wave",
+      "category": "elemental",
+      "description": "释放扇形火焰波动，灼烧范围内所有敌人",
+      "attribute": "fire",
+      "famous_usage": []
+    },
+    {
+      "id": "frost_nova",
+      "name_cn": "霜寒新星",
+      "name_en": "Frost Nova",
+      "category": "elemental",
+      "description": "以武器为中心释放寒冰冲击波，冻结周围敌人",
+      "attribute": "ice",
+      "famous_usage": []
+    },
+    {
+      "id": "wind_blade",
+      "name_cn": "风之刃",
+      "name_en": "Wind Blade",
+      "category": "elemental",
+      "description": "释放锋利的风刃远程攻击敌人",
+      "attribute": "wind",
+      "famous_usage": []
+    },
+    {
+      "id": "earthquake",
+      "name_cn": "地裂",
+      "name_en": "Earthquake",
+      "category": "elemental",
+      "description": "以武器重击地面，引发地震波攻击敌人",
+      "attribute": "earth",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "雷神之锤砸向大地的威力"}
+      ]
+    },
+    {
+      "id": "holy_judgment",
+      "name_cn": "圣裁",
+      "name_en": "Holy Judgment",
+      "category": "elemental",
+      "description": "召唤神圣光柱审判邪恶，对暗属性敌人造成巨大伤害",
+      "attribute": "light",
+      "famous_usage": [
+        {"weapon_id": "excalibur", "description": "王者之剑的神圣审判"}
+      ]
+    },
+    {
+      "id": "shadow_strike",
+      "name_cn": "暗影突袭",
+      "name_en": "Shadow Strike",
+      "category": "elemental",
+      "description": "融入暗影后瞬移至敌人身后进行致命一击",
+      "attribute": "dark",
+      "famous_usage": []
+    },
+    {
+      "id": "poison_coat",
+      "name_cn": "淬毒",
+      "name_en": "Poison Coat",
+      "category": "passive",
+      "description": "武器附带剧毒，命中敌人后持续造成毒素伤害",
+      "attribute": "poison",
+      "famous_usage": []
+    },
+    {
+      "id": "life_drain",
+      "name_cn": "生命汲取",
+      "name_en": "Life Drain",
+      "category": "special",
+      "description": "吸取敌人生命力转化为自身生命",
+      "attribute": "death",
+      "famous_usage": []
+    },
+    {
+      "id": "armor_pierce",
+      "name_cn": "破甲",
+      "name_en": "Armor Pierce",
+      "category": "physical",
+      "description": "无视敌人护甲的穿透性攻击",
+      "famous_usage": [
+        {"weapon_id": "gungnir", "description": "永恒之枪必中且破甲"}
+      ]
+    },
+    {
+      "id": "whirlwind",
+      "name_cn": "旋风斩",
+      "name_en": "Whirlwind",
+      "category": "physical",
+      "description": "高速旋转攻击周围所有敌人",
+      "famous_usage": []
+    },
+    {
+      "id": "critical_strike",
+      "name_cn": "致命一击",
+      "name_en": "Critical Strike",
+      "category": "physical",
+      "description": "攻击要害部位造成额外暴击伤害",
+      "famous_usage": []
+    },
+    {
+      "id": "chain_attack",
+      "name_cn": "连击",
+      "name_en": "Chain Attack",
+      "category": "physical",
+      "description": "连续快速攻击，每次命中增加下次攻击伤害",
+      "famous_usage": []
+    },
+    {
+      "id": "counter",
+      "name_cn": "反击",
+      "name_en": "Counter",
+      "category": "physical",
+      "description": "格挡敌人攻击后立即反击",
+      "famous_usage": []
+    },
+    {
+      "id": "stun",
+      "name_cn": "震慑",
+      "name_en": "Stun",
+      "category": "special",
+      "description": "强力攻击使敌人陷入眩晕状态",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "雷神之锤的震慑之力"}
+      ]
+    },
+    {
+      "id": "berserker",
+      "name_cn": "狂暴",
+      "name_en": "Berserker",
+      "category": "passive",
+      "description": "生命值越低，攻击力越高",
+      "famous_usage": []
+    },
+    {
+      "id": "regeneration",
+      "name_cn": "再生",
+      "name_en": "Regeneration",
+      "category": "passive",
+      "description": "持续恢复生命值",
+      "attribute": "nature",
+      "famous_usage": []
+    },
+    {
+      "id": "true_sight",
+      "name_cn": "真视",
+      "name_en": "True Sight",
+      "category": "passive",
+      "description": "能够看穿隐形和幻象",
+      "attribute": "light",
+      "famous_usage": []
+    },
+    {
+      "id": "demon_slayer",
+      "name_cn": "斩魔",
+      "name_en": "Demon Slayer",
+      "category": "passive",
+      "description": "对恶魔和邪灵造成额外伤害",
+      "attribute": "light",
+      "famous_usage": [
+        {"weapon_id": "dojigiri_yasutsuna", "description": "童子切安纲斩杀酒吞童子"}
+      ]
+    },
+    {
+      "id": "god_slayer",
+      "name_cn": "弑神",
+      "name_en": "God Slayer",
+      "category": "special",
+      "description": "能够对神明造成有效伤害",
+      "famous_usage": []
+    },
+    {
+      "id": "unbreakable",
+      "name_cn": "不碎",
+      "name_en": "Unbreakable",
+      "category": "passive",
+      "description": "武器永不损坏",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "雷神之锤永不损坏"}
+      ]
+    },
+    {
+      "id": "return",
+      "name_cn": "回归",
+      "name_en": "Return",
+      "category": "special",
+      "description": "投掷后自动返回持有者手中",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "雷神之锤投出后必定返回"},
+        {"weapon_id": "gungnir", "description": "永恒之枪永远飞回奥丁手中"}
+      ]
+    },
+    {
+      "id": "must_hit",
+      "name_cn": "必中",
+      "name_en": "Must Hit",
+      "category": "passive",
+      "description": "投出后必定命中目标",
+      "famous_usage": [
+        {"weapon_id": "gungnir", "description": "冈尼尔之枪投必中"}
+      ]
+    },
+    {
+      "id": "truth_compel",
+      "name_cn": "迫真",
+      "name_en": "Truth Compel",
+      "category": "special",
+      "description": "迫使敌人说出真话",
+      "famous_usage": [
+        {"weapon_id": "fragarach", "description": "应答者之剑能迫使敌人说真话"}
+      ]
+    },
+    {
+      "id": "wind_control",
+      "name_cn": "御风",
+      "name_en": "Wind Control",
+      "category": "special",
+      "description": "控制风的能力",
+      "attribute": "wind",
+      "famous_usage": [
+        {"weapon_id": "fragarach", "description": "应答者能控制风向"}
+      ]
+    },
+    {
+      "id": "barbed_pierce",
+      "name_cn": "倒刺穿刺",
+      "name_en": "Barbed Pierce",
+      "category": "physical",
+      "description": "命中后倒刺会在体内膨胀造成持续伤害",
+      "famous_usage": [
+        {"weapon_id": "gae_bolg", "description": "盖博尔格之矛的致命特性"}
+      ]
+    },
+    {
+      "id": "sea_control",
+      "name_cn": "御海",
+      "name_en": "Sea Control",
+      "category": "special",
+      "description": "控制海洋和水域的能力",
+      "attribute": "water",
+      "famous_usage": [
+        {"weapon_id": "poseidon_trident", "description": "波塞冬三叉戟能控制海洋"}
+      ]
+    },
+    {
+      "id": "underworld_gate",
+      "name_cn": "冥界之门",
+      "name_en": "Underworld Gate",
+      "category": "special",
+      "description": "开启通往冥界的通道",
+      "attribute": "death",
+      "famous_usage": [
+        {"weapon_id": "hades_bident", "description": "哈迪斯双叉戟能开启冥界之门"}
+      ]
+    },
+    {
+      "id": "chakra_throw",
+      "name_cn": "神轮投掷",
+      "name_en": "Chakra Throw",
+      "category": "special",
+      "description": "投掷神轮斩杀敌人后自动返回",
+      "famous_usage": [
+        {"weapon_id": "sudarshana_chakra", "description": "苏达尔善神轮的攻击方式"}
+      ]
+    },
+    {
+      "id": "cosmic_destruction",
+      "name_cn": "宇宙毁灭",
+      "name_en": "Cosmic Destruction",
+      "category": "special",
+      "description": "蕴含毁灭宇宙的力量",
+      "attribute": "chaos",
+      "famous_usage": [
+        {"weapon_id": "trishula", "description": "湿婆三叉戟的终极之力"},
+        {"weapon_id": "brahmastra", "description": "梵天神箭能毁灭一切"}
+      ]
+    },
+    {
+      "id": "vajra_strike",
+      "name_cn": "金刚杵击",
+      "name_en": "Vajra Strike",
+      "category": "elemental",
+      "description": "以金刚杵释放雷霆之力",
+      "attribute": "thunder",
+      "famous_usage": [
+        {"weapon_id": "vajra", "description": "因陀罗雷杵的标志性攻击"}
+      ]
+    },
+    {
+      "id": "immortal_slash",
+      "name_cn": "不朽斩击",
+      "name_en": "Immortal Slash",
+      "category": "special",
+      "description": "能够斩杀不死之物",
+      "famous_usage": []
+    },
+    {
+      "id": "curse",
+      "name_cn": "诅咒",
+      "name_en": "Curse",
+      "category": "special",
+      "description": "对敌人施加诅咒，降低其属性",
+      "attribute": "dark",
+      "famous_usage": [
+        {"weapon_id": "tyrfing", "description": "提尔锋被诅咒必沾主人之血"}
+      ]
+    },
+    {
+      "id": "light_emission",
+      "name_cn": "光芒释放",
+      "name_en": "Light Emission",
+      "category": "elemental",
+      "description": "释放耀眼光芒，照亮黑暗并伤害暗属性敌人",
+      "attribute": "light",
+      "famous_usage": [
+        {"weapon_id": "claomh_solais", "description": "光明之剑能照亮一切黑暗"}
+      ]
+    },
+    {
+      "id": "sacrifice",
+      "name_cn": "献祭",
+      "name_en": "Sacrifice",
+      "category": "special",
+      "description": "消耗自身生命换取强大力量",
+      "famous_usage": []
+    },
+    {
+      "id": "spirit_call",
+      "name_cn": "召唤亡灵",
+      "name_en": "Spirit Call",
+      "category": "special",
+      "description": "召唤死者的灵魂参战",
+      "attribute": "death",
+      "famous_usage": []
+    },
+    {
+      "id": "time_stop",
+      "name_cn": "时间停止",
+      "name_en": "Time Stop",
+      "category": "special",
+      "description": "短暂停止时间流动",
+      "attribute": "time_space",
+      "famous_usage": []
+    },
+    {
+      "id": "space_cut",
+      "name_cn": "空间斩",
+      "name_en": "Space Cut",
+      "category": "special",
+      "description": "斩断空间本身，无视距离攻击敌人",
+      "attribute": "time_space",
+      "famous_usage": []
+    },
+    {
+      "id": "auto_repair",
+      "name_cn": "自我修复",
+      "name_en": "Auto Repair",
+      "category": "passive",
+      "description": "武器能自动修复损伤",
+      "famous_usage": []
+    },
+    {
+      "id": "size_change",
+      "name_cn": "大小变化",
+      "name_en": "Size Change",
+      "category": "special",
+      "description": "武器能够改变大小",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "雷神之锤可缩小隐藏"}
+      ]
+    },
+    {
+      "id": "flight",
+      "name_cn": "飞行",
+      "name_en": "Flight",
+      "category": "special",
+      "description": "持有武器可以飞行",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "握住雷神之锤投掷可飞行"}
+      ]
+    },
+    {
+      "id": "worthy",
+      "name_cn": "资格",
+      "name_en": "Worthy",
+      "category": "passive",
+      "description": "只有被认定为有资格者才能举起此武器",
+      "famous_usage": [
+        {"weapon_id": "mjolnir", "description": "唯有配得上者方可举起妙尔尼尔"}
+      ]
+    },
+    {
+      "id": "sheath_power",
+      "name_cn": "鞘之力",
+      "name_en": "Sheath Power",
+      "category": "passive",
+      "description": "剑鞘具有特殊能力",
+      "famous_usage": [
+        {"weapon_id": "excalibur", "description": "Excalibur的鞘能使持有者不流血"}
+      ]
+    }
+  ]
+}

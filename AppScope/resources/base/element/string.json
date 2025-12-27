@@ -2,7 +2,11 @@
   "string": [
     {
       "name": "app_name",
-      "value": "LegendaryArmory"
+      "value": "神兵图录"
+    },
+    {
+      "name": "app_description",
+      "value": "一款聚焦全球传说兵器的图鉴类工具 App，提供神兵浏览、铸造传说、战斗模拟、知识挑战等功能"
     }
   ]
 }

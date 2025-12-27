@@ -1,10 +1,9 @@
 {
   "name": "entry",
   "version": "1.0.0",
-  "description": "Please describe the basic information.",
+  "description": "神兵图录主模块",
   "main": "",
   "author": "",
-  "license": "",
+  "license": "Apache-2.0",
   "dependencies": {}
 }
-

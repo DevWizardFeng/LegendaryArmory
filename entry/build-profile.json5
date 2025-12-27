@@ -1,9 +1,10 @@
 {
   "apiType": "stageMode",
   "buildOption": {
-    "resOptions": {
-      "copyCodeResource": {
-        "enable": false
+    "arkOptions": {
+      "runtimeOnly": {
+        "sources": [],
+        "packages": []
       }
     }
   },
@@ -13,21 +14,21 @@
       "arkOptions": {
         "obfuscation": {
           "ruleOptions": {
-            "enable": false,
+            "enable": true,
             "files": [
               "./obfuscation-rules.txt"
             ]
           }
         }
       }
-    },
+    }
   ],
   "targets": [
     {
       "name": "default"
     },
     {
-      "name": "ohosTest",
+      "name": "ohosTest"
     }
   ]
 }

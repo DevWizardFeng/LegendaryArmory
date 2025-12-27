@@ -2,7 +2,75 @@
   "color": [
     {
       "name": "start_window_background",
-      "value": "#FFFFFF"
+      "value": "#0a0a1a"
+    },
+    {
+      "name": "primary_background",
+      "value": "#0a0a1a"
+    },
+    {
+      "name": "secondary_background",
+      "value": "#1a1a2e"
+    },
+    {
+      "name": "rarity_artifact",
+      "value": "#ffd700"
+    },
+    {
+      "name": "rarity_legendary",
+      "value": "#9d4edd"
+    },
+    {
+      "name": "rarity_epic",
+      "value": "#4cc9f0"
+    },
+    {
+      "name": "rarity_rare",
+      "value": "#3cb371"
+    },
+    {
+      "name": "attribute_fire",
+      "value": "#ff4500"
+    },
+    {
+      "name": "attribute_water",
+      "value": "#1e90ff"
+    },
+    {
+      "name": "attribute_ice",
+      "value": "#00bfff"
+    },
+    {
+      "name": "attribute_thunder",
+      "value": "#9370db"
+    },
+    {
+      "name": "attribute_wind",
+      "value": "#7fffd4"
+    },
+    {
+      "name": "attribute_earth",
+      "value": "#8b4513"
+    },
+    {
+      "name": "attribute_light",
+      "value": "#ffd700"
+    },
+    {
+      "name": "attribute_dark",
+      "value": "#2f4f4f"
+    },
+    {
+      "name": "attribute_poison",
+      "value": "#228b22"
+    },
+    {
+      "name": "text_primary",
+      "value": "#ffffff"
+    },
+    {
+      "name": "text_secondary",
+      "value": "#b0b0b0"
     }
   ]
 }

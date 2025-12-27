@@ -2,15 +2,15 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "module description"
+      "value": "神兵图录主模块"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "description"
+      "value": "神兵图录入口"
     },
     {
       "name": "EntryAbility_label",
-      "value": "label"
+      "value": "神兵图录"
     }
   ]
 }

@@ -21,6 +21,13 @@ interface QuickEntry {
   type: 'culture' | 'weaponType' | 'attribute' | 'rarity'
 }
 
+/**
+ * 武器列表过滤器
+ */
+interface WeaponFilter {
+  filterType?: string
+}
+
 @Entry
 @Component
 struct Index {
@@ -53,14 +60,20 @@ struct Index {
 
       // 设置轮播数据（精选神器级别的武器）
       const artifacts = weapons.filter(w => w.rarity === 'artifact').slice(0, 5)
-      this.bannerItems = artifacts.map(w => ({
-        id: w.id,
-        title: w.name.zh,
-        subtitle: w.description.substring(0, 30) + '...',
-        image: w.image,
-        rarity: w.rarity,
-        type: 'weapon' as const
-      }))
+      const bannerList: BannerItem[] = []
+      for (let i = 0; i < artifacts.length; i++) {
+        const w = artifacts[i]
+        const item: BannerItem = {
+          id: w.id,
+          title: w.name.cn,
+          subtitle: w.description.substring(0, 30) + '...',
+          image: w.image,
+          rarity: w.rarity,
+          type: 'weapon'
+        }
+        bannerList.push(item)
+      }
+      this.bannerItems = bannerList
 
       // 设置推荐神兵（神器和传说级别）
       this.featuredWeapons = weapons
@@ -94,7 +107,7 @@ struct Index {
   /**
    * 跳转到神兵列表
    */
-  navigateToWeaponList(filter?: object): void {
+  navigateToWeaponList(filter?: WeaponFilter): void {
     router.pushUrl({
       url: RouterPath.WEAPON_LIST,
       params: filter
@@ -131,7 +144,7 @@ struct Index {
         Row() {
           SearchBar({
             placeholder: '搜索神兵、铸造师、典故...',
-            onFocus: () => this.navigateToSearch()
+            onSearchFocus: () => this.navigateToSearch()
           })
         }
         .width('100%')
@@ -324,7 +337,7 @@ struct Index {
 
       // 信息区域
       Column() {
-        Text(weapon.name.zh)
+        Text(weapon.name.cn)
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
           .fontColor(ThemeColors.TEXT_PRIMARY)

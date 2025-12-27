@@ -35,7 +35,9 @@ export struct FilterBar {
   // 获取文化选项
   private getCultureOptions(): FilterOption[] {
     const options: FilterOption[] = [{ key: '', label: '全部' }]
-    for (const key in CultureNames) {
+    const keys = Object.keys(CultureNames)
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i]
       options.push({ key: key, label: CultureNames[key] })
     }
     return options
@@ -44,7 +46,9 @@ export struct FilterBar {
   // 获取类型选项
   private getTypeOptions(): FilterOption[] {
     const options: FilterOption[] = [{ key: '', label: '全部' }]
-    for (const key in WeaponTypeNames) {
+    const keys = Object.keys(WeaponTypeNames)
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i]
       options.push({ key: key, label: WeaponTypeNames[key] })
     }
     return options
@@ -53,7 +57,9 @@ export struct FilterBar {
   // 获取属性选项
   private getAttributeOptions(): FilterOption[] {
     const options: FilterOption[] = [{ key: '', label: '全部' }]
-    for (const key in AttributeNames) {
+    const keys = Object.keys(AttributeNames)
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i]
       options.push({ key: key, label: AttributeNames[key], color: getAttributeColor(key) })
     }
     return options
@@ -62,7 +68,9 @@ export struct FilterBar {
   // 获取品质选项
   private getRarityOptions(): FilterOption[] {
     const options: FilterOption[] = [{ key: '', label: '全部' }]
-    for (const key in RarityNames) {
+    const keys = Object.keys(RarityNames)
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i]
       options.push({ key: key, label: RarityNames[key], color: getRarityColor(key) })
     }
     return options

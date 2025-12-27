@@ -24,8 +24,10 @@ export interface Blacksmith {
   era: string                   // 时代背景
   title: string                 // 称号
   description: string           // 简介
+  bio: string                   // 人物传记（兼容）
   legend: string                // 完整传说故事
   forging_technique: string     // 独特锻造技艺
+  techniques: string[]          // 技艺列表（兼容）
   masterworks: string[]         // 代表作品ID列表
   specialty: string             // 专长特色
   image: string                 // 图片文件名

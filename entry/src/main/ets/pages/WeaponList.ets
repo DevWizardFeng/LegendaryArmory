@@ -252,8 +252,8 @@ struct WeaponList {
           GridItem() {
             WeaponCard({
               weapon: weapon,
-              size: 'medium',
-              onClick: () => this.navigateToDetail(weapon.id)
+              cardSize: 'medium',
+              onCardClick: () => this.navigateToDetail(weapon.id)
             })
           }
         }, (weapon: LegendaryWeapon) => weapon.id)
@@ -279,8 +279,8 @@ struct WeaponList {
         ListItem() {
           WeaponCard({
             weapon: weapon,
-            size: 'small',
-            onClick: () => this.navigateToDetail(weapon.id)
+            cardSize: 'small',
+            onCardClick: () => this.navigateToDetail(weapon.id)
           })
         }
         .margin({ bottom: Spacing.MEDIUM })

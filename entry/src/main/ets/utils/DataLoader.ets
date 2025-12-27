@@ -3,6 +3,7 @@
  * 负责从 rawfile 加载 JSON 数据
  */
 
+import { util } from '@kit.ArkTS'
 import { LegendaryWeapon, WeaponsData } from '../model/LegendaryWeapon'
 import { Blacksmith, BlacksmithsData } from '../model/Blacksmith'
 import { Ability, AbilitiesData } from '../model/Ability'
@@ -36,7 +37,7 @@ export class DataLoader {
       return JSON.parse(jsonString) as T
     } catch (error) {
       console.error(`[DataLoader] 加载 ${fileName} 失败:`, error)
-      throw error
+      throw new Error(`加载 ${fileName} 失败`)
     }
   }
 
@@ -139,6 +140,3 @@ export class DataLoader {
     )
   }
 }
-
-// 导入 util 模块
-import { util } from '@kit.ArkTS'

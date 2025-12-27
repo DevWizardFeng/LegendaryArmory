@@ -1,0 +1,74 @@
+[
+  {
+    "id": "weapon_xuanyuan",
+    "name_cn": "轩辕剑",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "weapon_zhanlu",
+    "name_cn": "湛卢剑",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "weapon_ganjiang",
+    "name_cn": "干将剑",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "weapon_moye",
+    "name_cn": "莫邪剑",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "weapon_chixiao",
+    "name_cn": "赤霄剑",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "weapon_taie",
+    "name_cn": "泰阿剑",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "weapon_fangtian",
+    "name_cn": "方天画戟",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "weapon_qinglong",
+    "name_cn": "青龙偃月刀",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "blacksmith_ouye",
+    "name_cn": "欧冶子",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "blacksmith_ganjiang",
+    "name_cn": "干将莫邪",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "blacksmith_fenghuzi",
+    "name_cn": "风胡子",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "blacksmith_jiang_ziya",
+    "name_cn": "姜子牙",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  }
+]

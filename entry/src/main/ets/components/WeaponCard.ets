@@ -18,13 +18,13 @@ export type CardSize = 'small' | 'medium' | 'large'
 @Component
 export struct WeaponCard {
   @Prop weapon: LegendaryWeapon
-  @Prop size: CardSize = 'medium'
-  private onClick?: () => void
+  @Prop cardSize: CardSize = 'medium'
+  private onCardClick?: () => void
 
   build() {
-    if (this.size === 'large') {
+    if (this.cardSize === 'large') {
       this.LargeCard()
-    } else if (this.size === 'small') {
+    } else if (this.cardSize === 'small') {
       this.SmallCard()
     } else {
       this.MediumCard()
@@ -58,7 +58,7 @@ export struct WeaponCard {
 
       // 信息区域
       Column() {
-        Text(this.weapon.name.zh)
+        Text(this.weapon.name.cn)
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
           .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -101,8 +101,8 @@ export struct WeaponCard {
       color: getRarityColor(this.weapon.rarity)
     })
     .onClick(() => {
-      if (this.onClick) {
-        this.onClick()
+      if (this.onCardClick) {
+        this.onCardClick()
       }
     })
   }
@@ -122,7 +122,7 @@ export struct WeaponCard {
 
       // 信息
       Column() {
-        Text(this.weapon.name.zh)
+        Text(this.weapon.name.cn)
           .fontSize(FontSizes.BODY_SMALL)
           .fontWeight(FontWeight.Medium)
           .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -154,8 +154,8 @@ export struct WeaponCard {
       color: ThemeColors.DIVIDER
     })
     .onClick(() => {
-      if (this.onClick) {
-        this.onClick()
+      if (this.onCardClick) {
+        this.onCardClick()
       }
     })
   }
@@ -208,7 +208,7 @@ export struct WeaponCard {
       // 信息区域
       Column() {
         Row() {
-          Text(this.weapon.name.zh)
+          Text(this.weapon.name.cn)
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
             .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -245,8 +245,8 @@ export struct WeaponCard {
       color: getRarityColor(this.weapon.rarity)
     })
     .onClick(() => {
-      if (this.onClick) {
-        this.onClick()
+      if (this.onCardClick) {
+        this.onCardClick()
       }
     })
   }

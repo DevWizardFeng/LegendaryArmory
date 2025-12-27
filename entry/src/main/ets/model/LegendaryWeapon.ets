@@ -28,6 +28,7 @@ export interface WeaponStats {
   defense: number   // 防御力 1-100
   speed: number     // 速度 1-100
   weight: number    // 重量（kg）
+  critical?: number // 暴击率 1-100（可选）
 }
 
 /**

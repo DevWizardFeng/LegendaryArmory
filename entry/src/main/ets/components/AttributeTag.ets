@@ -17,9 +17,9 @@ export type TagSize = 'small' | 'medium' | 'large'
 @Component
 export struct AttributeTag {
   @Prop attribute: string = ''
-  @Prop size: TagSize = 'medium'
+  @Prop tagSize: TagSize = 'medium'
   @Prop showIcon: boolean = true
-  private onClick?: () => void
+  private onTagClick?: () => void
 
   build() {
     Row() {
@@ -29,14 +29,14 @@ export struct AttributeTag {
           .width(this.getIconSize())
           .height(this.getIconSize())
           .fillColor(getAttributeColor(this.attribute))
-          .margin({ right: this.size === 'small' ? 2 : Spacing.TINY })
+          .margin({ right: this.tagSize === 'small' ? 2 : Spacing.TINY })
       }
 
       // 属性名称
       Text(AttributeNames[this.attribute] || this.attribute)
         .fontSize(this.getFontSize())
         .fontColor(getAttributeColor(this.attribute))
-        .fontWeight(this.size === 'large' ? FontWeight.Bold : FontWeight.Normal)
+        .fontWeight(this.tagSize === 'large' ? FontWeight.Bold : FontWeight.Normal)
     }
     .padding(this.getPadding())
     .backgroundColor('rgba(0,0,0,0.3)')
@@ -46,8 +46,8 @@ export struct AttributeTag {
       color: getAttributeColor(this.attribute)
     })
     .onClick(() => {
-      if (this.onClick) {
-        this.onClick()
+      if (this.onTagClick) {
+        this.onTagClick()
       }
     })
   }
@@ -79,7 +79,7 @@ export struct AttributeTag {
    * 获取图标尺寸
    */
   private getIconSize(): number {
-    switch (this.size) {
+    switch (this.tagSize) {
       case 'small': return 12
       case 'large': return 20
       default: return 16
@@ -90,7 +90,7 @@ export struct AttributeTag {
    * 获取字体大小
    */
   private getFontSize(): number {
-    switch (this.size) {
+    switch (this.tagSize) {
       case 'small': return FontSizes.SMALL
       case 'large': return FontSizes.BODY
       default: return FontSizes.BODY_SMALL
@@ -101,7 +101,7 @@ export struct AttributeTag {
    * 获取内边距
    */
   private getPadding(): Padding {
-    switch (this.size) {
+    switch (this.tagSize) {
       case 'small':
         return { left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 }
       case 'large':
@@ -115,7 +115,7 @@ export struct AttributeTag {
    * 获取圆角
    */
   private getBorderRadius(): number {
-    switch (this.size) {
+    switch (this.tagSize) {
       case 'small': return 4
       case 'large': return 8
       default: return 6

@@ -46,7 +46,7 @@ struct WeaponDetail {
       await this.storageManager.init()
 
       // 加载神兵数据
-      this.weapon = await this.dataLoader.getWeaponById(weaponId)
+      this.weapon = await this.dataLoader.getWeaponById(weaponId) || null
 
       // 检查收藏状态
       this.isFavorite = await this.storageManager.isFavorite(weaponId)
@@ -285,7 +285,7 @@ struct WeaponDetail {
           })
 
         // 中文名
-        Text(this.weapon!.name.zh)
+        Text(this.weapon!.name.cn)
           .fontSize(FontSizes.TITLE_LARGE)
           .fontWeight(FontWeight.Bold)
           .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -320,11 +320,11 @@ struct WeaponDetail {
 
       // 属性标签
       Row() {
-        AttributeTag({ attribute: this.weapon!.attributes.primary, size: 'large', showIcon: true })
+        AttributeTag({ attribute: this.weapon!.attributes.primary, tagSize: 'large', showIcon: true })
         if (this.weapon!.attributes.secondary) {
           AttributeTag({
             attribute: this.weapon!.attributes.secondary,
-            size: 'large',
+            tagSize: 'large',
             showIcon: true
           })
             .margin({ left: Spacing.SMALL })
@@ -385,7 +385,7 @@ struct WeaponDetail {
         this.StatItem('攻击', this.weapon!.stats.attack, ThemeColors.ERROR)
         this.StatItem('防御', this.weapon!.stats.defense, ThemeColors.INFO)
         this.StatItem('速度', this.weapon!.stats.speed, ThemeColors.SUCCESS)
-        this.StatItem('暴击', this.weapon!.stats.critical, ThemeColors.WARNING)
+        this.StatItem('暴击', this.weapon!.stats.critical || 0, ThemeColors.WARNING)
       }
       .width('100%')
       .justifyContent(FlexAlign.SpaceAround)
@@ -598,7 +598,7 @@ struct WeaponDetail {
         .borderRadius({ topLeft: Spacing.SMALL, topRight: Spacing.SMALL })
 
       Column() {
-        Text(weapon.name.zh)
+        Text(weapon.name.cn)
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(ThemeColors.TEXT_PRIMARY)
           .maxLines(1)

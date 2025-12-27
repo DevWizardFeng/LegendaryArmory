@@ -75,9 +75,9 @@ struct Mine {
 
       // 加载历史
       const history = await this.storageManager.getHistory()
-      this.historyWeapons = history
+      this.historyWeapons = (history
         .map((h: HistoryItem) => allWeapons.find(w => w.id === h.weapon_id))
-        .filter((w): w is LegendaryWeapon => w !== undefined)
+        .filter((w) => w !== undefined) as LegendaryWeapon[])
         .slice(0, 20)
     } catch (error) {
       console.error('[Mine] 刷新数据失败:', error)
@@ -407,7 +407,7 @@ struct Mine {
       // 信息
       Column() {
         Row() {
-          Text(weapon.name.zh)
+          Text(weapon.name.cn)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
             .fontColor(ThemeColors.TEXT_PRIMARY)

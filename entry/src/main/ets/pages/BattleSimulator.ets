@@ -30,6 +30,50 @@ interface BattleDetail {
   rightDamage: number
 }
 
+/**
+ * 品质加成配置
+ */
+class RarityBonus {
+  artifact: number = 50
+  legendary: number = 30
+  epic: number = 15
+  rare: number = 5
+
+  getBonus(rarity: string): number {
+    if (rarity === 'artifact') return this.artifact
+    if (rarity === 'legendary') return this.legendary
+    if (rarity === 'epic') return this.epic
+    if (rarity === 'rare') return this.rare
+    return 0
+  }
+}
+
+/**
+ * 属性相克配置
+ */
+class AttributeAdvantages {
+  fire: string[] = ['ice', 'nature']
+  water: string[] = ['fire', 'earth']
+  ice: string[] = ['wind', 'nature']
+  thunder: string[] = ['water', 'wind']
+  wind: string[] = ['earth', 'poison']
+  earth: string[] = ['thunder', 'fire']
+  light: string[] = ['dark', 'death']
+  dark: string[] = ['light', 'nature']
+
+  getAdvantages(attr: string): string[] {
+    if (attr === 'fire') return this.fire
+    if (attr === 'water') return this.water
+    if (attr === 'ice') return this.ice
+    if (attr === 'thunder') return this.thunder
+    if (attr === 'wind') return this.wind
+    if (attr === 'earth') return this.earth
+    if (attr === 'light') return this.light
+    if (attr === 'dark') return this.dark
+    return []
+  }
+}
+
 @Entry
 @Component
 struct BattleSimulator {
@@ -120,13 +164,13 @@ struct BattleSimulator {
     const right = this.rightWeapon!
 
     // 基础分数（基于属性）
-    let leftScore = left.stats.attack + left.stats.defense + left.stats.speed + left.stats.critical
-    let rightScore = right.stats.attack + right.stats.defense + right.stats.speed + right.stats.critical
+    let leftScore = left.stats.attack + left.stats.defense + left.stats.speed + (left.stats.critical || 0)
+    let rightScore = right.stats.attack + right.stats.defense + right.stats.speed + (right.stats.critical || 0)
 
     // 品质加成
-    const rarityBonus: Record<string, number> = { artifact: 50, legendary: 30, epic: 15, rare: 5 }
-    leftScore += rarityBonus[left.rarity] || 0
-    rightScore += rarityBonus[right.rarity] || 0
+    let rarityBonus = new RarityBonus()
+    leftScore += rarityBonus.getBonus(left.rarity)
+    rightScore += rarityBonus.getBonus(right.rarity)
 
     // 属性相克
     const attributeAdvantage = this.checkAttributeAdvantage(left.attributes.primary, right.attributes.primary)
@@ -137,21 +181,21 @@ struct BattleSimulator {
     const details: BattleDetail[] = [
       {
         round: 1,
-        description: `${left.name.zh}发动攻击!`,
+        description: `${left.name.cn}发动攻击!`,
         leftDamage: Math.floor(left.stats.attack * (0.8 + Math.random() * 0.4)),
         rightDamage: 0
       },
       {
         round: 2,
-        description: `${right.name.zh}反击!`,
+        description: `${right.name.cn}反击!`,
         leftDamage: 0,
         rightDamage: Math.floor(right.stats.attack * (0.8 + Math.random() * 0.4))
       },
       {
         round: 3,
         description: '双方激烈交锋!',
-        leftDamage: Math.floor(left.stats.critical * 0.5),
-        rightDamage: Math.floor(right.stats.critical * 0.5)
+        leftDamage: Math.floor((left.stats.critical || 0) * 0.5),
+        rightDamage: Math.floor((right.stats.critical || 0) * 0.5)
       }
     ]
 
@@ -174,19 +218,10 @@ struct BattleSimulator {
    */
   checkAttributeAdvantage(leftAttr: string, rightAttr: string): 'left' | 'right' | 'none' {
     // 简化的属性相克规则
-    const advantages: Record<string, string[]> = {
-      fire: ['ice', 'nature'],
-      water: ['fire', 'earth'],
-      ice: ['wind', 'nature'],
-      thunder: ['water', 'wind'],
-      wind: ['earth', 'poison'],
-      earth: ['thunder', 'fire'],
-      light: ['dark', 'death'],
-      dark: ['light', 'nature']
-    }
+    let advantages = new AttributeAdvantages()
 
-    if (advantages[leftAttr]?.includes(rightAttr)) return 'left'
-    if (advantages[rightAttr]?.includes(leftAttr)) return 'right'
+    if (advantages.getAdvantages(leftAttr).includes(rightAttr)) return 'left'
+    if (advantages.getAdvantages(rightAttr).includes(leftAttr)) return 'right'
     return 'none'
   }
 
@@ -208,7 +243,7 @@ struct BattleSimulator {
     if (!this.searchText) return this.allWeapons
     const query = this.searchText.toLowerCase()
     return this.allWeapons.filter(w =>
-      w.name.zh.toLowerCase().includes(query) ||
+      w.name.cn.toLowerCase().includes(query) ||
       (CultureNames[w.culture] || '').includes(query)
     )
   }
@@ -392,7 +427,7 @@ struct BattleSimulator {
         }
         .width('100%')
 
-        Text(weapon.name.zh)
+        Text(weapon.name.cn)
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
           .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -449,7 +484,7 @@ struct BattleSimulator {
     Column() {
       // 结果标题
       Text(this.battleResult!.winner === 'draw' ? '势均力敌!' :
-           (this.battleResult!.winner === 'left' ? `${this.leftWeapon!.name.zh} 胜出!` : `${this.rightWeapon!.name.zh} 胜出!`))
+           (this.battleResult!.winner === 'left' ? `${this.leftWeapon!.name.cn} 胜出!` : `${this.rightWeapon!.name.cn} 胜出!`))
         .fontSize(FontSizes.SUBTITLE)
         .fontWeight(FontWeight.Bold)
         .fontColor(this.battleResult!.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS)
@@ -547,7 +582,7 @@ struct BattleSimulator {
                 .borderRadius(Spacing.SMALL)
 
               Column() {
-                Text(weapon.name.zh)
+                Text(weapon.name.cn)
                   .fontSize(FontSizes.BODY)
                   .fontColor(ThemeColors.TEXT_PRIMARY)
 

@@ -44,6 +44,7 @@ export interface QuizRecord {
   correct: number        // 正确数
   total: number          // 总题数
   combo: number          // 最高连击
+  max_combo: number      // 最高连击（兼容）
   time: number           // 用时（秒）
   rank: RankTier         // 段位
   timestamp: number      // 时间戳

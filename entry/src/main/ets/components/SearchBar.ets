@@ -13,7 +13,7 @@ export struct SearchBar {
   @Prop placeholder: string = '搜索神兵、铸造师、典故...'
   @Prop showHotSearch: boolean = false
   private onSearch?: (keyword: string) => void
-  private onFocus?: () => void
+  private onSearchFocus?: () => void
   @State searchText: string = ''
   @State isFocused: boolean = false
 
@@ -50,8 +50,8 @@ export struct SearchBar {
           })
           .onFocus(() => {
             this.isFocused = true
-            if (this.onFocus) {
-              this.onFocus()
+            if (this.onSearchFocus) {
+              this.onSearchFocus()
             }
           })
           .onBlur(() => {

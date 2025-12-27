@@ -38,7 +38,7 @@ struct BlacksmithDetail {
   async loadData(blacksmithId: string): Promise<void> {
     try {
       this.dataLoader = new DataLoader(getContext(this))
-      this.blacksmith = await this.dataLoader.getBlacksmithById(blacksmithId)
+      this.blacksmith = await this.dataLoader.getBlacksmithById(blacksmithId) || null
 
       // 加载代表作品
       if (this.blacksmith?.masterworks && this.blacksmith.masterworks.length > 0) {
@@ -190,7 +190,7 @@ struct BlacksmithDetail {
   HeaderSection() {
     Column() {
       // 背景和头像
-      Stack({ alignContent: Alignment.BottomCenter }) {
+      Stack({ alignContent: Alignment.Bottom }) {
         // 背景渐变
         Column()
           .width('100%')
@@ -219,7 +219,7 @@ struct BlacksmithDetail {
 
       // 名称和称号
       Column() {
-        Text(this.blacksmith!.name)
+        Text(this.blacksmith!.name.cn)
           .fontSize(FontSizes.TITLE)
           .fontWeight(FontWeight.Bold)
           .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -263,7 +263,7 @@ struct BlacksmithDetail {
     Column() {
       this.SectionTitle('人物简介')
 
-      Text(this.blacksmith!.bio)
+      Text(this.blacksmith!.bio || this.blacksmith!.description)
         .fontSize(FontSizes.BODY)
         .fontColor(ThemeColors.TEXT_SECONDARY)
         .lineHeight(24)
@@ -300,11 +300,11 @@ struct BlacksmithDetail {
    */
   @Builder
   TechniquesSection() {
-    if (this.blacksmith!.techniques && this.blacksmith!.techniques.length > 0) {
+    if ((this.blacksmith?.techniques || []).length > 0) {
       Column() {
         this.SectionTitle('铸造技法')
 
-        ForEach(this.blacksmith!.techniques, (technique: string, index: number) => {
+        ForEach(this.blacksmith?.techniques || [], (technique: string, index: number) => {
           Row() {
             Column() {
               Text((index + 1).toString())
@@ -393,7 +393,7 @@ struct BlacksmithDetail {
       // 信息
       Column() {
         Row() {
-          Text(weapon.name.zh)
+          Text(weapon.name.cn)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Bold)
             .fontColor(ThemeColors.TEXT_PRIMARY)

@@ -36,7 +36,7 @@ export class StorageManager {
       this.dataPreferences = await preferences.getPreferences(this.context, PREFERENCES_NAME)
     } catch (error) {
       console.error('[Storage] 初始化存储失败:', error)
-      throw error
+      throw new Error('初始化存储失败')
     }
   }
 

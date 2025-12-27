@@ -1,0 +1,450 @@
+[
+  {
+    "id": "weapon_zhanlu",
+    "name_cn": "湛卢剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_zhanlu.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_ganjiang",
+    "name_cn": "干将剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_ganjiang.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_moye",
+    "name_cn": "莫邪剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_moye.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_chixiao",
+    "name_cn": "赤霄剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_chixiao.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_taie",
+    "name_cn": "泰阿剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_taie.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_fangtian",
+    "name_cn": "方天画戟",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_fangtian.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_qinglong",
+    "name_cn": "青龙偃月刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_qinglong.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_kusanagi",
+    "name_cn": "草薙剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_kusanagi.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_mikazuki",
+    "name_cn": "三日月宗近",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_mikazuki.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_muramasa",
+    "name_cn": "妖刀村正",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_muramasa.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_dojigiri",
+    "name_cn": "童子切安纲",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_dojigiri.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_mjolnir",
+    "name_cn": "雷神之锤",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_mjolnir.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_gungnir",
+    "name_cn": "永恒之枪",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_gungnir.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_gram",
+    "name_cn": "格拉墨",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_gram.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_tyrfing",
+    "name_cn": "提尔锋",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_tyrfing.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_excalibur",
+    "name_cn": "王者之剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_excalibur.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_durandal",
+    "name_cn": "杜兰达尔",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_durandal.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_joyeuse",
+    "name_cn": "欢喜剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_joyeuse.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_caliburn",
+    "name_cn": "卡利伯恩",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_caliburn.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_longinus",
+    "name_cn": "朗基努斯之枪",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_longinus.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_zeus_thunderbolt",
+    "name_cn": "宙斯雷霆",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_zeus_thunderbolt.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_poseidon_trident",
+    "name_cn": "波塞冬三叉戟",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_poseidon_trident.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_hades_bident",
+    "name_cn": "哈迪斯双叉戟",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_hades_bident.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_trishula",
+    "name_cn": "湿婆三叉戟",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_trishula.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_sudarshana",
+    "name_cn": "苏达尔善神轮",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_sudarshana.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_vajra",
+    "name_cn": "金刚杵",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_vajra.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_claomh_solais",
+    "name_cn": "光明之剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_claomh_solais.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_gae_bolg",
+    "name_cn": "贯穿死棘之枪",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_gae_bolg.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_fragarach",
+    "name_cn": "应答者",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_fragarach.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_zulfiqar",
+    "name_cn": "佐勒菲卡尔",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_zulfiqar.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_was",
+    "name_cn": "沃斯权杖",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_was.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_khopesh",
+    "name_cn": "科佩什弯刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_khopesh.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_macuahuitl",
+    "name_cn": "马克胡特尔",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_macuahuitl.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_assegai",
+    "name_cn": "祖鲁短矛",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_assegai.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_shamshir",
+    "name_cn": "绿宝石神剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_shamshir.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_ouye",
+    "name_cn": "欧冶子",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_ouye.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_ganjiang",
+    "name_cn": "干将莫邪",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_ganjiang.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_fenghuzi",
+    "name_cn": "风胡子",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_fenghuzi.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_jiang_ziya",
+    "name_cn": "姜子牙",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_jiang_ziya.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_masamune",
+    "name_cn": "冈崎正宗",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_masamune.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_muramasa",
+    "name_cn": "千子村正",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_muramasa.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_amatsumara",
+    "name_cn": "天目一箇神",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_amatsumara.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_munechika",
+    "name_cn": "三条宗近",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_munechika.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_yasutsuna",
+    "name_cn": "大原安纲",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_yasutsuna.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_nagamitsu",
+    "name_cn": "长船长光",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_nagamitsu.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_kunihiro",
+    "name_cn": "堀川国广",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_kunihiro.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_kanemitsu",
+    "name_cn": "长船兼光",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_kanemitsu.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_sadamune",
+    "name_cn": "相州贞宗",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_sadamune.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_hephaestus",
+    "name_cn": "赫菲斯托斯",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_hephaestus.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_brokk_sindri",
+    "name_cn": "布洛克与辛德里",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_brokk_sindri.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_ivaldi_sons",
+    "name_cn": "伊瓦尔迪之子",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_ivaldi_sons.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_wayland",
+    "name_cn": "维兰德",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_wayland.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_st_dunstan",
+    "name_cn": "圣丹斯坦",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_st_dunstan.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_tubal_cain",
+    "name_cn": "土八该隐",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_tubal_cain.png",
+    "tokens": 16384
+  },
+  {
+    "id": "blacksmith_vishvakarma",
+    "name_cn": "毗首羯磨",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/blacksmith_vishvakarma.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_home",
+    "name_cn": "首页背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_home.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_weapon_list",
+    "name_cn": "武器列表背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_weapon_list.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_weapon_detail",
+    "name_cn": "武器详情背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_weapon_detail.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_blacksmith",
+    "name_cn": "铸造师背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_blacksmith.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_quiz",
+    "name_cn": "答题背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_quiz.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_battle",
+    "name_cn": "对战背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_battle.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_divination",
+    "name_cn": "占卜背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_divination.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_culture_chinese",
+    "name_cn": "中国文化背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_culture_chinese.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_culture_japanese",
+    "name_cn": "日本文化背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_culture_japanese.png",
+    "tokens": 16384
+  }
+]

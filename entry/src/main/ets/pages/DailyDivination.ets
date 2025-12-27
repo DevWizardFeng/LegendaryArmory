@@ -261,7 +261,7 @@ struct DailyDivination {
         // 神兵卡片
         Column() {
           // 图片
-          Stack({ alignContent: Alignment.BottomCenter }) {
+          Stack({ alignContent: Alignment.Bottom }) {
             Image($rawfile(`images/${this.selectedWeapon!.image}`))
               .width('100%')
               .height(200)
@@ -291,7 +291,7 @@ struct DailyDivination {
               .borderRadius(4)
 
             // 名称
-            Text(this.selectedWeapon!.name.zh)
+            Text(this.selectedWeapon!.name.cn)
               .fontSize(FontSizes.TITLE)
               .fontWeight(FontWeight.Bold)
               .fontColor(ThemeColors.TEXT_PRIMARY)

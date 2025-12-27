@@ -201,7 +201,7 @@ struct BlacksmithList {
       // 信息
       Column() {
         // 名称
-        Text(blacksmith.name)
+        Text(blacksmith.name.cn)
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
           .fontColor(ThemeColors.TEXT_PRIMARY)

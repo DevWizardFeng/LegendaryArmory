@@ -93,7 +93,7 @@ struct CultureList {
           .fillColor(ThemeColors.TEXT_PRIMARY)
           .onClick(() => this.goBack())
 
-        Text(this.selectedCulture ? this.selectedCulture.name : '文化体系')
+        Text(this.selectedCulture ? this.selectedCulture.name_cn : '文化体系')
           .fontSize(FontSizes.SUBTITLE)
           .fontWeight(FontWeight.Bold)
           .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -167,7 +167,7 @@ struct CultureList {
       Row() {
         // 图标
         Column() {
-          Text(culture.name.substring(0, 1))
+          Text(culture.name_cn.substring(0, 1))
             .fontSize(FontSizes.TITLE)
             .fontColor(ThemeColors.ACCENT)
             .fontWeight(FontWeight.Bold)
@@ -180,7 +180,7 @@ struct CultureList {
 
         // 信息
         Column() {
-          Text(culture.name)
+          Text(culture.name_cn)
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
             .fontColor(ThemeColors.TEXT_PRIMARY)
@@ -207,7 +207,7 @@ struct CultureList {
       .width('100%')
 
       // 描述
-      Text(culture.description)
+      Text(culture.description || culture.background)
         .fontSize(FontSizes.BODY_SMALL)
         .fontColor(ThemeColors.TEXT_SECONDARY)
         .maxLines(2)
@@ -216,9 +216,9 @@ struct CultureList {
         .lineHeight(20)
 
       // 特色标签
-      if (culture.characteristics && culture.characteristics.length > 0) {
+      if ((culture.characteristics || []).length > 0) {
         Flex({ wrap: FlexWrap.Wrap }) {
-          ForEach(culture.characteristics.slice(0, 3), (char: string) => {
+          ForEach((culture.characteristics || []).slice(0, 3), (char: string) => {
             Text(char)
               .fontSize(FontSizes.SMALL)
               .fontColor(ThemeColors.TEXT_SECONDARY)
@@ -273,7 +273,7 @@ struct CultureList {
       // 头部信息
       Row() {
         Column() {
-          Text(this.selectedCulture!.name.substring(0, 1))
+          Text(this.selectedCulture!.name_cn.substring(0, 1))
             .fontSize(32)
             .fontColor(ThemeColors.ACCENT)
             .fontWeight(FontWeight.Bold)
@@ -400,7 +400,7 @@ struct CultureList {
       // 信息
       Column() {
         Row() {
-          Text(weapon.name.zh)
+          Text(weapon.name.cn)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
             .fontColor(ThemeColors.TEXT_PRIMARY)

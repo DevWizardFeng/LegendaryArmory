@@ -93,8 +93,15 @@ export class DataLoader {
    * 加载专题数据
    */
   async loadTopics(): Promise<Topic[]> {
-    const data = await this.loadJsonFile<TopicsData>('topics.json')
-    return data.topics
+    try {
+      console.info('[DataLoader] 开始加载topics.json')
+      const data = await this.loadJsonFile<TopicsData>('topics.json')
+      console.info('[DataLoader] topics.json加载成功, 数量:', data?.topics?.length || 0)
+      return data.topics || []
+    } catch (error) {
+      console.error('[DataLoader] 加载topics.json失败:', JSON.stringify(error))
+      return []
+    }
   }
 
   /**

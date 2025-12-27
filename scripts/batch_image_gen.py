@@ -47,7 +47,7 @@ HARMONY_MEDIA_DIR = PROJECT_ROOT / "entry" / "src" / "main" / "resources" / "bas
 LOG_DIR = Path(__file__).parent / "logs"
 
 # 支持的文化分类
-CULTURES = ["chinese", "greek", "norse", "japanese", "indian", "egyptian", "celtic", "icon", "background", "topic"]
+CULTURES = ["chinese", "greek", "norse", "japanese", "indian", "egyptian", "celtic", "medieval_europe", "persian", "arabian", "african", "mesoamerican", "icon", "background", "topic"]
 
 
 def setup_logging():
@@ -260,7 +260,11 @@ async def batch_generate(
     """
     semaphore = asyncio.Semaphore(max_concurrent)
 
-    connector = aiohttp.TCPConnector(limit=max_concurrent, limit_per_host=max_concurrent)
+    connector = aiohttp.TCPConnector(
+        limit=max_concurrent, 
+        limit_per_host=max_concurrent,
+        ssl=False  # 禁用SSL验证
+    )
     async with aiohttp.ClientSession(connector=connector) as session:
         tasks = [
             generate_image_async(session, prompt, output_dir, semaphore, max_retries)

@@ -444,6 +444,20 @@
       "prompt": "A minimalist battle simulation icon on pure black background, two crossed legendary swords clashing with sparks and energy waves, golden and fiery orange colors, epic combat theme, clean vector style, centered composition, no text, flat design icon for mobile app"
     },
     {
+      "id": "icon_topic",
+      "name_cn": "专题故事图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist story book icon on pure black background, elegant ancient scroll with Chinese text patterns and phoenix feather decoration, golden metallic finish with warm amber glow, legendary tales theme, clean vector style, centered composition, no text, flat design icon for mobile app"
+    },
+    {
+      "id": "icon_blacksmith",
+      "name_cn": "铸造大师图标",
+      "culture": "icon",
+      "size": "2048x2048",
+      "prompt": "A minimalist master blacksmith icon on pure black background, crossed hammer and tongs with anvil silhouette, forge sparks and flame elements, golden and orange metallic finish, ancient craftsmanship theme, clean vector style, centered composition, no text, flat design icon for mobile app"
+    },
+    {
       "id": "topic_chinese_swords",
       "name_cn": "中国十大名剑传奇",
       "culture": "topic",
@@ -490,6 +504,84 @@
       "name_cn": "古代铸剑术揭秘",
       "culture": "topic",
       "prompt": "Ancient sword forging techniques masterpiece, glowing red hot blade on anvil, master blacksmith hands with hammer, molten metal and sparks, traditional forge with bellows, tools hanging on stone walls, cross-section diagram of Damascus steel layers"
+    },
+    {
+      "id": "weapon_qixing_longyuan",
+      "name_cn": "七星龙渊",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese sword called Qixing Longyuan (Seven Star Dragon Abyss), deep blue-black blade with seven star constellation pattern embedded, looking into blade like gazing into an endless abyss, dragon coiling within, silver and dark blue colors, mystical water element aura, ancient Chinese craftsmanship"
+    },
+    {
+      "id": "weapon_juque",
+      "name_cn": "巨阙剑",
+      "culture": "chinese",
+      "prompt": "A legendary massive Chinese sword called Juque (Giant Gate), extraordinarily wide blade like a shield, ancient bronze and dark metal, heavy and powerful appearance, can cut through any armor, supreme warrior's weapon, dark imposing aura"
+    },
+    {
+      "id": "weapon_chunjun",
+      "name_cn": "纯钧剑",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese sword called Chunjun (Pure Balance), blade surface like lotus emerging from water, pearl-like patterns reflecting sunlight, most elegant and noble sword, silver and jade green colors, ethereal beauty, supreme craftsmanship by Ou Yezi"
+    },
+    {
+      "id": "weapon_chengying",
+      "name_cn": "承影剑",
+      "culture": "chinese",
+      "prompt": "A legendary ethereal Chinese sword called Chengying (Shadow Catcher), translucent blade that is nearly invisible, only visible by catching light and shadows, ghostly silver appearance, Shang dynasty imperial treasure, mystical phantom-like quality"
+    },
+    {
+      "id": "weapon_yuchang",
+      "name_cn": "鱼肠剑",
+      "culture": "chinese",
+      "prompt": "A legendary short Chinese dagger called Yuchang (Fish Intestine), small enough to hide in a fish belly, assassin's blade, curved compact design, dark steel with subtle wave patterns, deadly precision, Spring and Autumn period assassin legend"
+    },
+    {
+      "id": "weapon_onimaru",
+      "name_cn": "鬼丸国纲",
+      "culture": "japanese",
+      "prompt": "A legendary Japanese katana called Onimaru Kunitsuna (Demon Slayer), one of Five Swords Under Heaven, blade with demon-cutting power, silver steel with ancient hamon pattern, spiritual sword that drives away evil, Kamakura period national treasure, ghostly blue aura"
+    },
+    {
+      "id": "weapon_clarent",
+      "name_cn": "克拉伦特",
+      "culture": "medieval_europe",
+      "prompt": "A legendary medieval sword called Clarent, King Arthur's ceremonial sword of peace and knighting, elegant silver blade with royal engravings, golden crossguard with crown motif, stolen by Mordred for betrayal, bloodstained tragic sword, Camelot royal treasure"
+    },
+    {
+      "id": "weapon_curtana",
+      "name_cn": "慈悲之剑",
+      "culture": "medieval_europe",
+      "prompt": "A legendary medieval sword called Curtana the Sword of Mercy, distinctive blunt squared tip symbolizing mercy, British coronation sword, golden hilt with royal jewels, Crown Jewels of United Kingdom, Tristan's legendary blade, ceremonial and noble"
+    },
+    {
+      "id": "weapon_laevateinn",
+      "name_cn": "莱瓦汀",
+      "culture": "norse",
+      "prompt": "A legendary Norse flaming sword called Laevateinn (Wounding Wand), Loki's crafted weapon, blade engulfed in magical flames, wielded by fire giant Surtr at Ragnarok, runic inscriptions glowing, destruction and chaos incarnate, apocalyptic fire aura"
+    },
+    {
+      "id": "weapon_achilles_shield",
+      "name_cn": "阿喀琉斯之盾",
+      "culture": "greek",
+      "prompt": "The legendary Shield of Achilles forged by Hephaestus, massive circular shield with five concentric rings, depicting the cosmos sun moon stars, two cities at war and peace, agricultural scenes, River Oceanus on outer rim, bronze and gold, divine Greek craftsmanship, microcosm of the world"
+    },
+    {
+      "id": "weapon_goujian",
+      "name_cn": "越王勾践剑",
+      "culture": "chinese",
+      "prompt": "The authentic archaeological Sword of Goujian King of Yue, 55.7cm bronze sword with black diamond rhombus patterns on blade, turquoise and blue glass inlays on guard, 11 concentric circles on pommel, bird-script inscription, 2500 years old yet still razor sharp, museum exhibit lighting, photorealistic ancient artifact"
+    },
+    {
+      "id": "weapon_fuchai",
+      "name_cn": "吴王夫差剑",
+      "culture": "chinese",
+      "prompt": "The authentic archaeological Sword of King Fuchai of Wu, 58.3cm bronze sword with mysterious blue patina, green turquoise beast mask inlays on guard, diamond pattern on blade, 10-character bird-script inscription, Spring and Autumn period masterpiece, museum quality, ancient bronze weapon"
+    },
+    {
+      "id": "weapon_qin_bronze",
+      "name_cn": "秦青铜剑",
+      "culture": "chinese",
+      "prompt": "Authentic Qin Dynasty Terracotta Army bronze sword, chromium oxide protective coating still gleaming after 2000 years, long straight blade with central ridge, bronze and dark green patina, advanced ancient metallurgy, archaeological artifact, museum exhibit quality"
     }
   ]
 }

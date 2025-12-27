@@ -696,11 +696,14 @@ struct TopicContent {
   async loadData(): Promise<void> {
     try {
       this.dataLoader = new DataLoader(getContext(this))
-      this.topics = await this.dataLoader.loadTopics()
+      const loadedTopics = await this.dataLoader.loadTopics()
+      console.info('[TopicContent] 加载专题数量:', loadedTopics?.length || 0)
+      this.topics = loadedTopics || []
       this.applyFilter()
+      console.info('[TopicContent] 筛选后数量:', this.filteredTopics.length)
       this.isLoading = false
     } catch (error) {
-      console.error('[TopicContent] 加载数据失败:', error)
+      console.error('[TopicContent] 加载数据失败:', JSON.stringify(error))
       this.isLoading = false
     }
   }

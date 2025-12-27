@@ -30,6 +30,8 @@ export class RouterPath {
   static readonly DAILY_DIVINATION = 'pages/DailyDivination'
   static readonly BATTLE_SIMULATOR = 'pages/BattleSimulator'
   static readonly MINE = 'pages/Mine'
+  static readonly FAVORITE_LIST = 'pages/FavoriteList'
+  static readonly HISTORY_LIST = 'pages/HistoryList'
 }
 
 /**

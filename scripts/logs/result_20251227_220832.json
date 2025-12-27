@@ -1,0 +1,16 @@
+[
+  {
+    "id": "weapon_clarent",
+    "name_cn": "克拉伦特",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_clarent.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_curtana",
+    "name_cn": "慈悲之剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_curtana.png",
+    "tokens": 16384
+  }
+]

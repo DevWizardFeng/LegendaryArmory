@@ -18,14 +18,12 @@ import { HistoryItem, UserSettings } from '../../model/UserData'
 @Component
 export struct MineContent {
   @State isLoading: boolean = true
-  @State favoriteWeapons: LegendaryWeapon[] = []
-  @State historyWeapons: LegendaryWeapon[] = []
-  @State currentTab: 'favorites' | 'history' = 'favorites'
+  @State favoriteCount: number = 0
+  @State historyCount: number = 0
   @State settings: UserSettings = { theme: 'dark', sound: true, vibration: true }
   @StorageLink('currentTabIndex') @Watch('onTabShow') currentTabIndex: number = 0
   @StorageLink('favoriteWeaponIds') @Watch('onFavoritesChange') favoriteIds: string[] = []
   @StorageLink('historyWeaponIds') @Watch('onHistoryChange') historyIds: string[] = []
-  private dataLoader: DataLoader | null = null
   private storageManager: StorageManager | null = null
 
   aboutToAppear(): void {
@@ -37,7 +35,7 @@ export struct MineContent {
    */
   onTabShow(): void {
     if (this.currentTabIndex === 4) { // 我的Tab索引
-      this.refreshData()
+      this.loadCounts()
     }
   }
 
@@ -45,14 +43,14 @@ export struct MineContent {
    * 收藏变化监听
    */
   onFavoritesChange(): void {
-    this.loadFavoriteWeapons()
+    this.favoriteCount = this.favoriteIds.length
   }
 
   /**
    * 历史变化监听
    */
   onHistoryChange(): void {
-    this.loadHistoryWeapons()
+    this.historyCount = this.historyIds.length
   }
 
   /**
@@ -61,11 +59,10 @@ export struct MineContent {
   async loadData(): Promise<void> {
     try {
       const context = getContext(this)
-      this.dataLoader = new DataLoader(context)
       this.storageManager = new StorageManager(context)
       await this.storageManager.init()
 
-      await this.refreshData()
+      await this.loadCounts()
       this.settings = await this.storageManager.getSettings()
       this.isLoading = false
     } catch (error) {
@@ -75,43 +72,18 @@ export struct MineContent {
   }
 
   /**
-   * 刷新数据
+   * 加载收藏和历史数量
    */
-  async refreshData(): Promise<void> {
-    await this.loadFavoriteWeapons()
-    await this.loadHistoryWeapons()
-  }
-
-  /**
-   * 加载收藏的神兵
-   */
-  async loadFavoriteWeapons(): Promise<void> {
-    if (!this.dataLoader || !this.storageManager) return
+  async loadCounts(): Promise<void> {
+    if (!this.storageManager) return
 
     try {
-      const allWeapons = await this.dataLoader.loadWeapons()
       const favoriteIds = await this.storageManager.getFavorites()
-      this.favoriteWeapons = allWeapons.filter(w => favoriteIds.includes(w.id))
-    } catch (error) {
-      console.error('[MineTab] 加载收藏失败:', error)
-    }
-  }
-
-  /**
-   * 加载浏览历史
-   */
-  async loadHistoryWeapons(): Promise<void> {
-    if (!this.dataLoader || !this.storageManager) return
-
-    try {
-      const allWeapons = await this.dataLoader.loadWeapons()
       const history = await this.storageManager.getHistory()
-      this.historyWeapons = (history
-        .map((h: HistoryItem) => allWeapons.find(w => w.id === h.weapon_id))
-        .filter((w) => w !== undefined) as LegendaryWeapon[])
-        .slice(0, 20)
+      this.favoriteCount = favoriteIds.length
+      this.historyCount = history.length
     } catch (error) {
-      console.error('[MineTab] 加载历史失败:', error)
+      console.error('[MineTab] 加载数量失败:', error)
     }
   }
 
@@ -134,13 +106,21 @@ export struct MineContent {
   }
 
   /**
-   * 清空历史
+   * 跳转到收藏列表
    */
-  async clearHistory(): Promise<void> {
-    if (!this.storageManager) return
-    await this.storageManager.clearHistory()
-    this.historyWeapons = []
-    AppStorage.setOrCreate('historyWeaponIds', [])
+  navigateToFavorites(): void {
+    router.pushUrl({
+      url: RouterPath.FAVORITE_LIST
+    })
+  }
+
+  /**
+   * 跳转到历史列表
+   */
+  navigateToHistory(): void {
+    router.pushUrl({
+      url: RouterPath.HISTORY_LIST
+    })
   }
 
   build() {
@@ -156,11 +136,8 @@ export struct MineContent {
             // 功能入口
             this.FunctionEntries()
 
-            // 收藏/历史切换
-            this.TabSection()
-
-            // 列表内容
-            this.ListContent()
+            // 我的收藏和浏览历史
+            this.MyCollectionSection()
 
             // 关于应用
             this.AboutSection()
@@ -227,7 +204,7 @@ export struct MineContent {
           .fontColor(ThemeColors.TEXT_TITLE)
 
         Row() {
-          Text(`收藏 ${this.favoriteWeapons.length}`)
+          Text(`收藏 ${this.favoriteCount}`)
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.GOLD_PRIMARY)
 
@@ -235,7 +212,7 @@ export struct MineContent {
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_TERTIARY)
 
-          Text(`浏览 ${this.historyWeapons.length}`)
+          Text(`浏览 ${this.historyCount}`)
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_SECONDARY)
         }
@@ -254,8 +231,8 @@ export struct MineContent {
   @Builder
   FunctionEntries() {
     Row() {
-      // 技能百科 - 切换到百科Tab（子Tab索引2）
-      this.FunctionButton('技能百科', $r('app.media.icon_ability'), () => {
+      // 专题故事 - 切换到百科Tab（子Tab索引2）
+      this.FunctionButton('专题故事', $r('app.media.icon_topic'), () => {
         this.navigateToEncyclopedia(2)
       })
       // 文化体系 - 切换到百科Tab（子Tab索引1）
@@ -304,163 +281,67 @@ export struct MineContent {
   }
 
   /**
-   * 收藏/历史切换
+   * 我的收藏区域
    */
   @Builder
-  TabSection() {
-    Row() {
-      this.TabButton('我的收藏', this.favoriteWeapons.length, this.currentTab === 'favorites', () => {
-        this.currentTab = 'favorites'
-      })
-      this.TabButton('浏览历史', this.historyWeapons.length, this.currentTab === 'history', () => {
-        this.currentTab = 'history'
-      })
+  MyCollectionSection() {
+    Column() {
+      Text('我的')
+        .fontSize(FontSizes.SUBTITLE)
+        .fontWeight(FontWeight.Bold)
+        .fontColor(ThemeColors.TEXT_TITLE)
+        .margin({ bottom: Spacing.MEDIUM })
 
-      Blank()
+      Column() {
+        // 我的收藏
+        Row() {
+          Text('我的收藏')
+            .fontSize(FontSizes.BODY)
+            .fontColor(ThemeColors.TEXT_SECONDARY)
+          Blank()
+          Text(`${this.favoriteCount}`)
+            .fontSize(FontSizes.BODY)
+            .fontColor(ThemeColors.TEXT_PRIMARY)
+          Image($r('app.media.icon_arrow_right'))
+            .width(16)
+            .height(16)
+            .fillColor(ThemeColors.TEXT_TERTIARY)
+            .margin({ left: Spacing.SMALL })
+        }
+        .width('100%')
+        .padding({ top: Spacing.MEDIUM, bottom: Spacing.MEDIUM })
+        .onClick(() => this.navigateToFavorites())
 
-      if (this.currentTab === 'history' && this.historyWeapons.length > 0) {
-        Text('清空')
-          .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(ThemeColors.TEXT_TERTIARY)
-          .onClick(() => this.clearHistory())
+        Divider().color(ThemeColors.DIVIDER)
+
+        // 浏览历史
+        Row() {
+          Text('浏览历史')
+            .fontSize(FontSizes.BODY)
+            .fontColor(ThemeColors.TEXT_SECONDARY)
+          Blank()
+          Text(`${this.historyCount}`)
+            .fontSize(FontSizes.BODY)
+            .fontColor(ThemeColors.TEXT_PRIMARY)
+          Image($r('app.media.icon_arrow_right'))
+            .width(16)
+            .height(16)
+            .fillColor(ThemeColors.TEXT_TERTIARY)
+            .margin({ left: Spacing.SMALL })
+        }
+        .width('100%')
+        .padding({ top: Spacing.MEDIUM, bottom: Spacing.MEDIUM })
+        .onClick(() => this.navigateToHistory())
       }
+      .width('100%')
+      .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM })
+      .backgroundColor(ThemeColors.SURFACE_0)
+      .borderRadius(Spacing.MEDIUM)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
     }
     .width('100%')
     .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })
-  }
-
-  /**
-   * 切换按钮
-   */
-  @Builder
-  TabButton(title: string, count: number, isActive: boolean, onClick: () => void) {
-    Column() {
-      Row() {
-        Text(title)
-          .fontSize(FontSizes.BODY)
-          .fontWeight(isActive ? FontWeight.Bold : FontWeight.Normal)
-          .fontColor(isActive ? ThemeColors.TEXT_TITLE : ThemeColors.TEXT_TERTIARY)
-
-        Text(` (${count})`)
-          .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(isActive ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_TERTIARY)
-      }
-
-      // 下划线
-      Column()
-        .width(40)
-        .height(3)
-        .backgroundColor(isActive ? ThemeColors.GOLD_PRIMARY : Color.Transparent)
-        .borderRadius(2)
-        .margin({ top: Spacing.SMALL })
-    }
-    .margin({ right: Spacing.XLARGE })
-    .onClick(onClick)
-  }
-
-  /**
-   * 列表内容
-   */
-  @Builder
-  ListContent() {
-    Column() {
-      if (this.currentTab === 'favorites') {
-        if (this.favoriteWeapons.length === 0) {
-          this.EmptyView('暂无收藏', '浏览神兵详情页点击收藏按钮添加')
-        } else {
-          ForEach(this.favoriteWeapons, (weapon: LegendaryWeapon) => {
-            this.WeaponItem(weapon)
-          }, (weapon: LegendaryWeapon) => weapon.id)
-        }
-      } else {
-        if (this.historyWeapons.length === 0) {
-          this.EmptyView('暂无浏览记录', '浏览神兵后会自动记录')
-        } else {
-          ForEach(this.historyWeapons, (weapon: LegendaryWeapon) => {
-            this.WeaponItem(weapon)
-          }, (weapon: LegendaryWeapon) => weapon.id)
-        }
-      }
-    }
-    .width('100%')
-    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.MEDIUM })
-  }
-
-  /**
-   * 空状态视图
-   */
-  @Builder
-  EmptyView(title: string, subtitle: string) {
-    Column() {
-      Image($r('app.media.icon_empty'))
-        .width(60)
-        .height(60)
-        .fillColor(ThemeColors.TEXT_TERTIARY)
-
-      Text(title)
-        .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.TEXT_SECONDARY)
-        .margin({ top: Spacing.MEDIUM })
-
-      Text(subtitle)
-        .fontSize(FontSizes.BODY_SMALL)
-        .fontColor(ThemeColors.TEXT_TERTIARY)
-        .margin({ top: Spacing.SMALL })
-    }
-    .width('100%')
-    .padding({ top: Spacing.XXLARGE, bottom: Spacing.XXLARGE })
-  }
-
-  /**
-   * 神兵项
-   */
-  @Builder
-  WeaponItem(weapon: LegendaryWeapon) {
-    Row() {
-      // 图片
-      Image($rawfile(`images/${weapon.image}`))
-        .width(56)
-        .height(56)
-        .objectFit(ImageFit.Cover)
-        .borderRadius(Spacing.SMALL)
-        .border({ width: 1, color: getRarityDarkColor(weapon.rarity) })
-
-      // 信息
-      Column() {
-        Row() {
-          Text(weapon.name.cn)
-            .fontSize(FontSizes.BODY)
-            .fontWeight(FontWeight.Medium)
-            .fontColor(ThemeColors.TEXT_TITLE)
-
-          Text(RarityNames[weapon.rarity] || weapon.rarity)
-            .fontSize(FontSizes.SMALL)
-            .fontColor(getRarityColor(weapon.rarity))
-            .margin({ left: Spacing.SMALL })
-        }
-
-        Text(`${CultureNames[weapon.culture] || weapon.culture} · ${WeaponTypeNames[weapon.type] || weapon.type}`)
-          .fontSize(FontSizes.CAPTION)
-          .fontColor(ThemeColors.TEXT_TERTIARY)
-          .margin({ top: 2 })
-      }
-      .alignItems(HorizontalAlign.Start)
-      .margin({ left: Spacing.MEDIUM })
-      .layoutWeight(1)
-
-      Image($r('app.media.icon_arrow_right'))
-        .width(20)
-        .height(20)
-        .fillColor(ThemeColors.TEXT_TERTIARY)
-        .margin({ left: Spacing.MEDIUM })
-    }
-    .width('100%')
-    .padding(Spacing.MEDIUM)
-    .backgroundColor(ThemeColors.SURFACE_0)
-    .borderRadius(Spacing.MEDIUM)
-    .border({ width: 1, color: ThemeColors.DIVIDER })
-    .margin({ bottom: Spacing.SMALL })
-    .onClick(() => this.navigateToWeaponDetail(weapon.id))
+    .alignItems(HorizontalAlign.Start)
   }
 
   /**

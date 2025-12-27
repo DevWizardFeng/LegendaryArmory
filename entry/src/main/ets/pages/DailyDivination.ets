@@ -265,20 +265,21 @@ struct DailyDivination {
           Stack({ alignContent: Alignment.Bottom }) {
             Image($rawfile(`images/${this.selectedWeapon!.image}`))
               .width('100%')
-              .height(200)
+              .aspectRatio(1.2)
               .objectFit(ImageFit.Cover)
-              .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
 
             // 渐变遮罩
             Column()
               .width('100%')
-              .height('50%')
+              .height(80)
               .linearGradient({
                 angle: 180,
                 colors: [['rgba(0,0,0,0)', 0], [ThemeColors.SURFACE_0, 1]]
               })
           }
           .width('100%')
+          .clip(true)
+          .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
 
           // 信息
           Column() {

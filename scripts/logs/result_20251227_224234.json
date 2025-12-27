@@ -1,0 +1,16 @@
+[
+  {
+    "id": "icon_topic",
+    "name_cn": "专题故事图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_topic.png",
+    "tokens": 16384
+  },
+  {
+    "id": "icon_blacksmith",
+    "name_cn": "铸造大师图标",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/icon_blacksmith.png",
+    "tokens": 16384
+  }
+]

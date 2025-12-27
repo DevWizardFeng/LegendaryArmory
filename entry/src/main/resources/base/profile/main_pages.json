@@ -13,6 +13,8 @@
     "pages/BlacksmithList",
     "pages/Quiz",
     "pages/DailyDivination",
-    "pages/BattleSimulator"
+    "pages/BattleSimulator",
+    "pages/FavoriteList",
+    "pages/HistoryList"
   ]
 }

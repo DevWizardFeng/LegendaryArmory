@@ -239,22 +239,25 @@ export struct WeaponListContent {
   @Builder
   GridView() {
     Scroll() {
-      Grid() {
-        ForEach(this.filteredWeapons, (weapon: LegendaryWeapon) => {
-          GridItem() {
-            WeaponCard({
-              weapon: weapon,
-              cardSize: 'medium',
-              onCardClick: () => this.navigateToDetail(weapon.id)
-            })
-          }
-        }, (weapon: LegendaryWeapon) => weapon.id)
+      Column() {
+        Grid() {
+          ForEach(this.filteredWeapons, (weapon: LegendaryWeapon) => {
+            GridItem() {
+              WeaponCard({
+                weapon: weapon,
+                cardSize: 'medium',
+                onCardClick: () => this.navigateToDetail(weapon.id)
+              })
+            }
+          }, (weapon: LegendaryWeapon) => weapon.id)
+        }
+        .columnsTemplate('1fr 1fr')
+        .columnsGap(Spacing.MEDIUM)
+        .rowsGap(Spacing.MEDIUM)
+        .padding(Spacing.LARGE)
       }
-      .columnsTemplate('1fr 1fr')
-      .columnsGap(Spacing.MEDIUM)
-      .rowsGap(Spacing.MEDIUM)
       .width('100%')
-      .padding(Spacing.LARGE)
+      .alignItems(HorizontalAlign.Center)
     }
     .layoutWeight(1)
     .scrollBar(BarState.Off)

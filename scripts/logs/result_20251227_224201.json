@@ -1,0 +1,14 @@
+[
+  {
+    "id": "icon_topic",
+    "name_cn": "专题故事图标",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  },
+  {
+    "id": "icon_blacksmith",
+    "name_cn": "铸造大师图标",
+    "status": "failed",
+    "error": "超过最大重试次数"
+  }
+]

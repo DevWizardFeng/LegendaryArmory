@@ -88,10 +88,57 @@ struct BattleSimulator {
   @State showWeaponPicker: boolean = false
   @State pickerSide: 'left' | 'right' = 'left'
   @State searchText: string = ''
+  @State buttonScale: number = 1
+  @State leftWeaponGlow: number = 0
+  @State rightWeaponGlow: number = 0
+  @State clashEffect: boolean = false
+  @State resultScale: number = 0
   private dataLoader: DataLoader | null = null
+  private buttonTimer: number = -1
+  private glowTimer: number = -1
 
   aboutToAppear(): void {
     this.loadData()
+    this.startButtonAnimation()
+    this.startGlowAnimation()
+  }
+
+  aboutToDisappear(): void {
+    if (this.buttonTimer >= 0) {
+      clearInterval(this.buttonTimer)
+    }
+    if (this.glowTimer >= 0) {
+      clearInterval(this.glowTimer)
+    }
+  }
+
+  /**
+   * 开始按钮脉冲动画
+   */
+  startButtonAnimation(): void {
+    this.buttonTimer = setInterval(() => {
+      animateTo({
+        duration: 800,
+        curve: Curve.EaseInOut
+      }, () => {
+        this.buttonScale = this.buttonScale === 1 ? 1.05 : 1
+      })
+    }, 800)
+  }
+
+  /**
+   * 开始武器光环动画
+   */
+  startGlowAnimation(): void {
+    this.glowTimer = setInterval(() => {
+      animateTo({
+        duration: 1500,
+        curve: Curve.EaseInOut
+      }, () => {
+        this.leftWeaponGlow = (this.leftWeaponGlow + 0.3) % 1
+        this.rightWeaponGlow = (this.rightWeaponGlow + 0.3) % 1
+      })
+    }, 1500)
   }
 
   /**
@@ -149,12 +196,33 @@ struct BattleSimulator {
 
     this.isBattling = true
     this.battleResult = null
+    this.clashEffect = false
+    this.resultScale = 0
+
+    // 碰撞特效延迟
+    setTimeout(() => {
+      animateTo({
+        duration: 500,
+        curve: Curve.Sharp
+      }, () => {
+        this.clashEffect = true
+      })
+    }, 500)
 
     // 模拟对战延迟
     setTimeout(() => {
       this.battleResult = this.calculateBattle()
       this.isBattling = false
-    }, 2000)
+      this.clashEffect = false
+
+      // 结果揭晓动画
+      animateTo({
+        duration: 600,
+        curve: Curve.Friction
+      }, () => {
+        this.resultScale = 1
+      })
+    }, 2500)
   }
 
   /**
@@ -254,11 +322,19 @@ struct BattleSimulator {
       Column() {
         // 顶部导航
         Row() {
-          Image($r('app.media.icon_back'))
-            .width(24)
-            .height(24)
-            .fillColor(ThemeColors.TEXT_PRIMARY)
-            .onClick(() => this.goBack())
+          // 返回按钮带背景
+          Column() {
+            Image($r('app.media.icon_back'))
+              .width(20)
+              .height(20)
+              .fillColor(ThemeColors.TEXT_PRIMARY)
+          }
+          .width(36)
+          .height(36)
+          .justifyContent(FlexAlign.Center)
+          .backgroundColor(ThemeColors.SURFACE_0)
+          .borderRadius(18)
+          .onClick(() => this.goBack())
 
           Text('对战模拟')
             .fontSize(FontSizes.SUBTITLE)
@@ -271,6 +347,9 @@ struct BattleSimulator {
           Text('随机')
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.GOLD_PRIMARY)
+            .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
+            .backgroundColor(ThemeColors.SURFACE_0)
+            .borderRadius(Spacing.SMALL)
             .onClick(() => this.randomSelect())
         }
         .width('100%')
@@ -317,164 +396,407 @@ struct BattleSimulator {
    */
   @Builder
   BattleView() {
-    Column() {
-      // 对战区域
-      Row() {
-        // 左侧神兵
-        this.WeaponSlot(this.leftWeapon, 'left')
+    Scroll() {
+      Column() {
+        // 对战区域
+        Row() {
+          // 左侧神兵
+          Column() {
+            if (this.leftWeapon) {
+              // 已选择
+              Column() {
+                // 武器图片容器 - 添加光环效果
+                Stack() {
+                  // 外层光环 - 属性颜色
+                  if (this.leftWeapon.attributes.primary) {
+                    Column()
+                      .width(140)
+                      .height(140)
+                      .borderRadius(Spacing.MEDIUM)
+                      .shadow({
+                        radius: 20 + this.leftWeaponGlow * 20,
+                        color: getAttributeColor(this.leftWeapon.attributes.primary),
+                        offsetX: 0,
+                        offsetY: 0
+                      })
+                      .opacity(0.6 + this.leftWeaponGlow * 0.4)
+                  }
 
-        // VS
-        Column() {
-          Text('VS')
-            .fontSize(FontSizes.TITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.GOLD_PRIMARY)
+                  // 武器图片
+                  Image($rawfile(`images/${this.leftWeapon.image}`))
+                    .width('100%')
+                    .height(120)
+                    .objectFit(ImageFit.Cover)
+                    .borderRadius(Spacing.MEDIUM)
+                    .border({
+                      width: 2,
+                      color: getAttributeColor(this.leftWeapon.attributes.primary)
+                    })
+
+                  // 闪光粒子效果
+                  ForEach([0, 1, 2, 3, 4], (index: number) => {
+                    Column()
+                      .width(4)
+                      .height(4)
+                      .borderRadius(2)
+                      .backgroundColor(Color.White)
+                      .opacity((this.leftWeaponGlow + index * 0.2) % 1)
+                      .translate({
+                        x: Math.cos((this.leftWeaponGlow + index * 0.2) * Math.PI * 2) * 50,
+                        y: Math.sin((this.leftWeaponGlow + index * 0.2) * Math.PI * 2) * 50
+                      })
+                  }, (index: number) => `particle_left_${index}`)
+                }
+                .width('100%')
+
+                Text(this.leftWeapon.name.cn)
+                  .fontSize(FontSizes.BODY)
+                  .fontWeight(FontWeight.Medium)
+                  .fontColor(ThemeColors.TEXT_TITLE)
+                  .margin({ top: Spacing.SMALL })
+                  .maxLines(1)
+
+                Text(RarityNames[this.leftWeapon.rarity])
+                  .fontSize(FontSizes.CAPTION)
+                  .fontColor(getRarityColor(this.leftWeapon.rarity))
+
+                // 分数
+                if (this.battleResult) {
+                  Text(this.battleResult.leftScore.toString())
+                    .fontSize(FontSizes.SUBTITLE)
+                    .fontWeight(FontWeight.Bold)
+                    .fontColor(ThemeColors.GOLD_PRIMARY)
+                    .margin({ top: Spacing.SMALL })
+                }
+
+                // 胜负标记 - 放在底部，不遮挡文字
+                if (this.battleResult) {
+                  Row() {
+                    if ((this.battleResult.winner === 'left') ||
+                      (this.battleResult.winner === 'draw')) {
+                      Column() {
+                        Text(this.battleResult.winner === 'draw' ? '平' : '胜')
+                          .fontSize(FontSizes.BODY_SMALL)
+                          .fontColor(ThemeColors.BASE_0)
+                          .fontWeight(FontWeight.Bold)
+                      }
+                      .width(32)
+                      .height(32)
+                      .justifyContent(FlexAlign.Center)
+                      .backgroundColor(this.battleResult.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS)
+                      .borderRadius(16)
+                      .scale({ x: this.resultScale, y: this.resultScale })
+                    } else {
+                      Column() {
+                        Text('败')
+                          .fontSize(FontSizes.BODY_SMALL)
+                          .fontColor(ThemeColors.BASE_0)
+                          .fontWeight(FontWeight.Bold)
+                      }
+                      .width(32)
+                      .height(32)
+                      .justifyContent(FlexAlign.Center)
+                      .backgroundColor(ThemeColors.ERROR)
+                      .borderRadius(16)
+                      .scale({ x: this.resultScale, y: this.resultScale })
+                    }
+                  }
+                  .width('100%')
+                  .justifyContent(FlexAlign.Center)
+                  .margin({ top: Spacing.SMALL })
+                }
+              }
+              .width('100%')
+              .alignItems(HorizontalAlign.Center)
+            } else {
+              // 未选择
+              Column() {
+                Image($r('app.media.icon_add'))
+                  .width(32)
+                  .height(32)
+                  .fillColor(ThemeColors.TEXT_TERTIARY)
+
+                Text('选择神兵')
+                  .fontSize(FontSizes.BODY_SMALL)
+                  .fontColor(ThemeColors.TEXT_TERTIARY)
+                  .margin({ top: Spacing.SMALL })
+              }
+              .width('100%')
+              .height(120)
+              .justifyContent(FlexAlign.Center)
+              .backgroundColor(ThemeColors.SURFACE_0)
+              .borderRadius(Spacing.MEDIUM)
+              .border({
+                width: 2,
+                style: BorderStyle.Dashed,
+                color: ThemeColors.DIVIDER
+              })
+            }
+          }
+          .layoutWeight(1)
+          .alignItems(HorizontalAlign.Center)
+          .onClick(() => this.openPicker('left'))
+
+          // VS - 添加碰撞特效
+          Stack() {
+            // 碰撞光波
+            if (this.clashEffect) {
+              Column()
+                .width(80)
+                .height(80)
+                .borderRadius(40)
+                .backgroundColor(ThemeColors.GOLD_PRIMARY)
+                .opacity(0.3)
+                .blur(20)
+                .scale({ x: 2, y: 2 })
+            }
+
+            Column() {
+              Text('VS')
+                .fontSize(FontSizes.TITLE)
+                .fontWeight(FontWeight.Bold)
+                .fontColor(ThemeColors.GOLD_PRIMARY)
+                .shadow({
+                  radius: this.clashEffect ? 30 : 10,
+                  color: ThemeColors.GOLD_PRIMARY,
+                  offsetX: 0,
+                  offsetY: 0
+                })
+                .scale({
+                  x: this.clashEffect ? 1.3 : 1,
+                  y: this.clashEffect ? 1.3 : 1
+                })
+            }
+            .width(60)
+            .justifyContent(FlexAlign.Center)
+          }
+          .width(60)
+
+          // 右侧神兵
+          Column() {
+            if (this.rightWeapon) {
+              // 已选择
+              Column() {
+                // 武器图片容器 - 添加光环效果
+                Stack() {
+                  // 外层光环 - 属性颜色
+                  if (this.rightWeapon.attributes.primary) {
+                    Column()
+                      .width(140)
+                      .height(140)
+                      .borderRadius(Spacing.MEDIUM)
+                      .shadow({
+                        radius: 20 + this.rightWeaponGlow * 20,
+                        color: getAttributeColor(this.rightWeapon.attributes.primary),
+                        offsetX: 0,
+                        offsetY: 0
+                      })
+                      .opacity(0.6 + this.rightWeaponGlow * 0.4)
+                  }
+
+                  // 武器图片
+                  Image($rawfile(`images/${this.rightWeapon.image}`))
+                    .width('100%')
+                    .height(120)
+                    .objectFit(ImageFit.Cover)
+                    .borderRadius(Spacing.MEDIUM)
+                    .border({
+                      width: 2,
+                      color: getAttributeColor(this.rightWeapon.attributes.primary)
+                    })
+
+                  // 闪光粒子效果
+                  ForEach([0, 1, 2, 3, 4], (index: number) => {
+                    Column()
+                      .width(4)
+                      .height(4)
+                      .borderRadius(2)
+                      .backgroundColor(Color.White)
+                      .opacity((this.rightWeaponGlow + index * 0.2) % 1)
+                      .translate({
+                        x: Math.cos((this.rightWeaponGlow + index * 0.2) * Math.PI * 2) * 50,
+                        y: Math.sin((this.rightWeaponGlow + index * 0.2) * Math.PI * 2) * 50
+                      })
+                  }, (index: number) => `particle_right_${index}`)
+                }
+                .width('100%')
+
+                Text(this.rightWeapon.name.cn)
+                  .fontSize(FontSizes.BODY)
+                  .fontWeight(FontWeight.Medium)
+                  .fontColor(ThemeColors.TEXT_TITLE)
+                  .margin({ top: Spacing.SMALL })
+                  .maxLines(1)
+
+                Text(RarityNames[this.rightWeapon.rarity])
+                  .fontSize(FontSizes.CAPTION)
+                  .fontColor(getRarityColor(this.rightWeapon.rarity))
+
+                // 分数
+                if (this.battleResult) {
+                  Text(this.battleResult.rightScore.toString())
+                    .fontSize(FontSizes.SUBTITLE)
+                    .fontWeight(FontWeight.Bold)
+                    .fontColor(ThemeColors.GOLD_PRIMARY)
+                    .margin({ top: Spacing.SMALL })
+                }
+
+                // 胜负标记 - 放在底部，不遮挡文字
+                if (this.battleResult) {
+                  Row() {
+                    if ((this.battleResult.winner === 'right') ||
+                      (this.battleResult.winner === 'draw')) {
+                      Column() {
+                        Text(this.battleResult.winner === 'draw' ? '平' : '胜')
+                          .fontSize(FontSizes.BODY_SMALL)
+                          .fontColor(ThemeColors.BASE_0)
+                          .fontWeight(FontWeight.Bold)
+                      }
+                      .width(32)
+                      .height(32)
+                      .justifyContent(FlexAlign.Center)
+                      .backgroundColor(this.battleResult.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS)
+                      .borderRadius(16)
+                      .scale({ x: this.resultScale, y: this.resultScale })
+                    } else {
+                      Column() {
+                        Text('败')
+                          .fontSize(FontSizes.BODY_SMALL)
+                          .fontColor(ThemeColors.BASE_0)
+                          .fontWeight(FontWeight.Bold)
+                      }
+                      .width(32)
+                      .height(32)
+                      .justifyContent(FlexAlign.Center)
+                      .backgroundColor(ThemeColors.ERROR)
+                      .borderRadius(16)
+                      .scale({ x: this.resultScale, y: this.resultScale })
+                    }
+                  }
+                  .width('100%')
+                  .justifyContent(FlexAlign.Center)
+                  .margin({ top: Spacing.SMALL })
+                }
+              }
+              .width('100%')
+              .alignItems(HorizontalAlign.Center)
+            } else {
+              // 未选择
+              Column() {
+                Image($r('app.media.icon_add'))
+                  .width(32)
+                  .height(32)
+                  .fillColor(ThemeColors.TEXT_TERTIARY)
+
+                Text('选择神兵')
+                  .fontSize(FontSizes.BODY_SMALL)
+                  .fontColor(ThemeColors.TEXT_TERTIARY)
+                  .margin({ top: Spacing.SMALL })
+              }
+              .width('100%')
+              .height(120)
+              .justifyContent(FlexAlign.Center)
+              .backgroundColor(ThemeColors.SURFACE_0)
+              .borderRadius(Spacing.MEDIUM)
+              .border({
+                width: 2,
+                style: BorderStyle.Dashed,
+                color: ThemeColors.DIVIDER
+              })
+            }
+          }
+          .layoutWeight(1)
+          .alignItems(HorizontalAlign.Center)
+          .onClick(() => this.openPicker('right'))
         }
-        .width(60)
-        .justifyContent(FlexAlign.Center)
+        .width('100%')
+        .padding(Spacing.LARGE)
 
-        // 右侧神兵
-        this.WeaponSlot(this.rightWeapon, 'right')
+        // 开始对战按钮
+        if (this.leftWeapon && this.rightWeapon && !this.isBattling) {
+          Stack() {
+            // 外层脉冲光环
+            Column()
+              .width(180)
+              .height(58)
+              .borderRadius(29)
+              .backgroundColor(ThemeColors.GOLD_PRIMARY)
+              .opacity(0.2)
+              .blur(10)
+              .scale({ x: this.buttonScale, y: this.buttonScale })
+
+            // 按钮主体
+            Column() {
+              Text('开始对战')
+                .fontSize(FontSizes.BODY)
+                .fontColor(ThemeColors.BASE_0)
+                .fontWeight(FontWeight.Bold)
+            }
+            .width(160)
+            .height(48)
+            .justifyContent(FlexAlign.Center)
+            .backgroundColor(ThemeColors.GOLD_PRIMARY)
+            .borderRadius(24)
+            .shadow({
+              radius: 15,
+              color: ThemeColors.GOLD_PRIMARY,
+              offsetX: 0,
+              offsetY: 4
+            })
+            .scale({ x: this.buttonScale, y: this.buttonScale })
+          }
+          .margin({ top: Spacing.MEDIUM })
+          .onClick(() => this.startBattle())
+        } else if (!this.leftWeapon || !this.rightWeapon) {
+          // 未选择时也显示按钮（禁用状态）
+          Column() {
+            Text('开始对战')
+              .fontSize(FontSizes.BODY)
+              .fontColor(ThemeColors.TEXT_TERTIARY)
+              .fontWeight(FontWeight.Bold)
+          }
+          .width(160)
+          .height(48)
+          .justifyContent(FlexAlign.Center)
+          .backgroundColor(ThemeColors.SURFACE_0)
+          .borderRadius(24)
+          .margin({ top: Spacing.MEDIUM })
+        }
+
+        // 对战中
+        if (this.isBattling) {
+          Column() {
+            LoadingProgress()
+              .width(40)
+              .height(40)
+              .color(ThemeColors.GOLD_PRIMARY)
+
+            Text('激战中...')
+              .fontSize(FontSizes.BODY)
+              .fontColor(ThemeColors.TEXT_SECONDARY)
+              .margin({ top: Spacing.MEDIUM })
+              .shadow({
+                radius: 10,
+                color: ThemeColors.GOLD_PRIMARY,
+                offsetX: 0,
+                offsetY: 0
+              })
+          }
+          .margin({ top: Spacing.LARGE })
+        }
+
+        // 对战结果
+        if (this.battleResult) {
+          this.ResultView()
+        }
       }
       .width('100%')
-      .padding(Spacing.LARGE)
-
-      // 开始对战按钮
-      if (this.leftWeapon && this.rightWeapon && !this.isBattling) {
-        Column() {
-          Text('开始对战')
-            .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.BASE_0)
-            .fontWeight(FontWeight.Bold)
-        }
-        .width(160)
-        .height(48)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.GOLD_PRIMARY)
-        .borderRadius(24)
-        .onClick(() => this.startBattle())
-      }
-
-      // 对战中
-      if (this.isBattling) {
-        Column() {
-          LoadingProgress()
-            .width(40)
-            .height(40)
-            .color(ThemeColors.GOLD_PRIMARY)
-          Text('激战中...')
-            .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.TEXT_SECONDARY)
-            .margin({ top: Spacing.MEDIUM })
-        }
-        .margin({ top: Spacing.LARGE })
-      }
-
-      // 对战结果
-      if (this.battleResult) {
-        this.ResultView()
-      }
+      .constraintSize({ minHeight: '100%' })
+      .justifyContent(FlexAlign.Center)
     }
     .width('100%')
     .layoutWeight(1)
-  }
-
-  /**
-   * 神兵槽位
-   */
-  @Builder
-  WeaponSlot(weapon: LegendaryWeapon | null, side: 'left' | 'right') {
-    Column() {
-      if (weapon) {
-        // 已选择
-        Stack({ alignContent: Alignment.TopEnd }) {
-          Image($rawfile(`images/${weapon.image}`))
-            .width('100%')
-            .height(120)
-            .objectFit(ImageFit.Cover)
-            .borderRadius(Spacing.MEDIUM)
-
-          // 胜负标记
-          if (this.battleResult) {
-            if ((this.battleResult.winner === side) ||
-                (this.battleResult.winner === 'draw')) {
-              Column() {
-                Text(this.battleResult.winner === 'draw' ? '平' : '胜')
-                  .fontSize(FontSizes.BODY_SMALL)
-                  .fontColor(ThemeColors.BASE_0)
-                  .fontWeight(FontWeight.Bold)
-              }
-              .width(32)
-              .height(32)
-              .justifyContent(FlexAlign.Center)
-              .backgroundColor(this.battleResult.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS)
-              .borderRadius(16)
-              .margin({ top: Spacing.SMALL, right: Spacing.SMALL })
-            } else {
-              Column() {
-                Text('败')
-                  .fontSize(FontSizes.BODY_SMALL)
-                  .fontColor(ThemeColors.BASE_0)
-                  .fontWeight(FontWeight.Bold)
-              }
-              .width(32)
-              .height(32)
-              .justifyContent(FlexAlign.Center)
-              .backgroundColor(ThemeColors.ERROR)
-              .borderRadius(16)
-              .margin({ top: Spacing.SMALL, right: Spacing.SMALL })
-            }
-          }
-        }
-        .width('100%')
-
-        Text(weapon.name.cn)
-          .fontSize(FontSizes.BODY)
-          .fontWeight(FontWeight.Medium)
-          .fontColor(ThemeColors.TEXT_TITLE)
-          .margin({ top: Spacing.SMALL })
-          .maxLines(1)
-
-        Text(RarityNames[weapon.rarity])
-          .fontSize(FontSizes.CAPTION)
-          .fontColor(getRarityColor(weapon.rarity))
-
-        // 分数
-        if (this.battleResult) {
-          Text((side === 'left' ? this.battleResult.leftScore : this.battleResult.rightScore).toString())
-            .fontSize(FontSizes.SUBTITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.GOLD_PRIMARY)
-            .margin({ top: Spacing.SMALL })
-        }
-      } else {
-        // 未选择
-        Column() {
-          Image($r('app.media.icon_add'))
-            .width(32)
-            .height(32)
-            .fillColor(ThemeColors.TEXT_TERTIARY)
-
-          Text('选择神兵')
-            .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.TEXT_TERTIARY)
-            .margin({ top: Spacing.SMALL })
-        }
-        .width('100%')
-        .height(120)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.SURFACE_0)
-        .borderRadius(Spacing.MEDIUM)
-        .border({
-          width: 2,
-          style: BorderStyle.Dashed,
-          color: ThemeColors.DIVIDER
-        })
-      }
-    }
-    .layoutWeight(1)
-    .alignItems(HorizontalAlign.Center)
-    .onClick(() => this.openPicker(side))
+    .scrollBar(BarState.Off)
   }
 
   /**
@@ -483,13 +805,49 @@ struct BattleSimulator {
   @Builder
   ResultView() {
     Column() {
-      // 结果标题
-      Text(this.battleResult!.winner === 'draw' ? '势均力敌!' :
-           (this.battleResult!.winner === 'left' ? `${this.leftWeapon!.name.cn} 胜出!` : `${this.rightWeapon!.name.cn} 胜出!`))
-        .fontSize(FontSizes.SUBTITLE)
-        .fontWeight(FontWeight.Bold)
-        .fontColor(this.battleResult!.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS)
-        .margin({ top: Spacing.LARGE })
+      // 结果标题 - 带震撼效果
+      Stack() {
+        // 背景光晕
+        Column()
+          .width(200)
+          .height(60)
+          .borderRadius(30)
+          .backgroundColor(this.battleResult!.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS)
+          .opacity(0.2)
+          .blur(20)
+          .scale({ x: this.resultScale, y: this.resultScale })
+
+        Text(this.battleResult!.winner === 'draw' ? '势均力敌!' :
+          (this.battleResult!.winner === 'left' ? `${this.leftWeapon!.name.cn} 胜出!` : `${this.rightWeapon!.name.cn} 胜出!`))
+          .fontSize(FontSizes.SUBTITLE)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(this.battleResult!.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS)
+          .shadow({
+            radius: 20,
+            color: this.battleResult!.winner === 'draw' ? ThemeColors.INFO : ThemeColors.SUCCESS,
+            offsetX: 0,
+            offsetY: 0
+          })
+          .scale({ x: this.resultScale, y: this.resultScale })
+
+        // 胜利光芒
+        if (this.battleResult!.winner !== 'draw') {
+          ForEach([0, 1, 2, 3, 4, 5, 6, 7], (index: number) => {
+            Column()
+              .width(4)
+              .height(40)
+              .backgroundColor(ThemeColors.SUCCESS)
+              .opacity(0.4)
+              .rotate({
+                angle: index * 45,
+                centerX: '50%',
+                centerY: '50%'
+              })
+              .scale({ x: this.resultScale, y: this.resultScale })
+          }, (index: number) => `ray_${index}`)
+        }
+      }
+      .margin({ top: Spacing.LARGE })
 
       // 对战详情
       Column() {

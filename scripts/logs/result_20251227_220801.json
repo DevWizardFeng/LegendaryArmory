@@ -1,0 +1,9 @@
+[
+  {
+    "id": "weapon_achilles_shield",
+    "name_cn": "阿喀琉斯之盾",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_achilles_shield.png",
+    "tokens": 16384
+  }
+]

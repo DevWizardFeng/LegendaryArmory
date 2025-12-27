@@ -1,0 +1,58 @@
+[
+  {
+    "id": "weapon_qixing_longyuan",
+    "name_cn": "七星龙渊",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_qixing_longyuan.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_juque",
+    "name_cn": "巨阙剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_juque.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_chunjun",
+    "name_cn": "纯钧剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_chunjun.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_chengying",
+    "name_cn": "承影剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_chengying.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_yuchang",
+    "name_cn": "鱼肠剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_yuchang.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_goujian",
+    "name_cn": "越王勾践剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_goujian.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_fuchai",
+    "name_cn": "吴王夫差剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_fuchai.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_qin_bronze",
+    "name_cn": "秦青铜剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_qin_bronze.png",
+    "tokens": 16384
+  }
+]

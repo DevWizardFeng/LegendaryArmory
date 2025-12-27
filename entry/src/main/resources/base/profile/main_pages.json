@@ -9,6 +9,8 @@
     "pages/CultureList",
     "pages/BlacksmithList",
     "pages/BlacksmithDetail",
-    "pages/Quiz"
+    "pages/Quiz",
+    "pages/DailyDivination",
+    "pages/BattleSimulator"
   ]
 }

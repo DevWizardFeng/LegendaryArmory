@@ -1,0 +1,398 @@
+{
+  "default_settings": {
+    "size": "2048x2048",
+    "style_suffix": ", epic fantasy art style, highly detailed, dark metallic atmosphere, professional game artwork, 4K quality, dramatic lighting"
+  },
+  "creatures": [
+    {
+      "id": "weapon_xuanyuan",
+      "name_cn": "轩辕剑",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese straight double-edged sword called Xuanyuan Sword, golden and crimson colors, dragon engravings on the blade, fire and lightning aura, sun moon stars inscribed, imperial divine weapon, glowing with ancient power"
+    },
+    {
+      "id": "weapon_zhanlu",
+      "name_cn": "湛卢剑",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese straight sword called Zhanlu Sword, blade like deep blue lake water, silver and teal colors, cloud patterns on guard, jade-wrapped handle, ethereal holy light aura, the sword of benevolence"
+    },
+    {
+      "id": "weapon_ganjiang",
+      "name_cn": "干将剑",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese male sword called Gan Jiang, crimson red blade with golden flame patterns, masculine fierce energy, red silk wrapped handle, fire element aura, paired sword legend"
+    },
+    {
+      "id": "weapon_moye",
+      "name_cn": "莫邪剑",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese female sword called Mo Ye, blue silver blade with water wave patterns, elegant feminine grace, blue silk wrapped handle, water element aura, paired sword legend"
+    },
+    {
+      "id": "weapon_chixiao",
+      "name_cn": "赤霄剑",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese imperial sword called Chixiao, bright red blade with golden dragon pattern, emperor's weapon, red jade handle, fire and holy light aura, Han dynasty style"
+    },
+    {
+      "id": "weapon_taie",
+      "name_cn": "泰阿剑",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese sword called Tai E, dark purple and silver blade, mysterious power emanating, ancient Chinese sword design, yin yang elements, regal authority aura"
+    },
+    {
+      "id": "weapon_fangtian",
+      "name_cn": "方天画戟",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese halberd called Fang Tian Hua Ji, crescent moon blades on both sides, long red tassels, Lu Bu's weapon, golden dragon decorations, fierce battle aura, Three Kingdoms era"
+    },
+    {
+      "id": "weapon_qinglong",
+      "name_cn": "青龙偃月刀",
+      "culture": "chinese",
+      "prompt": "A legendary Chinese guan dao called Green Dragon Crescent Blade, massive curved blade with green dragon engraving, red tassel, Guan Yu's weapon, jade handle, righteous warrior aura"
+    },
+    {
+      "id": "weapon_kusanagi",
+      "name_cn": "草薙剑",
+      "culture": "japanese",
+      "prompt": "A legendary Japanese divine sword called Kusanagi-no-Tsurugi, one of three sacred treasures, sky blue blade with cloud patterns, wind element aura, sacred wrap handle, imperial divine weapon"
+    },
+    {
+      "id": "weapon_mikazuki",
+      "name_cn": "三日月宗近",
+      "culture": "japanese",
+      "prompt": "A legendary Japanese katana called Mikazuki Munechika, crescent moon hamon pattern on blade, elegant curved shape, silver and gold colors, most beautiful Japanese sword, refined beauty"
+    },
+    {
+      "id": "weapon_muramasa",
+      "name_cn": "妖刀村正",
+      "culture": "japanese",
+      "prompt": "A legendary cursed Japanese katana called Muramasa, bloodthirsty demonic blade, dark red and black colors, sinister aura, blood-stained edge, demon patterns, ominous energy"
+    },
+    {
+      "id": "weapon_dojigiri",
+      "name_cn": "童子切安纲",
+      "culture": "japanese",
+      "prompt": "A legendary Japanese katana called Dojigiri Yasutsuna, demon slayer blade, silver blade with ancient hamon pattern, one of five great swords, holy slaying aura"
+    },
+    {
+      "id": "weapon_mjolnir",
+      "name_cn": "雷神之锤",
+      "culture": "norse",
+      "prompt": "Thor's legendary war hammer Mjolnir, massive stone and metal hammer head, short leather wrapped handle, Norse rune inscriptions, lightning and thunder crackling around it, divine power aura"
+    },
+    {
+      "id": "weapon_gungnir",
+      "name_cn": "永恒之枪",
+      "culture": "norse",
+      "prompt": "Odin's legendary spear Gungnir, never-missing divine spear, golden shaft with rune carvings, silver spearhead, cosmic energy aura, eye of Odin motif, all-father's weapon"
+    },
+    {
+      "id": "weapon_gram",
+      "name_cn": "格拉墨",
+      "culture": "norse",
+      "prompt": "A legendary Norse sword called Gram, dragon-slayer blade used by Sigurd, reforged sword, silver blade with dragon blood marks, Norse rune inscriptions, heroic aura"
+    },
+    {
+      "id": "weapon_tyrfing",
+      "name_cn": "提尔锋",
+      "culture": "norse",
+      "prompt": "A legendary cursed Norse sword called Tyrfing, golden blade that always kills when drawn, dwarf-forged, glowing with cursed light, runic inscriptions, tragic fate aura"
+    },
+    {
+      "id": "weapon_excalibur",
+      "name_cn": "王者之剑",
+      "culture": "medieval_europe",
+      "prompt": "The legendary sword Excalibur, King Arthur's divine blade, golden hilt with jewels, silver blade emanating holy light, lady of the lake blessing, crown and cross motifs"
+    },
+    {
+      "id": "weapon_durandal",
+      "name_cn": "杜兰达尔",
+      "culture": "medieval_europe",
+      "prompt": "A legendary medieval sword called Durandal, Roland's indestructible blade, golden cross-guard with holy relics, unbreakable steel, crusader's blessing aura"
+    },
+    {
+      "id": "weapon_joyeuse",
+      "name_cn": "欢喜剑",
+      "culture": "medieval_europe",
+      "prompt": "A legendary medieval sword called Joyeuse, Charlemagne's joyful sword, golden hilt, blade that changes colors like rainbow, happiness aura, royal French crown motif"
+    },
+    {
+      "id": "weapon_caliburn",
+      "name_cn": "卡利伯恩",
+      "culture": "medieval_europe",
+      "prompt": "A legendary sword called Caliburn, the sword in the stone, embedded in a magical stone anvil, golden light emanating, proof of kingship, ancient Britain"
+    },
+    {
+      "id": "weapon_longinus",
+      "name_cn": "朗基努斯之枪",
+      "culture": "medieval_europe",
+      "prompt": "The Holy Lance of Longinus, spear that pierced Christ, ancient Roman spear design, holy crimson stains, divine radiance, sacred relic aura"
+    },
+    {
+      "id": "weapon_zeus_thunderbolt",
+      "name_cn": "宙斯雷霆",
+      "culture": "greek",
+      "prompt": "Zeus's legendary thunderbolt, divine lightning weapon, pure energy form, golden and electric blue, crackling with supreme divine power, cyclops-forged weapon"
+    },
+    {
+      "id": "weapon_poseidon_trident",
+      "name_cn": "波塞冬三叉戟",
+      "culture": "greek",
+      "prompt": "Poseidon's legendary trident, sea god's weapon, bronze three-pronged spear, ocean waves and foam swirling around it, coral and pearl decorations, sea storm power"
+    },
+    {
+      "id": "weapon_hades_bident",
+      "name_cn": "哈迪斯双叉戟",
+      "culture": "greek",
+      "prompt": "Hades's legendary bident, underworld god's two-pronged fork, dark obsidian and bone design, ghostly flame aura, death and shadow energy, skull motifs"
+    },
+    {
+      "id": "weapon_trishula",
+      "name_cn": "湿婆三叉戟",
+      "culture": "indian",
+      "prompt": "Shiva's legendary trident Trishula, Hindu divine weapon, golden three-pronged spear, third eye motif, cosmic destruction and creation energy, sacred flames"
+    },
+    {
+      "id": "weapon_sudarshana",
+      "name_cn": "苏达尔善神轮",
+      "culture": "indian",
+      "prompt": "Vishnu's legendary discus Sudarshana Chakra, spinning divine weapon, 108 serrated edges, golden and flame aura, cosmic energy, preserver of universe"
+    },
+    {
+      "id": "weapon_vajra",
+      "name_cn": "金刚杵",
+      "culture": "indian",
+      "prompt": "Indra's legendary weapon Vajra, diamond thunderbolt, indestructible golden mace, lightning energy, Buddhist and Hindu sacred symbol, enlightenment power"
+    },
+    {
+      "id": "weapon_claomh_solais",
+      "name_cn": "光明之剑",
+      "culture": "celtic",
+      "prompt": "The legendary Celtic sword Claíomh Solais, sword of light, brilliant white radiance, Nuada's treasure, Tuatha Dé Danann divine weapon, pure light energy"
+    },
+    {
+      "id": "weapon_gae_bolg",
+      "name_cn": "贯穿死棘之枪",
+      "culture": "celtic",
+      "prompt": "The legendary Celtic spear Gáe Bolg, Cu Chulainn's cursed spear, barbed spearhead with 30 thorns, thrown with foot, dark red energy, death curse aura"
+    },
+    {
+      "id": "weapon_fragarach",
+      "name_cn": "应答者",
+      "culture": "celtic",
+      "prompt": "The legendary Celtic sword Fragarach, the Answerer, Manannan mac Lir's blade, silver sword that compels truth, wind control power, sea god blessing"
+    },
+    {
+      "id": "weapon_zulfiqar",
+      "name_cn": "佐勒菲卡尔",
+      "culture": "arabian",
+      "prompt": "The legendary Islamic sword Zulfiqar, Ali ibn Abi Talib's bifurcated blade, distinctive split tip, Arabic calligraphy inscriptions, divine blessing aura"
+    },
+    {
+      "id": "weapon_was",
+      "name_cn": "沃斯权杖",
+      "culture": "egyptian",
+      "prompt": "Ancient Egyptian Was scepter, symbol of divine power, forked bottom and animal head top, golden and lapis lazuli, pharaoh's authority, hieroglyphic inscriptions"
+    },
+    {
+      "id": "weapon_khopesh",
+      "name_cn": "科佩什弯刀",
+      "culture": "egyptian",
+      "prompt": "Ancient Egyptian Khopesh sword, distinctive curved sickle blade, bronze and gold, pharaoh's battle weapon, hieroglyphic engravings, desert warrior aura"
+    },
+    {
+      "id": "weapon_macuahuitl",
+      "name_cn": "马克胡特尔",
+      "culture": "mesoamerican",
+      "prompt": "Aztec Macuahuitl obsidian sword, wooden paddle embedded with volcanic glass blades, jaguar warrior weapon, feather decorations, blood offering aura"
+    },
+    {
+      "id": "weapon_assegai",
+      "name_cn": "祖鲁短矛",
+      "culture": "african",
+      "prompt": "Zulu Assegai spear, short stabbing spear with broad iron blade, cowhide shield pattern, African warrior weapon, tribal markings, Shaka Zulu's design"
+    },
+    {
+      "id": "weapon_shamshir",
+      "name_cn": "绿宝石神剑",
+      "culture": "persian",
+      "prompt": "Persian legendary sword Shamshir-e Zomorrodnegar, emerald-studded blade, curved scimitar design, magical green glow, Arabian nights fantasy, Solomon's treasure"
+    },
+    {
+      "id": "blacksmith_ouye",
+      "name_cn": "欧冶子",
+      "culture": "chinese",
+      "prompt": "Portrait of Ou Yezi, legendary Chinese master swordsmith, ancient Spring and Autumn period attire, long beard and wise eyes, forge fire background, holding a glowing sword, mystical craftsman"
+    },
+    {
+      "id": "blacksmith_ganjiang",
+      "name_cn": "干将莫邪",
+      "culture": "chinese",
+      "prompt": "Portrait of Gan Jiang and Mo Ye, legendary Chinese swordsmith couple, ancient Chinese forge attire, husband and wife together, forge with dual flames blue and red, tragic love story"
+    },
+    {
+      "id": "blacksmith_fenghuzi",
+      "name_cn": "风胡子",
+      "culture": "chinese",
+      "prompt": "Portrait of Feng Huzi, legendary Chinese swordsmith master, ancient hermit appearance, long flowing beard, mountain forge background, wise mysterious sage"
+    },
+    {
+      "id": "blacksmith_jiang_ziya",
+      "name_cn": "姜子牙",
+      "culture": "chinese",
+      "prompt": "Portrait of Jiang Ziya, legendary Chinese strategist and divine craftsman, white beard elderly sage, Taoist robes, mystical aura, Zhou dynasty advisor"
+    },
+    {
+      "id": "blacksmith_masamune",
+      "name_cn": "冈崎正宗",
+      "culture": "japanese",
+      "prompt": "Portrait of Goro Nyudo Masamune, greatest Japanese swordsmith, Kamakura period attire, shaved head monk appearance, serene expression, forge with sacred flames"
+    },
+    {
+      "id": "blacksmith_muramasa",
+      "name_cn": "千子村正",
+      "culture": "japanese",
+      "prompt": "Portrait of Sengo Muramasa, legendary Japanese cursed swordsmith, intense mad expression, dark forge background, red flames, obsessed craftsman aura"
+    },
+    {
+      "id": "blacksmith_amatsumara",
+      "name_cn": "天目一箇神",
+      "culture": "japanese",
+      "prompt": "Portrait of Amatsumara, Japanese divine smith deity, one-eyed god, celestial forge background, creating divine weapons, Shinto divine being"
+    },
+    {
+      "id": "blacksmith_munechika",
+      "name_cn": "三条宗近",
+      "culture": "japanese",
+      "prompt": "Portrait of Sanjo Munechika, legendary Japanese swordsmith, Heian period noble attire, refined elegant appearance, fox spirit assistant nearby, moonlit forge"
+    },
+    {
+      "id": "blacksmith_yasutsuna",
+      "name_cn": "大原安纲",
+      "culture": "japanese",
+      "prompt": "Portrait of Ohara Yasutsuna, legendary Japanese swordsmith, Heian period craftsman, focused intense expression, traditional forge, demon-slaying sword creator"
+    },
+    {
+      "id": "blacksmith_nagamitsu",
+      "name_cn": "长船长光",
+      "culture": "japanese",
+      "prompt": "Portrait of Osafune Nagamitsu, legendary Japanese swordsmith, Kamakura period attire, master craftsman at work, Osafune school founder, water quenching scene"
+    },
+    {
+      "id": "blacksmith_kunihiro",
+      "name_cn": "堀川国广",
+      "culture": "japanese",
+      "prompt": "Portrait of Horikawa Kunihiro, legendary Japanese swordsmith, Sengoku period attire, warrior-smith appearance, traveling craftsman, dynamic pose"
+    },
+    {
+      "id": "blacksmith_kanemitsu",
+      "name_cn": "长船兼光",
+      "culture": "japanese",
+      "prompt": "Portrait of Osafune Kanemitsu, legendary Japanese swordsmith, Nanbokucho period attire, intense focused craftsman, Osafune school master, large blade forging"
+    },
+    {
+      "id": "blacksmith_sadamune",
+      "name_cn": "相州贞宗",
+      "culture": "japanese",
+      "prompt": "Portrait of Soshu Sadamune, legendary Japanese swordsmith, Masamune's successor, Kamakura period noble craftsman, refined technique, artistic sword creation"
+    },
+    {
+      "id": "blacksmith_hephaestus",
+      "name_cn": "赫菲斯托斯",
+      "culture": "greek",
+      "prompt": "Portrait of Hephaestus, Greek god of forge, muscular but lame deity, volcanic forge Olympus, creating divine weapons, automaton assistants, golden armor"
+    },
+    {
+      "id": "blacksmith_brokk_sindri",
+      "name_cn": "布洛克与辛德里",
+      "culture": "norse",
+      "prompt": "Portrait of Brokk and Sindri, Norse dwarf smiths brothers, small stout dwarves, underground Svartalfheim forge, creating Mjolnir, magical rune-fire"
+    },
+    {
+      "id": "blacksmith_ivaldi_sons",
+      "name_cn": "伊瓦尔迪之子",
+      "culture": "norse",
+      "prompt": "Portrait of Sons of Ivaldi, Norse dwarf smiths, skillful dwarf craftsmen group, creating Gungnir and Skidbladnir, underground golden forge, magical artifacts"
+    },
+    {
+      "id": "blacksmith_wayland",
+      "name_cn": "维兰德",
+      "culture": "medieval_europe",
+      "prompt": "Portrait of Wayland the Smith, legendary Germanic master smith, prisoner craftsman with winged escape, medieval forge, magical sword creation, tragic hero"
+    },
+    {
+      "id": "blacksmith_st_dunstan",
+      "name_cn": "圣丹斯坦",
+      "culture": "medieval_europe",
+      "prompt": "Portrait of Saint Dunstan, medieval English bishop and smith, religious robes with blacksmith apron, defeating devil with tongs, church forge, holy craftsman"
+    },
+    {
+      "id": "blacksmith_tubal_cain",
+      "name_cn": "土八该隐",
+      "culture": "medieval_europe",
+      "prompt": "Portrait of Tubal-cain, biblical first metalsmith, ancient patriarchal appearance, primordial forge, bronze and iron age, father of all smiths"
+    },
+    {
+      "id": "blacksmith_vishvakarma",
+      "name_cn": "毗首羯磨",
+      "culture": "indian",
+      "prompt": "Portrait of Vishvakarma, Hindu divine architect and smith, four-armed deity, celestial workshop, creating divine weapons for gods, cosmic craftsman"
+    },
+    {
+      "id": "bg_home",
+      "name_cn": "首页背景",
+      "culture": "background",
+      "prompt": "Dark fantasy forge background, ancient weapon armory hall, scattered legendary weapons on display, metallic blue-black atmosphere, dramatic torch lighting, no people, 4K texture"
+    },
+    {
+      "id": "bg_weapon_list",
+      "name_cn": "武器列表背景",
+      "culture": "background",
+      "prompt": "Dark armory weapons vault background, rows of legendary weapon silhouettes, metallic dark blue gradient, ancient stone walls with weapon racks, dramatic shadows, no people"
+    },
+    {
+      "id": "bg_weapon_detail",
+      "name_cn": "武器详情背景",
+      "culture": "background",
+      "prompt": "Dark weapon display pedestal background, single weapon showcase platform, dramatic spotlight from above, dark metallic gradient, ancient runes glowing, museum exhibit feel"
+    },
+    {
+      "id": "bg_blacksmith",
+      "name_cn": "铸造师背景",
+      "culture": "background",
+      "prompt": "Dark ancient forge workshop background, glowing embers and anvil, stone walls with tools hanging, warm orange forge fire glow contrasting dark surroundings, no people"
+    },
+    {
+      "id": "bg_quiz",
+      "name_cn": "答题背景",
+      "culture": "background",
+      "prompt": "Dark mystical knowledge hall background, ancient scrolls and books, floating magical symbols, deep blue and purple atmosphere, wisdom temple aesthetic, no people"
+    },
+    {
+      "id": "bg_battle",
+      "name_cn": "对战背景",
+      "culture": "background",
+      "prompt": "Dark arena battlefield background, two weapon display stands facing each other, lightning and energy crackling between them, stadium colosseum feel, dramatic, no people"
+    },
+    {
+      "id": "bg_divination",
+      "name_cn": "占卜背景",
+      "culture": "background",
+      "prompt": "Dark mystical fortune telling chamber, floating orbs and tarot elements, starry cosmic patterns, purple and gold mysterious atmosphere, oracle temple feel, no people"
+    },
+    {
+      "id": "bg_culture_chinese",
+      "name_cn": "中国文化背景",
+      "culture": "background",
+      "prompt": "Dark ancient Chinese palace armory, dragon motifs, red and gold accents on dark background, traditional Chinese architecture elements, imperial treasure vault, no people"
+    },
+    {
+      "id": "bg_culture_japanese",
+      "name_cn": "日本文化背景",
+      "culture": "background",
+      "prompt": "Dark Japanese dojo weapon hall, katana display racks, sliding paper doors with moonlight, cherry blossom petals, zen aesthetic with dark atmosphere, no people"
+    }
+  ]
+}

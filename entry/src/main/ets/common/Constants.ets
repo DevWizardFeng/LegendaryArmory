@@ -16,6 +16,7 @@ export class AppConstants {
  * 路由路径
  */
 export class RouterPath {
+  static readonly MAIN = 'pages/MainPage'
   static readonly INDEX = 'pages/Index'
   static readonly WEAPON_LIST = 'pages/WeaponList'
   static readonly WEAPON_DETAIL = 'pages/WeaponDetail'
@@ -23,7 +24,7 @@ export class RouterPath {
   static readonly BLACKSMITH_DETAIL = 'pages/BlacksmithDetail'
   static readonly ABILITY_LIST = 'pages/AbilityList'
   static readonly CULTURE_LIST = 'pages/CultureList'
-  static readonly SEARCH = 'pages/Search'
+  static readonly SEARCH = 'pages/SearchPage'
   static readonly QUIZ = 'pages/Quiz'
   static readonly DAILY_DIVINATION = 'pages/DailyDivination'
   static readonly BATTLE_SIMULATOR = 'pages/BattleSimulator'

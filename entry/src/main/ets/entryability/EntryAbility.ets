@@ -30,8 +30,8 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     hilog.info(0x0000, 'LegendaryArmory', '%{public}s', 'Ability onWindowStageCreate');
 
-    // 加载首页
-    windowStage.loadContent('pages/Index', (err) => {
+    // 加载主页面（含底部Tabbar导航）
+    windowStage.loadContent('pages/MainPage', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'LegendaryArmory', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;

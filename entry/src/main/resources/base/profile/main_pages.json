@@ -1,14 +1,15 @@
 {
   "src": [
+    "pages/MainPage",
+    "pages/WeaponDetail",
+    "pages/SearchPage",
+    "pages/BlacksmithDetail",
     "pages/Index",
     "pages/WeaponList",
-    "pages/WeaponDetail",
-    "pages/Search",
     "pages/Mine",
     "pages/AbilityList",
     "pages/CultureList",
     "pages/BlacksmithList",
-    "pages/BlacksmithDetail",
     "pages/Quiz",
     "pages/DailyDivination",
     "pages/BattleSimulator"

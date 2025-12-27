@@ -20,7 +20,7 @@ interface SearchResult {
 
 @Entry
 @Component
-struct Search {
+struct SearchPage {
   @State searchText: string = ''
   @State isSearching: boolean = false
   @State searchResults: LegendaryWeapon[] = []
@@ -75,7 +75,7 @@ struct Search {
     // 搜索匹配
     this.searchResults = this.allWeapons.filter(weapon => {
       // 名称匹配
-      if (weapon.name.zh.toLowerCase().includes(query)) return true
+      if (weapon.name.cn.toLowerCase().includes(query)) return true
       if (weapon.name.en && weapon.name.en.toLowerCase().includes(query)) return true
 
       // 文化匹配
@@ -475,7 +475,7 @@ struct Search {
       // 信息
       Column() {
         Row() {
-          Text(weapon.name.zh)
+          Text(weapon.name.cn)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
             .fontColor(ThemeColors.TEXT_PRIMARY)

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "bg_blacksmith_detail",
+    "name_cn": "锻造大师详情页背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_blacksmith_detail.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_culture",
+    "name_cn": "文化体系通用背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_culture.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_topic",
+    "name_cn": "专题故事背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_topic.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_favorite",
+    "name_cn": "我的收藏背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_favorite.png",
+    "tokens": 16384
+  },
+  {
+    "id": "bg_history",
+    "name_cn": "浏览历史背景",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/bg_history.png",
+    "tokens": 16384
+  }
+]

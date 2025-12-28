@@ -73,18 +73,27 @@ struct BlacksmithDetail {
   }
 
   build() {
-    Column() {
-      if (this.isLoading) {
-        this.LoadingView()
-      } else if (!this.blacksmith) {
-        this.ErrorView()
-      } else {
-        this.ContentView()
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_blacksmith_detail'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
+
+      Column() {
+        if (this.isLoading) {
+          this.LoadingView()
+        } else if (!this.blacksmith) {
+          this.ErrorView()
+        } else {
+          this.ContentView()
+        }
       }
+      .width('100%')
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.PRIMARY_BG)
   }
 
   /**
@@ -189,45 +198,39 @@ struct BlacksmithDetail {
   @Builder
   HeaderSection() {
     Column() {
-      // 背景和头像
-      Stack({ alignContent: Alignment.Bottom }) {
-        // 背景渐变
-        Column()
-          .width('100%')
-          .height(200)
-          .linearGradient({
-            angle: 180,
-            colors: [[ThemeColors.ACCENT, 0], [ThemeColors.PRIMARY_BG, 1]]
-          })
-
+      // 头像区域 - 使用毛玻璃效果
+      Column() {
         // 头像
         Column() {
           Image($rawfile(`images/${this.blacksmith!.image}`))
-            .width(120)
-            .height(120)
+            .width(100)
+            .height(100)
             .objectFit(ImageFit.Cover)
-            .borderRadius(60)
+            .borderRadius(50)
         }
         .border({
-          width: 4,
-          color: ThemeColors.ACCENT
+          width: 3,
+          color: ThemeColors.GOLD_PRIMARY
         })
-        .borderRadius(64)
-        .margin({ bottom: -40 })
-      }
-      .width('100%')
+        .borderRadius(53)
+        .shadow({
+          radius: 20,
+          color: 'rgba(212,175,55,0.3)',
+          offsetX: 0,
+          offsetY: 4
+        })
 
-      // 名称和称号
-      Column() {
+        // 名称
         Text(this.blacksmith!.name.cn)
           .fontSize(FontSizes.TITLE)
           .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_PRIMARY)
-          .margin({ top: 50 })
+          .fontColor(ThemeColors.TEXT_TITLE)
+          .margin({ top: Spacing.LARGE })
 
+        // 称号
         Text(this.blacksmith!.title)
           .fontSize(FontSizes.BODY)
-          .fontColor(ThemeColors.ACCENT)
+          .fontColor(ThemeColors.GOLD_PRIMARY)
           .margin({ top: Spacing.SMALL })
 
         // 文化和时代
@@ -236,21 +239,26 @@ struct BlacksmithDetail {
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_SECONDARY)
             .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-            .backgroundColor(ThemeColors.CARD_BG)
+            .backgroundColor('rgba(26,34,51,0.6)')
             .borderRadius(Spacing.LARGE)
+            .border({ width: 1, color: ThemeColors.DIVIDER })
 
           Text(this.blacksmith!.era)
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_SECONDARY)
             .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-            .backgroundColor(ThemeColors.CARD_BG)
+            .backgroundColor('rgba(26,34,51,0.6)')
             .borderRadius(Spacing.LARGE)
+            .border({ width: 1, color: ThemeColors.DIVIDER })
             .margin({ left: Spacing.SMALL })
         }
         .margin({ top: Spacing.MEDIUM })
       }
       .width('100%')
+      .padding({ top: 80, bottom: Spacing.XLARGE })
       .alignItems(HorizontalAlign.Center)
+      .backgroundColor('rgba(26,34,51,0.7)')
+      .backdropBlur(20)
     }
     .width('100%')
   }

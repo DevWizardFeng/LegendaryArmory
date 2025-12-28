@@ -589,6 +589,36 @@
       "culture": "background",
       "size": "2048x2048",
       "prompt": "Dark metallic texture background for mobile app, deep blue-black gradient from #0a0a1a to #1a1a2e, subtle ancient Chinese weapon patterns embossed in background (swords, axes, spears as decorative elements), mysterious epic atmosphere, forge sparks and embers floating, soft golden rim light accents, intricate metal engravings, cinematic lighting with deep shadows, 4K ultra HD, realistic metal material, no people, no complete weapons in focus, abstract legendary armory aesthetic, suitable for tab bar background"
+    },
+    {
+      "id": "bg_blacksmith_detail",
+      "name_cn": "锻造大师详情页背景",
+      "culture": "background",
+      "prompt": "Dark ancient master blacksmith personal forge background, close-up view of anvil with glowing sword being forged, hammers and tongs scattered around, stone workshop walls with ancient tools, warm orange fire glow from forge pit, sparks flying, smoke and embers, dramatic side lighting, intimate craftsman workspace, museum exhibit quality, no people, 4K texture"
+    },
+    {
+      "id": "bg_culture",
+      "name_cn": "文化体系通用背景",
+      "culture": "background",
+      "prompt": "Dark ancient civilization treasure hall background, world map fragments and cultural relics silhouettes, ancient architecture columns from different cultures (Chinese palace, Greek temple, Norse longhouse), mysterious dark blue-black atmosphere, golden accents highlighting cultural symbols, museum archive aesthetic, no people, subtle cultural icons embossed, 4K texture"
+    },
+    {
+      "id": "bg_topic",
+      "name_cn": "专题故事背景",
+      "culture": "background",
+      "prompt": "Dark ancient library archive background, old scrolls and manuscripts stacked, mystical books with glowing pages, feather quill and ink bottle, parchment papers floating, warm candlelight glow in darkness, scholarly wisdom atmosphere, golden text patterns in background, museum library aesthetic, no people, 4K texture"
+    },
+    {
+      "id": "bg_favorite",
+      "name_cn": "我的收藏背景",
+      "culture": "background",
+      "prompt": "Dark personal treasure vault background, elegant display shelves with soft spotlights, empty weapon stands waiting for collectibles, velvet cushions and glass cases, intimate collector's room, warm golden accent lighting, museum private collection aesthetic, dark luxurious atmosphere, no people, 4K texture"
+    },
+    {
+      "id": "bg_history",
+      "name_cn": "浏览历史背景",
+      "culture": "background",
+      "prompt": "Dark ancient timeline corridor background, faded footstep trails, clock gears and time symbols, old parchment scrolls recording history, chronological display stands receding into distance, mysterious time-worn atmosphere, sepia and dark blue tones, temporal museum archive feel, no people, 4K texture"
     }
   ]
 }

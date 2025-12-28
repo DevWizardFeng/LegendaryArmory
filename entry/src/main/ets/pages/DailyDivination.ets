@@ -122,36 +122,45 @@ struct DailyDivination {
   }
 
   build() {
-    Column() {
-      // 顶部导航
-      Row() {
-        Image($r('app.media.icon_back'))
-          .width(24)
-          .height(24)
-          .fillColor(ThemeColors.TEXT_PRIMARY)
-          .onClick(() => this.goBack())
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_divination'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
 
-        Text('每日占卜')
-          .fontSize(FontSizes.SUBTITLE)
-          .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_TITLE)
-          .margin({ left: Spacing.MEDIUM })
+      Column() {
+        // 顶部导航
+        Row() {
+          Image($r('app.media.icon_back'))
+            .width(24)
+            .height(24)
+            .fillColor(ThemeColors.TEXT_PRIMARY)
+            .onClick(() => this.goBack())
+
+          Text('每日占卜')
+            .fontSize(FontSizes.SUBTITLE)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.TEXT_TITLE)
+            .margin({ left: Spacing.MEDIUM })
+        }
+        .width('100%')
+        .height(56)
+        .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+
+        if (this.isLoading) {
+          this.LoadingView()
+        } else if (!this.isRevealed) {
+          this.DivinationView()
+        } else {
+          this.ResultView()
+        }
       }
       .width('100%')
-      .height(56)
-      .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
-
-      if (this.isLoading) {
-        this.LoadingView()
-      } else if (!this.isRevealed) {
-        this.DivinationView()
-      } else {
-        this.ResultView()
-      }
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**

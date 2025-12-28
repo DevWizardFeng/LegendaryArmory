@@ -319,57 +319,66 @@ struct BattleSimulator {
 
   build() {
     Stack() {
-      Column() {
-        // 顶部导航
-        Row() {
-          // 返回按钮带背景
-          Column() {
-            Image($r('app.media.icon_back'))
-              .width(20)
-              .height(20)
-              .fillColor(ThemeColors.TEXT_PRIMARY)
-          }
-          .width(36)
-          .height(36)
-          .justifyContent(FlexAlign.Center)
-          .backgroundColor(ThemeColors.SURFACE_0)
-          .borderRadius(18)
-          .onClick(() => this.goBack())
+      // 背景图
+      Image($r('app.media.bg_battle'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
 
-          Text('对战模拟')
-            .fontSize(FontSizes.SUBTITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_TITLE)
-            .margin({ left: Spacing.MEDIUM })
-
-          Blank()
-
-          Text('随机')
-            .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.GOLD_PRIMARY)
-            .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
+      Stack() {
+        Column() {
+          // 顶部导航
+          Row() {
+            // 返回按钮带背景
+            Column() {
+              Image($r('app.media.icon_back'))
+                .width(20)
+                .height(20)
+                .fillColor(ThemeColors.TEXT_PRIMARY)
+            }
+            .width(36)
+            .height(36)
+            .justifyContent(FlexAlign.Center)
             .backgroundColor(ThemeColors.SURFACE_0)
-            .borderRadius(Spacing.SMALL)
-            .onClick(() => this.randomSelect())
+            .borderRadius(18)
+            .onClick(() => this.goBack())
+
+            Text('对战模拟')
+              .fontSize(FontSizes.SUBTITLE)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(ThemeColors.TEXT_TITLE)
+              .margin({ left: Spacing.MEDIUM })
+
+            Blank()
+
+            Text('随机')
+              .fontSize(FontSizes.BODY_SMALL)
+              .fontColor(ThemeColors.GOLD_PRIMARY)
+              .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.SMALL, bottom: Spacing.SMALL })
+              .backgroundColor(ThemeColors.SURFACE_0)
+              .borderRadius(Spacing.SMALL)
+              .onClick(() => this.randomSelect())
+          }
+          .width('100%')
+          .height(56)
+          .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+
+          if (this.isLoading) {
+            this.LoadingView()
+          } else {
+            this.BattleView()
+          }
         }
         .width('100%')
-        .height(56)
-        .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+        .height('100%')
 
-        if (this.isLoading) {
-          this.LoadingView()
-        } else {
-          this.BattleView()
+        // 武器选择器弹窗
+        if (this.showWeaponPicker) {
+          this.WeaponPickerView()
         }
       }
       .width('100%')
       .height('100%')
-      .backgroundColor(ThemeColors.BASE_0)
-
-      // 武器选择器弹窗
-      if (this.showWeaponPicker) {
-        this.WeaponPickerView()
-      }
     }
     .width('100%')
     .height('100%')

@@ -290,18 +290,27 @@ struct Quiz {
   }
 
   build() {
-    Column() {
-      if (this.gameState === 'menu') {
-        this.MenuView()
-      } else if (this.gameState === 'playing') {
-        this.PlayingView()
-      } else {
-        this.ResultView()
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_quiz'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
+
+      Column() {
+        if (this.gameState === 'menu') {
+          this.MenuView()
+        } else if (this.gameState === 'playing') {
+          this.PlayingView()
+        } else {
+          this.ResultView()
+        }
       }
+      .width('100%')
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**

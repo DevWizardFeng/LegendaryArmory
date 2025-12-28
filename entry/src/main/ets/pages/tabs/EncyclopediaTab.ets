@@ -364,38 +364,47 @@ struct CultureContent {
   }
 
   build() {
-    Column() {
-      if (this.selectedCulture) {
-        // 返回按钮
-        Row() {
-          Image($r('app.media.icon_back'))
-            .width(24)
-            .height(24)
-            .fillColor(ThemeColors.TEXT_PRIMARY)
-            .onClick(() => this.backToCultureList())
-
-          Text(this.selectedCulture.name_cn)
-            .fontSize(FontSizes.SUBTITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_TITLE)
-            .margin({ left: Spacing.MEDIUM })
-        }
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_culture'))
         .width('100%')
-        .height(48)
-        .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+        .height('100%')
+        .objectFit(ImageFit.Cover)
 
-        this.CultureDetailView()
-      } else {
-        if (this.isLoading) {
-          this.LoadingView()
+      Column() {
+        if (this.selectedCulture) {
+          // 返回按钮
+          Row() {
+            Image($r('app.media.icon_back'))
+              .width(24)
+              .height(24)
+              .fillColor(ThemeColors.TEXT_PRIMARY)
+              .onClick(() => this.backToCultureList())
+
+            Text(this.selectedCulture.name_cn)
+              .fontSize(FontSizes.SUBTITLE)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(ThemeColors.TEXT_TITLE)
+              .margin({ left: Spacing.MEDIUM })
+          }
+          .width('100%')
+          .height(48)
+          .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+
+          this.CultureDetailView()
         } else {
-          this.CultureListView()
+          if (this.isLoading) {
+            this.LoadingView()
+          } else {
+            this.CultureListView()
+          }
         }
       }
+      .width('100%')
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   @Builder
@@ -738,29 +747,38 @@ struct TopicContent {
   }
 
   build() {
-    Column() {
-      // 统计行
-      Row() {
-        Text(`共 ${this.filteredTopics.length} 篇`)
-          .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(ThemeColors.TEXT_TERTIARY)
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_topic'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
+
+      Column() {
+        // 统计行
+        Row() {
+          Text(`共 ${this.filteredTopics.length} 篇`)
+            .fontSize(FontSizes.BODY_SMALL)
+            .fontColor(ThemeColors.TEXT_TERTIARY)
+        }
+        .width('100%')
+        .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.SMALL, bottom: Spacing.SMALL })
+
+        // 分类筛选
+        this.CategoryFilter()
+
+        // 主内容区
+        if (this.isLoading) {
+          this.LoadingView()
+        } else {
+          this.ContentView()
+        }
       }
       .width('100%')
-      .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.SMALL, bottom: Spacing.SMALL })
-
-      // 分类筛选
-      this.CategoryFilter()
-
-      // 主内容区
-      if (this.isLoading) {
-        this.LoadingView()
-      } else {
-        this.ContentView()
-      }
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   @Builder

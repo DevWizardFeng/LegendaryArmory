@@ -82,21 +82,30 @@ struct FavoriteList {
   }
 
   build() {
-    Column() {
-      // 顶部导航栏
-      this.HeaderBar()
+    Stack() {
+      // 背景图
+      Image($r('app.media.bg_favorite'))
+        .width('100%')
+        .height('100%')
+        .objectFit(ImageFit.Cover)
 
-      if (this.isLoading) {
-        this.LoadingView()
-      } else if (this.favoriteWeapons.length === 0) {
-        this.EmptyView()
-      } else {
-        this.WeaponList()
+      Column() {
+        // 顶部导航栏
+        this.HeaderBar()
+
+        if (this.isLoading) {
+          this.LoadingView()
+        } else if (this.favoriteWeapons.length === 0) {
+          this.EmptyView()
+        } else {
+          this.WeaponList()
+        }
       }
+      .width('100%')
+      .height('100%')
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(ThemeColors.BASE_0)
   }
 
   /**

@@ -9,6 +9,8 @@ import { RouterPath, CultureNames, RarityNames } from '../common/Constants'
 import { DataLoader } from '../utils/DataLoader'
 import { Blacksmith } from '../model/Blacksmith'
 import { LegendaryWeapon } from '../model/LegendaryWeapon'
+import { TTSManager, TTSState } from '../utils/TTSManager'
+import { promptAction } from '@kit.ArkUI'
 
 /**
  * 路由参数
@@ -23,12 +25,54 @@ struct BlacksmithDetail {
   @State isLoading: boolean = true
   @State blacksmith: Blacksmith | null = null
   @State masterworkWeapons: LegendaryWeapon[] = []
+  @State isTTSPlaying: boolean = false
   private dataLoader: DataLoader | null = null
+  private ttsManager: TTSManager = new TTSManager()
 
   aboutToAppear(): void {
     const params = router.getParams() as RouteParams | undefined
     if (params?.blacksmithId) {
       this.loadData(params.blacksmithId)
+    }
+
+    // 初始化 TTS 引擎
+    this.initTTS()
+  }
+
+  /**
+   * 页面销毁时释放资源
+   */
+  aboutToDisappear(): void {
+    this.releaseTTS()
+  }
+
+  /**
+   * 初始化 TTS 引擎
+   */
+  async initTTS(): Promise<void> {
+    try {
+      await this.ttsManager.init()
+
+      // 设置状态变化监听器
+      this.ttsManager.setOnStateChange((state: TTSState) => {
+        this.isTTSPlaying = (state === TTSState.PLAYING)
+      })
+
+      console.info('[BlacksmithDetail] TTS 引擎初始化成功')
+    } catch (error) {
+      console.error('[BlacksmithDetail] TTS 引擎初始化失败:', error)
+    }
+  }
+
+  /**
+   * 释放 TTS 资源
+   */
+  async releaseTTS(): Promise<void> {
+    try {
+      await this.ttsManager.release()
+      console.info('[BlacksmithDetail] TTS 资源已释放')
+    } catch (error) {
+      console.error('[BlacksmithDetail] TTS 资源释放失败:', error)
     }
   }
 
@@ -70,6 +114,59 @@ struct BlacksmithDetail {
       url: RouterPath.WEAPON_DETAIL,
       params: { weaponId: weaponId }
     })
+  }
+
+  /**
+   * 播放/停止铸造师介绍
+   */
+  async toggleTTS(): Promise<void> {
+    if (!this.blacksmith) return
+
+    try {
+      if (this.isTTSPlaying) {
+        // 停止播放
+        await this.ttsManager.stop()
+      } else {
+        // 组合铸造师介绍文本
+        const text = this.buildBlacksmithIntroText()
+        await this.ttsManager.speak(text)
+      }
+    } catch (error) {
+      console.error('[BlacksmithDetail] TTS 操作失败:', error)
+      promptAction.showToast({
+        message: '语音播放失败，请稍后重试',
+        duration: 2000,
+        bottom: 100
+      })
+    }
+  }
+
+  /**
+   * 构建铸造师介绍文本
+   */
+  private buildBlacksmithIntroText(): string {
+    if (!this.blacksmith) return ''
+
+    const parts: string[] = []
+
+    // 名称和称号
+    parts.push(`${this.blacksmith.name.cn}，${this.blacksmith.title}。`)
+
+    // 文化和时代
+    parts.push(`来自${CultureNames[this.blacksmith.culture]}，活跃于${this.blacksmith.era}。`)
+
+    // 简介
+    parts.push(this.blacksmith.bio || this.blacksmith.description)
+
+    // 铸造技法
+    if (this.blacksmith.techniques && this.blacksmith.techniques.length > 0) {
+      parts.push(`擅长技法：${this.blacksmith.techniques.join('、')}。`)
+    }
+
+    // 传奇事迹
+    parts.push(`传奇事迹：${this.blacksmith.legend}`)
+
+    return parts.join(' ')
   }
 
   build() {
@@ -170,8 +267,9 @@ struct BlacksmithDetail {
       .scrollBar(BarState.Off)
       .edgeEffect(EdgeEffect.Spring)
 
-      // 悬浮返回按钮
+      // 悬浮返回按钮和语音播放按钮
       Row() {
+        // 返回按钮
         Column() {
           Image($r('app.media.icon_back'))
             .width(24)
@@ -184,6 +282,21 @@ struct BlacksmithDetail {
         .backgroundColor('rgba(0,0,0,0.5)')
         .borderRadius(20)
         .onClick(() => this.goBack())
+
+        // 语音播放按钮
+        Column() {
+          SymbolGlyph($r('sys.symbol.speaker_wave_3'))
+            .fontSize(24)
+            .fontColor([ThemeColors.TEXT_PRIMARY])
+            .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
+        }
+        .width(40)
+        .height(40)
+        .justifyContent(FlexAlign.Center)
+        .backgroundColor('rgba(0,0,0,0.5)')
+        .borderRadius(20)
+        .margin({ left: Spacing.SMALL })
+        .onClick(() => this.toggleTTS())
       }
       .width('100%')
       .padding({ left: Spacing.LARGE, top: Spacing.LARGE })

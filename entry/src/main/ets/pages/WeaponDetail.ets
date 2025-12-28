@@ -10,6 +10,11 @@ import { DataLoader } from '../utils/DataLoader'
 import { StorageManager } from '../utils/Storage'
 import { LegendaryWeapon, FamousOwner } from '../model/LegendaryWeapon'
 import { AttributeTag } from '../components/AttributeTag'
+import { photoAccessHelper } from '@kit.MediaLibraryKit'
+import { fileIo } from '@kit.CoreFileKit'
+import { promptAction } from '@kit.ArkUI'
+import { BusinessError } from '@kit.BasicServicesKit'
+import { TTSManager, TTSState } from '../utils/TTSManager'
 
 /**
  * 路由参数
@@ -25,13 +30,55 @@ struct WeaponDetail {
   @State weapon: LegendaryWeapon | null = null
   @State isFavorite: boolean = false
   @State relatedWeapons: LegendaryWeapon[] = []
+  @State isTTSPlaying: boolean = false
   private dataLoader: DataLoader | null = null
   private storageManager: StorageManager | null = null
+  private ttsManager: TTSManager = new TTSManager()
 
   aboutToAppear(): void {
     const params = router.getParams() as RouteParams | undefined
     if (params?.weaponId) {
       this.loadData(params.weaponId)
+    }
+
+    // 初始化 TTS 引擎
+    this.initTTS()
+  }
+
+  /**
+   * 页面销毁时释放资源
+   */
+  aboutToDisappear(): void {
+    this.releaseTTS()
+  }
+
+  /**
+   * 初始化 TTS 引擎
+   */
+  async initTTS(): Promise<void> {
+    try {
+      await this.ttsManager.init()
+
+      // 设置状态变化监听器
+      this.ttsManager.setOnStateChange((state: TTSState) => {
+        this.isTTSPlaying = (state === TTSState.PLAYING)
+      })
+
+      console.info('[WeaponDetail] TTS 引擎初始化成功')
+    } catch (error) {
+      console.error('[WeaponDetail] TTS 引擎初始化失败:', error)
+    }
+  }
+
+  /**
+   * 释放 TTS 资源
+   */
+  async releaseTTS(): Promise<void> {
+    try {
+      await this.ttsManager.release()
+      console.info('[WeaponDetail] TTS 资源已释放')
+    } catch (error) {
+      console.error('[WeaponDetail] TTS 资源释放失败:', error)
     }
   }
 
@@ -100,6 +147,125 @@ struct WeaponDetail {
       url: RouterPath.WEAPON_DETAIL,
       params: { weaponId: weaponId }
     })
+  }
+
+  /**
+   * 播放/停止神兵介绍
+   */
+  async toggleTTS(): Promise<void> {
+    if (!this.weapon) return
+
+    try {
+      if (this.isTTSPlaying) {
+        // 停止播放
+        await this.ttsManager.stop()
+      } else {
+        // 组合神兵介绍文本
+        const text = this.buildWeaponIntroText()
+        await this.ttsManager.speak(text)
+      }
+    } catch (error) {
+      console.error('[WeaponDetail] TTS 操作失败:', error)
+      promptAction.showToast({
+        message: '语音播放失败，请稍后重试',
+        duration: 2000,
+        bottom: 100
+      })
+    }
+  }
+
+  /**
+   * 构建神兵介绍文本
+   */
+  private buildWeaponIntroText(): string {
+    if (!this.weapon) return ''
+
+    const parts: string[] = []
+
+    // 名称和品质
+    parts.push(`${this.weapon.name.cn}，${RarityNames[this.weapon.rarity]}品质神兵。`)
+
+    // 分类
+    parts.push(`来自${CultureNames[this.weapon.culture]}文化，属于${WeaponTypeNames[this.weapon.type]}类兵器。`)
+
+    // 描述
+    parts.push(this.weapon.description)
+
+    // 铭文
+    if (this.weapon.inscription) {
+      parts.push(`铭文：${this.weapon.inscription}`)
+    }
+
+    // 铸造传说
+    parts.push(`铸造传说：${this.weapon.forging_legend}`)
+
+    // 战斗传说
+    parts.push(`战斗传说：${this.weapon.battle_legend}`)
+
+    return parts.join(' ')
+  }
+
+  /**
+   * 下载神兵图片到相册
+   */
+  async downloadWeaponImage(): Promise<void> {
+    if (!this.weapon) return
+
+    try {
+      const context = getContext(this)
+      const helper = photoAccessHelper.getPhotoAccessHelper(context)
+
+      // 提取文件扩展名（createAsset只需要扩展名，不是完整文件名）
+      const fileName = this.weapon.image.split('/').pop() || 'weapon.jpg'
+      const extension = fileName.split('.').pop() || 'jpg'
+      console.info(`[WeaponDetail] 准备保存图片: ${fileName}, 扩展名: ${extension}`)
+
+      // onClick触发后1分钟内通过createAsset接口创建图片文件
+      console.info('[WeaponDetail] 调用 createAsset...')
+      const uri = await helper.createAsset(photoAccessHelper.PhotoType.IMAGE, extension)
+      console.info(`[WeaponDetail] createAsset 成功, URI: ${uri}`)
+
+      // 使用uri打开文件，可以持续写入内容，写入过程不受时间限制
+      const file = await fileIo.open(uri, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE)
+      console.info(`[WeaponDetail] 文件已打开, fd: ${file.fd}`)
+
+      try {
+        // 读取rawfile中的图片数据
+        console.info(`[WeaponDetail] 读取图片: images/${this.weapon.image}`)
+        const imageFile = context.resourceManager.getRawFileContentSync(`images/${this.weapon.image}`)
+        console.info(`[WeaponDetail] 图片读取成功, 大小: ${imageFile.buffer.byteLength} bytes`)
+
+        // 将图片数据写入相册文件
+        await fileIo.write(file.fd, imageFile.buffer)
+        console.info('[WeaponDetail] 图片写入成功')
+
+        // 关闭文件
+        await fileIo.close(file.fd)
+        console.info('[WeaponDetail] 文件已关闭')
+
+        // 提示保存成功
+        promptAction.showToast({
+          message: '图片已保存到相册',
+          duration: 2000,
+          bottom: 100
+        })
+      } catch (writeError) {
+        // 写入失败时关闭文件
+        await fileIo.close(file.fd)
+        const err = writeError as BusinessError
+        console.error(`[WeaponDetail] 写入失败: ${err.code} - ${err.message}`)
+        throw new Error(`Failed to write image: ${err.code} - ${err.message}`)
+      }
+    } catch (error) {
+      const err = error as BusinessError
+      console.error(`[WeaponDetail] 下载图片失败: ${err.code} - ${err.message}`)
+      console.error(`[WeaponDetail] 错误堆栈: ${JSON.stringify(err)}`)
+      promptAction.showToast({
+        message: '保存图片失败，请稍后重试',
+        duration: 2000,
+        bottom: 100
+      })
+    }
   }
 
   build() {
@@ -230,6 +396,23 @@ struct WeaponDetail {
 
       Blank()
 
+      // 下载按钮 - 使用SaveButton安全控件，需要外层容器来设置margin
+      Column() {
+        SaveButton({
+          icon: SaveIconStyle.FULL_FILLED,
+          buttonType: ButtonType.Capsule
+        })
+          .width(40)
+          .height(40)
+          .backgroundColor('rgba(26,34,51,0.85)')
+          .onClick(async (event: ClickEvent, result: SaveButtonOnClickResult) => {
+            if (result === SaveButtonOnClickResult.SUCCESS) {
+              await this.downloadWeaponImage()
+            }
+          })
+      }
+      .margin({ right: Spacing.SMALL })
+
       // 收藏按钮
       Column() {
         Image(this.isFavorite ? $r('app.media.icon_favorite_filled') : $r('app.media.icon_favorite'))
@@ -313,6 +496,45 @@ struct WeaponDetail {
   @Builder
   BasicInfoSection() {
     Column() {
+      // 标题行：神兵介绍 + 语音播放按钮
+      Row() {
+        Row() {
+          Column()
+            .width(4)
+            .height(20)
+            .backgroundColor(ThemeColors.GOLD_PRIMARY)
+            .borderRadius(2)
+
+          Text('神兵介绍')
+            .fontSize(FontSizes.SUBTITLE)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.TEXT_TITLE)
+            .margin({ left: Spacing.SMALL })
+        }
+
+        Blank()
+
+        // 语音播放按钮
+        Column() {
+          SymbolGlyph($r('sys.symbol.speaker_wave_3'))
+            .fontSize(20)
+            .fontColor([ThemeColors.GOLD_PRIMARY])
+            .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
+        }
+        .width(36)
+        .height(36)
+        .justifyContent(FlexAlign.Center)
+        .backgroundColor(ThemeColors.SURFACE_0)
+        .borderRadius(18)
+        .border({
+          width: 1,
+          color: ThemeColors.DIVIDER
+        })
+        .onClick(() => this.toggleTTS())
+      }
+      .width('100%')
+      .margin({ bottom: Spacing.MEDIUM })
+
       // 分类信息
       Row() {
         this.InfoChip(CultureNames[this.weapon!.culture] || this.weapon!.culture)

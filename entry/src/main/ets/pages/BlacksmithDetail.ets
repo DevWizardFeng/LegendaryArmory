@@ -125,14 +125,31 @@ struct BlacksmithDetail {
     try {
       if (this.isTTSPlaying) {
         // 停止播放
+        this.isTTSPlaying = false
         await this.ttsManager.stop()
       } else {
         // 组合铸造师介绍文本
         const text = this.buildBlacksmithIntroText()
-        await this.ttsManager.speak(text)
+
+        // 快速切换状态来"预热"动效（模拟第二次点击）
+        this.isTTSPlaying = true
+        this.isTTSPlaying = false
+        // 使用 setTimeout 确保状态变化被 UI 捕获
+        setTimeout(() => {
+          this.isTTSPlaying = true
+        }, 16) // 一帧的时间（约16ms）
+
+        // 开始播放
+        try {
+          await this.ttsManager.speak(text)
+        } catch (speakError) {
+          this.isTTSPlaying = false
+          throw new Error(`TTS 播放失败: ${speakError}`)
+        }
       }
     } catch (error) {
       console.error('[BlacksmithDetail] TTS 操作失败:', error)
+      this.isTTSPlaying = false
       promptAction.showToast({
         message: '语音播放失败，请稍后重试',
         duration: 2000,
@@ -267,7 +284,7 @@ struct BlacksmithDetail {
       .scrollBar(BarState.Off)
       .edgeEffect(EdgeEffect.Spring)
 
-      // 悬浮返回按钮和语音播放按钮
+      // 悬浮返回按钮
       Row() {
         // 返回按钮
         Column() {
@@ -282,21 +299,6 @@ struct BlacksmithDetail {
         .backgroundColor('rgba(0,0,0,0.5)')
         .borderRadius(20)
         .onClick(() => this.goBack())
-
-        // 语音播放按钮
-        Column() {
-          SymbolGlyph($r('sys.symbol.speaker_wave_3'))
-            .fontSize(24)
-            .fontColor([ThemeColors.TEXT_PRIMARY])
-            .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
-        }
-        .width(40)
-        .height(40)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor('rgba(0,0,0,0.5)')
-        .borderRadius(20)
-        .margin({ left: Spacing.SMALL })
-        .onClick(() => this.toggleTTS())
       }
       .width('100%')
       .padding({ left: Spacing.LARGE, top: Spacing.LARGE })
@@ -382,7 +384,44 @@ struct BlacksmithDetail {
   @Builder
   BioSection() {
     Column() {
-      this.SectionTitle('人物简介')
+      // 标题行：人物简介 + 语音播放按钮
+      Row() {
+        Row() {
+          Column()
+            .width(4)
+            .height(20)
+            .backgroundColor(ThemeColors.ACCENT)
+            .borderRadius(2)
+
+          Text('人物简介')
+            .fontSize(FontSizes.SUBTITLE)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .margin({ left: Spacing.SMALL })
+        }
+
+        Blank()
+
+        // 语音播放按钮
+        Column() {
+          SymbolGlyph($r('sys.symbol.speaker_wave_3'))
+            .fontSize(20)
+            .fontColor([ThemeColors.ACCENT])
+            .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
+        }
+        .width(36)
+        .height(36)
+        .justifyContent(FlexAlign.Center)
+        .backgroundColor(ThemeColors.CARD_BG)
+        .borderRadius(18)
+        .border({
+          width: 1,
+          color: ThemeColors.ACCENT
+        })
+        .onClick(() => this.toggleTTS())
+      }
+      .width('100%')
+      .margin({ bottom: Spacing.MEDIUM })
 
       Text(this.blacksmith!.bio || this.blacksmith!.description)
         .fontSize(FontSizes.BODY)

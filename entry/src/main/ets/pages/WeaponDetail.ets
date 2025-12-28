@@ -158,16 +158,33 @@ struct WeaponDetail {
     try {
       if (this.isTTSPlaying) {
         // 停止播放
+        this.isTTSPlaying = false
         await this.ttsManager.stop()
       } else {
         // 组合神兵介绍文本
         const text = this.buildWeaponIntroText()
-        await this.ttsManager.speak(text)
+
+        // 快速切换状态来"预热"动效（模拟第二次点击）
+        this.isTTSPlaying = true
+        this.isTTSPlaying = false
+        // 使用 setTimeout 确保状态变化被 UI 捕获
+        setTimeout(() => {
+          this.isTTSPlaying = true
+        }, 16) // 一帧的时间（约16ms）
+
+        // 开始播放
+        try {
+          await this.ttsManager.speak(text)
+        } catch (speakError) {
+          this.isTTSPlaying = false
+          throw new Error(`TTS 播放失败: ${speakError}`)
+        }
       }
     } catch (error) {
       console.error('[WeaponDetail] TTS 操作失败:', error)
+      this.isTTSPlaying = false
       promptAction.showToast({
-        message: '语音播放失败，请稍后重试',
+        message: '语音播放失败，请稀后重试',
         duration: 2000,
         bottom: 100
       })

@@ -384,7 +384,62 @@ struct BattleSimulator {
         // 对战区域
         Row() {
           // 左侧神兵
-          this.WeaponSlot(this.leftWeapon, 'left', this.leftShake)
+          Column() {
+            if (this.leftWeapon) {
+              Image($rawfile(`images/${this.leftWeapon.image}`))
+                .width('100%')
+                .height(110)
+                .objectFit(ImageFit.Cover)
+                .borderRadius(Spacing.MEDIUM)
+                .border({ width: 2, color: getAttributeColor(this.leftWeapon.attributes.primary) })
+                .translate({ x: this.leftShake })
+
+              Text(this.leftWeapon.name.cn)
+                .fontSize(FontSizes.BODY)
+                .fontWeight(FontWeight.Medium)
+                .fontColor(ThemeColors.TEXT_TITLE)
+                .margin({ top: Spacing.SMALL })
+                .maxLines(1)
+
+              Text(RarityNames[this.leftWeapon.rarity])
+                .fontSize(FontSizes.CAPTION)
+                .fontColor(getRarityColor(this.leftWeapon.rarity))
+
+              if (this.battleResult && this.showResult) {
+                Text(this.battleResult.leftScore.toString())
+                  .fontSize(FontSizes.TITLE)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor(ThemeColors.GOLD_PRIMARY)
+                  .margin({ top: Spacing.SMALL })
+
+                this.WinLoseTag(this.battleResult.winner === 'left' ? 'win' :
+                  (this.battleResult.winner === 'draw' ? 'draw' : 'lose'))
+              }
+            } else {
+              Column() {
+                Image($r('app.media.icon_add'))
+                  .width(32)
+                  .height(32)
+                  .fillColor(ThemeColors.TEXT_TERTIARY)
+
+                Text('选择神兵')
+                  .fontSize(FontSizes.BODY_SMALL)
+                  .fontColor(ThemeColors.TEXT_TERTIARY)
+                  .margin({ top: Spacing.SMALL })
+              }
+              .width('100%')
+              .height(110)
+              .justifyContent(FlexAlign.Center)
+              .backgroundColor('rgba(0,0,0,0.3)')
+              .borderRadius(Spacing.MEDIUM)
+              .border({ width: 2, style: BorderStyle.Dashed, color: ThemeColors.DIVIDER })
+            }
+          }
+          .layoutWeight(1)
+          .alignItems(HorizontalAlign.Center)
+          .onClick(() => {
+            if (!this.isBattling) this.openPicker('left')
+          })
 
           // VS
           Column() {
@@ -398,7 +453,62 @@ struct BattleSimulator {
           .justifyContent(FlexAlign.Center)
 
           // 右侧神兵
-          this.WeaponSlot(this.rightWeapon, 'right', this.rightShake)
+          Column() {
+            if (this.rightWeapon) {
+              Image($rawfile(`images/${this.rightWeapon.image}`))
+                .width('100%')
+                .height(110)
+                .objectFit(ImageFit.Cover)
+                .borderRadius(Spacing.MEDIUM)
+                .border({ width: 2, color: getAttributeColor(this.rightWeapon.attributes.primary) })
+                .translate({ x: this.rightShake })
+
+              Text(this.rightWeapon.name.cn)
+                .fontSize(FontSizes.BODY)
+                .fontWeight(FontWeight.Medium)
+                .fontColor(ThemeColors.TEXT_TITLE)
+                .margin({ top: Spacing.SMALL })
+                .maxLines(1)
+
+              Text(RarityNames[this.rightWeapon.rarity])
+                .fontSize(FontSizes.CAPTION)
+                .fontColor(getRarityColor(this.rightWeapon.rarity))
+
+              if (this.battleResult && this.showResult) {
+                Text(this.battleResult.rightScore.toString())
+                  .fontSize(FontSizes.TITLE)
+                  .fontWeight(FontWeight.Bold)
+                  .fontColor(ThemeColors.GOLD_PRIMARY)
+                  .margin({ top: Spacing.SMALL })
+
+                this.WinLoseTag(this.battleResult.winner === 'right' ? 'win' :
+                  (this.battleResult.winner === 'draw' ? 'draw' : 'lose'))
+              }
+            } else {
+              Column() {
+                Image($r('app.media.icon_add'))
+                  .width(32)
+                  .height(32)
+                  .fillColor(ThemeColors.TEXT_TERTIARY)
+
+                Text('选择神兵')
+                  .fontSize(FontSizes.BODY_SMALL)
+                  .fontColor(ThemeColors.TEXT_TERTIARY)
+                  .margin({ top: Spacing.SMALL })
+              }
+              .width('100%')
+              .height(110)
+              .justifyContent(FlexAlign.Center)
+              .backgroundColor('rgba(0,0,0,0.3)')
+              .borderRadius(Spacing.MEDIUM)
+              .border({ width: 2, style: BorderStyle.Dashed, color: ThemeColors.DIVIDER })
+            }
+          }
+          .layoutWeight(1)
+          .alignItems(HorizontalAlign.Center)
+          .onClick(() => {
+            if (!this.isBattling) this.openPicker('right')
+          })
         }
         .width('100%')
         .padding(Spacing.LARGE)
@@ -462,95 +572,16 @@ struct BattleSimulator {
   }
 
   @Builder
-  WeaponSlot(weapon: LegendaryWeapon | null, side: 'left' | 'right', shake: number) {
-    Column() {
-      if (weapon) {
-        // 武器图片
-        Image($rawfile(`images/${weapon.image}`))
-          .width('100%')
-          .height(110)
-          .objectFit(ImageFit.Cover)
-          .borderRadius(Spacing.MEDIUM)
-          .border({ width: 2, color: getAttributeColor(weapon.attributes.primary) })
-          .translate({ x: shake })
-
-        // 名称
-        Text(weapon.name.cn)
-          .fontSize(FontSizes.BODY)
-          .fontWeight(FontWeight.Medium)
-          .fontColor(ThemeColors.TEXT_TITLE)
-          .margin({ top: Spacing.SMALL })
-          .maxLines(1)
-
-        // 品质
-        Text(RarityNames[weapon.rarity])
-          .fontSize(FontSizes.CAPTION)
-          .fontColor(getRarityColor(weapon.rarity))
-
-        // 分数（结果显示时）
-        if (this.battleResult && this.showResult) {
-          Text((side === 'left' ? this.battleResult.leftScore : this.battleResult.rightScore).toString())
-            .fontSize(FontSizes.TITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.GOLD_PRIMARY)
-            .margin({ top: Spacing.SMALL })
-
-          // 胜负标记
-          if (this.battleResult.winner === side) {
-            Text('胜')
-              .fontSize(FontSizes.BODY_SMALL)
-              .fontColor(ThemeColors.BASE_0)
-              .fontWeight(FontWeight.Bold)
-              .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: 4, bottom: 4 })
-              .backgroundColor(ThemeColors.SUCCESS)
-              .borderRadius(Spacing.SMALL)
-              .margin({ top: Spacing.SMALL })
-          } else if (this.battleResult.winner === 'draw') {
-            Text('平')
-              .fontSize(FontSizes.BODY_SMALL)
-              .fontColor(ThemeColors.BASE_0)
-              .fontWeight(FontWeight.Bold)
-              .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: 4, bottom: 4 })
-              .backgroundColor(ThemeColors.INFO)
-              .borderRadius(Spacing.SMALL)
-              .margin({ top: Spacing.SMALL })
-          } else {
-            Text('负')
-              .fontSize(FontSizes.BODY_SMALL)
-              .fontColor(ThemeColors.BASE_0)
-              .fontWeight(FontWeight.Bold)
-              .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: 4, bottom: 4 })
-              .backgroundColor(ThemeColors.TEXT_TERTIARY)
-              .borderRadius(Spacing.SMALL)
-              .margin({ top: Spacing.SMALL })
-          }
-        }
-      } else {
-        // 空槽位
-        Column() {
-          Image($r('app.media.icon_add'))
-            .width(32)
-            .height(32)
-            .fillColor(ThemeColors.TEXT_TERTIARY)
-
-          Text('选择神兵')
-            .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.TEXT_TERTIARY)
-            .margin({ top: Spacing.SMALL })
-        }
-        .width('100%')
-        .height(110)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor('rgba(0,0,0,0.3)')
-        .borderRadius(Spacing.MEDIUM)
-        .border({ width: 2, style: BorderStyle.Dashed, color: ThemeColors.DIVIDER })
-      }
-    }
-    .layoutWeight(1)
-    .alignItems(HorizontalAlign.Center)
-    .onClick(() => {
-      if (!this.isBattling) this.openPicker(side)
-    })
+  WinLoseTag(result: 'win' | 'lose' | 'draw') {
+    Text(result === 'win' ? '胜' : (result === 'draw' ? '平' : '负'))
+      .fontSize(FontSizes.BODY_SMALL)
+      .fontColor(ThemeColors.BASE_0)
+      .fontWeight(FontWeight.Bold)
+      .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: 4, bottom: 4 })
+      .backgroundColor(result === 'win' ? ThemeColors.SUCCESS :
+        (result === 'draw' ? ThemeColors.INFO : ThemeColors.TEXT_TERTIARY))
+      .borderRadius(Spacing.SMALL)
+      .margin({ top: Spacing.SMALL })
   }
 
   @Builder

@@ -267,11 +267,12 @@ export struct WeaponListContent {
         .padding(Spacing.LARGE)
       }
       .width('100%')
-      .alignItems(HorizontalAlign.Center)
+      .alignItems(HorizontalAlign.Start)
     }
     .layoutWeight(1)
     .scrollBar(BarState.Off)
     .edgeEffect(EdgeEffect.Spring)
+    .align(Alignment.Top)
   }
 
   /**

@@ -39,11 +39,11 @@ export class ThemeColors {
   static readonly RUST = '#7A2E2A'             // 锈红
   static readonly FORGE_GLOW = '#E8A045'       // 炉火橙
 
-  // ============ 文字颜色（针对灰色背景优化）============
-  static readonly TEXT_TITLE = '#E7D8B1'       // 标题（羊皮纸色）
-  static readonly TEXT_PRIMARY = '#D8E0EA'     // 正文（更亮的冷灰白）
-  static readonly TEXT_SECONDARY = '#B8C4D0'   // 次要信息（提亮以适配灰色背景）
-  static readonly TEXT_TERTIARY = '#96A3B4'    // 辅助信息（提亮以适配灰色背景）
+  // ============ 文字颜色（针对灰色背景优化 - 高对比度）============
+  static readonly TEXT_TITLE = '#F0E4C8'       // 标题（更亮的羊皮纸色）
+  static readonly TEXT_PRIMARY = '#E8F0F8'     // 正文（接近白色的冷灰）
+  static readonly TEXT_SECONDARY = '#C8D4E0'   // 次要信息（高亮度）
+  static readonly TEXT_TERTIARY = '#B0BCC8'    // 辅助信息（中等亮度）
 
   // ============ 品质颜色（材质化）============
   static readonly RARITY_ARTIFACT = '#C7A35A'        // 神器 - 旧金
@@ -91,9 +91,9 @@ export class ThemeColors {
   static readonly ERROR = '#7A2E2A'                  // 锈红
   static readonly INFO = '#3A7FA3'                   // 冷青钢
 
-  // ============ 分割线（针对灰色背景优化）============
-  static readonly DIVIDER = 'rgba(199,163,90,0.40)'         // 金色调（提高透明度）
-  static readonly DIVIDER_SILVER = 'rgba(185,194,204,0.25)' // 银色调（提高透明度）
+  // ============ 分割线（针对灰色背景优化 - 高对比度）============
+  static readonly DIVIDER = 'rgba(199,163,90,0.55)'         // 金色调（高透明度）
+  static readonly DIVIDER_SILVER = 'rgba(185,194,204,0.40)' // 银色调（高透明度）
 }
 
 /**

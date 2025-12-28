@@ -239,7 +239,7 @@ struct BlacksmithDetail {
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_SECONDARY)
             .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-            .backgroundColor('rgba(26,34,51,0.6)')
+            .backgroundColor('rgba(0,0,0,0.4)')
             .borderRadius(Spacing.LARGE)
             .border({ width: 1, color: ThemeColors.DIVIDER })
 
@@ -247,7 +247,7 @@ struct BlacksmithDetail {
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_SECONDARY)
             .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-            .backgroundColor('rgba(26,34,51,0.6)')
+            .backgroundColor('rgba(0,0,0,0.4)')
             .borderRadius(Spacing.LARGE)
             .border({ width: 1, color: ThemeColors.DIVIDER })
             .margin({ left: Spacing.SMALL })
@@ -257,8 +257,8 @@ struct BlacksmithDetail {
       .width('100%')
       .padding({ top: 80, bottom: Spacing.XLARGE })
       .alignItems(HorizontalAlign.Center)
-      .backgroundColor('rgba(26,34,51,0.7)')
-      .backdropBlur(20)
+      .backgroundColor('rgba(0,0,0,0.3)')
+      .backdropBlur(30)
     }
     .width('100%')
   }

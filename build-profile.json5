@@ -5,13 +5,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "storeFile": "/Users/zyb/Desktop/shenbing/sq.p12",
-          "storePassword": "00000019B3B07E2F2064907866305C6B2452DFA8BBC8528E155B0E5E5CA65F615A2D34544FC1654501",
+          "certpath": "/Users/zyb/Desktop/shenbing/ShenBIng.cer",
           "keyAlias": "shenbing",
-          "keyPassword": "00000019033BC7BB271A804CEB1BFA25367451975C582626E5F046E721AAFB79DD978CC65F8496EDD5",
-          "signAlg": "SHA256withECDSA",
+          "keyPassword": "000000192A3F9A20E75C11910C1D8FEA34C2A1F94A07A2B5250978DB084AC0673A7F00B1934244992A",
           "profile": "/Users/zyb/Desktop/shenbing/shenbingRelease.p7b",
-          "certpath": "/Users/zyb/Desktop/shenbing/ShenBIng.cer"
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/zyb/Desktop/shenbing/sq.p12",
+          "storePassword": "000000191BC10DB232261CDAE2DE0DACA9675AF221586425EDA9F04C261EC55AEE590C9D9FD37C4417"
         }
       }
     ],

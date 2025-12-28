@@ -1,5 +1,5 @@
 {
-  "modelVersion": "6.0.1",
+  "modelVersion": "5.0.2",
   "name": "legendaryarmory",
   "version": "1.0.0",
   "description": "神兵图录 - 传说兵器图鉴 App",
@@ -8,7 +8,7 @@
   "license": "Apache-2.0",
   "dependencies": {},
   "devDependencies": {
-    "@ohos/hvigor-ohos-plugin": "6.0.1",
-    "@ohos/hvigor": "6.0.1"
+    "@ohos/hvigor-ohos-plugin": "5.0.2",
+    "@ohos/hvigor": "5.0.2"
   }
 }

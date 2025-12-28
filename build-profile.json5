@@ -1,11 +1,25 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storeFile": "/Users/zyb/Desktop/shenbing/sq.p12",
+          "storePassword": "00000019B3B07E2F2064907866305C6B2452DFA8BBC8528E155B0E5E5CA65F615A2D34544FC1654501",
+          "keyAlias": "shenbing",
+          "keyPassword": "00000019033BC7BB271A804CEB1BFA25367451975C582626E5F046E721AAFB79DD978CC65F8496EDD5",
+          "signAlg": "SHA256withECDSA",
+          "profile": "/Users/zyb/Desktop/shenbing/shenbingRelease.p7b",
+          "certpath": "/Users/zyb/Desktop/shenbing/ShenBIng.cer"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
-        "compatibleSdkVersion": "5.0.0(12)",
+        "compatibleSdkVersion": "6.0.1(21)",
         "runtimeOS": "HarmonyOS",
         "buildOption": {
           "strictMode": {

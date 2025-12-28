@@ -1,8 +1,8 @@
 {
-  "modelVersion": "6.0.1",
+  "modelVersion": "5.0.2",
   "dependencies": {
-    "@ohos/hvigor": "6.0.1",
-    "@ohos/hvigor-ohos-plugin": "6.0.1"
+    "@ohos/hvigor": "5.0.2",
+    "@ohos/hvigor-ohos-plugin": "5.0.2"
   },
   "execution": {
     "daemon": true,

@@ -586,50 +586,52 @@ struct BattleSimulator {
 
   @Builder
   ResultView() {
-    Column() {
-      // 结果标题
-      Text(this.getResultTitle())
-        .fontSize(FontSizes.SUBTITLE)
-        .fontWeight(FontWeight.Bold)
-        .fontColor(this.battleResult!.winner === 'draw' ? ThemeColors.INFO : ThemeColors.GOLD_PRIMARY)
-        .margin({ top: Spacing.LARGE })
-
-      // 对战详情
+    if (this.battleResult) {
       Column() {
-        ForEach(this.battleResult!.details, (detail: BattleDetail) => {
-          Row() {
-            Text(`${detail.round}.`)
-              .fontSize(FontSizes.BODY_SMALL)
-              .fontColor(ThemeColors.TEXT_TERTIARY)
-              .width(20)
+        // 结果标题
+        Text(this.getResultTitle())
+          .fontSize(FontSizes.SUBTITLE)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(this.battleResult.winner === 'draw' ? ThemeColors.INFO : ThemeColors.GOLD_PRIMARY)
+          .margin({ top: Spacing.LARGE })
 
-            Text(detail.description)
-              .fontSize(FontSizes.BODY_SMALL)
-              .fontColor(detail.highlight ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_SECONDARY)
-              .layoutWeight(1)
-          }
-          .width('100%')
-          .padding({ top: 6, bottom: 6 })
-        })
+        // 对战详情
+        Column() {
+          ForEach(this.battleResult.details, (detail: BattleDetail) => {
+            Row() {
+              Text(`${detail.round}.`)
+                .fontSize(FontSizes.BODY_SMALL)
+                .fontColor(ThemeColors.TEXT_TERTIARY)
+                .width(20)
+
+              Text(detail.description)
+                .fontSize(FontSizes.BODY_SMALL)
+                .fontColor(detail.highlight ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_SECONDARY)
+                .layoutWeight(1)
+            }
+            .width('100%')
+            .padding({ top: 6, bottom: 6 })
+          })
+        }
+        .width('100%')
+        .padding(Spacing.MEDIUM)
+        .margin({ top: Spacing.MEDIUM })
+        .backgroundColor('rgba(0,0,0,0.3)')
+        .borderRadius(Spacing.MEDIUM)
+
+        // 再来一局
+        Text('再来一局')
+          .fontSize(FontSizes.BODY_SMALL)
+          .fontColor(ThemeColors.GOLD_PRIMARY)
+          .margin({ top: Spacing.LARGE })
+          .onClick(() => {
+            this.battleResult = null
+            this.showResult = false
+          })
       }
       .width('100%')
-      .padding(Spacing.MEDIUM)
-      .margin({ top: Spacing.MEDIUM })
-      .backgroundColor('rgba(0,0,0,0.3)')
-      .borderRadius(Spacing.MEDIUM)
-
-      // 再来一局
-      Text('再来一局')
-        .fontSize(FontSizes.BODY_SMALL)
-        .fontColor(ThemeColors.GOLD_PRIMARY)
-        .margin({ top: Spacing.LARGE })
-        .onClick(() => {
-          this.battleResult = null
-          this.showResult = false
-        })
+      .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
     }
-    .width('100%')
-    .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
   }
 
   getResultTitle(): string {

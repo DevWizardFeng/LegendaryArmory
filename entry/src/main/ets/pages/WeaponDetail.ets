@@ -453,58 +453,60 @@ struct WeaponDetail {
    */
   @Builder
   HeaderSection() {
-    Stack({ alignContent: Alignment.BottomStart }) {
-      // 背景图片 - 全屏展示
-      Image($rawfile(`images/${this.weapon!.image}`))
-        .width('100%')
-        .height('100%')
-        .objectFit(ImageFit.Cover)
+    if (this.weapon) {
+      Stack({ alignContent: Alignment.BottomStart }) {
+        // 背景图片 - 全屏展示
+        Image($rawfile(`images/${this.weapon.image}`))
+          .width('100%')
+          .height('100%')
+          .objectFit(ImageFit.Cover)
 
-      // 渐变遮罩 - 轻柔渐变，只遮底部文字区域
-      Column()
-        .width('100%')
-        .height('50%')
-        .linearGradient({
-          angle: 180,
-          colors: [['rgba(11,13,16,0)', 0], ['rgba(11,13,16,0.8)', 1]]
-        })
-
-      // 名称和品质
-      Column() {
-        // 品质标签 - 展柜铭牌风格
-        Text(RarityNames[this.weapon!.rarity] || this.weapon!.rarity)
-          .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(getRarityColor(this.weapon!.rarity))
-          .fontWeight(FontWeight.Bold)
-          .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-          .backgroundColor('rgba(26,34,51,0.85)')
-          .borderRadius(4)
-          .border({
-            width: 1,
-            color: getRarityDarkColor(this.weapon!.rarity)
+        // 渐变遮罩 - 轻柔渐变，只遮底部文字区域
+        Column()
+          .width('100%')
+          .height('50%')
+          .linearGradient({
+            angle: 180,
+            colors: [['rgba(11,13,16,0)', 0], ['rgba(11,13,16,0.8)', 1]]
           })
 
-        // 中文名 - 使用羊皮纸色
-        Text(this.weapon!.name.cn)
-          .fontSize(FontSizes.TITLE_LARGE)
-          .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_TITLE)
-          .margin({ top: Spacing.SMALL })
+        // 名称和品质
+        Column() {
+          // 品质标签 - 展柜铭牌风格
+          Text(RarityNames[this.weapon.rarity] || this.weapon.rarity)
+            .fontSize(FontSizes.BODY_SMALL)
+            .fontColor(getRarityColor(this.weapon.rarity))
+            .fontWeight(FontWeight.Bold)
+            .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
+            .backgroundColor('rgba(26,34,51,0.85)')
+            .borderRadius(4)
+            .border({
+              width: 1,
+              color: getRarityDarkColor(this.weapon.rarity)
+            })
 
-        // 英文名
-        if (this.weapon!.name.en) {
-          Text(this.weapon!.name.en)
-            .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.TEXT_SECONDARY)
-            .margin({ top: Spacing.TINY })
+          // 中文名 - 使用羊皮纸色
+          Text(this.weapon.name.cn)
+            .fontSize(FontSizes.TITLE_LARGE)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.TEXT_TITLE)
+            .margin({ top: Spacing.SMALL })
+
+          // 英文名
+          if (this.weapon.name.en) {
+            Text(this.weapon.name.en)
+              .fontSize(FontSizes.BODY)
+              .fontColor(ThemeColors.TEXT_SECONDARY)
+              .margin({ top: Spacing.TINY })
+          }
         }
+        .alignItems(HorizontalAlign.Start)
+        .padding(Spacing.LARGE)
       }
-      .alignItems(HorizontalAlign.Start)
-      .padding(Spacing.LARGE)
+      .width('100%')
+      .height(360)
+      .clip(true)
     }
-    .width('100%')
-    .height(360)
-    .clip(true)
   }
 
   /**
@@ -512,96 +514,98 @@ struct WeaponDetail {
    */
   @Builder
   BasicInfoSection() {
-    Column() {
-      // 标题行：神兵介绍 + 语音播放按钮
-      Row() {
+    if (this.weapon) {
+      Column() {
+        // 标题行：神兵介绍 + 语音播放按钮
         Row() {
-          Column()
-            .width(4)
-            .height(20)
-            .backgroundColor(ThemeColors.GOLD_PRIMARY)
-            .borderRadius(2)
+          Row() {
+            Column()
+              .width(4)
+              .height(20)
+              .backgroundColor(ThemeColors.GOLD_PRIMARY)
+              .borderRadius(2)
 
-          Text('神兵介绍')
-            .fontSize(FontSizes.SUBTITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_TITLE)
-            .margin({ left: Spacing.SMALL })
-        }
+            Text('神兵介绍')
+              .fontSize(FontSizes.SUBTITLE)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(ThemeColors.TEXT_TITLE)
+              .margin({ left: Spacing.SMALL })
+          }
 
-        Blank()
+          Blank()
 
-        // 语音播放按钮
-        Column() {
-          SymbolGlyph($r('sys.symbol.speaker_wave_3'))
-            .fontSize(20)
-            .fontColor([ThemeColors.GOLD_PRIMARY])
-            .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
-        }
-        .width(36)
-        .height(36)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.SURFACE_0)
-        .borderRadius(18)
-        .border({
-          width: 1,
-          color: ThemeColors.DIVIDER
-        })
-        .onClick(() => this.toggleTTS())
-      }
-      .width('100%')
-      .margin({ bottom: Spacing.MEDIUM })
-
-      // 分类信息
-      Row() {
-        this.InfoChip(CultureNames[this.weapon!.culture] || this.weapon!.culture)
-        this.InfoChip(WeaponTypeNames[this.weapon!.type] || this.weapon!.type)
-      }
-      .margin({ bottom: Spacing.MEDIUM })
-
-      // 属性标签
-      Row() {
-        AttributeTag({ attribute: this.weapon!.attributes.primary, tagSize: 'large', showIcon: true })
-        if (this.weapon!.attributes.secondary) {
-          AttributeTag({
-            attribute: this.weapon!.attributes.secondary,
-            tagSize: 'large',
-            showIcon: true
+          // 语音播放按钮
+          Column() {
+            SymbolGlyph($r('sys.symbol.speaker_wave_3'))
+              .fontSize(20)
+              .fontColor([ThemeColors.GOLD_PRIMARY])
+              .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
+          }
+          .width(36)
+          .height(36)
+          .justifyContent(FlexAlign.Center)
+          .backgroundColor(ThemeColors.SURFACE_0)
+          .borderRadius(18)
+          .border({
+            width: 1,
+            color: ThemeColors.DIVIDER
           })
-            .margin({ left: Spacing.SMALL })
-        }
-      }
-      .margin({ bottom: Spacing.MEDIUM })
-
-      // 描述
-      Text(this.weapon!.description)
-        .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.TEXT_SECONDARY)
-        .lineHeight(24)
-
-      // 铭文 - 羊皮纸卷轴风格
-      if (this.weapon!.inscription) {
-        Column() {
-          Text('"' + this.weapon!.inscription + '"')
-            .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.PARCHMENT)
-            .fontStyle(FontStyle.Italic)
-            .textAlign(TextAlign.Center)
+          .onClick(() => this.toggleTTS())
         }
         .width('100%')
-        .padding(Spacing.MEDIUM)
-        .margin({ top: Spacing.MEDIUM })
-        .backgroundColor(ThemeColors.SURFACE_0)
-        .borderRadius(Spacing.SMALL)
-        .border({
-          width: 1,
-          color: ThemeColors.DIVIDER
-        })
+        .margin({ bottom: Spacing.MEDIUM })
+
+        // 分类信息
+        Row() {
+          this.InfoChip(CultureNames[this.weapon.culture] || this.weapon.culture)
+          this.InfoChip(WeaponTypeNames[this.weapon.type] || this.weapon.type)
+        }
+        .margin({ bottom: Spacing.MEDIUM })
+
+        // 属性标签
+        Row() {
+          AttributeTag({ attribute: this.weapon.attributes.primary, tagSize: 'large', showIcon: true })
+          if (this.weapon.attributes.secondary) {
+            AttributeTag({
+              attribute: this.weapon.attributes.secondary,
+              tagSize: 'large',
+              showIcon: true
+            })
+              .margin({ left: Spacing.SMALL })
+          }
+        }
+        .margin({ bottom: Spacing.MEDIUM })
+
+        // 描述
+        Text(this.weapon.description)
+          .fontSize(FontSizes.BODY)
+          .fontColor(ThemeColors.TEXT_SECONDARY)
+          .lineHeight(24)
+
+        // 铭文 - 羊皮纸卷轴风格
+        if (this.weapon.inscription) {
+          Column() {
+            Text('"' + this.weapon.inscription + '"')
+              .fontSize(FontSizes.BODY)
+              .fontColor(ThemeColors.PARCHMENT)
+              .fontStyle(FontStyle.Italic)
+              .textAlign(TextAlign.Center)
+          }
+          .width('100%')
+          .padding(Spacing.MEDIUM)
+          .margin({ top: Spacing.MEDIUM })
+          .backgroundColor(ThemeColors.SURFACE_0)
+          .borderRadius(Spacing.SMALL)
+          .border({
+            width: 1,
+            color: ThemeColors.DIVIDER
+          })
+        }
       }
+      .width('100%')
+      .padding(Spacing.LARGE)
+      .alignItems(HorizontalAlign.Start)
     }
-    .width('100%')
-    .padding(Spacing.LARGE)
-    .alignItems(HorizontalAlign.Start)
   }
 
   /**
@@ -627,20 +631,22 @@ struct WeaponDetail {
    */
   @Builder
   StatsSection() {
-    Column() {
-      this.SectionTitle('属性数据')
+    if (this.weapon) {
+      Column() {
+        this.SectionTitle('属性数据')
 
-      Row() {
-        this.StatItem('攻击', this.weapon!.stats.attack, ThemeColors.RUST)
-        this.StatItem('防御', this.weapon!.stats.defense, ThemeColors.INFO)
-        this.StatItem('速度', this.weapon!.stats.speed, ThemeColors.SUCCESS)
-        this.StatItem('暴击', this.weapon!.stats.critical || 0, ThemeColors.EMBER)
+        Row() {
+          this.StatItem('攻击', this.weapon.stats.attack, ThemeColors.RUST)
+          this.StatItem('防御', this.weapon.stats.defense, ThemeColors.INFO)
+          this.StatItem('速度', this.weapon.stats.speed, ThemeColors.SUCCESS)
+          this.StatItem('暴击', this.weapon.stats.critical || 0, ThemeColors.EMBER)
+        }
+        .width('100%')
+        .justifyContent(FlexAlign.SpaceAround)
       }
       .width('100%')
-      .justifyContent(FlexAlign.SpaceAround)
+      .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.LARGE })
     }
-    .width('100%')
-    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.LARGE })
   }
 
   /**
@@ -698,17 +704,19 @@ struct WeaponDetail {
    */
   @Builder
   ForgingLegendSection() {
-    Column() {
-      this.SectionTitle('铸造传说')
+    if (this.weapon) {
+      Column() {
+        this.SectionTitle('铸造传说')
 
-      Text(this.weapon!.forging_legend)
-        .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.TEXT_SECONDARY)
-        .lineHeight(24)
+        Text(this.weapon.forging_legend)
+          .fontSize(FontSizes.BODY)
+          .fontColor(ThemeColors.TEXT_SECONDARY)
+          .lineHeight(24)
+      }
+      .width('100%')
+      .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.LARGE })
+      .alignItems(HorizontalAlign.Start)
     }
-    .width('100%')
-    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.LARGE })
-    .alignItems(HorizontalAlign.Start)
   }
 
   /**
@@ -716,17 +724,19 @@ struct WeaponDetail {
    */
   @Builder
   BattleLegendSection() {
-    Column() {
-      this.SectionTitle('战斗传说')
+    if (this.weapon) {
+      Column() {
+        this.SectionTitle('战斗传说')
 
-      Text(this.weapon!.battle_legend)
-        .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.TEXT_SECONDARY)
-        .lineHeight(24)
+        Text(this.weapon.battle_legend)
+          .fontSize(FontSizes.BODY)
+          .fontColor(ThemeColors.TEXT_SECONDARY)
+          .lineHeight(24)
+      }
+      .width('100%')
+      .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.LARGE })
+      .alignItems(HorizontalAlign.Start)
     }
-    .width('100%')
-    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.LARGE })
-    .alignItems(HorizontalAlign.Start)
   }
 
   /**
@@ -734,11 +744,11 @@ struct WeaponDetail {
    */
   @Builder
   AbilitiesSection() {
-    if (this.weapon!.abilities && this.weapon!.abilities.length > 0) {
+    if (this.weapon && this.weapon.abilities && this.weapon.abilities.length > 0) {
       Column() {
         this.SectionTitle('神兵技能')
 
-        ForEach(this.weapon!.abilities, (abilityId: string, index: number) => {
+        ForEach(this.weapon.abilities, (abilityId: string, index: number) => {
           Row() {
             Column() {
               Text((index + 1).toString())
@@ -778,11 +788,11 @@ struct WeaponDetail {
    */
   @Builder
   OwnersSection() {
-    if (this.weapon!.famous_owners && this.weapon!.famous_owners.length > 0) {
+    if (this.weapon && this.weapon.famous_owners && this.weapon.famous_owners.length > 0) {
       Column() {
         this.SectionTitle('著名持有者')
 
-        ForEach(this.weapon!.famous_owners, (owner: FamousOwner) => {
+        ForEach(this.weapon.famous_owners, (owner: FamousOwner) => {
           Row() {
             Column() {
               Text(owner.name)

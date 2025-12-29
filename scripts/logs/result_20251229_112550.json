@@ -1,0 +1,373 @@
+[
+  {
+    "id": "weapon_pangu_axe",
+    "name_cn": "盘古开天斧",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_pangu_axe.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_ruyi_jingu_bang",
+    "name_cn": "如意金箍棒",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_ruyi_jingu_bang.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_jiuchidingnail",
+    "name_cn": "九齿钉耙",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_jiuchidingnail.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_qingfeng",
+    "name_cn": "青锋剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_qingfeng.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_zhangba_shemao",
+    "name_cn": "丈八蛇矛",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_zhangba_shemao.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_yinyue_qiang",
+    "name_cn": "银月枪",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_yinyue_qiang.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_longquan",
+    "name_cn": "龙泉剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_longquan.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_haolong",
+    "name_cn": "镐龙刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_haolong.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_dashen_bian",
+    "name_cn": "打神鞭",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_dashen_bian.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_honjo_masamune",
+    "name_cn": "本庄正宗",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_honjo_masamune.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_ama_no_habakiri",
+    "name_cn": "天羽羽斩",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_ama_no_habakiri.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_juzumaru",
+    "name_cn": "数珠丸恒次",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_juzumaru.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_odenta",
+    "name_cn": "大典太光世",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_odenta.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_kogarasu_maru",
+    "name_cn": "小乌丸",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_kogarasu_maru.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_tonbo_kiri",
+    "name_cn": "蜻蛉切",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_tonbo_kiri.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_nihongo",
+    "name_cn": "日本号",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_nihongo.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_stormbreaker",
+    "name_cn": "风暴战斧",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_stormbreaker.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_hofud",
+    "name_cn": "霍弗德",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_hofud.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_skofnung",
+    "name_cn": "斯考弗农",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_skofnung.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_dainsleif",
+    "name_cn": "岱恩斯雷夫",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_dainsleif.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_mistilteinn",
+    "name_cn": "米斯蒂汀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_mistilteinn.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_harpe",
+    "name_cn": "哈尔佩",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_harpe.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_aegis",
+    "name_cn": "埃吉斯",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_aegis.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_caduceus",
+    "name_cn": "赫尔墨斯之杖",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_caduceus.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_labrys",
+    "name_cn": "拉布里斯",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_labrys.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_xiphos",
+    "name_cn": "希腊短剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_xiphos.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_dory",
+    "name_cn": "多里长矛",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_dory.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_almace",
+    "name_cn": "阿尔玛斯",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_almace.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_arondight",
+    "name_cn": "无毁的湖光",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_arondight.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_galatine",
+    "name_cn": "转轮胜利之剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_galatine.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_caladbolg",
+    "name_cn": "硬光剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_caladbolg.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_cruaidin",
+    "name_cn": "战斗硬剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_cruaidin.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_kaumodaki",
+    "name_cn": "俱卢神棒",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_kaumodaki.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_pashupatastra",
+    "name_cn": "兽主之矢",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_pashupatastra.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_scimitar",
+    "name_cn": "弯月刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_scimitar.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_jambiya",
+    "name_cn": "阿拉伯短剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_jambiya.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_khanda",
+    "name_cn": "印度阔剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_khanda.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_anubis_staff",
+    "name_cn": "阿努比斯权杖",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_anubis_staff.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_horus_spear",
+    "name_cn": "荷鲁斯之矛",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_horus_spear.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_set_axe",
+    "name_cn": "塞特战斧",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_set_axe.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_acinaces",
+    "name_cn": "阿奇那刻斯短剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_acinaces.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_khopesh_persian",
+    "name_cn": "波斯镰刀剑",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_khopesh_persian.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_katar",
+    "name_cn": "卡塔尔拳刃",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_katar.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_atlatl",
+    "name_cn": "投矛器",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_atlatl.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_tepoztopilli",
+    "name_cn": "特波兹托皮利",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_tepoztopilli.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_huitzauhqui",
+    "name_cn": "刺棒",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_huitzauhqui.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_tecpatl",
+    "name_cn": "祭祀刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_tecpatl.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_iklwa",
+    "name_cn": "伊克尔瓦短矛",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_iklwa.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_shotel",
+    "name_cn": "埃塞俄比亚弯刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_shotel.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_makraka",
+    "name_cn": "马克拉卡飞刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_makraka.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_mambele",
+    "name_cn": "曼贝勒飞刀",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_mambele.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_shuang_gou",
+    "name_cn": "鸳鸯钩",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_shuang_gou.png",
+    "tokens": 16384
+  },
+  {
+    "id": "weapon_meteor_hammer",
+    "name_cn": "流星锤",
+    "status": "success",
+    "file_path": "/Users/zyb/Desktop/Harmony/LegendaryArmory/entry/src/main/resources/base/media/weapon_meteor_hammer.png",
+    "tokens": 16384
+  }
+]

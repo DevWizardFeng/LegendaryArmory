@@ -2,1032 +2,6572 @@
   "weapons": [
     {
       "id": "xuanyuan_sword",
-      "name": {"original": "轩辕剑", "cn": "轩辕剑", "en": "Xuanyuan Sword"},
+      "name": {
+        "original": "轩辕剑",
+        "cn": "轩辕剑",
+        "en": "Xuanyuan Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "fire", "secondary": "thunder"},
+      "attributes": {
+        "primary": "fire",
+        "secondary": "thunder"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 98, "defense": 85, "speed": 80, "weight": 3.2},
+      "stats": {
+        "attack": 98,
+        "defense": 85,
+        "speed": 80,
+        "weight": 3.2
+      },
       "description": "黄帝铸此剑以诛蚩尤，剑身刻有日月星辰、山川草木，是中华民族的象征。",
       "forging_legend": "黄帝采首山之铜，于荆山之阳铸此剑。铸剑时引天火淬炼，有神龙盘旋献精华，历时三年铸成。",
       "battle_legend": "涿鹿之战，黄帝持轩辕剑与蚩尤大战。蚩尤驱雾遮天，黄帝借轩辕剑之力拨云见日，终斩蚩尤。",
-      "abilities": ["dragon_slash", "thunder_strike", "divine_protection"],
+      "abilities": [
+        "dragon_slash",
+        "thunder_strike",
+        "divine_protection"
+      ],
       "symbolism": "中华民族的象征，代表正统王权与华夏文明的传承",
       "inscription": "日月星辰 山川草木",
-      "famous_owners": [{"name": "黄帝", "title": "中华始祖", "story": "铸剑诛蚩尤，开创华夏文明"}],
+      "famous_owners": [
+        {
+          "name": "黄帝",
+          "title": "中华始祖",
+          "story": "铸剑诛蚩尤，开创华夏文明"
+        }
+      ],
       "blacksmith_id": "legend_huangdi",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "dragon_head", "handle_type": "golden_wrapped", "colors": ["#FFD700", "#FF4500", "#8B0000"], "features": ["龙纹缠绕", "火焰特效", "雷电环绕", "日月星辰铭刻"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "dragon_head",
+        "handle_type": "golden_wrapped",
+        "colors": [
+          "#FFD700",
+          "#FF4500",
+          "#8B0000"
+        ],
+        "features": [
+          "龙纹缠绕",
+          "火焰特效",
+          "雷电环绕",
+          "日月星辰铭刻"
+        ]
+      },
       "image": "weapon_xuanyuan.png",
-      "related": ["zhanlu_sword", "chixiao_sword"],
-      "tags": ["中国", "上古", "神器", "火雷双属性", "黄帝", "帝王之剑"]
+      "related": [
+        "zhanlu_sword",
+        "chixiao_sword"
+      ],
+      "tags": [
+        "中国",
+        "上古",
+        "神器",
+        "火雷双属性",
+        "黄帝",
+        "帝王之剑"
+      ]
     },
     {
       "id": "zhanlu_sword",
-      "name": {"original": "湛卢剑", "cn": "湛卢剑", "en": "Zhanlu Sword"},
+      "name": {
+        "original": "湛卢剑",
+        "cn": "湛卢剑",
+        "en": "Zhanlu Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 88, "defense": 75, "speed": 90, "weight": 2.1},
+      "stats": {
+        "attack": 88,
+        "defense": 75,
+        "speed": 90,
+        "weight": 2.1
+      },
       "description": "欧冶子所铸五大名剑之首，剑身如深湖碧水，能辨善恶，是仁道之剑。",
       "forging_legend": "欧冶子于湛卢山中铸此剑，取山中寒泉淬火，三年乃成。剑成之日，祥云满天。",
       "battle_legend": "湛卢剑传说能识主，遇暴君则自行离去，择明主而栖。",
-      "abilities": ["divine_protection", "true_sight", "soul_bind"],
+      "abilities": [
+        "divine_protection",
+        "true_sight",
+        "soul_bind"
+      ],
       "symbolism": "仁德之剑，象征正义与仁爱",
       "inscription": "湛然清澈 卢于深山",
-      "famous_owners": [{"name": "越王勾践", "title": "春秋霸主", "story": "卧薪尝胆，复国雪耻"}],
+      "famous_owners": [
+        {
+          "name": "越王勾践",
+          "title": "春秋霸主",
+          "story": "卧薪尝胆，复国雪耻"
+        }
+      ],
       "blacksmith_id": "ouye",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "cloud_pattern", "handle_type": "jade_wrapped", "colors": ["#006994", "#C0C0C0"], "features": ["剑身如水", "祥云纹饰"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cloud_pattern",
+        "handle_type": "jade_wrapped",
+        "colors": [
+          "#006994",
+          "#C0C0C0"
+        ],
+        "features": [
+          "剑身如水",
+          "祥云纹饰"
+        ]
+      },
       "image": "weapon_zhanlu.png",
-      "related": ["xuanyuan_sword", "taie_sword"],
-      "tags": ["中国", "春秋", "欧冶子", "光属性", "仁者之剑"]
+      "related": [
+        "xuanyuan_sword",
+        "taie_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "欧冶子",
+        "光属性",
+        "仁者之剑"
+      ]
     },
     {
       "id": "ganjiang_sword",
-      "name": {"original": "干将", "cn": "干将剑", "en": "Gan Jiang Sword"},
+      "name": {
+        "original": "干将",
+        "cn": "干将剑",
+        "en": "Gan Jiang Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "fire"},
+      "attributes": {
+        "primary": "fire"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 92, "defense": 65, "speed": 88, "weight": 2.4},
+      "stats": {
+        "attack": 92,
+        "defense": 65,
+        "speed": 88,
+        "weight": 2.4
+      },
       "description": "干将莫邪夫妻所铸雌雄双剑之雄剑，阳刚至刚，与莫邪剑千里相鸣。",
       "forging_legend": "吴王命干将铸剑，三年不成。莫邪投身炉火，铁汁终化，铸成雌雄双剑。雄剑为干将。",
       "battle_legend": "传说雌雄双剑分离后，若有缘人同持二剑，剑会自行合鸣，威力倍增。",
-      "abilities": ["flame_wave", "soul_bind"],
+      "abilities": [
+        "flame_wave",
+        "soul_bind"
+      ],
       "symbolism": "夫妻之义，至死不渝的爱情",
       "inscription": "干将",
-      "famous_owners": [{"name": "吴王阖闾", "title": "春秋五霸", "story": "持此剑争霸天下"}],
+      "famous_owners": [
+        {
+          "name": "吴王阖闾",
+          "title": "春秋五霸",
+          "story": "持此剑争霸天下"
+        }
+      ],
       "blacksmith_id": "ganjiang_moye",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "flame_pattern", "handle_type": "red_silk", "colors": ["#DC143C", "#FFD700"], "features": ["阳刚之气", "火焰纹饰"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "flame_pattern",
+        "handle_type": "red_silk",
+        "colors": [
+          "#DC143C",
+          "#FFD700"
+        ],
+        "features": [
+          "阳刚之气",
+          "火焰纹饰"
+        ]
+      },
       "image": "weapon_ganjiang.png",
-      "related": ["moye_sword"],
-      "tags": ["中国", "春秋", "干将莫邪", "雌雄双剑", "火属性"]
+      "related": [
+        "moye_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "干将莫邪",
+        "雌雄双剑",
+        "火属性"
+      ]
     },
     {
       "id": "moye_sword",
-      "name": {"original": "莫邪", "cn": "莫邪剑", "en": "Mo Ye Sword"},
+      "name": {
+        "original": "莫邪",
+        "cn": "莫邪剑",
+        "en": "Mo Ye Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "water"},
+      "attributes": {
+        "primary": "water"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 85, "defense": 70, "speed": 92, "weight": 2.0},
+      "stats": {
+        "attack": 85,
+        "defense": 70,
+        "speed": 92,
+        "weight": 2.0
+      },
       "description": "干将莫邪夫妻所铸雌雄双剑之雌剑，柔中带刚，与干将剑千里相鸣。",
       "forging_legend": "莫邪以身殉剑，投身炉火使神铁化开。雌剑以其名命名，蕴含她的灵魂。",
       "battle_legend": "莫邪剑灵性非凡，能感应干将剑所在，两剑若相隔千里亦会鸣响。",
-      "abilities": ["frost_nova", "soul_bind"],
+      "abilities": [
+        "frost_nova",
+        "soul_bind"
+      ],
       "symbolism": "牺牲精神与不朽爱情",
       "inscription": "莫邪",
-      "famous_owners": [{"name": "吴王阖闾", "title": "春秋五霸", "story": "持此剑争霸天下"}],
+      "famous_owners": [
+        {
+          "name": "吴王阖闾",
+          "title": "春秋五霸",
+          "story": "持此剑争霸天下"
+        }
+      ],
       "blacksmith_id": "ganjiang_moye",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "water_pattern", "handle_type": "blue_silk", "colors": ["#4169E1", "#C0C0C0"], "features": ["柔美之姿", "水波纹饰"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "water_pattern",
+        "handle_type": "blue_silk",
+        "colors": [
+          "#4169E1",
+          "#C0C0C0"
+        ],
+        "features": [
+          "柔美之姿",
+          "水波纹饰"
+        ]
+      },
       "image": "weapon_moye.png",
-      "related": ["ganjiang_sword"],
-      "tags": ["中国", "春秋", "干将莫邪", "雌雄双剑", "水属性"]
+      "related": [
+        "ganjiang_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "干将莫邪",
+        "雌雄双剑",
+        "水属性"
+      ]
     },
     {
       "id": "chixiao_sword",
-      "name": {"original": "赤霄剑", "cn": "赤霄剑", "en": "Chixiao Sword"},
+      "name": {
+        "original": "赤霄剑",
+        "cn": "赤霄剑",
+        "en": "Chixiao Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "fire", "secondary": "light"},
+      "attributes": {
+        "primary": "fire",
+        "secondary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 90, "defense": 78, "speed": 85, "weight": 2.8},
+      "stats": {
+        "attack": 90,
+        "defense": 78,
+        "speed": 85,
+        "weight": 2.8
+      },
       "description": "汉高祖刘邦斩白蛇起义时所用之剑，帝王之剑，开创大汉四百年基业。",
       "forging_legend": "传说赤霄剑为天赐神剑，刘邦于芒砀山泽中得此剑。",
       "battle_legend": "刘邦酒醉夜行，遇白蛇拦路，拔剑斩之。后有老妪哭泣曰：'吾子白帝子，为赤帝子所杀'。",
-      "abilities": ["flame_wave", "holy_judgment", "dragon_slash"],
+      "abilities": [
+        "flame_wave",
+        "holy_judgment",
+        "dragon_slash"
+      ],
       "symbolism": "帝王之气，开国之剑",
       "inscription": "赤霄",
-      "famous_owners": [{"name": "刘邦", "title": "汉高祖", "story": "斩白蛇起义，建立大汉"}],
+      "famous_owners": [
+        {
+          "name": "刘邦",
+          "title": "汉高祖",
+          "story": "斩白蛇起义，建立大汉"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "dragon_pattern", "handle_type": "red_jade", "colors": ["#FF0000", "#FFD700"], "features": ["赤红剑身", "帝王之气"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "dragon_pattern",
+        "handle_type": "red_jade",
+        "colors": [
+          "#FF0000",
+          "#FFD700"
+        ],
+        "features": [
+          "赤红剑身",
+          "帝王之气"
+        ]
+      },
       "image": "weapon_chixiao.png",
-      "related": ["xuanyuan_sword"],
-      "tags": ["中国", "汉朝", "帝王之剑", "刘邦", "火光双属性"]
+      "related": [
+        "xuanyuan_sword"
+      ],
+      "tags": [
+        "中国",
+        "汉朝",
+        "帝王之剑",
+        "刘邦",
+        "火光双属性"
+      ]
     },
     {
       "id": "kusanagi",
-      "name": {"original": "草薙剣", "cn": "草薙剑", "en": "Kusanagi-no-Tsurugi"},
+      "name": {
+        "original": "草薙剣",
+        "cn": "草薙剑",
+        "en": "Kusanagi-no-Tsurugi"
+      },
       "culture": "japanese",
       "type": "katana",
-      "attributes": {"primary": "wind"},
+      "attributes": {
+        "primary": "wind"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 95, "defense": 80, "speed": 92, "weight": 2.5},
+      "stats": {
+        "attack": 95,
+        "defense": 80,
+        "speed": 92,
+        "weight": 2.5
+      },
       "description": "日本三神器之一，又名天丛云剑，自八岐大蛇尾中取出，象征皇权正统。",
       "forging_legend": "须佐之男斩杀八岐大蛇时，剑刃砍到蛇尾时受损。剖开蛇尾，发现一把神剑，即草薙剑。",
       "battle_legend": "日本武尊东征时，敌人放火围攻。他用草薙剑割草反击火势，剑能操控风向，反败为胜。",
-      "abilities": ["wind_control", "wind_blade", "divine_protection"],
+      "abilities": [
+        "wind_control",
+        "wind_blade",
+        "divine_protection"
+      ],
       "symbolism": "日本皇室正统，天照大神的神授之物",
       "inscription": "天丛云",
-      "famous_owners": [{"name": "日本武尊", "title": "古代英雄", "story": "持剑东征平定日本"}],
+      "famous_owners": [
+        {
+          "name": "日本武尊",
+          "title": "古代英雄",
+          "story": "持剑东征平定日本"
+        }
+      ],
       "blacksmith_id": "amatsumara",
-      "appearance": {"blade_type": "curved_single_edge", "guard_type": "cloud_pattern", "handle_type": "sacred_wrap", "colors": ["#87CEEB", "#FFFFFF"], "features": ["风云纹饰", "神圣光芒"]},
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "cloud_pattern",
+        "handle_type": "sacred_wrap",
+        "colors": [
+          "#87CEEB",
+          "#FFFFFF"
+        ],
+        "features": [
+          "风云纹饰",
+          "神圣光芒"
+        ]
+      },
       "image": "weapon_kusanagi.png",
-      "related": ["ama_no_habakiri"],
-      "tags": ["日本", "神话", "三神器", "风属性", "皇室"]
+      "related": [
+        "ama_no_habakiri"
+      ],
+      "tags": [
+        "日本",
+        "神话",
+        "三神器",
+        "风属性",
+        "皇室"
+      ]
     },
     {
       "id": "mikazuki_munechika",
-      "name": {"original": "三日月宗近", "cn": "三日月宗近", "en": "Mikazuki Munechika"},
+      "name": {
+        "original": "三日月宗近",
+        "cn": "三日月宗近",
+        "en": "Mikazuki Munechika"
+      },
       "culture": "japanese",
       "type": "katana",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 88, "defense": 72, "speed": 95, "weight": 2.2},
+      "stats": {
+        "attack": 88,
+        "defense": 72,
+        "speed": 95,
+        "weight": 2.2
+      },
       "description": "天下五剑之首，因刃纹如三日月而得名，被誉为日本刀中最美的刀。",
       "forging_legend": "三条宗近于平安时代锻造，传说有稻荷神遣狐仙相助。刃纹如新月，优雅无双。",
       "battle_legend": "足利将军家传世之宝，德川家康亦曾收藏。历经千年仍锋利如新。",
-      "abilities": ["light_emission", "critical_strike"],
+      "abilities": [
+        "light_emission",
+        "critical_strike"
+      ],
       "symbolism": "日本刀美学的巅峰",
       "inscription": "三条",
-      "famous_owners": [{"name": "足利义�的", "title": "室町将军", "story": "将军家传宝刀"}],
+      "famous_owners": [
+        {
+          "name": "足利义�的",
+          "title": "室町将军",
+          "story": "将军家传宝刀"
+        }
+      ],
       "blacksmith_id": "munechika",
-      "appearance": {"blade_type": "curved_single_edge", "guard_type": "crescent_moon", "handle_type": "traditional_wrap", "colors": ["#C0C0C0", "#FFD700"], "features": ["三日月刃纹", "优雅刀姿"]},
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "crescent_moon",
+        "handle_type": "traditional_wrap",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700"
+        ],
+        "features": [
+          "三日月刃纹",
+          "优雅刀姿"
+        ]
+      },
       "image": "weapon_mikazuki.png",
-      "related": ["dojigiri_yasutsuna"],
-      "tags": ["日本", "平安", "天下五剑", "光属性", "三条宗近"]
+      "related": [
+        "dojigiri_yasutsuna"
+      ],
+      "tags": [
+        "日本",
+        "平安",
+        "天下五剑",
+        "光属性",
+        "三条宗近"
+      ]
     },
     {
       "id": "muramasa",
-      "name": {"original": "村正", "cn": "妖刀村正", "en": "Muramasa"},
+      "name": {
+        "original": "村正",
+        "cn": "妖刀村正",
+        "en": "Muramasa"
+      },
       "culture": "japanese",
       "type": "katana",
-      "attributes": {"primary": "dark"},
+      "attributes": {
+        "primary": "dark"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 95, "defense": 55, "speed": 90, "weight": 2.3},
+      "stats": {
+        "attack": 95,
+        "defense": 55,
+        "speed": 90,
+        "weight": 2.3
+      },
       "description": "室町时代名匠村正所锻之刀，锋利无比却带有诡异的嗜血之气，被称为妖刀。",
       "forging_legend": "村正将心中的执念与愤怒注入刀中，使刀具有了嗜血的灵性。",
       "battle_legend": "德川家康一族多人死于村正刀下，被定为德川家的克星，禁止使用。",
-      "abilities": ["blood_thirst", "curse", "critical_strike"],
+      "abilities": [
+        "blood_thirst",
+        "curse",
+        "critical_strike"
+      ],
       "symbolism": "妖异与诅咒，锋利与嗜血的矛盾体",
       "inscription": "村正",
-      "famous_owners": [{"name": "历代武士", "title": "各路豪杰", "story": "持此刀者多不得善终"}],
+      "famous_owners": [
+        {
+          "name": "历代武士",
+          "title": "各路豪杰",
+          "story": "持此刀者多不得善终"
+        }
+      ],
       "blacksmith_id": "muramasa_smith",
-      "appearance": {"blade_type": "curved_single_edge", "guard_type": "demon_pattern", "handle_type": "blood_red", "colors": ["#8B0000", "#2F4F4F"], "features": ["妖异气息", "嗜血刃纹"]},
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "demon_pattern",
+        "handle_type": "blood_red",
+        "colors": [
+          "#8B0000",
+          "#2F4F4F"
+        ],
+        "features": [
+          "妖异气息",
+          "嗜血刃纹"
+        ]
+      },
       "image": "weapon_muramasa.png",
-      "related": ["masamune_tachi"],
-      "tags": ["日本", "室町", "妖刀", "暗属性", "诅咒"]
+      "related": [
+        "masamune_tachi"
+      ],
+      "tags": [
+        "日本",
+        "室町",
+        "妖刀",
+        "暗属性",
+        "诅咒"
+      ]
     },
     {
       "id": "mjolnir",
-      "name": {"original": "Mjölnir", "cn": "雷神之锤", "en": "Mjolnir"},
+      "name": {
+        "original": "Mjölnir",
+        "cn": "雷神之锤",
+        "en": "Mjolnir"
+      },
       "culture": "norse",
       "type": "hammer",
-      "attributes": {"primary": "thunder"},
+      "attributes": {
+        "primary": "thunder"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 100, "defense": 90, "speed": 70, "weight": 50.0},
+      "stats": {
+        "attack": 100,
+        "defense": 90,
+        "speed": 70,
+        "weight": 50.0
+      },
       "description": "北欧雷神托尔的神锤，矮人铁匠布洛克与辛德里所铸，能召唤雷霆，是诸神黄昏的关键武器。",
       "forging_legend": "矮人兄弟在洛基的干扰下锻造此锤，因锤柄略短。但锤头完美无瑕，能发出雷霆。",
       "battle_legend": "托尔用妙尔尼尔击杀无数巨人，在诸神黄昏中将与世界蛇同归于尽。",
-      "abilities": ["thunder_strike", "earthquake", "return", "stun", "worthy", "unbreakable", "flight", "size_change"],
+      "abilities": [
+        "thunder_strike",
+        "earthquake",
+        "return",
+        "stun",
+        "worthy",
+        "unbreakable",
+        "flight",
+        "size_change"
+      ],
       "symbolism": "雷霆与力量，正义与守护",
       "inscription": "卢恩符文",
-      "famous_owners": [{"name": "托尔", "title": "雷神", "story": "持锤守护阿斯加德与米德加尔德"}],
+      "famous_owners": [
+        {
+          "name": "托尔",
+          "title": "雷神",
+          "story": "持锤守护阿斯加德与米德加尔德"
+        }
+      ],
       "blacksmith_id": "brokk_sindri",
-      "appearance": {"blade_type": "hammer_head", "guard_type": "none", "handle_type": "short_leather", "colors": ["#4682B4", "#FFD700", "#9370DB"], "features": ["雷电环绕", "卢恩符文", "短柄设计"]},
+      "appearance": {
+        "blade_type": "hammer_head",
+        "guard_type": "none",
+        "handle_type": "short_leather",
+        "colors": [
+          "#4682B4",
+          "#FFD700",
+          "#9370DB"
+        ],
+        "features": [
+          "雷电环绕",
+          "卢恩符文",
+          "短柄设计"
+        ]
+      },
       "image": "weapon_mjolnir.png",
-      "related": ["gungnir", "stormbreaker"],
-      "tags": ["北欧", "神话", "雷神", "雷属性", "托尔", "矮人锻造"]
+      "related": [
+        "gungnir",
+        "stormbreaker"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "雷神",
+        "雷属性",
+        "托尔",
+        "矮人锻造"
+      ]
     },
     {
       "id": "gungnir",
-      "name": {"original": "Gungnir", "cn": "永恒之枪", "en": "Gungnir"},
+      "name": {
+        "original": "Gungnir",
+        "cn": "永恒之枪",
+        "en": "Gungnir"
+      },
       "culture": "norse",
       "type": "spear",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 95, "defense": 75, "speed": 98, "weight": 3.5},
+      "stats": {
+        "attack": 95,
+        "defense": 75,
+        "speed": 98,
+        "weight": 3.5
+      },
       "description": "众神之父奥丁的神枪，由伊瓦尔迪之子锻造，投出必中目标，永不偏离。",
       "forging_legend": "洛基请求伊瓦尔迪之子为诸神锻造宝物，冈尼尔是其中最完美的作品。",
       "battle_legend": "奥丁在诸神黄昏中将持此枪与芬里尔狼决战，最终被吞噬。",
-      "abilities": ["must_hit", "return", "armor_pierce", "divine_protection"],
+      "abilities": [
+        "must_hit",
+        "return",
+        "armor_pierce",
+        "divine_protection"
+      ],
       "symbolism": "王权与誓言，战争与智慧",
       "inscription": "神圣契约",
-      "famous_owners": [{"name": "奥丁", "title": "众神之父", "story": "持枪治理九界"}],
+      "famous_owners": [
+        {
+          "name": "奥丁",
+          "title": "众神之父",
+          "story": "持枪治理九界"
+        }
+      ],
       "blacksmith_id": "ivaldi_sons",
-      "appearance": {"blade_type": "spear_head", "guard_type": "rune_band", "handle_type": "world_tree_ash", "colors": ["#FFD700", "#C0C0C0"], "features": ["必中之矛", "卢恩铭文", "神光环绕"]},
+      "appearance": {
+        "blade_type": "spear_head",
+        "guard_type": "rune_band",
+        "handle_type": "world_tree_ash",
+        "colors": [
+          "#FFD700",
+          "#C0C0C0"
+        ],
+        "features": [
+          "必中之矛",
+          "卢恩铭文",
+          "神光环绕"
+        ]
+      },
       "image": "weapon_gungnir.png",
-      "related": ["mjolnir", "gram"],
-      "tags": ["北欧", "神话", "奥丁", "光属性", "必中"]
+      "related": [
+        "mjolnir",
+        "gram"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "奥丁",
+        "光属性",
+        "必中"
+      ]
     },
     {
       "id": "excalibur",
-      "name": {"original": "Excalibur", "cn": "王者之剑", "en": "Excalibur"},
+      "name": {
+        "original": "Excalibur",
+        "cn": "王者之剑",
+        "en": "Excalibur"
+      },
       "culture": "medieval_europe",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 95, "defense": 90, "speed": 85, "weight": 3.0},
+      "stats": {
+        "attack": 95,
+        "defense": 90,
+        "speed": 85,
+        "weight": 3.0
+      },
       "description": "亚瑟王的传说圣剑，湖中仙女所赐，象征不列颠的王权正统。剑鞘能使持有者不流血。",
       "forging_legend": "Excalibur由湖中仙女赐予亚瑟王，据说是在阿瓦隆岛锻造，蕴含精灵的魔力。",
       "battle_legend": "亚瑟王持此剑统一不列颠，建立卡美洛王国。剑刃闪耀如三十支火炬。",
-      "abilities": ["holy_judgment", "divine_protection", "soul_bind", "sheath_power", "light_emission"],
+      "abilities": [
+        "holy_judgment",
+        "divine_protection",
+        "soul_bind",
+        "sheath_power",
+        "light_emission"
+      ],
       "symbolism": "王权正统，骑士精神，正义与荣耀",
       "inscription": "Take me up, Cast me away",
-      "famous_owners": [{"name": "亚瑟王", "title": "不列颠之王", "story": "持剑统一不列颠，建立圆桌骑士"}],
+      "famous_owners": [
+        {
+          "name": "亚瑟王",
+          "title": "不列颠之王",
+          "story": "持剑统一不列颠，建立圆桌骑士"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "cross_guard", "handle_type": "gold_wrapped", "colors": ["#FFD700", "#FFFFFF", "#4169E1"], "features": ["十字护手", "圣光环绕", "湖水精华"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cross_guard",
+        "handle_type": "gold_wrapped",
+        "colors": [
+          "#FFD700",
+          "#FFFFFF",
+          "#4169E1"
+        ],
+        "features": [
+          "十字护手",
+          "圣光环绕",
+          "湖水精华"
+        ]
+      },
       "image": "weapon_excalibur.png",
-      "related": ["caliburn", "clarent"],
-      "tags": ["欧洲", "中世纪", "亚瑟王", "圣剑", "光属性"]
+      "related": [
+        "caliburn",
+        "clarent"
+      ],
+      "tags": [
+        "欧洲",
+        "中世纪",
+        "亚瑟王",
+        "圣剑",
+        "光属性"
+      ]
     },
     {
       "id": "durandal",
-      "name": {"original": "Durandal", "cn": "杜兰达尔", "en": "Durandal"},
+      "name": {
+        "original": "Durandal",
+        "cn": "杜兰达尔",
+        "en": "Durandal"
+      },
       "culture": "medieval_europe",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 92, "defense": 85, "speed": 80, "weight": 3.2},
+      "stats": {
+        "attack": 92,
+        "defense": 85,
+        "speed": 80,
+        "weight": 3.2
+      },
       "description": "查理曼大帝圣骑士罗兰的圣剑，据说是欧洲最锋利的剑，内嵌圣人遗物。",
       "forging_legend": "传说Durandal由天使交给查理曼，剑柄中嵌有圣彼得之齿、圣巴西尔之血等圣物。",
       "battle_legend": "罗兰在龙塞瓦列斯之战中，宁死不愿让圣剑落入敌手，试图击碎它却无法成功。",
-      "abilities": ["unbreakable", "holy_judgment", "armor_pierce"],
+      "abilities": [
+        "unbreakable",
+        "holy_judgment",
+        "armor_pierce"
+      ],
       "symbolism": "忠诚与牺牲，骑士精神",
       "inscription": "内嵌圣物",
-      "famous_owners": [{"name": "罗兰", "title": "查理曼圣骑士", "story": "龙塞瓦列斯战役殉国"}],
+      "famous_owners": [
+        {
+          "name": "罗兰",
+          "title": "查理曼圣骑士",
+          "story": "龙塞瓦列斯战役殉国"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "cross_guard", "handle_type": "relic_embedded", "colors": ["#C0C0C0", "#FFD700"], "features": ["圣物镶嵌", "不可摧毁"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cross_guard",
+        "handle_type": "relic_embedded",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700"
+        ],
+        "features": [
+          "圣物镶嵌",
+          "不可摧毁"
+        ]
+      },
       "image": "weapon_durandal.png",
-      "related": ["joyeuse", "curtana"],
-      "tags": ["欧洲", "中世纪", "查理曼", "圣剑", "罗兰"]
+      "related": [
+        "joyeuse",
+        "curtana"
+      ],
+      "tags": [
+        "欧洲",
+        "中世纪",
+        "查理曼",
+        "圣剑",
+        "罗兰"
+      ]
     },
     {
       "id": "zeus_thunderbolt",
-      "name": {"original": "Κεραυνός", "cn": "宙斯雷霆", "en": "Zeus Thunderbolt"},
+      "name": {
+        "original": "Κεραυνός",
+        "cn": "宙斯雷霆",
+        "en": "Zeus Thunderbolt"
+      },
       "culture": "greek",
       "type": "staff",
-      "attributes": {"primary": "thunder", "secondary": "light"},
+      "attributes": {
+        "primary": "thunder",
+        "secondary": "light"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 100, "defense": 80, "speed": 95, "weight": 5.0},
+      "stats": {
+        "attack": 100,
+        "defense": 80,
+        "speed": 95,
+        "weight": 5.0
+      },
       "description": "希腊主神宙斯的神器，由独眼巨人锻造，能发出毁天灭地的雷霆。",
       "forging_legend": "独眼巨人布戎特斯、斯特罗佩斯、阿尔格斯为宙斯锻造雷霆，作为推翻克洛诺斯的武器。",
       "battle_legend": "泰坦之战中，宙斯用雷霆击败泰坦族，确立奥林匹斯众神的统治。",
-      "abilities": ["thunder_strike", "holy_judgment", "cosmic_destruction"],
+      "abilities": [
+        "thunder_strike",
+        "holy_judgment",
+        "cosmic_destruction"
+      ],
       "symbolism": "天空之权，众神之王的权威",
       "inscription": "奥林匹斯",
-      "famous_owners": [{"name": "宙斯", "title": "众神之王", "story": "持雷霆统治奥林匹斯"}],
+      "famous_owners": [
+        {
+          "name": "宙斯",
+          "title": "众神之王",
+          "story": "持雷霆统治奥林匹斯"
+        }
+      ],
       "blacksmith_id": "hephaestus",
-      "appearance": {"blade_type": "lightning_bolt", "guard_type": "none", "handle_type": "divine_metal", "colors": ["#FFD700", "#87CEEB", "#FFFFFF"], "features": ["闪电形态", "神光环绕"]},
+      "appearance": {
+        "blade_type": "lightning_bolt",
+        "guard_type": "none",
+        "handle_type": "divine_metal",
+        "colors": [
+          "#FFD700",
+          "#87CEEB",
+          "#FFFFFF"
+        ],
+        "features": [
+          "闪电形态",
+          "神光环绕"
+        ]
+      },
       "image": "weapon_zeus_thunderbolt.png",
-      "related": ["poseidon_trident", "hades_bident"],
-      "tags": ["希腊", "神话", "宙斯", "雷属性", "众神之王"]
+      "related": [
+        "poseidon_trident",
+        "hades_bident"
+      ],
+      "tags": [
+        "希腊",
+        "神话",
+        "宙斯",
+        "雷属性",
+        "众神之王"
+      ]
     },
     {
       "id": "poseidon_trident",
-      "name": {"original": "Τρίαινα", "cn": "波塞冬三叉戟", "en": "Poseidon Trident"},
+      "name": {
+        "original": "Τρίαινα",
+        "cn": "波塞冬三叉戟",
+        "en": "Poseidon Trident"
+      },
       "culture": "greek",
       "type": "trident",
-      "attributes": {"primary": "water"},
+      "attributes": {
+        "primary": "water"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 95, "defense": 85, "speed": 88, "weight": 6.0},
+      "stats": {
+        "attack": 95,
+        "defense": 85,
+        "speed": 88,
+        "weight": 6.0
+      },
       "description": "海神波塞冬的神器，能掀起海啸、引发地震，是海洋的绝对主宰。",
       "forging_legend": "独眼巨人为波塞冬锻造三叉戟，与宙斯的雷霆、哈迪斯的隐身盔并称三大神器。",
       "battle_legend": "波塞冬用三叉戟击打地面可引发地震，击打海面可掀起滔天巨浪。",
-      "abilities": ["sea_control", "earthquake", "frost_nova"],
+      "abilities": [
+        "sea_control",
+        "earthquake",
+        "frost_nova"
+      ],
       "symbolism": "海洋之权，大海的主宰",
       "inscription": "海洋之主",
-      "famous_owners": [{"name": "波塞冬", "title": "海神", "story": "持三叉戟统治海洋"}],
+      "famous_owners": [
+        {
+          "name": "波塞冬",
+          "title": "海神",
+          "story": "持三叉戟统治海洋"
+        }
+      ],
       "blacksmith_id": "hephaestus",
-      "appearance": {"blade_type": "trident_head", "guard_type": "wave_pattern", "handle_type": "coral_wrapped", "colors": ["#006994", "#00CED1", "#C0C0C0"], "features": ["三叉形态", "海浪纹饰"]},
+      "appearance": {
+        "blade_type": "trident_head",
+        "guard_type": "wave_pattern",
+        "handle_type": "coral_wrapped",
+        "colors": [
+          "#006994",
+          "#00CED1",
+          "#C0C0C0"
+        ],
+        "features": [
+          "三叉形态",
+          "海浪纹饰"
+        ]
+      },
       "image": "weapon_poseidon_trident.png",
-      "related": ["zeus_thunderbolt", "hades_bident"],
-      "tags": ["希腊", "神话", "波塞冬", "水属性", "海神"]
+      "related": [
+        "zeus_thunderbolt",
+        "hades_bident"
+      ],
+      "tags": [
+        "希腊",
+        "神话",
+        "波塞冬",
+        "水属性",
+        "海神"
+      ]
     },
     {
       "id": "trishula",
-      "name": {"original": "त्रिशूल", "cn": "湿婆三叉戟", "en": "Trishula"},
+      "name": {
+        "original": "त्रिशूल",
+        "cn": "湿婆三叉戟",
+        "en": "Trishula"
+      },
       "culture": "indian",
       "type": "trident",
-      "attributes": {"primary": "fire", "secondary": "death"},
+      "attributes": {
+        "primary": "fire",
+        "secondary": "death"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 100, "defense": 88, "speed": 85, "weight": 5.5},
+      "stats": {
+        "attack": 100,
+        "defense": 88,
+        "speed": 85,
+        "weight": 5.5
+      },
       "description": "印度教毁灭之神湿婆的神器，三叉象征创造、维持、毁灭三重力量。",
       "forging_legend": "毗首羯磨用太阳的光芒为湿婆锻造此戟，蕴含毁灭与重生的力量。",
       "battle_legend": "湿婆用三叉戟毁灭旧世界，为新世界的诞生开路。",
-      "abilities": ["cosmic_destruction", "flame_wave", "life_drain"],
+      "abilities": [
+        "cosmic_destruction",
+        "flame_wave",
+        "life_drain"
+      ],
       "symbolism": "毁灭与重生，宇宙的循环",
       "inscription": "唵",
-      "famous_owners": [{"name": "湿婆", "title": "毁灭之神", "story": "以三叉戟毁灭与重塑世界"}],
+      "famous_owners": [
+        {
+          "name": "湿婆",
+          "title": "毁灭之神",
+          "story": "以三叉戟毁灭与重塑世界"
+        }
+      ],
       "blacksmith_id": "vishvakarma",
-      "appearance": {"blade_type": "trident_head", "guard_type": "sacred_ring", "handle_type": "divine_metal", "colors": ["#FF4500", "#FFD700", "#8B4513"], "features": ["三叉神形", "火焰环绕", "神圣符文"]},
+      "appearance": {
+        "blade_type": "trident_head",
+        "guard_type": "sacred_ring",
+        "handle_type": "divine_metal",
+        "colors": [
+          "#FF4500",
+          "#FFD700",
+          "#8B4513"
+        ],
+        "features": [
+          "三叉神形",
+          "火焰环绕",
+          "神圣符文"
+        ]
+      },
       "image": "weapon_trishula.png",
-      "related": ["sudarshana_chakra", "vajra"],
-      "tags": ["印度", "神话", "湿婆", "火属性", "毁灭"]
+      "related": [
+        "sudarshana_chakra",
+        "vajra"
+      ],
+      "tags": [
+        "印度",
+        "神话",
+        "湿婆",
+        "火属性",
+        "毁灭"
+      ]
     },
     {
       "id": "claomh_solais",
-      "name": {"original": "Claíomh Solais", "cn": "光明之剑", "en": "Sword of Light"},
+      "name": {
+        "original": "Claíomh Solais",
+        "cn": "光明之剑",
+        "en": "Sword of Light"
+      },
       "culture": "celtic",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 92, "defense": 80, "speed": 90, "weight": 2.8},
+      "stats": {
+        "attack": 92,
+        "defense": 80,
+        "speed": 90,
+        "weight": 2.8
+      },
       "description": "凯尔特神话达努神族四大神器之一，能发出耀眼光芒，照亮一切黑暗。",
       "forging_legend": "达努神族的努阿达王所持，由神匠在神界锻造，蕴含太阳的光芒。",
       "battle_legend": "努阿达王持此剑率领达努神族击败弗摩尔巨人，光芒使敌人无法直视。",
-      "abilities": ["light_emission", "holy_judgment", "true_sight"],
+      "abilities": [
+        "light_emission",
+        "holy_judgment",
+        "true_sight"
+      ],
       "symbolism": "光明与正义，驱散黑暗",
       "inscription": "索拉斯",
-      "famous_owners": [{"name": "努阿达", "title": "达努神族之王", "story": "持光明之剑击败弗摩尔"}],
+      "famous_owners": [
+        {
+          "name": "努阿达",
+          "title": "达努神族之王",
+          "story": "持光明之剑击败弗摩尔"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "sun_pattern", "handle_type": "gold_wrapped", "colors": ["#FFD700", "#FFFFFF", "#FFA500"], "features": ["太阳光芒", "神圣光环"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "sun_pattern",
+        "handle_type": "gold_wrapped",
+        "colors": [
+          "#FFD700",
+          "#FFFFFF",
+          "#FFA500"
+        ],
+        "features": [
+          "太阳光芒",
+          "神圣光环"
+        ]
+      },
       "image": "weapon_claomh_solais.png",
-      "related": ["fragarach", "gae_bolg"],
-      "tags": ["凯尔特", "神话", "四大神器", "光属性", "努阿达"]
+      "related": [
+        "fragarach",
+        "gae_bolg"
+      ],
+      "tags": [
+        "凯尔特",
+        "神话",
+        "四大神器",
+        "光属性",
+        "努阿达"
+      ]
     },
     {
       "id": "gae_bolg",
-      "name": {"original": "Gáe Bolg", "cn": "贯穿死棘之枪", "en": "Gae Bolg"},
+      "name": {
+        "original": "Gáe Bolg",
+        "cn": "贯穿死棘之枪",
+        "en": "Gae Bolg"
+      },
       "culture": "celtic",
       "type": "spear",
-      "attributes": {"primary": "death"},
+      "attributes": {
+        "primary": "death"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 98, "defense": 60, "speed": 95, "weight": 3.0},
+      "stats": {
+        "attack": 98,
+        "defense": 60,
+        "speed": 95,
+        "weight": 3.0
+      },
       "description": "凯尔特英雄库丘林的魔枪，投出后会分裂成无数倒刺，命中必死。",
       "forging_legend": "由女战士斯卡哈赠予库丘林，用海怪骨骼锻造，蕴含死亡的诅咒。",
       "battle_legend": "库丘林用此枪杀死了自己的好友费迪亚和亲生儿子，枪的诅咒应验。",
-      "abilities": ["barbed_pierce", "must_hit", "curse"],
+      "abilities": [
+        "barbed_pierce",
+        "must_hit",
+        "curse"
+      ],
       "symbolism": "命运的悲剧，英雄的宿命",
       "inscription": "死亡倒刺",
-      "famous_owners": [{"name": "库丘林", "title": "阿尔斯特英雄", "story": "持此枪击败无数敌人，却也杀死亲友"}],
+      "famous_owners": [
+        {
+          "name": "库丘林",
+          "title": "阿尔斯特英雄",
+          "story": "持此枪击败无数敌人，却也杀死亲友"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "barbed_spear", "guard_type": "bone_ring", "handle_type": "sea_monster_bone", "colors": ["#8B0000", "#4A4A4A", "#FFD700"], "features": ["倒刺设计", "骨质纹理", "诅咒光环"]},
+      "appearance": {
+        "blade_type": "barbed_spear",
+        "guard_type": "bone_ring",
+        "handle_type": "sea_monster_bone",
+        "colors": [
+          "#8B0000",
+          "#4A4A4A",
+          "#FFD700"
+        ],
+        "features": [
+          "倒刺设计",
+          "骨质纹理",
+          "诅咒光环"
+        ]
+      },
       "image": "weapon_gae_bolg.png",
-      "related": ["claomh_solais", "fragarach"],
-      "tags": ["凯尔特", "神话", "库丘林", "死亡属性", "必杀"]
+      "related": [
+        "claomh_solais",
+        "fragarach"
+      ],
+      "tags": [
+        "凯尔特",
+        "神话",
+        "库丘林",
+        "死亡属性",
+        "必杀"
+      ]
     },
     {
       "id": "zulfiqar",
-      "name": {"original": "ذو الفقار", "cn": "佐勒菲卡尔", "en": "Zulfiqar"},
+      "name": {
+        "original": "ذو الفقار",
+        "cn": "佐勒菲卡尔",
+        "en": "Zulfiqar"
+      },
       "culture": "arabian",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 90, "defense": 78, "speed": 88, "weight": 2.6},
+      "stats": {
+        "attack": 90,
+        "defense": 78,
+        "speed": 88,
+        "weight": 2.6
+      },
       "description": "伊斯兰传说中的双刃剑，先知穆罕默德赐予阿里的圣剑，是伊斯兰的象征之一。",
       "forging_legend": "传说为天使加百列从天堂带来，剑身分叉如蛇舌，代表正义的双重力量。",
       "battle_legend": "阿里在乌胡德战役中持此剑作战，剑光如闪电，所向披靡。",
-      "abilities": ["holy_judgment", "armor_pierce", "divine_protection"],
+      "abilities": [
+        "holy_judgment",
+        "armor_pierce",
+        "divine_protection"
+      ],
       "symbolism": "伊斯兰信仰，正义与勇气",
       "inscription": "لا فتى إلا علي لا سيف إلا ذو الفقار",
-      "famous_owners": [{"name": "阿里", "title": "第四代哈里发", "story": "持剑为伊斯兰征战"}],
+      "famous_owners": [
+        {
+          "name": "阿里",
+          "title": "第四代哈里发",
+          "story": "持剑为伊斯兰征战"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "forked_blade", "guard_type": "crescent_moon", "handle_type": "gold_inlaid", "colors": ["#C0C0C0", "#FFD700", "#006400"], "features": ["分叉剑身", "阿拉伯纹饰", "新月护手"]},
+      "appearance": {
+        "blade_type": "forked_blade",
+        "guard_type": "crescent_moon",
+        "handle_type": "gold_inlaid",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#006400"
+        ],
+        "features": [
+          "分叉剑身",
+          "阿拉伯纹饰",
+          "新月护手"
+        ]
+      },
       "image": "weapon_zulfiqar.png",
       "related": [],
-      "tags": ["阿拉伯", "伊斯兰", "圣剑", "光属性", "阿里"]
+      "tags": [
+        "阿拉伯",
+        "伊斯兰",
+        "圣剑",
+        "光属性",
+        "阿里"
+      ]
     },
     {
       "id": "gram",
-      "name": {"original": "Gram", "cn": "格拉墨", "en": "Gram"},
+      "name": {
+        "original": "Gram",
+        "cn": "格拉墨",
+        "en": "Gram"
+      },
       "culture": "norse",
       "type": "sword",
-      "attributes": {"primary": "fire"},
+      "attributes": {
+        "primary": "fire"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 94, "defense": 70, "speed": 88, "weight": 3.0},
+      "stats": {
+        "attack": 94,
+        "defense": 70,
+        "speed": 88,
+        "weight": 3.0
+      },
       "description": "北欧英雄西格尔德屠龙所用的神剑，能斩断龙的铁鳞，是传说中最锋利的剑。",
       "forging_legend": "奥丁将此剑插入巴恩斯托克大树，只有被选中者能拔出。西格蒙德拔出后断裂，雷金为西格尔德重铸。",
       "battle_legend": "西格尔德用格拉墨斩杀恶龙法夫纳，沐浴龙血获得不死之身。",
-      "abilities": ["dragon_slash", "flame_wave", "armor_pierce"],
+      "abilities": [
+        "dragon_slash",
+        "flame_wave",
+        "armor_pierce"
+      ],
       "symbolism": "英雄的荣耀，屠龙的传说",
       "inscription": "屠龙之刃",
-      "famous_owners": [{"name": "西格尔德", "title": "屠龙英雄", "story": "持剑斩杀恶龙法夫纳"}],
+      "famous_owners": [
+        {
+          "name": "西格尔德",
+          "title": "屠龙英雄",
+          "story": "持剑斩杀恶龙法夫纳"
+        }
+      ],
       "blacksmith_id": "wayland",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "dragon_pattern", "handle_type": "leather_wrapped", "colors": ["#C0C0C0", "#FF4500", "#8B4513"], "features": ["屠龙纹饰", "龙血淬火"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "dragon_pattern",
+        "handle_type": "leather_wrapped",
+        "colors": [
+          "#C0C0C0",
+          "#FF4500",
+          "#8B4513"
+        ],
+        "features": [
+          "屠龙纹饰",
+          "龙血淬火"
+        ]
+      },
       "image": "weapon_gram.png",
-      "related": ["mjolnir", "gungnir"],
-      "tags": ["北欧", "神话", "屠龙", "火属性", "西格尔德"]
+      "related": [
+        "mjolnir",
+        "gungnir"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "屠龙",
+        "火属性",
+        "西格尔德"
+      ]
     },
     {
       "id": "tyrfing",
-      "name": {"original": "Tyrfing", "cn": "提尔锋", "en": "Tyrfing"},
+      "name": {
+        "original": "Tyrfing",
+        "cn": "提尔锋",
+        "en": "Tyrfing"
+      },
       "culture": "norse",
       "type": "sword",
-      "attributes": {"primary": "dark"},
+      "attributes": {
+        "primary": "dark"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 96, "defense": 60, "speed": 92, "weight": 2.5},
+      "stats": {
+        "attack": 96,
+        "defense": 60,
+        "speed": 92,
+        "weight": 2.5
+      },
       "description": "被诅咒的北欧魔剑，出鞘必须见血才能入鞘，会导致持有者的三次不幸。",
       "forging_legend": "矮人杜瓦林和杜林被迫为国王锻造此剑，愤怒中对其下了诅咒。",
       "battle_legend": "此剑辗转多人之手，每位持有者都遭遇不幸，验证了矮人的诅咒。",
-      "abilities": ["blood_thirst", "curse", "armor_pierce"],
+      "abilities": [
+        "blood_thirst",
+        "curse",
+        "armor_pierce"
+      ],
       "symbolism": "诅咒与命运，贪婪的代价",
       "inscription": "诅咒符文",
-      "famous_owners": [{"name": "斯瓦夫尔拉梅", "title": "北欧国王", "story": "强迫矮人铸剑，遭受诅咒"}],
+      "famous_owners": [
+        {
+          "name": "斯瓦夫尔拉梅",
+          "title": "北欧国王",
+          "story": "强迫矮人铸剑，遭受诅咒"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "cursed_pattern", "handle_type": "black_leather", "colors": ["#2F4F4F", "#8B0000", "#C0C0C0"], "features": ["诅咒光环", "暗黑气息", "血色剑刃"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cursed_pattern",
+        "handle_type": "black_leather",
+        "colors": [
+          "#2F4F4F",
+          "#8B0000",
+          "#C0C0C0"
+        ],
+        "features": [
+          "诅咒光环",
+          "暗黑气息",
+          "血色剑刃"
+        ]
+      },
       "image": "weapon_tyrfing.png",
-      "related": ["gram", "dainsleif"],
-      "tags": ["北欧", "神话", "诅咒", "暗属性", "魔剑"]
+      "related": [
+        "gram",
+        "dainsleif"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "诅咒",
+        "暗属性",
+        "魔剑"
+      ]
     },
     {
       "id": "dojigiri_yasutsuna",
-      "name": {"original": "童子切安纲", "cn": "童子切安纲", "en": "Dojigiri Yasutsuna"},
+      "name": {
+        "original": "童子切安纲",
+        "cn": "童子切安纲",
+        "en": "Dojigiri Yasutsuna"
+      },
       "culture": "japanese",
       "type": "katana",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 90, "defense": 75, "speed": 88, "weight": 2.4},
+      "stats": {
+        "attack": 90,
+        "defense": 75,
+        "speed": 88,
+        "weight": 2.4
+      },
       "description": "天下五剑之一，源赖光用此刀斩杀大江山酒吞童子，是斩妖除魔的名刀。",
       "forging_legend": "伯耆国安纲于平安时代锻造，刀身刚健有力，蕴含破魔之力。",
       "battle_legend": "源赖光率领四天王讨伐大江山鬼王酒吞童子，以此刀斩下其首级。",
-      "abilities": ["demon_slayer", "holy_judgment", "critical_strike"],
+      "abilities": [
+        "demon_slayer",
+        "holy_judgment",
+        "critical_strike"
+      ],
       "symbolism": "斩妖除魔，正义之刃",
       "inscription": "安纲",
-      "famous_owners": [{"name": "源赖光", "title": "平安武将", "story": "斩杀酒吞童子"}],
+      "famous_owners": [
+        {
+          "name": "源赖光",
+          "title": "平安武将",
+          "story": "斩杀酒吞童子"
+        }
+      ],
       "blacksmith_id": "yasutsuna",
-      "appearance": {"blade_type": "curved_single_edge", "guard_type": "demon_mask", "handle_type": "traditional_wrap", "colors": ["#C0C0C0", "#FFD700", "#800000"], "features": ["破魔刃纹", "刚健刀姿"]},
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "demon_mask",
+        "handle_type": "traditional_wrap",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#800000"
+        ],
+        "features": [
+          "破魔刃纹",
+          "刚健刀姿"
+        ]
+      },
       "image": "weapon_dojigiri.png",
-      "related": ["mikazuki_munechika", "onimaru_kunitsuna"],
-      "tags": ["日本", "平安", "天下五剑", "斩鬼", "光属性"]
+      "related": [
+        "mikazuki_munechika",
+        "onimaru_kunitsuna"
+      ],
+      "tags": [
+        "日本",
+        "平安",
+        "天下五剑",
+        "斩鬼",
+        "光属性"
+      ]
     },
     {
       "id": "sudarshana_chakra",
-      "name": {"original": "सुदर्शन चक्र", "cn": "苏达尔善神轮", "en": "Sudarshana Chakra"},
+      "name": {
+        "original": "सुदर्शन चक्र",
+        "cn": "苏达尔善神轮",
+        "en": "Sudarshana Chakra"
+      },
       "culture": "indian",
       "type": "throwing",
-      "attributes": {"primary": "fire", "secondary": "light"},
+      "attributes": {
+        "primary": "fire",
+        "secondary": "light"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 98, "defense": 70, "speed": 100, "weight": 2.0},
+      "stats": {
+        "attack": 98,
+        "defense": 70,
+        "speed": 100,
+        "weight": 2.0
+      },
       "description": "印度教守护神毗湿奴的神器，一百零八个锯齿的旋转飞轮，能斩杀任何邪恶。",
       "forging_legend": "毗首羯磨用太阳的碎片为毗湿奴锻造此轮，是宇宙中最锋利的武器。",
       "battle_legend": "毗湿奴用此轮斩杀无数恶魔，守护宇宙的秩序与正义。",
-      "abilities": ["chakra_throw", "return", "demon_slayer", "light_emission"],
+      "abilities": [
+        "chakra_throw",
+        "return",
+        "demon_slayer",
+        "light_emission"
+      ],
       "symbolism": "守护与正义，宇宙的秩序",
       "inscription": "唵",
-      "famous_owners": [{"name": "毗湿奴", "title": "守护之神", "story": "以神轮守护宇宙"}],
+      "famous_owners": [
+        {
+          "name": "毗湿奴",
+          "title": "守护之神",
+          "story": "以神轮守护宇宙"
+        }
+      ],
       "blacksmith_id": "vishvakarma",
-      "appearance": {"blade_type": "chakra_wheel", "guard_type": "none", "handle_type": "none", "colors": ["#FFD700", "#FF4500", "#FFFFFF"], "features": ["旋转飞轮", "一百零八锯齿", "太阳光芒"]},
+      "appearance": {
+        "blade_type": "chakra_wheel",
+        "guard_type": "none",
+        "handle_type": "none",
+        "colors": [
+          "#FFD700",
+          "#FF4500",
+          "#FFFFFF"
+        ],
+        "features": [
+          "旋转飞轮",
+          "一百零八锯齿",
+          "太阳光芒"
+        ]
+      },
       "image": "weapon_sudarshana.png",
-      "related": ["trishula", "vajra"],
-      "tags": ["印度", "神话", "毗湿奴", "火光双属性", "飞轮"]
+      "related": [
+        "trishula",
+        "vajra"
+      ],
+      "tags": [
+        "印度",
+        "神话",
+        "毗湿奴",
+        "火光双属性",
+        "飞轮"
+      ]
     },
     {
       "id": "vajra",
-      "name": {"original": "वज्र", "cn": "金刚杵", "en": "Vajra"},
+      "name": {
+        "original": "वज्र",
+        "cn": "金刚杵",
+        "en": "Vajra"
+      },
       "culture": "indian",
       "type": "club",
-      "attributes": {"primary": "thunder"},
+      "attributes": {
+        "primary": "thunder"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 95, "defense": 85, "speed": 80, "weight": 4.5},
+      "stats": {
+        "attack": 95,
+        "defense": 85,
+        "speed": 80,
+        "weight": 4.5
+      },
       "description": "印度教雷神因陀罗的神器，象征雷电与金刚不坏，是最坚硬的武器。",
       "forging_legend": "毗首羯磨用仙人达底奇的骨骼为因陀罗锻造此杵，能释放雷霆之力。",
       "battle_legend": "因陀罗用金刚杵击败恶龙弗栗多，释放被囚禁的河水。",
-      "abilities": ["vajra_strike", "thunder_strike", "unbreakable"],
+      "abilities": [
+        "vajra_strike",
+        "thunder_strike",
+        "unbreakable"
+      ],
       "symbolism": "雷电之力，金刚不坏",
       "inscription": "金刚",
-      "famous_owners": [{"name": "因陀罗", "title": "雷神", "story": "持杵击败恶龙弗栗多"}],
+      "famous_owners": [
+        {
+          "name": "因陀罗",
+          "title": "雷神",
+          "story": "持杵击败恶龙弗栗多"
+        }
+      ],
       "blacksmith_id": "vishvakarma",
-      "appearance": {"blade_type": "vajra_shape", "guard_type": "lotus_pattern", "handle_type": "divine_metal", "colors": ["#FFD700", "#9370DB", "#FFFFFF"], "features": ["金刚形态", "雷电环绕", "莲花纹饰"]},
+      "appearance": {
+        "blade_type": "vajra_shape",
+        "guard_type": "lotus_pattern",
+        "handle_type": "divine_metal",
+        "colors": [
+          "#FFD700",
+          "#9370DB",
+          "#FFFFFF"
+        ],
+        "features": [
+          "金刚形态",
+          "雷电环绕",
+          "莲花纹饰"
+        ]
+      },
       "image": "weapon_vajra.png",
-      "related": ["trishula", "sudarshana_chakra"],
-      "tags": ["印度", "神话", "因陀罗", "雷属性", "金刚"]
+      "related": [
+        "trishula",
+        "sudarshana_chakra"
+      ],
+      "tags": [
+        "印度",
+        "神话",
+        "因陀罗",
+        "雷属性",
+        "金刚"
+      ]
     },
     {
       "id": "fragarach",
-      "name": {"original": "Fragarach", "cn": "应答者", "en": "Fragarach"},
+      "name": {
+        "original": "Fragarach",
+        "cn": "应答者",
+        "en": "Fragarach"
+      },
       "culture": "celtic",
       "type": "sword",
-      "attributes": {"primary": "wind"},
+      "attributes": {
+        "primary": "wind"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 88, "defense": 75, "speed": 92, "weight": 2.5},
+      "stats": {
+        "attack": 88,
+        "defense": 75,
+        "speed": 92,
+        "weight": 2.5
+      },
       "description": "凯尔特神话达努神族四大神器之一，能控制风向，迫使敌人说出真话。",
       "forging_legend": "海神马纳南·麦克利尔所持，后传给英雄卢格。蕴含真实与风的力量。",
       "battle_legend": "持此剑者，剑尖指向敌人咽喉时，敌人无法说谎，必须回答问题。",
-      "abilities": ["truth_compel", "wind_control", "armor_pierce"],
+      "abilities": [
+        "truth_compel",
+        "wind_control",
+        "armor_pierce"
+      ],
       "symbolism": "真实与正义，无法逃避的审判",
       "inscription": "真实之刃",
-      "famous_owners": [{"name": "卢格", "title": "达努神族英雄", "story": "以此剑审判敌人"}],
+      "famous_owners": [
+        {
+          "name": "卢格",
+          "title": "达努神族英雄",
+          "story": "以此剑审判敌人"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "wind_pattern", "handle_type": "silver_wrapped", "colors": ["#87CEEB", "#C0C0C0", "#FFFFFF"], "features": ["风之纹饰", "真实光芒"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "wind_pattern",
+        "handle_type": "silver_wrapped",
+        "colors": [
+          "#87CEEB",
+          "#C0C0C0",
+          "#FFFFFF"
+        ],
+        "features": [
+          "风之纹饰",
+          "真实光芒"
+        ]
+      },
       "image": "weapon_fragarach.png",
-      "related": ["claomh_solais", "gae_bolg"],
-      "tags": ["凯尔特", "神话", "四大神器", "风属性", "真实"]
+      "related": [
+        "claomh_solais",
+        "gae_bolg"
+      ],
+      "tags": [
+        "凯尔特",
+        "神话",
+        "四大神器",
+        "风属性",
+        "真实"
+      ]
     },
     {
       "id": "hades_bident",
-      "name": {"original": "βίδεντ", "cn": "哈迪斯双叉戟", "en": "Hades Bident"},
+      "name": {
+        "original": "βίδεντ",
+        "cn": "哈迪斯双叉戟",
+        "en": "Hades Bident"
+      },
       "culture": "greek",
       "type": "trident",
-      "attributes": {"primary": "death", "secondary": "dark"},
+      "attributes": {
+        "primary": "death",
+        "secondary": "dark"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 92, "defense": 88, "speed": 82, "weight": 5.0},
+      "stats": {
+        "attack": 92,
+        "defense": 88,
+        "speed": 82,
+        "weight": 5.0
+      },
       "description": "冥王哈迪斯的神器，双叉象征生死两界，能开启冥界之门。",
       "forging_legend": "独眼巨人为哈迪斯锻造双叉戟，与兄弟的武器一同用于推翻泰坦。",
       "battle_legend": "哈迪斯用双叉戟统治冥界，管理死者的灵魂，任何死者都无法逃脱其审判。",
-      "abilities": ["underworld_gate", "life_drain", "spirit_call"],
+      "abilities": [
+        "underworld_gate",
+        "life_drain",
+        "spirit_call"
+      ],
       "symbolism": "死亡与审判，冥界的主宰",
       "inscription": "冥府之主",
-      "famous_owners": [{"name": "哈迪斯", "title": "冥王", "story": "持双叉戟统治冥界"}],
+      "famous_owners": [
+        {
+          "name": "哈迪斯",
+          "title": "冥王",
+          "story": "持双叉戟统治冥界"
+        }
+      ],
       "blacksmith_id": "hephaestus",
-      "appearance": {"blade_type": "bident_head", "guard_type": "skull_pattern", "handle_type": "obsidian", "colors": ["#2F4F4F", "#4A4A4A", "#8B0000"], "features": ["双叉形态", "冥界之气", "骷髅纹饰"]},
+      "appearance": {
+        "blade_type": "bident_head",
+        "guard_type": "skull_pattern",
+        "handle_type": "obsidian",
+        "colors": [
+          "#2F4F4F",
+          "#4A4A4A",
+          "#8B0000"
+        ],
+        "features": [
+          "双叉形态",
+          "冥界之气",
+          "骷髅纹饰"
+        ]
+      },
       "image": "weapon_hades_bident.png",
-      "related": ["zeus_thunderbolt", "poseidon_trident"],
-      "tags": ["希腊", "神话", "哈迪斯", "死亡属性", "冥王"]
+      "related": [
+        "zeus_thunderbolt",
+        "poseidon_trident"
+      ],
+      "tags": [
+        "希腊",
+        "神话",
+        "哈迪斯",
+        "死亡属性",
+        "冥王"
+      ]
     },
     {
       "id": "joyeuse",
-      "name": {"original": "Joyeuse", "cn": "欢喜剑", "en": "Joyeuse"},
+      "name": {
+        "original": "Joyeuse",
+        "cn": "欢喜剑",
+        "en": "Joyeuse"
+      },
       "culture": "medieval_europe",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 88, "defense": 80, "speed": 85, "weight": 2.8},
+      "stats": {
+        "attack": 88,
+        "defense": 80,
+        "speed": 85,
+        "weight": 2.8
+      },
       "description": "查理曼大帝的佩剑，剑名意为'欢乐'，据说剑身每日变换三十种颜色。",
       "forging_legend": "传说由神匠锻造，剑柄中嵌有朗基努斯之枪的枪尖碎片。",
       "battle_legend": "查理曼在征服撒克逊人的战役中持此剑，剑光耀眼如同太阳。",
-      "abilities": ["light_emission", "divine_protection", "holy_judgment"],
+      "abilities": [
+        "light_emission",
+        "divine_protection",
+        "holy_judgment"
+      ],
       "symbolism": "帝王荣光，神圣罗马帝国",
       "inscription": "欢喜",
-      "famous_owners": [{"name": "查理曼", "title": "神圣罗马帝国皇帝", "story": "持剑征服欧洲"}],
+      "famous_owners": [
+        {
+          "name": "查理曼",
+          "title": "神圣罗马帝国皇帝",
+          "story": "持剑征服欧洲"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "cross_guard", "handle_type": "jewel_inlaid", "colors": ["#FFD700", "#FF4500", "#4169E1"], "features": ["七彩变幻", "宝石镶嵌", "帝王气息"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cross_guard",
+        "handle_type": "jewel_inlaid",
+        "colors": [
+          "#FFD700",
+          "#FF4500",
+          "#4169E1"
+        ],
+        "features": [
+          "七彩变幻",
+          "宝石镶嵌",
+          "帝王气息"
+        ]
+      },
       "image": "weapon_joyeuse.png",
-      "related": ["durandal", "curtana"],
-      "tags": ["欧洲", "中世纪", "查理曼", "光属性", "帝王剑"]
+      "related": [
+        "durandal",
+        "curtana"
+      ],
+      "tags": [
+        "欧洲",
+        "中世纪",
+        "查理曼",
+        "光属性",
+        "帝王剑"
+      ]
     },
     {
       "id": "taie_sword",
-      "name": {"original": "泰阿剑", "cn": "泰阿剑", "en": "Tai'e Sword"},
+      "name": {
+        "original": "泰阿剑",
+        "cn": "泰阿剑",
+        "en": "Tai'e Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "fire"},
+      "attributes": {
+        "primary": "fire"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 90, "defense": 70, "speed": 85, "weight": 2.3},
+      "stats": {
+        "attack": 90,
+        "defense": 70,
+        "speed": 85,
+        "weight": 2.3
+      },
       "description": "欧冶子所铸五大名剑之一，威道之剑，象征帝王威严，曾退楚国三军。",
       "forging_legend": "欧冶子与干将合力锻造，采天地精华，融阴阳之气。",
       "battle_legend": "晋国公子重耳持此剑，光芒震慑楚军三军，不战而胜。",
-      "abilities": ["flame_wave", "stun", "divine_protection"],
+      "abilities": [
+        "flame_wave",
+        "stun",
+        "divine_protection"
+      ],
       "symbolism": "威严与权力，震慑之剑",
       "inscription": "泰阿",
-      "famous_owners": [{"name": "晋文公", "title": "春秋霸主", "story": "持剑震退楚军"}],
+      "famous_owners": [
+        {
+          "name": "晋文公",
+          "title": "春秋霸主",
+          "story": "持剑震退楚军"
+        }
+      ],
       "blacksmith_id": "ouye",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "tiger_pattern", "handle_type": "jade_wrapped", "colors": ["#FF4500", "#FFD700", "#C0C0C0"], "features": ["威严气势", "虎纹装饰"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "tiger_pattern",
+        "handle_type": "jade_wrapped",
+        "colors": [
+          "#FF4500",
+          "#FFD700",
+          "#C0C0C0"
+        ],
+        "features": [
+          "威严气势",
+          "虎纹装饰"
+        ]
+      },
       "image": "weapon_taie.png",
-      "related": ["zhanlu_sword", "gongbu_sword"],
-      "tags": ["中国", "春秋", "欧冶子", "火属性", "威道之剑"]
+      "related": [
+        "zhanlu_sword",
+        "gongbu_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "欧冶子",
+        "火属性",
+        "威道之剑"
+      ]
     },
     {
       "id": "fang_tian_hua_ji",
-      "name": {"original": "方天画戟", "cn": "方天画戟", "en": "Fang Tian Hua Ji"},
+      "name": {
+        "original": "方天画戟",
+        "cn": "方天画戟",
+        "en": "Fang Tian Hua Ji"
+      },
       "culture": "chinese",
       "type": "polearm",
-      "attributes": {"primary": "fire", "secondary": "thunder"},
+      "attributes": {
+        "primary": "fire",
+        "secondary": "thunder"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 95, "defense": 75, "speed": 78, "weight": 12.0},
+      "stats": {
+        "attack": 95,
+        "defense": 75,
+        "speed": 78,
+        "weight": 12.0
+      },
       "description": "三国第一猛将吕布的兵器，戟身如画，威力无双，人称'人中吕布，马中赤兔'。",
       "forging_legend": "传说由神匠锻造，戟身绘有龙凤呈祥，重达数十斤，常人难以举起。",
       "battle_legend": "吕布持此戟在虎牢关前独战刘关张三英，威震天下。",
-      "abilities": ["dragon_slash", "whirlwind", "thunder_strike"],
+      "abilities": [
+        "dragon_slash",
+        "whirlwind",
+        "thunder_strike"
+      ],
       "symbolism": "武力巅峰，无双战力",
       "inscription": "画戟",
-      "famous_owners": [{"name": "吕布", "title": "三国第一猛将", "story": "虎牢关战三英"}],
+      "famous_owners": [
+        {
+          "name": "吕布",
+          "title": "三国第一猛将",
+          "story": "虎牢关战三英"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "halberd", "guard_type": "dragon_phoenix", "handle_type": "red_lacquer", "colors": ["#FFD700", "#FF0000", "#C0C0C0"], "features": ["龙凤图案", "月牙侧刃", "画戟形态"]},
+      "appearance": {
+        "blade_type": "halberd",
+        "guard_type": "dragon_phoenix",
+        "handle_type": "red_lacquer",
+        "colors": [
+          "#FFD700",
+          "#FF0000",
+          "#C0C0C0"
+        ],
+        "features": [
+          "龙凤图案",
+          "月牙侧刃",
+          "画戟形态"
+        ]
+      },
       "image": "weapon_fangtian.png",
-      "related": ["qinglong_yanyue_dao", "zhang_ba_she_mao"],
-      "tags": ["中国", "三国", "吕布", "长柄武器", "火雷双属性"]
+      "related": [
+        "qinglong_yanyue_dao",
+        "zhang_ba_she_mao"
+      ],
+      "tags": [
+        "中国",
+        "三国",
+        "吕布",
+        "长柄武器",
+        "火雷双属性"
+      ]
     },
     {
       "id": "qinglong_yanyue_dao",
-      "name": {"original": "青龙偃月刀", "cn": "青龙偃月刀", "en": "Green Dragon Crescent Blade"},
+      "name": {
+        "original": "青龙偃月刀",
+        "cn": "青龙偃月刀",
+        "en": "Green Dragon Crescent Blade"
+      },
       "culture": "chinese",
       "type": "polearm",
-      "attributes": {"primary": "wind"},
+      "attributes": {
+        "primary": "wind"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 92, "defense": 80, "speed": 75, "weight": 41.0},
+      "stats": {
+        "attack": 92,
+        "defense": 80,
+        "speed": 75,
+        "weight": 41.0
+      },
       "description": "三国名将关羽的兵器，刀身如偃月，柄端雕有青龙，重达八十二斤。",
       "forging_legend": "传说由天上青龙化身而成，关羽得之如鱼得水。",
       "battle_legend": "关羽持此刀温酒斩华雄、过五关斩六将，威震华夏。",
-      "abilities": ["wind_blade", "dragon_slash", "armor_pierce"],
+      "abilities": [
+        "wind_blade",
+        "dragon_slash",
+        "armor_pierce"
+      ],
       "symbolism": "忠义无双，武圣精神",
       "inscription": "青龙",
-      "famous_owners": [{"name": "关羽", "title": "武圣", "story": "温酒斩华雄，过五关斩六将"}],
+      "famous_owners": [
+        {
+          "name": "关羽",
+          "title": "武圣",
+          "story": "温酒斩华雄，过五关斩六将"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "crescent_blade", "guard_type": "dragon_head", "handle_type": "wood_wrapped", "colors": ["#228B22", "#C0C0C0", "#8B4513"], "features": ["偃月刀身", "青龙雕刻", "八十二斤"]},
+      "appearance": {
+        "blade_type": "crescent_blade",
+        "guard_type": "dragon_head",
+        "handle_type": "wood_wrapped",
+        "colors": [
+          "#228B22",
+          "#C0C0C0",
+          "#8B4513"
+        ],
+        "features": [
+          "偃月刀身",
+          "青龙雕刻",
+          "八十二斤"
+        ]
+      },
       "image": "weapon_qinglong.png",
-      "related": ["fang_tian_hua_ji", "zhang_ba_she_mao"],
-      "tags": ["中国", "三国", "关羽", "长柄武器", "风属性", "武圣"]
+      "related": [
+        "fang_tian_hua_ji",
+        "zhang_ba_she_mao"
+      ],
+      "tags": [
+        "中国",
+        "三国",
+        "关羽",
+        "长柄武器",
+        "风属性",
+        "武圣"
+      ]
     },
     {
       "id": "was_scepter",
-      "name": {"original": "Was", "cn": "沃斯权杖", "en": "Was Scepter"},
+      "name": {
+        "original": "Was",
+        "cn": "沃斯权杖",
+        "en": "Was Scepter"
+      },
       "culture": "egyptian",
       "type": "staff",
-      "attributes": {"primary": "death"},
+      "attributes": {
+        "primary": "death"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 80, "defense": 85, "speed": 75, "weight": 3.5},
+      "stats": {
+        "attack": 80,
+        "defense": 85,
+        "speed": 75,
+        "weight": 3.5
+      },
       "description": "古埃及象征权力与统治的权杖，法老与神明的标志，代表对混沌的控制。",
       "forging_legend": "传说由神匠在神殿中锻造，蕴含塞特的力量与混沌的控制。",
       "battle_legend": "法老持此权杖统治埃及，代表其神圣的权力来源。",
-      "abilities": ["stun", "curse", "divine_protection"],
+      "abilities": [
+        "stun",
+        "curse",
+        "divine_protection"
+      ],
       "symbolism": "权力与统治，混沌的控制",
       "inscription": "象形文字",
-      "famous_owners": [{"name": "法老", "title": "埃及统治者", "story": "持杖统治尼罗河两岸"}],
+      "famous_owners": [
+        {
+          "name": "法老",
+          "title": "埃及统治者",
+          "story": "持杖统治尼罗河两岸"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "was_shape", "guard_type": "none", "handle_type": "gold_inlaid", "colors": ["#FFD700", "#006994", "#8B4513"], "features": ["动物头部", "分叉底部", "象形铭文"]},
+      "appearance": {
+        "blade_type": "was_shape",
+        "guard_type": "none",
+        "handle_type": "gold_inlaid",
+        "colors": [
+          "#FFD700",
+          "#006994",
+          "#8B4513"
+        ],
+        "features": [
+          "动物头部",
+          "分叉底部",
+          "象形铭文"
+        ]
+      },
       "image": "weapon_was.png",
-      "related": ["anubis_staff", "horus_spear"],
-      "tags": ["埃及", "神话", "权杖", "死亡属性", "法老"]
+      "related": [
+        "anubis_staff",
+        "horus_spear"
+      ],
+      "tags": [
+        "埃及",
+        "神话",
+        "权杖",
+        "死亡属性",
+        "法老"
+      ]
     },
     {
       "id": "khopesh",
-      "name": {"original": "Khopesh", "cn": "科佩什弯刀", "en": "Khopesh"},
+      "name": {
+        "original": "Khopesh",
+        "cn": "科佩什弯刀",
+        "en": "Khopesh"
+      },
       "culture": "egyptian",
       "type": "sword",
-      "attributes": {"primary": "fire"},
+      "attributes": {
+        "primary": "fire"
+      },
       "rarity": "epic",
-      "stats": {"attack": 85, "defense": 70, "speed": 82, "weight": 2.0},
+      "stats": {
+        "attack": 85,
+        "defense": 70,
+        "speed": 82,
+        "weight": 2.0
+      },
       "description": "古埃及标志性的镰状弯刀，法老军队的制式武器，能勾住敌人的盾牌。",
       "forging_legend": "埃及工匠发展出独特的青铜锻造技术，创造出这种独特的弯刀形态。",
       "battle_legend": "拉美西斯二世的精锐战车兵皆持此刀，在卡迭石之战中大显神威。",
-      "abilities": ["armor_pierce", "critical_strike"],
+      "abilities": [
+        "armor_pierce",
+        "critical_strike"
+      ],
       "symbolism": "埃及军事力量，法老的征服",
       "inscription": "无",
-      "famous_owners": [{"name": "拉美西斯二世", "title": "伟大的法老", "story": "率军与赫梯决战"}],
+      "famous_owners": [
+        {
+          "name": "拉美西斯二世",
+          "title": "伟大的法老",
+          "story": "率军与赫梯决战"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "sickle_sword", "guard_type": "none", "handle_type": "bronze_wrapped", "colors": ["#CD853F", "#FFD700"], "features": ["镰状弯刀", "勾形刀刃"]},
+      "appearance": {
+        "blade_type": "sickle_sword",
+        "guard_type": "none",
+        "handle_type": "bronze_wrapped",
+        "colors": [
+          "#CD853F",
+          "#FFD700"
+        ],
+        "features": [
+          "镰状弯刀",
+          "勾形刀刃"
+        ]
+      },
       "image": "weapon_khopesh.png",
-      "related": ["was_scepter"],
-      "tags": ["埃及", "古代", "弯刀", "火属性", "军事"]
+      "related": [
+        "was_scepter"
+      ],
+      "tags": [
+        "埃及",
+        "古代",
+        "弯刀",
+        "火属性",
+        "军事"
+      ]
     },
     {
       "id": "macuahuitl",
-      "name": {"original": "Mācuahuitl", "cn": "马克胡特尔", "en": "Macuahuitl"},
+      "name": {
+        "original": "Mācuahuitl",
+        "cn": "马克胡特尔",
+        "en": "Macuahuitl"
+      },
       "culture": "mesoamerican",
       "type": "club",
-      "attributes": {"primary": "earth"},
+      "attributes": {
+        "primary": "earth"
+      },
       "rarity": "epic",
-      "stats": {"attack": 88, "defense": 65, "speed": 78, "weight": 3.0},
+      "stats": {
+        "attack": 88,
+        "defense": 65,
+        "speed": 78,
+        "weight": 3.0
+      },
       "description": "阿兹特克战士的标志性武器，木质基座镶嵌黑曜石刀片，锋利无比。",
       "forging_legend": "阿兹特克工匠精于黑曜石加工，将锋利的刀片嵌入木制剑身。",
       "battle_legend": "据西班牙征服者记载，此武器一击便能斩下马头，令欧洲人胆寒。",
-      "abilities": ["critical_strike", "armor_pierce"],
+      "abilities": [
+        "critical_strike",
+        "armor_pierce"
+      ],
       "symbolism": "阿兹特克战士精神，美洲原住民的智慧",
       "inscription": "无",
-      "famous_owners": [{"name": "蒙特祖玛", "title": "阿兹特克皇帝", "story": "阿兹特克帝国的末代统治者"}],
+      "famous_owners": [
+        {
+          "name": "蒙特祖玛",
+          "title": "阿兹特克皇帝",
+          "story": "阿兹特克帝国的末代统治者"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "wooden_base_obsidian", "guard_type": "none", "handle_type": "wood", "colors": ["#8B4513", "#2F4F4F", "#FFD700"], "features": ["木质基座", "黑曜石刀片", "锯齿边缘"]},
+      "appearance": {
+        "blade_type": "wooden_base_obsidian",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#8B4513",
+          "#2F4F4F",
+          "#FFD700"
+        ],
+        "features": [
+          "木质基座",
+          "黑曜石刀片",
+          "锯齿边缘"
+        ]
+      },
       "image": "weapon_macuahuitl.png",
-      "related": ["atlatl", "tepoztopilli"],
-      "tags": ["中美洲", "阿兹特克", "黑曜石", "土属性", "木剑"]
+      "related": [
+        "atlatl",
+        "tepoztopilli"
+      ],
+      "tags": [
+        "中美洲",
+        "阿兹特克",
+        "黑曜石",
+        "土属性",
+        "木剑"
+      ]
     },
     {
       "id": "assegai",
-      "name": {"original": "Assegai", "cn": "祖鲁短矛", "en": "Assegai"},
+      "name": {
+        "original": "Assegai",
+        "cn": "祖鲁短矛",
+        "en": "Assegai"
+      },
       "culture": "african",
       "type": "spear",
-      "attributes": {"primary": "earth"},
+      "attributes": {
+        "primary": "earth"
+      },
       "rarity": "epic",
-      "stats": {"attack": 82, "defense": 60, "speed": 90, "weight": 1.5},
+      "stats": {
+        "attack": 82,
+        "defense": 60,
+        "speed": 90,
+        "weight": 1.5
+      },
       "description": "南非祖鲁族的标志性武器，短矛设计适合近距离肉搏，是祖鲁战士的灵魂。",
       "forging_legend": "祖鲁铁匠以传统技艺锻造，恰卡王改良了短矛设计使其更适合近战。",
       "battle_legend": "恰卡王用改良的短矛战术建立了强大的祖鲁帝国，击败了众多敌人。",
-      "abilities": ["armor_pierce", "chain_attack"],
+      "abilities": [
+        "armor_pierce",
+        "chain_attack"
+      ],
       "symbolism": "祖鲁战士精神，非洲勇气",
       "inscription": "无",
-      "famous_owners": [{"name": "恰卡", "title": "祖鲁之王", "story": "建立祖鲁帝国"}],
+      "famous_owners": [
+        {
+          "name": "恰卡",
+          "title": "祖鲁之王",
+          "story": "建立祖鲁帝国"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "short_spear", "guard_type": "none", "handle_type": "wood", "colors": ["#8B4513", "#C0C0C0"], "features": ["短矛设计", "宽大矛头", "便于近战"]},
+      "appearance": {
+        "blade_type": "short_spear",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#8B4513",
+          "#C0C0C0"
+        ],
+        "features": [
+          "短矛设计",
+          "宽大矛头",
+          "便于近战"
+        ]
+      },
       "image": "weapon_assegai.png",
-      "related": ["iklwa"],
-      "tags": ["非洲", "祖鲁", "短矛", "土属性", "近战"]
+      "related": [
+        "iklwa"
+      ],
+      "tags": [
+        "非洲",
+        "祖鲁",
+        "短矛",
+        "土属性",
+        "近战"
+      ]
     },
     {
       "id": "caliburn",
-      "name": {"original": "Caliburn", "cn": "卡利伯恩", "en": "Caliburn"},
+      "name": {
+        "original": "Caliburn",
+        "cn": "卡利伯恩",
+        "en": "Caliburn"
+      },
       "culture": "medieval_europe",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 90, "defense": 82, "speed": 85, "weight": 2.9},
+      "stats": {
+        "attack": 90,
+        "defense": 82,
+        "speed": 85,
+        "weight": 2.9
+      },
       "description": "亚瑟王从石中拔出的圣剑，证明其王者身份的神剑，是Excalibur的前身或另一把圣剑。",
       "forging_legend": "梅林将此剑插入石中，只有真正的不列颠之王才能拔出。",
       "battle_legend": "年轻的亚瑟在众人面前拔出此剑，证明了自己的王者血统。",
-      "abilities": ["soul_bind", "divine_protection", "holy_judgment"],
+      "abilities": [
+        "soul_bind",
+        "divine_protection",
+        "holy_judgment"
+      ],
       "symbolism": "王权正统，命运的选择",
       "inscription": "吾乃王者之证",
-      "famous_owners": [{"name": "亚瑟王", "title": "不列颠之王", "story": "拔剑证明王者身份"}],
+      "famous_owners": [
+        {
+          "name": "亚瑟王",
+          "title": "不列颠之王",
+          "story": "拔剑证明王者身份"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "cross_guard", "handle_type": "gold_wrapped", "colors": ["#FFD700", "#C0C0C0", "#FFFFFF"], "features": ["石中剑", "圣光环绕"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cross_guard",
+        "handle_type": "gold_wrapped",
+        "colors": [
+          "#FFD700",
+          "#C0C0C0",
+          "#FFFFFF"
+        ],
+        "features": [
+          "石中剑",
+          "圣光环绕"
+        ]
+      },
       "image": "weapon_caliburn.png",
-      "related": ["excalibur", "clarent"],
-      "tags": ["欧洲", "中世纪", "亚瑟王", "光属性", "石中剑"]
+      "related": [
+        "excalibur",
+        "clarent"
+      ],
+      "tags": [
+        "欧洲",
+        "中世纪",
+        "亚瑟王",
+        "光属性",
+        "石中剑"
+      ]
     },
     {
       "id": "longinus_spear",
-      "name": {"original": "Lancea Longini", "cn": "朗基努斯之枪", "en": "Spear of Longinus"},
+      "name": {
+        "original": "Lancea Longini",
+        "cn": "朗基努斯之枪",
+        "en": "Spear of Longinus"
+      },
       "culture": "medieval_europe",
       "type": "spear",
-      "attributes": {"primary": "light", "secondary": "death"},
+      "attributes": {
+        "primary": "light",
+        "secondary": "death"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 95, "defense": 80, "speed": 88, "weight": 3.5},
+      "stats": {
+        "attack": 95,
+        "defense": 80,
+        "speed": 88,
+        "weight": 3.5
+      },
       "description": "刺穿耶稣基督身体的圣枪，又称命运之矛，传说持有者能统治世界。",
       "forging_legend": "普通的罗马士兵之枪，因沾染了基督之血而成为圣物。",
       "battle_legend": "传说查理曼、拿破仑、希特勒都曾追寻此枪，相信它能带来胜利。",
-      "abilities": ["god_slayer", "holy_judgment", "divine_protection"],
+      "abilities": [
+        "god_slayer",
+        "holy_judgment",
+        "divine_protection"
+      ],
       "symbolism": "神圣与命运，信仰的力量",
       "inscription": "无",
-      "famous_owners": [{"name": "朗基努斯", "title": "罗马百夫长", "story": "刺穿基督身体的士兵"}],
+      "famous_owners": [
+        {
+          "name": "朗基努斯",
+          "title": "罗马百夫长",
+          "story": "刺穿基督身体的士兵"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "roman_spear", "guard_type": "none", "handle_type": "wood", "colors": ["#8B0000", "#C0C0C0", "#FFD700"], "features": ["沾有圣血", "罗马枪形"]},
+      "appearance": {
+        "blade_type": "roman_spear",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#8B0000",
+          "#C0C0C0",
+          "#FFD700"
+        ],
+        "features": [
+          "沾有圣血",
+          "罗马枪形"
+        ]
+      },
       "image": "weapon_longinus.png",
-      "related": ["excalibur"],
-      "tags": ["欧洲", "基督教", "圣物", "光死双属性", "命运之矛"]
+      "related": [
+        "excalibur"
+      ],
+      "tags": [
+        "欧洲",
+        "基督教",
+        "圣物",
+        "光死双属性",
+        "命运之矛"
+      ]
     },
     {
       "id": "shamshir_zomorrodnegar",
-      "name": {"original": "شمشیر زمردنگار", "cn": "绿宝石神剑", "en": "Shamshir-e Zomorrodnegar"},
+      "name": {
+        "original": "شمشیر زمردنگار",
+        "cn": "绿宝石神剑",
+        "en": "Shamshir-e Zomorrodnegar"
+      },
       "culture": "persian",
       "type": "sword",
-      "attributes": {"primary": "nature"},
+      "attributes": {
+        "primary": "nature"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 88, "defense": 72, "speed": 90, "weight": 2.4},
+      "stats": {
+        "attack": 88,
+        "defense": 72,
+        "speed": 90,
+        "weight": 2.4
+      },
       "description": "波斯神话中的传说神剑，剑柄镶嵌绿宝石，是波斯英雄的象征。",
       "forging_legend": "传说由神仙锻造，绿宝石蕴含自然的精华。",
       "battle_legend": "波斯英雄持此剑斩杀恶魔，拯救公主。",
-      "abilities": ["critical_strike", "regeneration"],
+      "abilities": [
+        "critical_strike",
+        "regeneration"
+      ],
       "symbolism": "波斯英雄精神，正义战胜邪恶",
       "inscription": "绿宝石铭文",
-      "famous_owners": [{"name": "阿米尔·阿尔斯兰", "title": "波斯英雄", "story": "持剑斩杀恶龙救公主"}],
+      "famous_owners": [
+        {
+          "name": "阿米尔·阿尔斯兰",
+          "title": "波斯英雄",
+          "story": "持剑斩杀恶龙救公主"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "curved_single_edge", "guard_type": "persian_pattern", "handle_type": "emerald_inlaid", "colors": ["#228B22", "#C0C0C0", "#FFD700"], "features": ["绿宝石镶嵌", "波斯弯刀"]},
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "persian_pattern",
+        "handle_type": "emerald_inlaid",
+        "colors": [
+          "#228B22",
+          "#C0C0C0",
+          "#FFD700"
+        ],
+        "features": [
+          "绿宝石镶嵌",
+          "波斯弯刀"
+        ]
+      },
       "image": "weapon_shamshir.png",
       "related": [],
-      "tags": ["波斯", "神话", "弯刀", "自然属性", "宝石剑"]
+      "tags": [
+        "波斯",
+        "神话",
+        "弯刀",
+        "自然属性",
+        "宝石剑"
+      ]
     },
     {
       "id": "qixing_longyuan",
-      "name": {"original": "七星龙渊", "cn": "七星龙渊", "en": "Seven Star Dragon Abyss"},
+      "name": {
+        "original": "七星龙渊",
+        "cn": "七星龙渊",
+        "en": "Seven Star Dragon Abyss"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "water"},
+      "attributes": {
+        "primary": "water"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 90, "defense": 78, "speed": 88, "weight": 2.4},
+      "stats": {
+        "attack": 90,
+        "defense": 78,
+        "speed": 88,
+        "weight": 2.4
+      },
       "description": "欧冶子与干将联手铸造，剑身深邃如渊，俯视如见龙盘，因七星映入泉水而得名。",
       "forging_legend": "凿开茨山，放出山中溪水，引至铸剑炉旁成北斗七星。剑成之日，七星映入剑身。",
       "battle_legend": "伍子胥以此剑赠渔丈人，渔丈人为证高洁横剑自刎，此剑见证诚信之义。",
-      "abilities": ["water_surge", "frost_nova", "soul_bind"],
+      "abilities": [
+        "water_surge",
+        "frost_nova",
+        "soul_bind"
+      ],
       "symbolism": "诚信高洁，知恩图报",
       "inscription": "七星龙渊",
-      "famous_owners": [{"name": "伍子胥", "title": "春秋名臣", "story": "亡命天涯，以剑赠恩人"}],
+      "famous_owners": [
+        {
+          "name": "伍子胥",
+          "title": "春秋名臣",
+          "story": "亡命天涯，以剑赠恩人"
+        }
+      ],
       "blacksmith_id": "ouye",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "star_pattern", "handle_type": "jade_wrapped", "colors": ["#000080", "#C0C0C0", "#4169E1"], "features": ["七星纹饰", "龙渊深邃", "水波暗纹"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "star_pattern",
+        "handle_type": "jade_wrapped",
+        "colors": [
+          "#000080",
+          "#C0C0C0",
+          "#4169E1"
+        ],
+        "features": [
+          "七星纹饰",
+          "龙渊深邃",
+          "水波暗纹"
+        ]
+      },
       "image": "weapon_qixing_longyuan.png",
-      "related": ["zhanlu_sword", "taie_sword"],
-      "tags": ["中国", "春秋", "欧冶子", "水属性", "十大名剑"]
+      "related": [
+        "zhanlu_sword",
+        "taie_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "欧冶子",
+        "水属性",
+        "十大名剑"
+      ]
     },
     {
       "id": "juque_sword",
-      "name": {"original": "巨阙", "cn": "巨阙剑", "en": "Juque Sword"},
+      "name": {
+        "original": "巨阙",
+        "cn": "巨阙剑",
+        "en": "Juque Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "earth"},
+      "attributes": {
+        "primary": "earth"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 95, "defense": 85, "speed": 70, "weight": 4.5},
+      "stats": {
+        "attack": 95,
+        "defense": 85,
+        "speed": 70,
+        "weight": 4.5
+      },
       "description": "欧冶子所铸五大名剑之一，剑身宽大如阙门，刚猛无双，可断金切玉。",
       "forging_legend": "欧冶子铸此剑时，取天地至刚之气，剑成时山崩地裂。",
       "battle_legend": "巨阙意为缺口之剑，因其锋利无比，砍击任何兵器都能使其产生缺口。",
-      "abilities": ["armor_pierce", "critical_strike", "stun"],
+      "abilities": [
+        "armor_pierce",
+        "critical_strike",
+        "stun"
+      ],
       "symbolism": "刚猛无双，至刚之剑",
       "inscription": "巨阙",
-      "famous_owners": [{"name": "越王勾践", "title": "春秋霸主", "story": "收藏五大名剑"}],
+      "famous_owners": [
+        {
+          "name": "越王勾践",
+          "title": "春秋霸主",
+          "story": "收藏五大名剑"
+        }
+      ],
       "blacksmith_id": "ouye",
-      "appearance": {"blade_type": "wide_double_edge", "guard_type": "mountain_pattern", "handle_type": "bronze_wrapped", "colors": ["#4A4A4A", "#8B4513", "#C0C0C0"], "features": ["宽大剑身", "刚猛之气", "如阙门形"]},
+      "appearance": {
+        "blade_type": "wide_double_edge",
+        "guard_type": "mountain_pattern",
+        "handle_type": "bronze_wrapped",
+        "colors": [
+          "#4A4A4A",
+          "#8B4513",
+          "#C0C0C0"
+        ],
+        "features": [
+          "宽大剑身",
+          "刚猛之气",
+          "如阙门形"
+        ]
+      },
       "image": "weapon_juque.png",
-      "related": ["zhanlu_sword", "chunjun_sword"],
-      "tags": ["中国", "春秋", "欧冶子", "土属性", "十大名剑"]
+      "related": [
+        "zhanlu_sword",
+        "chunjun_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "欧冶子",
+        "土属性",
+        "十大名剑"
+      ]
     },
     {
       "id": "chunjun_sword",
-      "name": {"original": "纯钧", "cn": "纯钧剑", "en": "Chunjun Sword"},
+      "name": {
+        "original": "纯钧",
+        "cn": "纯钧剑",
+        "en": "Chunjun Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 85, "defense": 80, "speed": 92, "weight": 2.0},
+      "stats": {
+        "attack": 85,
+        "defense": 80,
+        "speed": 92,
+        "weight": 2.0
+      },
       "description": "欧冶子所铸，观其华如芙蓉始出水，观其纹如珠之耀日，尊贵无双之剑。",
       "forging_legend": "铸剑时天人合一，千年赤堇山山破出锡，万载若耶江江干出铜，雷公打铁，雨娘淋水。",
       "battle_legend": "相剑名家薛烛见此剑，激动得从座上仰面摔倒，赞叹为天人共铸的不二之作。",
-      "abilities": ["light_emission", "divine_protection", "charm"],
+      "abilities": [
+        "light_emission",
+        "divine_protection",
+        "charm"
+      ],
       "symbolism": "尊贵无双，天人合一",
       "inscription": "纯钧",
-      "famous_owners": [{"name": "越王勾践", "title": "春秋霸主", "story": "以此剑为至宝"}],
+      "famous_owners": [
+        {
+          "name": "越王勾践",
+          "title": "春秋霸主",
+          "story": "以此剑为至宝"
+        }
+      ],
       "blacksmith_id": "ouye",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "lotus_pattern", "handle_type": "jade_wrapped", "colors": ["#FFD700", "#C0C0C0", "#FFFFFF"], "features": ["芙蓉出水", "珠光纹理", "尊贵华美"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "lotus_pattern",
+        "handle_type": "jade_wrapped",
+        "colors": [
+          "#FFD700",
+          "#C0C0C0",
+          "#FFFFFF"
+        ],
+        "features": [
+          "芙蓉出水",
+          "珠光纹理",
+          "尊贵华美"
+        ]
+      },
       "image": "weapon_chunjun.png",
-      "related": ["juque_sword", "zhanlu_sword"],
-      "tags": ["中国", "春秋", "欧冶子", "光属性", "十大名剑"]
+      "related": [
+        "juque_sword",
+        "zhanlu_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "欧冶子",
+        "光属性",
+        "十大名剑"
+      ]
     },
     {
       "id": "chengying_sword",
-      "name": {"original": "承影", "cn": "承影剑", "en": "Chengying Sword"},
+      "name": {
+        "original": "承影",
+        "cn": "承影剑",
+        "en": "Chengying Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "special"},
+      "attributes": {
+        "primary": "special"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 88, "defense": 70, "speed": 98, "weight": 1.5},
+      "stats": {
+        "attack": 88,
+        "defense": 70,
+        "speed": 98,
+        "weight": 1.5
+      },
       "description": "殷天子三剑之一，剑身若有若无，唯能以日月之光见其影，是最神秘的上古神剑。",
       "forging_legend": "传说铸此剑时，融入了虚空之精华，剑成时竟几不可视。",
       "battle_legend": "持此剑立于日下，剑身消隐，唯见其影，故名承影。",
-      "abilities": ["stealth", "critical_strike", "phase"],
+      "abilities": [
+        "stealth",
+        "critical_strike",
+        "phase"
+      ],
       "symbolism": "虚无缥缈，神秘莫测",
       "inscription": "承影",
-      "famous_owners": [{"name": "殷天子", "title": "商朝帝王", "story": "持有上古三剑"}],
+      "famous_owners": [
+        {
+          "name": "殷天子",
+          "title": "商朝帝王",
+          "story": "持有上古三剑"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "transparent_pattern", "handle_type": "crystal_wrapped", "colors": ["#E0E0E0", "#FFFFFF", "#C0C0C0"], "features": ["若有若无", "透明剑身", "承接光影"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "transparent_pattern",
+        "handle_type": "crystal_wrapped",
+        "colors": [
+          "#E0E0E0",
+          "#FFFFFF",
+          "#C0C0C0"
+        ],
+        "features": [
+          "若有若无",
+          "透明剑身",
+          "承接光影"
+        ]
+      },
       "image": "weapon_chengying.png",
-      "related": ["hanlu_sword", "xiaolian_sword"],
-      "tags": ["中国", "上古", "殷商", "特殊属性", "十大名剑", "隐形"]
+      "related": [
+        "hanlu_sword",
+        "xiaolian_sword"
+      ],
+      "tags": [
+        "中国",
+        "上古",
+        "殷商",
+        "特殊属性",
+        "十大名剑",
+        "隐形"
+      ]
     },
     {
       "id": "yuchang_sword",
-      "name": {"original": "鱼肠", "cn": "鱼肠剑", "en": "Yuchang Sword"},
+      "name": {
+        "original": "鱼肠",
+        "cn": "鱼肠剑",
+        "en": "Yuchang Sword"
+      },
       "culture": "chinese",
       "type": "dagger",
-      "attributes": {"primary": "dark"},
+      "attributes": {
+        "primary": "dark"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 82, "defense": 50, "speed": 100, "weight": 0.8},
+      "stats": {
+        "attack": 82,
+        "defense": 50,
+        "speed": 100,
+        "weight": 0.8
+      },
       "description": "欧冶子所铸短剑，短小精悍可藏于鱼腹，专诸以此刺杀吴王僚，是勇绝之剑。",
       "forging_legend": "铸此剑时，专取短小精悍之形，便于隐藏，适合刺客使用。",
       "battle_legend": "专诸将鱼肠剑藏于鱼腹，借上菜之机刺杀吴王僚，成就公子光登基。",
-      "abilities": ["armor_pierce", "critical_strike", "stealth"],
+      "abilities": [
+        "armor_pierce",
+        "critical_strike",
+        "stealth"
+      ],
       "symbolism": "勇绝刺客，舍生取义",
       "inscription": "鱼肠",
-      "famous_owners": [{"name": "专诸", "title": "春秋刺客", "story": "刺杀吴王僚"}],
+      "famous_owners": [
+        {
+          "name": "专诸",
+          "title": "春秋刺客",
+          "story": "刺杀吴王僚"
+        }
+      ],
       "blacksmith_id": "ouye",
-      "appearance": {"blade_type": "short_straight", "guard_type": "fish_pattern", "handle_type": "dark_wrapped", "colors": ["#2F4F4F", "#C0C0C0", "#4A4A4A"], "features": ["短小精悍", "可藏鱼腹", "刺客之刃"]},
+      "appearance": {
+        "blade_type": "short_straight",
+        "guard_type": "fish_pattern",
+        "handle_type": "dark_wrapped",
+        "colors": [
+          "#2F4F4F",
+          "#C0C0C0",
+          "#4A4A4A"
+        ],
+        "features": [
+          "短小精悍",
+          "可藏鱼腹",
+          "刺客之刃"
+        ]
+      },
       "image": "weapon_yuchang.png",
-      "related": ["ganjiang_sword", "moye_sword"],
-      "tags": ["中国", "春秋", "欧冶子", "暗属性", "十大名剑", "刺客"]
+      "related": [
+        "ganjiang_sword",
+        "moye_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "欧冶子",
+        "暗属性",
+        "十大名剑",
+        "刺客"
+      ]
     },
     {
       "id": "onimaru_kunitsuna",
-      "name": {"original": "鬼丸国綱", "cn": "鬼丸国纲", "en": "Onimaru Kunitsuna"},
+      "name": {
+        "original": "鬼丸国綱",
+        "cn": "鬼丸国纲",
+        "en": "Onimaru Kunitsuna"
+      },
       "culture": "japanese",
       "type": "katana",
-      "attributes": {"primary": "light", "secondary": "death"},
+      "attributes": {
+        "primary": "light",
+        "secondary": "death"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 92, "defense": 78, "speed": 88, "weight": 2.3},
+      "stats": {
+        "attack": 92,
+        "defense": 78,
+        "speed": 88,
+        "weight": 2.3
+      },
       "description": "天下五剑之一，能斩杀恶鬼的灵刀，曾自行斩杀纠缠北条时赖的鬼形香炉。",
       "forging_legend": "粟田口国纲于镰仓时代锻造，蕴含强大的破魔之力。",
       "battle_legend": "北条时赖被梦魇纠缠，此刀自行倒下斩杀了鬼形香炉，梦魇遂消。",
-      "abilities": ["demon_slayer", "holy_judgment", "soul_bind"],
+      "abilities": [
+        "demon_slayer",
+        "holy_judgment",
+        "soul_bind"
+      ],
       "symbolism": "驱魔辟邪，守护之刃",
       "inscription": "国纲",
-      "famous_owners": [{"name": "北条时赖", "title": "镰仓执权", "story": "梦中得刀斩鬼"}],
+      "famous_owners": [
+        {
+          "name": "北条时赖",
+          "title": "镰仓执权",
+          "story": "梦中得刀斩鬼"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "curved_single_edge", "guard_type": "demon_pattern", "handle_type": "traditional_wrap", "colors": ["#C0C0C0", "#4169E1", "#2F4F4F"], "features": ["破魔刃纹", "鬼斩之力", "灵刀气息"]},
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "demon_pattern",
+        "handle_type": "traditional_wrap",
+        "colors": [
+          "#C0C0C0",
+          "#4169E1",
+          "#2F4F4F"
+        ],
+        "features": [
+          "破魔刃纹",
+          "鬼斩之力",
+          "灵刀气息"
+        ]
+      },
       "image": "weapon_onimaru.png",
-      "related": ["mikazuki_munechika", "dojigiri_yasutsuna"],
-      "tags": ["日本", "镰仓", "天下五剑", "光死双属性", "国宝"]
+      "related": [
+        "mikazuki_munechika",
+        "dojigiri_yasutsuna"
+      ],
+      "tags": [
+        "日本",
+        "镰仓",
+        "天下五剑",
+        "光死双属性",
+        "国宝"
+      ]
     },
     {
       "id": "clarent",
-      "name": {"original": "Clarent", "cn": "克拉伦特", "en": "Clarent"},
+      "name": {
+        "original": "Clarent",
+        "cn": "克拉伦特",
+        "en": "Clarent"
+      },
       "culture": "medieval_europe",
       "type": "sword",
-      "attributes": {"primary": "dark"},
+      "attributes": {
+        "primary": "dark"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 88, "defense": 75, "speed": 85, "weight": 2.7},
+      "stats": {
+        "attack": 88,
+        "defense": 75,
+        "speed": 85,
+        "weight": 2.7
+      },
       "description": "亚瑟王的仪式之剑，用于加冕和册封骑士，后被莫德雷德窃取并用于弑父。",
       "forging_legend": "乌瑟王传给亚瑟的王室仪式剑，象征和平时期的王权。",
       "battle_legend": "桂妮薇儿将此剑交给叛臣莫德雷德，在卡姆兰战役中莫德雷德用它刺穿亚瑟王。",
-      "abilities": ["blood_thirst", "curse", "soul_bind"],
+      "abilities": [
+        "blood_thirst",
+        "curse",
+        "soul_bind"
+      ],
       "symbolism": "背叛与悲剧，王权的堕落",
       "inscription": "王室之剑",
-      "famous_owners": [{"name": "莫德雷德", "title": "叛臣", "story": "弑父篡位"}],
+      "famous_owners": [
+        {
+          "name": "莫德雷德",
+          "title": "叛臣",
+          "story": "弑父篡位"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "cross_guard", "handle_type": "royal_wrapped", "colors": ["#8B0000", "#C0C0C0", "#2F4F4F"], "features": ["染血剑身", "王室纹章", "悲剧之刃"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cross_guard",
+        "handle_type": "royal_wrapped",
+        "colors": [
+          "#8B0000",
+          "#C0C0C0",
+          "#2F4F4F"
+        ],
+        "features": [
+          "染血剑身",
+          "王室纹章",
+          "悲剧之刃"
+        ]
+      },
       "image": "weapon_clarent.png",
-      "related": ["excalibur", "caliburn"],
-      "tags": ["欧洲", "亚瑟王", "暗属性", "弑父之剑", "悲剧"]
+      "related": [
+        "excalibur",
+        "caliburn"
+      ],
+      "tags": [
+        "欧洲",
+        "亚瑟王",
+        "暗属性",
+        "弑父之剑",
+        "悲剧"
+      ]
     },
     {
       "id": "curtana",
-      "name": {"original": "Curtana", "cn": "慈悲之剑", "en": "Curtana"},
+      "name": {
+        "original": "Curtana",
+        "cn": "慈悲之剑",
+        "en": "Curtana"
+      },
       "culture": "medieval_europe",
       "type": "sword",
-      "attributes": {"primary": "light"},
+      "attributes": {
+        "primary": "light"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 75, "defense": 90, "speed": 80, "weight": 2.5},
+      "stats": {
+        "attack": 75,
+        "defense": 90,
+        "speed": 80,
+        "weight": 2.5
+      },
       "description": "英国加冕御剑，剑尖被截断象征慈悲，传说是特里斯坦的佩剑。",
       "forging_legend": "传说此剑原为特里斯坦所持，剑尖留在莫霍尔特头骨中而折断。",
       "battle_legend": "作为英国王室加冕三剑之一，历代国王加冕时都使用此剑。",
-      "abilities": ["divine_protection", "holy_judgment", "mercy"],
+      "abilities": [
+        "divine_protection",
+        "holy_judgment",
+        "mercy"
+      ],
       "symbolism": "慈悲与正义，王权的仁德",
       "inscription": "慈悲",
-      "famous_owners": [{"name": "亨利三世", "title": "英格兰国王", "story": "首次用于加冕典礼"}],
+      "famous_owners": [
+        {
+          "name": "亨利三世",
+          "title": "英格兰国王",
+          "story": "首次用于加冕典礼"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "blunt_tip", "guard_type": "cross_guard", "handle_type": "jewel_inlaid", "colors": ["#FFD700", "#C0C0C0", "#FFFFFF"], "features": ["钝头剑尖", "王室宝石", "慈悲光环"]},
+      "appearance": {
+        "blade_type": "blunt_tip",
+        "guard_type": "cross_guard",
+        "handle_type": "jewel_inlaid",
+        "colors": [
+          "#FFD700",
+          "#C0C0C0",
+          "#FFFFFF"
+        ],
+        "features": [
+          "钝头剑尖",
+          "王室宝石",
+          "慈悲光环"
+        ]
+      },
       "image": "weapon_curtana.png",
-      "related": ["excalibur", "joyeuse"],
-      "tags": ["欧洲", "英国", "加冕剑", "光属性", "王室"]
+      "related": [
+        "excalibur",
+        "joyeuse"
+      ],
+      "tags": [
+        "欧洲",
+        "英国",
+        "加冕剑",
+        "光属性",
+        "王室"
+      ]
     },
     {
       "id": "laevateinn",
-      "name": {"original": "Lævateinn", "cn": "莱瓦汀", "en": "Laevateinn"},
+      "name": {
+        "original": "Lævateinn",
+        "cn": "莱瓦汀",
+        "en": "Laevateinn"
+      },
       "culture": "norse",
       "type": "sword",
-      "attributes": {"primary": "fire", "secondary": "chaos"},
+      "attributes": {
+        "primary": "fire",
+        "secondary": "chaos"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 98, "defense": 60, "speed": 92, "weight": 3.0},
+      "stats": {
+        "attack": 98,
+        "defense": 60,
+        "speed": 92,
+        "weight": 3.0
+      },
       "description": "洛基锻造的毁灭之剑，意为'伤害之杖'，诸神黄昏时由苏尔特尔持握焚烧世界。",
       "forging_legend": "洛基在冥界之门锻造此剑，辛莫拉用九把锁将其封存。",
       "battle_legend": "诸神黄昏时，火巨人苏尔特尔持此剑燃烧九界，毁灭世界。",
-      "abilities": ["flame_wave", "world_burn", "curse"],
+      "abilities": [
+        "flame_wave",
+        "world_burn",
+        "curse"
+      ],
       "symbolism": "毁灭与终结，诸神黄昏",
       "inscription": "卢恩符文",
-      "famous_owners": [{"name": "苏尔特尔", "title": "火巨人之王", "story": "诸神黄昏的毁灭者"}],
+      "famous_owners": [
+        {
+          "name": "苏尔特尔",
+          "title": "火巨人之王",
+          "story": "诸神黄昏的毁灭者"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "flaming_blade", "guard_type": "rune_pattern", "handle_type": "obsidian", "colors": ["#FF4500", "#FF0000", "#FFD700"], "features": ["燃烧烈焰", "毁灭气息", "符文闪耀"]},
+      "appearance": {
+        "blade_type": "flaming_blade",
+        "guard_type": "rune_pattern",
+        "handle_type": "obsidian",
+        "colors": [
+          "#FF4500",
+          "#FF0000",
+          "#FFD700"
+        ],
+        "features": [
+          "燃烧烈焰",
+          "毁灭气息",
+          "符文闪耀"
+        ]
+      },
       "image": "weapon_laevateinn.png",
-      "related": ["mjolnir", "gungnir"],
-      "tags": ["北欧", "神话", "火属性", "诸神黄昏", "毁灭之剑"]
+      "related": [
+        "mjolnir",
+        "gungnir"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "火属性",
+        "诸神黄昏",
+        "毁灭之剑"
+      ]
     },
     {
       "id": "achilles_shield",
-      "name": {"original": "Ἀσπὶς Ἀχιλλέως", "cn": "阿喀琉斯之盾", "en": "Shield of Achilles"},
+      "name": {
+        "original": "Ἀσπὶς Ἀχιλλέως",
+        "cn": "阿喀琉斯之盾",
+        "en": "Shield of Achilles"
+      },
       "culture": "greek",
       "type": "shield",
-      "attributes": {"primary": "light", "secondary": "earth"},
+      "attributes": {
+        "primary": "light",
+        "secondary": "earth"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 70, "defense": 100, "speed": 65, "weight": 15.0},
+      "stats": {
+        "attack": 70,
+        "defense": 100,
+        "speed": 65,
+        "weight": 15.0
+      },
       "description": "赫菲斯托斯为阿喀琉斯锻造的神盾，五层同心圆描绘了整个宇宙与人间万象。",
       "forging_legend": "忒提斯请求赫菲斯托斯为其子锻造武具，火神以神技锻造此盾描绘世间万象。",
       "battle_legend": "阿喀琉斯持此盾与赫克托耳决战，盾上映照战争与和平、生与死。",
-      "abilities": ["divine_protection", "reflect", "world_vision"],
+      "abilities": [
+        "divine_protection",
+        "reflect",
+        "world_vision"
+      ],
       "symbolism": "宇宙缩影，人间万象",
       "inscription": "荷马史诗",
-      "famous_owners": [{"name": "阿喀琉斯", "title": "希腊第一勇士", "story": "持盾战特洛伊"}],
+      "famous_owners": [
+        {
+          "name": "阿喀琉斯",
+          "title": "希腊第一勇士",
+          "story": "持盾战特洛伊"
+        }
+      ],
       "blacksmith_id": "hephaestus",
-      "appearance": {"blade_type": "none", "guard_type": "none", "handle_type": "divine_grip", "colors": ["#CD7F32", "#FFD700", "#C0C0C0"], "features": ["五层同心圆", "宇宙图案", "城市与田野"]},
+      "appearance": {
+        "blade_type": "none",
+        "guard_type": "none",
+        "handle_type": "divine_grip",
+        "colors": [
+          "#CD7F32",
+          "#FFD700",
+          "#C0C0C0"
+        ],
+        "features": [
+          "五层同心圆",
+          "宇宙图案",
+          "城市与田野"
+        ]
+      },
       "image": "weapon_achilles_shield.png",
-      "related": ["zeus_thunderbolt", "poseidon_trident"],
-      "tags": ["希腊", "神话", "盾牌", "光土双属性", "赫菲斯托斯"]
+      "related": [
+        "zeus_thunderbolt",
+        "poseidon_trident"
+      ],
+      "tags": [
+        "希腊",
+        "神话",
+        "盾牌",
+        "光土双属性",
+        "赫菲斯托斯"
+      ]
     },
     {
       "id": "goujian_sword",
-      "name": {"original": "越王勾践剑", "cn": "越王勾践剑", "en": "Sword of Goujian"},
+      "name": {
+        "original": "越王勾践剑",
+        "cn": "越王勾践剑",
+        "en": "Sword of Goujian"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "water"},
+      "attributes": {
+        "primary": "water"
+      },
       "rarity": "artifact",
-      "stats": {"attack": 92, "defense": 80, "speed": 90, "weight": 0.875},
+      "stats": {
+        "attack": 92,
+        "defense": 80,
+        "speed": 90,
+        "weight": 0.875
+      },
       "description": "1965年出土的春秋青铜剑，历经2500年仍锋利如新，是中国考古最重要的发现之一。",
       "forging_legend": "越国工匠采用高超的青铜铸造技术，剑身含锡量配比精确，经硫化处理永不生锈。",
       "battle_legend": "越王勾践卧薪尝胆灭吴，此剑见证了'三千越甲可吞吴'的复仇传奇。",
-      "abilities": ["eternal_edge", "critical_strike", "prestige"],
+      "abilities": [
+        "eternal_edge",
+        "critical_strike",
+        "prestige"
+      ],
       "symbolism": "卧薪尝胆，复仇雪耻",
       "inscription": "越王鸠浅自作用剑",
-      "famous_owners": [{"name": "勾践", "title": "越王", "story": "卧薪尝胆灭吴"}],
+      "famous_owners": [
+        {
+          "name": "勾践",
+          "title": "越王",
+          "story": "卧薪尝胆灭吴"
+        }
+      ],
       "blacksmith_id": "ouye",
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "turquoise_inlay", "handle_type": "concentric_circles", "colors": ["#CD853F", "#40E0D0", "#006994"], "features": ["菱形暗纹", "蓝色琉璃", "绿松石镶嵌", "鸟篆铭文"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "turquoise_inlay",
+        "handle_type": "concentric_circles",
+        "colors": [
+          "#CD853F",
+          "#40E0D0",
+          "#006994"
+        ],
+        "features": [
+          "菱形暗纹",
+          "蓝色琉璃",
+          "绿松石镶嵌",
+          "鸟篆铭文"
+        ]
+      },
       "image": "weapon_goujian.png",
-      "related": ["fuchai_sword", "zhanlu_sword"],
-      "tags": ["中国", "春秋", "考古", "水属性", "国宝", "真实存在"]
+      "related": [
+        "fuchai_sword",
+        "zhanlu_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "考古",
+        "水属性",
+        "国宝",
+        "真实存在"
+      ]
     },
     {
       "id": "fuchai_sword",
-      "name": {"original": "吴王夫差剑", "cn": "吴王夫差剑", "en": "Sword of King Fuchai"},
+      "name": {
+        "original": "吴王夫差剑",
+        "cn": "吴王夫差剑",
+        "en": "Sword of King Fuchai"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "fire"},
+      "attributes": {
+        "primary": "fire"
+      },
       "rarity": "legendary",
-      "stats": {"attack": 90, "defense": 78, "speed": 88, "weight": 0.9},
+      "stats": {
+        "attack": 90,
+        "defense": 78,
+        "speed": 88,
+        "weight": 0.9
+      },
       "description": "春秋吴王夫差的佩剑，与越王勾践剑互为宿敌，2017年双剑合璧于苏州博物馆。",
       "forging_legend": "吴国继承并改进了先进的青铜铸造技术，铸成此剑供王自用。",
       "battle_legend": "夫差持此剑大败越国，囚勾践于会稽，却最终被勾践复仇所灭。",
-      "abilities": ["flame_wave", "prestige", "critical_strike"],
+      "abilities": [
+        "flame_wave",
+        "prestige",
+        "critical_strike"
+      ],
       "symbolism": "盛极而衰，骄兵必败",
       "inscription": "攻吴王夫差自乍其元用",
-      "famous_owners": [{"name": "夫差", "title": "吴王", "story": "大败越国后骄傲自满"}],
+      "famous_owners": [
+        {
+          "name": "夫差",
+          "title": "吴王",
+          "story": "大败越国后骄傲自满"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "beast_mask", "handle_type": "concentric_circles", "colors": ["#006994", "#40E0D0", "#CD853F"], "features": ["菱形暗纹", "兽面纹饰", "绿松石镶嵌", "蓝色薄锈"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "beast_mask",
+        "handle_type": "concentric_circles",
+        "colors": [
+          "#006994",
+          "#40E0D0",
+          "#CD853F"
+        ],
+        "features": [
+          "菱形暗纹",
+          "兽面纹饰",
+          "绿松石镶嵌",
+          "蓝色薄锈"
+        ]
+      },
       "image": "weapon_fuchai.png",
-      "related": ["goujian_sword"],
-      "tags": ["中国", "春秋", "考古", "火属性", "宿敌之剑", "真实存在"]
+      "related": [
+        "goujian_sword"
+      ],
+      "tags": [
+        "中国",
+        "春秋",
+        "考古",
+        "火属性",
+        "宿敌之剑",
+        "真实存在"
+      ]
     },
     {
       "id": "qin_bronze_sword",
-      "name": {"original": "秦青铜剑", "cn": "秦青铜剑", "en": "Qin Bronze Sword"},
+      "name": {
+        "original": "秦青铜剑",
+        "cn": "秦青铜剑",
+        "en": "Qin Bronze Sword"
+      },
       "culture": "chinese",
       "type": "sword",
-      "attributes": {"primary": "earth"},
+      "attributes": {
+        "primary": "earth"
+      },
       "rarity": "epic",
-      "stats": {"attack": 85, "defense": 82, "speed": 80, "weight": 1.2},
+      "stats": {
+        "attack": 85,
+        "defense": 82,
+        "speed": 80,
+        "weight": 1.2
+      },
       "description": "兵马俑坑出土的秦代青铜剑，表面覆盖铬盐氧化物保护层，领先西方两千年。",
       "forging_legend": "秦国工匠掌握了先进的铬盐氧化处理技术，使青铜剑历经两千年仍光亮如新。",
       "battle_legend": "秦始皇以此类剑装备大军，横扫六国一统天下。",
-      "abilities": ["eternal_edge", "armor_pierce"],
+      "abilities": [
+        "eternal_edge",
+        "armor_pierce"
+      ],
       "symbolism": "大秦帝国，科技领先",
       "inscription": "无",
-      "famous_owners": [{"name": "秦军将士", "title": "秦国士兵", "story": "横扫六国统一天下"}],
+      "famous_owners": [
+        {
+          "name": "秦军将士",
+          "title": "秦国士兵",
+          "story": "横扫六国统一天下"
+        }
+      ],
       "blacksmith_id": null,
-      "appearance": {"blade_type": "straight_double_edge", "guard_type": "simple", "handle_type": "bronze", "colors": ["#CD853F", "#228B22", "#C0C0C0"], "features": ["铬盐保护层", "中脊隆起", "绿色铜锈"]},
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "simple",
+        "handle_type": "bronze",
+        "colors": [
+          "#CD853F",
+          "#228B22",
+          "#C0C0C0"
+        ],
+        "features": [
+          "铬盐保护层",
+          "中脊隆起",
+          "绿色铜锈"
+        ]
+      },
       "image": "weapon_qin_bronze.png",
-      "related": ["goujian_sword"],
-      "tags": ["中国", "秦朝", "考古", "土属性", "兵马俑", "真实存在"]
+      "related": [
+        "goujian_sword"
+      ],
+      "tags": [
+        "中国",
+        "秦朝",
+        "考古",
+        "土属性",
+        "兵马俑",
+        "真实存在"
+      ]
+    },
+    {
+      "id": "pangu_axe",
+      "name": {
+        "original": "开天斧",
+        "cn": "盘古开天斧",
+        "en": "Pangu Axe"
+      },
+      "culture": "chinese",
+      "type": "axe",
+      "attributes": {
+        "primary": "chaos",
+        "secondary": "earth"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 100,
+        "defense": 85,
+        "speed": 60,
+        "weight": 80.0
+      },
+      "description": "盘古开天辟地所用神斧，一斧劈开混沌，分清浊二气，开创天地。",
+      "forging_legend": "天地混沌之初，盘古手持此斧，一斧劈开天地，清气上升为天，浊气下沉为地。",
+      "battle_legend": "盘古身化万物后，此斧化作昆仑山脉，成为万山之祖。",
+      "abilities": [
+        "world_split",
+        "chaos_control",
+        "creation"
+      ],
+      "symbolism": "开天辟地，创世神器",
+      "inscription": "混沌初开",
+      "famous_owners": [
+        {
+          "name": "盘古",
+          "title": "开天辟地之神",
+          "story": "以此斧开辟鸿蒙"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "giant_axe",
+        "guard_type": "none",
+        "handle_type": "ancient_wood",
+        "colors": [
+          "#8B4513",
+          "#2F4F4F",
+          "#FFD700"
+        ],
+        "features": [
+          "混沌之气",
+          "开天神力",
+          "巨大斧身"
+        ]
+      },
+      "image": "weapon_pangu_axe.png",
+      "related": [
+        "xuanyuan_sword"
+      ],
+      "tags": [
+        "中国",
+        "上古",
+        "开天辟地",
+        "混沌属性",
+        "创世"
+      ]
+    },
+    {
+      "id": "ruyi_jingu_bang",
+      "name": {
+        "original": "如意金箍棒",
+        "cn": "如意金箍棒",
+        "en": "Ruyi Jingu Bang"
+      },
+      "culture": "chinese",
+      "type": "staff",
+      "attributes": {
+        "primary": "thunder",
+        "secondary": "special"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 95,
+        "defense": 88,
+        "speed": 92,
+        "weight": 7.5
+      },
+      "description": "孙悟空的得力武器，原为大禹治水的定海神针，重一万三千五百斤，可随意变大缩小。",
+      "forging_legend": "太上老君所炼，大禹借以测量东海深浅，后遗留东海龙宫成为定海神针。",
+      "battle_legend": "孙悟空大闹天宫时，一根金箍棒打遍天庭无敌手，后随唐僧西天取经降妖除魔。",
+      "abilities": [
+        "size_change",
+        "unbreakable",
+        "thunder_strike",
+        "weight_change"
+      ],
+      "symbolism": "如意变化，降妖除魔",
+      "inscription": "如意金箍棒 重一万三千五百斤",
+      "famous_owners": [
+        {
+          "name": "孙悟空",
+          "title": "齐天大圣",
+          "story": "大闹天宫，西天取经"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "staff",
+        "guard_type": "golden_bands",
+        "handle_type": "divine_iron",
+        "colors": [
+          "#FFD700",
+          "#8B0000",
+          "#2F4F4F"
+        ],
+        "features": [
+          "两端金箍",
+          "可变大小",
+          "神铁材质"
+        ]
+      },
+      "image": "weapon_ruyi_jingu_bang.png",
+      "related": [
+        "pangu_axe"
+      ],
+      "tags": [
+        "中国",
+        "神话",
+        "孙悟空",
+        "西游记",
+        "雷属性"
+      ]
+    },
+    {
+      "id": "jiuchidingnail_rake",
+      "name": {
+        "original": "九齿钉耙",
+        "cn": "九齿钉耙",
+        "en": "Nine-Tooth Rake"
+      },
+      "culture": "chinese",
+      "type": "polearm",
+      "attributes": {
+        "primary": "earth"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 88,
+        "defense": 80,
+        "speed": 75,
+        "weight": 25.0
+      },
+      "description": "猪八戒的武器，原名上宝沁金耙，由太上老君用神冰铁亲自锻造。",
+      "forging_legend": "太上老君在八卦炉中用神冰铁锻造，历经九转，重达五千零四十八斤。",
+      "battle_legend": "猪八戒未被贬下凡前，此耙是天蓬元帅的兵器，后随唐僧西天取经立下功劳。",
+      "abilities": [
+        "earth_smash",
+        "stun",
+        "armor_pierce"
+      ],
+      "symbolism": "勤劳质朴，憨厚可爱",
+      "inscription": "上宝沁金耙",
+      "famous_owners": [
+        {
+          "name": "猪八戒",
+          "title": "天蓬元帅",
+          "story": "西天取经八百里"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "nine_tooth_rake",
+        "guard_type": "none",
+        "handle_type": "wood_wrapped",
+        "colors": [
+          "#FFD700",
+          "#8B4513",
+          "#C0C0C0"
+        ],
+        "features": [
+          "九齿",
+          "金色光芒",
+          "钉耙形态"
+        ]
+      },
+      "image": "weapon_jiuchidingnail.png",
+      "related": [
+        "ruyi_jingu_bang"
+      ],
+      "tags": [
+        "中国",
+        "西游记",
+        "猪八戒",
+        "土属性"
+      ]
+    },
+    {
+      "id": "qingfeng_sword",
+      "name": {
+        "original": "青锋剑",
+        "cn": "青锋剑",
+        "en": "Qingfeng Sword"
+      },
+      "culture": "chinese",
+      "type": "sword",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 82,
+        "defense": 70,
+        "speed": 95,
+        "weight": 1.8
+      },
+      "description": "传说中的神剑，剑锋青色如碧，轻盈灵动，御风而行。",
+      "forging_legend": "传说由仙人所铸，融入青鸾之羽，剑成后轻如鸿毛，锐不可当。",
+      "battle_legend": "历代仙侠持此剑斩妖除魔，御剑飞行万里。",
+      "abilities": [
+        "wind_blade",
+        "flight",
+        "critical_strike"
+      ],
+      "symbolism": "仙侠之剑，御风飞行",
+      "inscription": "青锋",
+      "famous_owners": [
+        {
+          "name": "各路仙侠",
+          "title": "仙人剑客",
+          "story": "御剑飞行，除魔卫道"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cloud_pattern",
+        "handle_type": "jade_wrapped",
+        "colors": [
+          "#87CEEB",
+          "#40E0D0",
+          "#C0C0C0"
+        ],
+        "features": [
+          "青色剑锋",
+          "轻盈飘逸",
+          "风之纹饰"
+        ]
+      },
+      "image": "weapon_qingfeng.png",
+      "related": [
+        "zhanlu_sword"
+      ],
+      "tags": [
+        "中国",
+        "仙侠",
+        "风属性",
+        "飞剑"
+      ]
+    },
+    {
+      "id": "zhang_ba_she_mao",
+      "name": {
+        "original": "丈八蛇矛",
+        "cn": "丈八蛇矛",
+        "en": "Zhang Ba She Mao"
+      },
+      "culture": "chinese",
+      "type": "spear",
+      "attributes": {
+        "primary": "dark"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 90,
+        "defense": 72,
+        "speed": 85,
+        "weight": 14.0
+      },
+      "description": "三国张飞的兵器，矛长一丈八尺，矛头形似蛇形，凶猛霸道。",
+      "forging_legend": "传说由能工巧匠锻造，矛头打造成蛇形，增强穿刺力。",
+      "battle_legend": "张飞当阳桥头一声怒吼，手持蛇矛令曹军不敢前进。",
+      "abilities": [
+        "armor_pierce",
+        "stun",
+        "rage"
+      ],
+      "symbolism": "猛张飞，勇武无敌",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "张飞",
+          "title": "蜀汉五虎将",
+          "story": "当阳桥前吓退曹军"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "serpent_spear",
+        "guard_type": "none",
+        "handle_type": "black_lacquer",
+        "colors": [
+          "#2F4F4F",
+          "#C0C0C0",
+          "#8B0000"
+        ],
+        "features": [
+          "蛇形矛头",
+          "丈八长度",
+          "凶猛气势"
+        ]
+      },
+      "image": "weapon_zhangba_shemao.png",
+      "related": [
+        "qinglong_yanyue_dao",
+        "fang_tian_hua_ji"
+      ],
+      "tags": [
+        "中国",
+        "三国",
+        "张飞",
+        "暗属性",
+        "长兵器"
+      ]
+    },
+    {
+      "id": "yinyue_qiang",
+      "name": {
+        "original": "银月枪",
+        "cn": "银月枪",
+        "en": "Silver Moon Spear"
+      },
+      "culture": "chinese",
+      "type": "spear",
+      "attributes": {
+        "primary": "ice"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 85,
+        "defense": 68,
+        "speed": 90,
+        "weight": 4.5
+      },
+      "description": "枪身如银月般闪耀，枪法迅捷如月光流转，是少年英雄的象征。",
+      "forging_legend": "传说取寒潭精铁，以月华淬炼而成。",
+      "battle_legend": "历代少年英雄持此枪征战沙场，枪出如龙，所向披靡。",
+      "abilities": [
+        "frost_nova",
+        "critical_strike",
+        "moon_dance"
+      ],
+      "symbolism": "少年英雄，月光流转",
+      "inscription": "银月",
+      "famous_owners": [
+        {
+          "name": "赵云",
+          "title": "常山赵子龙",
+          "story": "长坂坡七进七出"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "silver_spear",
+        "guard_type": "crescent_moon",
+        "handle_type": "white_silk",
+        "colors": [
+          "#C0C0C0",
+          "#E0E0E0",
+          "#4169E1"
+        ],
+        "features": [
+          "银色枪身",
+          "月牙枪头",
+          "冰霜特效"
+        ]
+      },
+      "image": "weapon_yinyue_qiang.png",
+      "related": [
+        "qinglong_yanyue_dao"
+      ],
+      "tags": [
+        "中国",
+        "三国",
+        "冰属性",
+        "长枪"
+      ]
+    },
+    {
+      "id": "longquan_sword",
+      "name": {
+        "original": "龙泉剑",
+        "cn": "龙泉剑",
+        "en": "Longquan Sword"
+      },
+      "culture": "chinese",
+      "type": "sword",
+      "attributes": {
+        "primary": "water"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 88,
+        "defense": 75,
+        "speed": 88,
+        "weight": 2.2
+      },
+      "description": "产自龙泉的名剑，剑身如秋水，锋利无比，是中国十大名剑之一。",
+      "forging_legend": "欧冶子在龙泉铸剑，七星落于剑炉，淬以龙泉之水。",
+      "battle_legend": "龙泉宝剑名扬天下，削铁如泥，吹毛断发。",
+      "abilities": [
+        "water_surge",
+        "armor_pierce",
+        "critical_strike"
+      ],
+      "symbolism": "龙泉宝剑，名扬四海",
+      "inscription": "龙泉",
+      "famous_owners": [
+        {
+          "name": "历代侠客",
+          "title": "江湖豪杰",
+          "story": "仗剑走天涯"
+        }
+      ],
+      "blacksmith_id": "ouye",
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "dragon_pattern",
+        "handle_type": "jade_wrapped",
+        "colors": [
+          "#006994",
+          "#C0C0C0",
+          "#87CEEB"
+        ],
+        "features": [
+          "如秋水剑身",
+          "龙纹装饰",
+          "泉水淬炼"
+        ]
+      },
+      "image": "weapon_longquan.png",
+      "related": [
+        "zhanlu_sword",
+        "qixing_longyuan"
+      ],
+      "tags": [
+        "中国",
+        "龙泉",
+        "水属性",
+        "十大名剑"
+      ]
+    },
+    {
+      "id": "haolong_dao",
+      "name": {
+        "original": "镐龙刀",
+        "cn": "镐龙刀",
+        "en": "Haolong Dao"
+      },
+      "culture": "chinese",
+      "type": "sword",
+      "attributes": {
+        "primary": "thunder"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 86,
+        "defense": 72,
+        "speed": 82,
+        "weight": 3.5
+      },
+      "description": "刀身雕刻神龙，雷电环绕，是明朝名将的佩刀。",
+      "forging_legend": "明代工匠采用百炼钢法，反复锻打，刀身坚韧锋利。",
+      "battle_legend": "明朝将军持此刀征战边疆，斩杀倭寇无数。",
+      "abilities": [
+        "thunder_strike",
+        "dragon_slash",
+        "armor_pierce"
+      ],
+      "symbolism": "边关将士，御敌卫国",
+      "inscription": "镐龙",
+      "famous_owners": [
+        {
+          "name": "戚继光",
+          "title": "明朝名将",
+          "story": "抗倭名将"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "dragon_head",
+        "handle_type": "shark_skin",
+        "colors": [
+          "#C0C0C0",
+          "#9370DB",
+          "#FFD700"
+        ],
+        "features": [
+          "龙纹雕刻",
+          "雷电特效",
+          "明刀形制"
+        ]
+      },
+      "image": "weapon_haolong.png",
+      "related": [
+        "qinglong_yanyue_dao"
+      ],
+      "tags": [
+        "中国",
+        "明朝",
+        "雷属性",
+        "抗倭"
+      ]
+    },
+    {
+      "id": "fengshen_bang",
+      "name": {
+        "original": "封神榜",
+        "cn": "打神鞭",
+        "en": "God-Beating Whip"
+      },
+      "culture": "chinese",
+      "type": "soft_weapon",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 90,
+        "defense": 70,
+        "speed": 95,
+        "weight": 2.5
+      },
+      "description": "姜子牙持有的神器，专门用来惩戒神仙，见神打神，见仙打仙。",
+      "forging_legend": "元始天尊赐予姜子牙，用以封神大业。",
+      "battle_legend": "姜子牙持打神鞭辅佐周武王伐纣，封神台上敕封三百六十五路正神。",
+      "abilities": [
+        "god_slayer",
+        "divine_protection",
+        "seal"
+      ],
+      "symbolism": "封神大业，天命所归",
+      "inscription": "打神",
+      "famous_owners": [
+        {
+          "name": "姜子牙",
+          "title": "齐国国师",
+          "story": "封神演义主角"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "whip",
+        "guard_type": "none",
+        "handle_type": "divine_metal",
+        "colors": [
+          "#FFD700",
+          "#FFFFFF",
+          "#4169E1"
+        ],
+        "features": [
+          "神光环绕",
+          "鞭身灵活",
+          "封神之力"
+        ]
+      },
+      "image": "weapon_dashen_bian.png",
+      "related": [],
+      "tags": [
+        "中国",
+        "封神演义",
+        "光属性",
+        "神器"
+      ]
+    },
+    {
+      "id": "honjo_masamune",
+      "name": {
+        "original": "本庄正宗",
+        "cn": "本庄正宗",
+        "en": "Honjo Masamune"
+      },
+      "culture": "japanese",
+      "type": "katana",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 93,
+        "defense": 78,
+        "speed": 92,
+        "weight": 2.4
+      },
+      "description": "正宗最高杰作，德川家传世之宝，是妖刀村正的对立面，代表正义之刃。",
+      "forging_legend": "刀匠正宗倾注毕生心血锻造，刀身蕴含慈悲之心。",
+      "battle_legend": "传说将本庄正宗和村正同时放入溪流，落叶遇村正被斩断，遇正宗则绕道而过。",
+      "abilities": [
+        "divine_protection",
+        "holy_judgment",
+        "mercy"
+      ],
+      "symbolism": "慈悲正义，名刀之首",
+      "inscription": "正宗",
+      "famous_owners": [
+        {
+          "name": "德川家康",
+          "title": "德川幕府",
+          "story": "德川家传世之宝"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "lotus_pattern",
+        "handle_type": "traditional_wrap",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#FFFFFF"
+        ],
+        "features": [
+          "慈悲之光",
+          "完美刀姿",
+          "正宗名作"
+        ]
+      },
+      "image": "weapon_honjo_masamune.png",
+      "related": [
+        "muramasa",
+        "mikazuki_munechika"
+      ],
+      "tags": [
+        "日本",
+        "镰仓",
+        "正宗",
+        "光属性",
+        "德川家"
+      ]
+    },
+    {
+      "id": "ama_no_habakiri",
+      "name": {
+        "original": "天羽々斬",
+        "cn": "天羽羽斩",
+        "en": "Ama-no-Habakiri"
+      },
+      "culture": "japanese",
+      "type": "katana",
+      "attributes": {
+        "primary": "thunder",
+        "secondary": "wind"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 96,
+        "defense": 75,
+        "speed": 90,
+        "weight": 2.8
+      },
+      "description": "须佐之男斩杀八岐大蛇所用的神剑，剑锋能斩天羽，发现草薙剑的关键。",
+      "forging_legend": "天神所赐之剑，蕴含天之威力。",
+      "battle_legend": "须佐之男用此剑斩杀八岐大蛇，剑刃卷刃后在蛇尾中发现草薙剑。",
+      "abilities": [
+        "thunder_strike",
+        "wind_blade",
+        "demon_slayer"
+      ],
+      "symbolism": "斩妖除魔，天神之剑",
+      "inscription": "天羽羽斩",
+      "famous_owners": [
+        {
+          "name": "须佐之男",
+          "title": "暴风神",
+          "story": "斩杀八岐大蛇"
+        }
+      ],
+      "blacksmith_id": "amatsumara",
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "thunder_pattern",
+        "handle_type": "sacred_wrap",
+        "colors": [
+          "#9370DB",
+          "#87CEEB",
+          "#FFD700"
+        ],
+        "features": [
+          "雷电环绕",
+          "风云纹饰",
+          "神剑之姿"
+        ]
+      },
+      "image": "weapon_ama_no_habakiri.png",
+      "related": [
+        "kusanagi"
+      ],
+      "tags": [
+        "日本",
+        "神话",
+        "须佐之男",
+        "雷风双属性"
+      ]
+    },
+    {
+      "id": "juzumaru_tsunetsugu",
+      "name": {
+        "original": "数珠丸恒次",
+        "cn": "数珠丸恒次",
+        "en": "Juzumaru Tsunetsugu"
+      },
+      "culture": "japanese",
+      "type": "katana",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 87,
+        "defense": 80,
+        "speed": 88,
+        "weight": 2.5
+      },
+      "description": "天下五剑之一，日莲宗开祖日莲上人所持，柄缠佛珠，是佛门护法之刃。",
+      "forging_legend": "青江恒次锻造，后被日莲上人收藏，柄上缠绕念珠。",
+      "battle_legend": "日莲上人持此刀护法，刀与佛珠结合，成为佛门圣物。",
+      "abilities": [
+        "divine_protection",
+        "holy_judgment",
+        "demon_slayer"
+      ],
+      "symbolism": "佛门护法，正道之刃",
+      "inscription": "恒次",
+      "famous_owners": [
+        {
+          "name": "日莲上人",
+          "title": "日莲宗开祖",
+          "story": "佛门护法之刀"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "lotus_pattern",
+        "handle_type": "prayer_beads",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#8B4513"
+        ],
+        "features": [
+          "佛珠缠柄",
+          "慈悲之光",
+          "护法之姿"
+        ]
+      },
+      "image": "weapon_juzumaru.png",
+      "related": [
+        "mikazuki_munechika",
+        "onimaru_kunitsuna"
+      ],
+      "tags": [
+        "日本",
+        "天下五剑",
+        "光属性",
+        "佛门"
+      ]
+    },
+    {
+      "id": "odenta_mitsuyo",
+      "name": {
+        "original": "大典太光世",
+        "cn": "大典太光世",
+        "en": "Odenta Mitsuyo"
+      },
+      "culture": "japanese",
+      "type": "katana",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 89,
+        "defense": 76,
+        "speed": 90,
+        "weight": 2.3
+      },
+      "description": "天下五剑之一，能斩杀病魔的灵刀，前田家传世之宝。",
+      "forging_legend": "三条宗近之徒光世锻造，蕴含祛病除魔之力。",
+      "battle_legend": "前田利家重病卧床，此刀自行斩杀附身的鼠妖，主人病愈。",
+      "abilities": [
+        "demon_slayer",
+        "purification",
+        "divine_protection"
+      ],
+      "symbolism": "祛病除魔，灵刀护主",
+      "inscription": "光世",
+      "famous_owners": [
+        {
+          "name": "前田利家",
+          "title": "前田家大名",
+          "story": "刀斩病魔"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "pure_pattern",
+        "handle_type": "traditional_wrap",
+        "colors": [
+          "#C0C0C0",
+          "#FFFFFF",
+          "#4169E1"
+        ],
+        "features": [
+          "净化之光",
+          "灵刀气息",
+          "优雅刀姿"
+        ]
+      },
+      "image": "weapon_odenta.png",
+      "related": [
+        "onimaru_kunitsuna"
+      ],
+      "tags": [
+        "日本",
+        "天下五剑",
+        "光属性",
+        "前田家"
+      ]
+    },
+    {
+      "id": "kogarasu_maru",
+      "name": {
+        "original": "小烏丸",
+        "cn": "小乌丸",
+        "en": "Kogarasu Maru"
+      },
+      "culture": "japanese",
+      "type": "katana",
+      "attributes": {
+        "primary": "dark"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 91,
+        "defense": 70,
+        "speed": 92,
+        "weight": 2.4
+      },
+      "description": "平安时代名刀，刀尖独特双刃设计，传说为天狗所赠，是太刀的原型之一。",
+      "forging_legend": "传说由天狗赠予桓武天皇之子，或云天狗与刀匠合作锻造。",
+      "battle_legend": "历代武将珍藏，其独特刀型影响了日本刀的发展。",
+      "abilities": [
+        "armor_pierce",
+        "critical_strike",
+        "wind_blade"
+      ],
+      "symbolism": "太刀之祖，天狗赠刀",
+      "inscription": "小乌",
+      "famous_owners": [
+        {
+          "name": "坂上田村麻吕",
+          "title": "征夷大将军",
+          "story": "平定东北蛮族"
+        }
+      ],
+      "blacksmith_id": "amakuni",
+      "appearance": {
+        "blade_type": "kissaki_moroha_zukuri",
+        "guard_type": "crow_pattern",
+        "handle_type": "traditional_wrap",
+        "colors": [
+          "#2F4F4F",
+          "#C0C0C0",
+          "#4A4A4A"
+        ],
+        "features": [
+          "双刃刀尖",
+          "古朴刀姿",
+          "天狗传说"
+        ]
+      },
+      "image": "weapon_kogarasu_maru.png",
+      "related": [
+        "mikazuki_munechika"
+      ],
+      "tags": [
+        "日本",
+        "平安",
+        "暗属性",
+        "太刀始祖"
+      ]
+    },
+    {
+      "id": "stormbreaker",
+      "name": {
+        "original": "Stormbreaker",
+        "cn": "风暴战斧",
+        "en": "Stormbreaker"
+      },
+      "culture": "norse",
+      "type": "axe",
+      "attributes": {
+        "primary": "thunder",
+        "secondary": "ice"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 98,
+        "defense": 88,
+        "speed": 75,
+        "weight": 45.0
+      },
+      "description": "矮人为托尔锻造的新武器，威力不亚于雷神之锤，斧柄由格鲁特之木制成。",
+      "forging_legend": "矮人王艾崔用中子星核心锻造，斧柄取自格鲁特的手臂。",
+      "battle_legend": "托尔用风暴战斧召唤彩虹桥，对抗灭霸。",
+      "abilities": [
+        "thunder_strike",
+        "bifrost_summon",
+        "cosmic_destruction"
+      ],
+      "symbolism": "重铸荣光，雷霆新生",
+      "inscription": "卢恩符文",
+      "famous_owners": [
+        {
+          "name": "托尔",
+          "title": "雷神",
+          "story": "对抗灭霸的新武器"
+        }
+      ],
+      "blacksmith_id": "eitri",
+      "appearance": {
+        "blade_type": "double_axe",
+        "guard_type": "rune_band",
+        "handle_type": "groot_wood",
+        "colors": [
+          "#4682B4",
+          "#87CEEB",
+          "#8B4513"
+        ],
+        "features": [
+          "双面斧刃",
+          "雷电环绕",
+          "格鲁特之木"
+        ]
+      },
+      "image": "weapon_stormbreaker.png",
+      "related": [
+        "mjolnir"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "托尔",
+        "雷冰双属性",
+        "矮人锻造"
+      ]
+    },
+    {
+      "id": "hofud",
+      "name": {
+        "original": "Höfuð",
+        "cn": "霍弗德",
+        "en": "Hofud"
+      },
+      "culture": "norse",
+      "type": "sword",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 88,
+        "defense": 82,
+        "speed": 90,
+        "weight": 2.9
+      },
+      "description": "海姆达尔的神剑，彩虹桥守护者的武器，剑身闪耀如晨曦。",
+      "forging_legend": "众神为彩虹桥守护者锻造的神剑，蕴含黎明之力。",
+      "battle_legend": "海姆达尔持此剑守护彩虹桥，在诸神黄昏与洛基同归于尽。",
+      "abilities": [
+        "light_emission",
+        "true_sight",
+        "divine_protection"
+      ],
+      "symbolism": "黎明守望，永恒守护",
+      "inscription": "守望",
+      "famous_owners": [
+        {
+          "name": "海姆达尔",
+          "title": "彩虹桥守护者",
+          "story": "守护阿斯加德"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "rainbow_pattern",
+        "handle_type": "gold_wrapped",
+        "colors": [
+          "#FFD700",
+          "#FFFFFF",
+          "#4169E1"
+        ],
+        "features": [
+          "晨曦之光",
+          "彩虹光芒",
+          "守护之姿"
+        ]
+      },
+      "image": "weapon_hofud.png",
+      "related": [
+        "gungnir"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "海姆达尔",
+        "光属性",
+        "守护"
+      ]
+    },
+    {
+      "id": "skofnung",
+      "name": {
+        "original": "Skofnung",
+        "cn": "斯考弗农",
+        "en": "Skofnung"
+      },
+      "culture": "norse",
+      "type": "sword",
+      "attributes": {
+        "primary": "fire"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 90,
+        "defense": 75,
+        "speed": 85,
+        "weight": 3.2
+      },
+      "description": "传说中丹麦国王赫罗夫·克拉基的佩剑，拥有勇士之魂，出鞘必见血。",
+      "forging_legend": "由十二名被埋葬的勇士之魂守护，蕴含他们的力量。",
+      "battle_legend": "传说此剑伤口无法愈合，除非用特殊的治疗石摩擦。",
+      "abilities": [
+        "blood_thirst",
+        "curse",
+        "berserker"
+      ],
+      "symbolism": "勇士之魂，战争诅咒",
+      "inscription": "勇士",
+      "famous_owners": [
+        {
+          "name": "赫罗夫·克拉基",
+          "title": "丹麦国王",
+          "story": "勇士之王"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "skull_pattern",
+        "handle_type": "bone_wrapped",
+        "colors": [
+          "#8B0000",
+          "#C0C0C0",
+          "#2F4F4F"
+        ],
+        "features": [
+          "血色剑身",
+          "勇士之魂",
+          "诅咒光环"
+        ]
+      },
+      "image": "weapon_skofnung.png",
+      "related": [
+        "gram"
+      ],
+      "tags": [
+        "北欧",
+        "传说",
+        "火属性",
+        "诅咒"
+      ]
+    },
+    {
+      "id": "dainsleif",
+      "name": {
+        "original": "Dáinsleif",
+        "cn": "岱恩斯雷夫",
+        "en": "Dainsleif"
+      },
+      "culture": "norse",
+      "type": "sword",
+      "attributes": {
+        "primary": "death"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 94,
+        "defense": 58,
+        "speed": 90,
+        "weight": 2.7
+      },
+      "description": "矮人岱恩锻造的诅咒之剑，出鞘必杀人，每次拔出都会夺去一条性命。",
+      "forging_legend": "矮人岱恩被迫锻造此剑，愤而下诅咒。",
+      "battle_legend": "霍格尼王持此剑与赫定永恒战斗，每日杀死对方又复活。",
+      "abilities": [
+        "must_kill",
+        "curse",
+        "resurrection_curse"
+      ],
+      "symbolism": "永恒战争，诅咒轮回",
+      "inscription": "诅咒符文",
+      "famous_owners": [
+        {
+          "name": "霍格尼",
+          "title": "北欧国王",
+          "story": "永恒的战争"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cursed_pattern",
+        "handle_type": "dark_leather",
+        "colors": [
+          "#2F4F4F",
+          "#8B0000",
+          "#4A4A4A"
+        ],
+        "features": [
+          "诅咒光环",
+          "死亡气息",
+          "永恒战争"
+        ]
+      },
+      "image": "weapon_dainsleif.png",
+      "related": [
+        "tyrfing"
+      ],
+      "tags": [
+        "北欧",
+        "神话",
+        "死亡属性",
+        "诅咒",
+        "矮人锻造"
+      ]
+    },
+    {
+      "id": "mistilteinn",
+      "name": {
+        "original": "Mistilteinn",
+        "cn": "米斯蒂汀",
+        "en": "Mistilteinn"
+      },
+      "culture": "norse",
+      "type": "sword",
+      "attributes": {
+        "primary": "nature"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 82,
+        "defense": 70,
+        "speed": 88,
+        "weight": 2.4
+      },
+      "description": "传说中的魔剑，与槲寄生有关，名字源自杀死巴德尔的植物。",
+      "forging_legend": "以槲寄生之力锻造，蕴含自然的诅咒。",
+      "battle_legend": "传说此剑继承了槲寄生的特性，能伤害任何神明。",
+      "abilities": [
+        "god_slayer",
+        "poison",
+        "nature_bind"
+      ],
+      "symbolism": "自然反噬，神明之殇",
+      "inscription": "槲寄生",
+      "famous_owners": [
+        {
+          "name": "北欧英雄",
+          "title": "传说战士",
+          "story": "以剑弑神"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "plant_pattern",
+        "handle_type": "wood_wrapped",
+        "colors": [
+          "#228B22",
+          "#C0C0C0",
+          "#8B4513"
+        ],
+        "features": [
+          "槲寄生纹饰",
+          "自然之力",
+          "绿色光芒"
+        ]
+      },
+      "image": "weapon_mistilteinn.png",
+      "related": [],
+      "tags": [
+        "北欧",
+        "传说",
+        "自然属性",
+        "弑神"
+      ]
+    },
+    {
+      "id": "harpe",
+      "name": {
+        "original": "Ἅρπη",
+        "cn": "哈尔佩",
+        "en": "Harpe"
+      },
+      "culture": "greek",
+      "type": "sword",
+      "attributes": {
+        "primary": "death"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 92,
+        "defense": 70,
+        "speed": 88,
+        "weight": 3.0
+      },
+      "description": "珀尔修斯斩杀美杜莎的镰刀剑，能杀死不死之身，是弑神利器。",
+      "forging_legend": "赫菲斯托斯为诸神锻造，后赐予珀尔修斯斩杀戈耳工。",
+      "battle_legend": "珀尔修斯用此剑斩下美杜莎头颅,后用于击败海怪拯救安德洛墨达。",
+      "abilities": [
+        "immortal_killer",
+        "demon_slayer",
+        "armor_pierce"
+      ],
+      "symbolism": "弑神之刃，英雄传说",
+      "inscription": "戈耳工杀手",
+      "famous_owners": [
+        {
+          "name": "珀尔修斯",
+          "title": "希腊英雄",
+          "story": "斩杀美杜莎"
+        }
+      ],
+      "blacksmith_id": "hephaestus",
+      "appearance": {
+        "blade_type": "sickle_sword",
+        "guard_type": "none",
+        "handle_type": "divine_metal",
+        "colors": [
+          "#C0C0C0",
+          "#8B0000",
+          "#FFD700"
+        ],
+        "features": [
+          "镰刀形态",
+          "弑神之力",
+          "青铜光泽"
+        ]
+      },
+      "image": "weapon_harpe.png",
+      "related": [
+        "zeus_thunderbolt"
+      ],
+      "tags": [
+        "希腊",
+        "神话",
+        "珀尔修斯",
+        "死亡属性",
+        "弑神"
+      ]
+    },
+    {
+      "id": "aegis",
+      "name": {
+        "original": "Αἰγίς",
+        "cn": "埃吉斯",
+        "en": "Aegis"
+      },
+      "culture": "greek",
+      "type": "shield",
+      "attributes": {
+        "primary": "light",
+        "secondary": "dark"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 65,
+        "defense": 100,
+        "speed": 60,
+        "weight": 20.0
+      },
+      "description": "宙斯的神盾，中央镶嵌美杜莎头颅，能石化敌人，后由雅典娜持有。",
+      "forging_legend": "赫菲斯托斯为宙斯锻造，表面覆盖阿玛尔忒亚山羊皮。",
+      "battle_legend": "雅典娜将珀尔修斯献上的美杜莎头颅镶嵌于盾上，敌人见之石化。",
+      "abilities": [
+        "petrify",
+        "divine_protection",
+        "fear"
+      ],
+      "symbolism": "神之护佑，恐惧化身",
+      "inscription": "戈耳工",
+      "famous_owners": [
+        {
+          "name": "雅典娜",
+          "title": "智慧女神",
+          "story": "持盾守护雅典"
+        }
+      ],
+      "blacksmith_id": "hephaestus",
+      "appearance": {
+        "blade_type": "none",
+        "guard_type": "none",
+        "handle_type": "divine_grip",
+        "colors": [
+          "#FFD700",
+          "#C0C0C0",
+          "#228B22"
+        ],
+        "features": [
+          "美杜莎头颅",
+          "山羊皮覆盖",
+          "神光环绕"
+        ]
+      },
+      "image": "weapon_aegis.png",
+      "related": [
+        "achilles_shield"
+      ],
+      "tags": [
+        "希腊",
+        "神话",
+        "宙斯",
+        "雅典娜",
+        "光暗双属性",
+        "盾牌"
+      ]
+    },
+    {
+      "id": "caduceus",
+      "name": {
+        "original": "Κηρύκειον",
+        "cn": "赫尔墨斯之杖",
+        "en": "Caduceus"
+      },
+      "culture": "greek",
+      "type": "staff",
+      "attributes": {
+        "primary": "wind",
+        "secondary": "special"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 75,
+        "defense": 70,
+        "speed": 100,
+        "weight": 2.0
+      },
+      "description": "赫尔墨斯的双蛇杖，顶端有双翼，能引导亡魂，象征商业与沟通。",
+      "forging_legend": "阿波罗赠予赫尔墨斯，杖上缠绕两条蛇，顶端展开双翼。",
+      "battle_legend": "赫尔墨斯持此杖穿行神界、人间、冥界，传递众神旨意。",
+      "abilities": [
+        "flight",
+        "spirit_call",
+        "teleport",
+        "charm"
+      ],
+      "symbolism": "信使之杖，沟通桥梁",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "赫尔墨斯",
+          "title": "信使之神",
+          "story": "众神的使者"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "staff",
+        "guard_type": "none",
+        "handle_type": "divine_wood",
+        "colors": [
+          "#FFD700",
+          "#228B22",
+          "#FFFFFF"
+        ],
+        "features": [
+          "双蛇缠绕",
+          "顶端双翼",
+          "金色光芒"
+        ]
+      },
+      "image": "weapon_caduceus.png",
+      "related": [],
+      "tags": [
+        "希腊",
+        "神话",
+        "赫尔墨斯",
+        "风属性",
+        "权杖"
+      ]
+    },
+    {
+      "id": "labrys",
+      "name": {
+        "original": "Λάβρυς",
+        "cn": "拉布里斯",
+        "en": "Labrys"
+      },
+      "culture": "greek",
+      "type": "axe",
+      "attributes": {
+        "primary": "thunder"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 90,
+        "defense": 70,
+        "speed": 75,
+        "weight": 8.0
+      },
+      "description": "克里特文明的双刃战斧，米诺斯王宫的象征，与牛头人传说相关。",
+      "forging_legend": "克里特工匠锻造的仪式用斧,后成为战争武器。",
+      "battle_legend": "传说忒修斯在迷宫中击败米诺陶洛斯时使用的武器。",
+      "abilities": [
+        "thunder_strike",
+        "armor_pierce",
+        "critical_strike"
+      ],
+      "symbolism": "米诺斯文明，迷宫传说",
+      "inscription": "米诺斯",
+      "famous_owners": [
+        {
+          "name": "忒修斯",
+          "title": "雅典英雄",
+          "story": "击败牛头人"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "double_axe",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#CD853F",
+          "#C0C0C0",
+          "#4169E1"
+        ],
+        "features": [
+          "双面斧刃",
+          "对称设计",
+          "青铜光泽"
+        ]
+      },
+      "image": "weapon_labrys.png",
+      "related": [],
+      "tags": [
+        "希腊",
+        "克里特",
+        "雷属性",
+        "双刃斧"
+      ]
+    },
+    {
+      "id": "almace",
+      "name": {
+        "original": "Almace",
+        "cn": "阿尔玛斯",
+        "en": "Almace"
+      },
+      "culture": "medieval_europe",
+      "type": "sword",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 86,
+        "defense": 78,
+        "speed": 88,
+        "weight": 2.6
+      },
+      "description": "查理曼圣骑士图尔潘的佩剑，与杜兰达尔齐名。",
+      "forging_legend": "传说与杜兰达尔同出一源，蕴含圣力。",
+      "battle_legend": "图尔潘主教在龙塞瓦列斯之战中持此剑英勇战斗。",
+      "abilities": [
+        "holy_judgment",
+        "divine_protection",
+        "armor_pierce"
+      ],
+      "symbolism": "圣骑之剑,信仰之力",
+      "inscription": "信仰",
+      "famous_owners": [
+        {
+          "name": "图尔潘",
+          "title": "兰斯主教",
+          "story": "查理曼的战友"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "cross_guard",
+        "handle_type": "gold_wrapped",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#FFFFFF"
+        ],
+        "features": [
+          "圣光环绕",
+          "十字护手",
+          "主教之剑"
+        ]
+      },
+      "image": "weapon_almace.png",
+      "related": [
+        "durandal",
+        "joyeuse"
+      ],
+      "tags": [
+        "欧洲",
+        "中世纪",
+        "查理曼",
+        "光属性",
+        "圣剑"
+      ]
+    },
+    {
+      "id": "arondight",
+      "name": {
+        "original": "Arondight",
+        "cn": "无毁的湖光",
+        "en": "Arondight"
+      },
+      "culture": "medieval_europe",
+      "type": "sword",
+      "attributes": {
+        "primary": "light",
+        "secondary": "water"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 92,
+        "defense": 80,
+        "speed": 88,
+        "weight": 2.8
+      },
+      "description": "兰斯洛特的佩剑，与Excalibur是姊妹剑，同由湖中仙女赐予。",
+      "forging_legend": "湖中仙女在阿瓦隆锻造，赐予湖骑士兰斯洛特。",
+      "battle_legend": "兰斯洛特持此剑成为圆桌骑士最强战士，却因与王后的爱情而悲剧收场。",
+      "abilities": [
+        "light_emission",
+        "water_surge",
+        "critical_strike",
+        "charm"
+      ],
+      "symbolism": "湖骑士之剑，爱情与背叛",
+      "inscription": "湖光",
+      "famous_owners": [
+        {
+          "name": "兰斯洛特",
+          "title": "湖骑士",
+          "story": "圆桌骑士最强"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "wave_pattern",
+        "handle_type": "silver_wrapped",
+        "colors": [
+          "#4169E1",
+          "#C0C0C0",
+          "#FFFFFF"
+        ],
+        "features": [
+          "湖水光芒",
+          "不可损毁",
+          "优雅剑姿"
+        ]
+      },
+      "image": "weapon_arondight.png",
+      "related": [
+        "excalibur"
+      ],
+      "tags": [
+        "欧洲",
+        "亚瑟王",
+        "兰斯洛特",
+        "光水双属性"
+      ]
+    },
+    {
+      "id": "galatine",
+      "name": {
+        "original": "Galatine",
+        "cn": "转轮胜利之剑",
+        "en": "Galatine"
+      },
+      "culture": "medieval_europe",
+      "type": "sword",
+      "attributes": {
+        "primary": "fire",
+        "secondary": "light"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 94,
+        "defense": 75,
+        "speed": 82,
+        "weight": 3.2
+      },
+      "description": "高文骑士的佩剑，正午时威力达到巅峰，是太阳之剑。",
+      "forging_legend": "传说此剑蕴含太阳之力，在正午时分威力翻倍。",
+      "battle_legend": "高文在正午决斗时无人能敌，剑身闪耀如烈日。",
+      "abilities": [
+        "flame_wave",
+        "solar_power",
+        "critical_strike"
+      ],
+      "symbolism": "太阳之剑，正午无敌",
+      "inscription": "太阳之力",
+      "famous_owners": [
+        {
+          "name": "高文",
+          "title": "圆桌骑士",
+          "story": "正午之骑士"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "sun_pattern",
+        "handle_type": "gold_wrapped",
+        "colors": [
+          "#FF4500",
+          "#FFD700",
+          "#FFFFFF"
+        ],
+        "features": [
+          "太阳光芒",
+          "烈焰环绕",
+          "正午之力"
+        ]
+      },
+      "image": "weapon_galatine.png",
+      "related": [
+        "excalibur"
+      ],
+      "tags": [
+        "欧洲",
+        "亚瑟王",
+        "高文",
+        "火光双属性"
+      ]
+    },
+    {
+      "id": "caladbolg",
+      "name": {
+        "original": "Caladbolg",
+        "cn": "硬光剑",
+        "en": "Caladbolg"
+      },
+      "culture": "celtic",
+      "type": "sword",
+      "attributes": {
+        "primary": "light",
+        "secondary": "wind"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 90,
+        "defense": 72,
+        "speed": 90,
+        "weight": 2.6
+      },
+      "description": "爱尔兰英雄费尔古斯的传奇之剑，能斩出彩虹般的光刃削平三座山丘。",
+      "forging_legend": "传说由神匠锻造，剑身蕴含彩虹之力。",
+      "battle_legend": "费尔古斯挥剑斩断三座山丘顶部，留下彩虹般的光痕。",
+      "abilities": [
+        "light_emission",
+        "wind_blade",
+        "mountain_cleave"
+      ],
+      "symbolism": "彩虹之剑，削山之力",
+      "inscription": "彩虹",
+      "famous_owners": [
+        {
+          "name": "费尔古斯",
+          "title": "阿尔斯特英雄",
+          "story": "一剑削平三座山"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "rainbow_pattern",
+        "handle_type": "gold_wrapped",
+        "colors": [
+          "#FFFFFF",
+          "#87CEEB",
+          "#FFD700"
+        ],
+        "features": [
+          "彩虹光刃",
+          "巨大威力",
+          "七色光芒"
+        ]
+      },
+      "image": "weapon_caladbolg.png",
+      "related": [
+        "claomh_solais"
+      ],
+      "tags": [
+        "凯尔特",
+        "爱尔兰",
+        "光风双属性",
+        "削山之剑"
+      ]
+    },
+    {
+      "id": "cruaidin_catutchenn",
+      "name": {
+        "original": "Cruaidín Catutchenn",
+        "cn": "战斗硬剑",
+        "en": "Cruaidin Catutchenn"
+      },
+      "culture": "celtic",
+      "type": "sword",
+      "attributes": {
+        "primary": "fire"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 85,
+        "defense": 70,
+        "speed": 88,
+        "weight": 2.5
+      },
+      "description": "凯尔特英雄库丘林父亲的佩剑，能在战斗中燃烧，威力强大。",
+      "forging_legend": "传说由凯尔特工匠锻造，剑身能自行燃烧。",
+      "battle_legend": "在战场上此剑会燃起烈焰，灼烧敌人。",
+      "abilities": [
+        "flame_wave",
+        "critical_strike",
+        "armor_pierce"
+      ],
+      "symbolism": "战斗之剑，烈焰燃烧",
+      "inscription": "战火",
+      "famous_owners": [
+        {
+          "name": "库丘林之父",
+          "title": "凯尔特战士",
+          "story": "英雄之父的传承"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "flame_pattern",
+        "handle_type": "leather_wrapped",
+        "colors": [
+          "#FF4500",
+          "#C0C0C0",
+          "#8B4513"
+        ],
+        "features": [
+          "烈焰环绕",
+          "战斗硬化",
+          "火焰纹饰"
+        ]
+      },
+      "image": "weapon_cruaidin.png",
+      "related": [
+        "gae_bolg"
+      ],
+      "tags": [
+        "凯尔特",
+        "爱尔兰",
+        "火属性"
+      ]
+    },
+    {
+      "id": "kaumodaki",
+      "name": {
+        "original": "कौमोदकी",
+        "cn": "俱卢神棒",
+        "en": "Kaumodaki"
+      },
+      "culture": "indian",
+      "type": "club",
+      "attributes": {
+        "primary": "thunder",
+        "secondary": "light"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 93,
+        "defense": 82,
+        "speed": 78,
+        "weight": 10.0
+      },
+      "description": "毗湿奴的神棒，与苏达尔善神轮齐名，能产生雷霆万钧之力。",
+      "forging_legend": "毗首羯磨为毗湿奴锻造，棒身刻有神圣符文。",
+      "battle_legend": "毗湿奴用神棒击败无数阿修罗，维护宇宙秩序。",
+      "abilities": [
+        "thunder_strike",
+        "stun",
+        "divine_protection"
+      ],
+      "symbolism": "守护之棒，秩序之力",
+      "inscription": "唵",
+      "famous_owners": [
+        {
+          "name": "毗湿奴",
+          "title": "守护之神",
+          "story": "手持神棒维护秩序"
+        }
+      ],
+      "blacksmith_id": "vishvakarma",
+      "appearance": {
+        "blade_type": "mace",
+        "guard_type": "lotus_pattern",
+        "handle_type": "divine_metal",
+        "colors": [
+          "#FFD700",
+          "#9370DB",
+          "#FFFFFF"
+        ],
+        "features": [
+          "雷电环绕",
+          "神圣符文",
+          "金色光芒"
+        ]
+      },
+      "image": "weapon_kaumodaki.png",
+      "related": [
+        "sudarshana_chakra"
+      ],
+      "tags": [
+        "印度",
+        "神话",
+        "毗湿奴",
+        "雷光双属性"
+      ]
+    },
+    {
+      "id": "pashupatastra",
+      "name": {
+        "original": "पाशुपतास्त्र",
+        "cn": "兽主之矢",
+        "en": "Pashupatastra"
+      },
+      "culture": "indian",
+      "type": "bow",
+      "attributes": {
+        "primary": "fire",
+        "secondary": "death"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 100,
+        "defense": 65,
+        "speed": 95,
+        "weight": 3.5
+      },
+      "description": "湿婆最强大的神器，能毁灭整个世界的终极武器，无法防御。",
+      "forging_legend": "湿婆创造的终极武器，蕴含毁灭一切的力量。",
+      "battle_legend": "只有最虔诚的信徒才能使用，一旦释放将摧毁整个军队。",
+      "abilities": [
+        "cosmic_destruction",
+        "unavoidable",
+        "world_burn"
+      ],
+      "symbolism": "终极毁灭，湿婆之怒",
+      "inscription": "毁灭",
+      "famous_owners": [
+        {
+          "name": "阿周那",
+          "title": "般度族英雄",
+          "story": "摩诃婆罗多战士"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "divine_bow",
+        "guard_type": "none",
+        "handle_type": "divine_wood",
+        "colors": [
+          "#FF4500",
+          "#8B0000",
+          "#FFD700"
+        ],
+        "features": [
+          "毁灭之力",
+          "火焰箭矢",
+          "神圣光芒"
+        ]
+      },
+      "image": "weapon_pashupatastra.png",
+      "related": [
+        "trishula"
+      ],
+      "tags": [
+        "印度",
+        "神话",
+        "湿婆",
+        "火死双属性",
+        "终极武器"
+      ]
+    },
+    {
+      "id": "shamshir",
+      "name": {
+        "original": "شمشیر",
+        "cn": "弯刀",
+        "en": "Shamshir"
+      },
+      "culture": "arabian",
+      "type": "sword",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 83,
+        "defense": 68,
+        "speed": 92,
+        "weight": 2.0
+      },
+      "description": "波斯弯刀的代表，刀身优美弯曲，适合骑兵使用。",
+      "forging_legend": "波斯工匠锻造，刀身优雅弯曲如新月。",
+      "battle_legend": "波斯骑兵持此刀纵横沙场，挥砍如风。",
+      "abilities": [
+        "wind_blade",
+        "critical_strike",
+        "cavalry_charge"
+      ],
+      "symbolism": "波斯弯刀，骑兵之刃",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "波斯勇士",
+          "title": "骑兵",
+          "story": "沙漠之鹰"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "crescent",
+        "handle_type": "wrapped",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#87CEEB"
+        ],
+        "features": [
+          "优美弯曲",
+          "轻盈锋利"
+        ]
+      },
+      "image": "weapon_shamshir.png",
+      "related": [
+        "zulfiqar"
+      ],
+      "tags": [
+        "阿拉伯",
+        "波斯",
+        "风属性",
+        "弯刀"
+      ]
+    },
+    {
+      "id": "scimitar",
+      "name": {
+        "original": "سيف",
+        "cn": "弯月刀",
+        "en": "Scimitar"
+      },
+      "culture": "arabian",
+      "type": "sword",
+      "attributes": {
+        "primary": "fire"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 85,
+        "defense": 70,
+        "speed": 90,
+        "weight": 2.2
+      },
+      "description": "阿拉伯战士的标志性武器，刀身弯曲如新月，锋利无比。",
+      "forging_legend": "阿拉伯工匠以大马士革钢锻造，刀身呈现水波纹。",
+      "battle_legend": "阿拉伯战士持此刀征战，刀光如月华。",
+      "abilities": [
+        "flame_wave",
+        "critical_strike",
+        "moon_slash"
+      ],
+      "symbolism": "新月之刀，沙漠战士",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "萨拉丁",
+          "title": "阿拉伯苏丹",
+          "story": "十字军东征名将"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_single_edge",
+        "guard_type": "crescent_moon",
+        "handle_type": "gold_inlaid",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#FF4500"
+        ],
+        "features": [
+          "新月弯曲",
+          "大马士革纹"
+        ]
+      },
+      "image": "weapon_scimitar.png",
+      "related": [
+        "zulfiqar"
+      ],
+      "tags": [
+        "阿拉伯",
+        "火属性",
+        "弯刀",
+        "新月"
+      ]
+    },
+    {
+      "id": "jambiya",
+      "name": {
+        "original": "جنبية",
+        "cn": "阿拉伯短剑",
+        "en": "Jambiya"
+      },
+      "culture": "arabian",
+      "type": "dagger",
+      "attributes": {
+        "primary": "dark"
+      },
+      "rarity": "rare",
+      "stats": {
+        "attack": 75,
+        "defense": 55,
+        "speed": 95,
+        "weight": 0.5
+      },
+      "description": "也门传统匕首，刀刃呈S形弯曲，是阿拉伯男子成年的象征。",
+      "forging_legend": "也门工匠代代相传的锻造技艺，刀鞘常用犀牛角制成。",
+      "battle_legend": "阿拉伯战士将其作为备用武器和荣誉象征随身携带。",
+      "abilities": [
+        "critical_strike",
+        "stealth",
+        "armor_pierce"
+      ],
+      "symbolism": "男子气概，荣誉象征",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "也门战士",
+          "title": "部落勇士",
+          "story": "成年礼物"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_dagger",
+        "guard_type": "none",
+        "handle_type": "rhino_horn",
+        "colors": [
+          "#C0C0C0",
+          "#8B4513",
+          "#FFD700"
+        ],
+        "features": [
+          "S形弯曲",
+          "犀牛角柄",
+          "精美装饰"
+        ]
+      },
+      "image": "weapon_jambiya.png",
+      "related": [],
+      "tags": [
+        "阿拉伯",
+        "也门",
+        "暗属性",
+        "匕首"
+      ]
+    },
+    {
+      "id": "khanda",
+      "name": {
+        "original": "खड्ग",
+        "cn": "印度阔剑",
+        "en": "Khanda"
+      },
+      "culture": "arabian",
+      "type": "sword",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 88,
+        "defense": 75,
+        "speed": 78,
+        "weight": 3.5
+      },
+      "description": "印度锡克教的圣剑，双刃直剑，象征正义与勇气。",
+      "forging_legend": "锡克教工匠锻造，剑身宽阔沉重，威力巨大。",
+      "battle_legend": "锡克战士持此剑保卫信仰，剑光如正义之光。",
+      "abilities": [
+        "holy_judgment",
+        "armor_pierce",
+        "critical_strike"
+      ],
+      "symbolism": "锡克信仰，正义之剑",
+      "inscription": "信仰",
+      "famous_owners": [
+        {
+          "name": "锡克战士",
+          "title": "圣战士",
+          "story": "为信仰而战"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "simple",
+        "handle_type": "wrapped",
+        "colors": [
+          "#C0C0C0",
+          "#FFD700",
+          "#FFFFFF"
+        ],
+        "features": [
+          "宽阔剑身",
+          "圣光环绕",
+          "双刃直剑"
+        ]
+      },
+      "image": "weapon_khanda.png",
+      "related": [],
+      "tags": [
+        "印度",
+        "锡克教",
+        "光属性",
+        "阔剑"
+      ]
+    },
+    {
+      "id": "anu bis_staff",
+      "name": {
+        "original": "Anubis Staff",
+        "cn": "阿努比斯权杖",
+        "en": "Anubis Staff"
+      },
+      "culture": "egyptian",
+      "type": "staff",
+      "attributes": {
+        "primary": "death"
+      },
+      "rarity": "artifact",
+      "stats": {
+        "attack": 88,
+        "defense": 80,
+        "speed": 75,
+        "weight": 4.0
+      },
+      "description": "死神阿努比斯的权杖，能引导亡魂，掌管冥界审判。",
+      "forging_legend": "神匠在冥界锻造，蕴含死亡与审判之力。",
+      "battle_legend": "阿努比斯持此杖引导死者灵魂，在天平前审判善恶。",
+      "abilities": [
+        "spirit_call",
+        "soul_bind",
+        "judgment"
+      ],
+      "symbolism": "死亡审判，灵魂引导",
+      "inscription": "象形文字",
+      "famous_owners": [
+        {
+          "name": "阿努比斯",
+          "title": "死神",
+          "story": "冥界守护者"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "staff",
+        "guard_type": "jackal_head",
+        "handle_type": "obsidian",
+        "colors": [
+          "#2F4F4F",
+          "#FFD700",
+          "#8B0000"
+        ],
+        "features": [
+          "豺头装饰",
+          "冥界之力",
+          "审判光芒"
+        ]
+      },
+      "image": "weapon_anubis_staff.png",
+      "related": [
+        "was_scepter"
+      ],
+      "tags": [
+        "埃及",
+        "神话",
+        "阿努比斯",
+        "死亡属性"
+      ]
+    },
+    {
+      "id": "horus_spear",
+      "name": {
+        "original": "Horus Spear",
+        "cn": "荷鲁斯之矛",
+        "en": "Spear of Horus"
+      },
+      "culture": "egyptian",
+      "type": "spear",
+      "attributes": {
+        "primary": "light"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 90,
+        "defense": 72,
+        "speed": 88,
+        "weight": 3.5
+      },
+      "description": "天空之神荷鲁斯的长矛，象征王权与正义，鹰首装饰。",
+      "forging_legend": "神匠为荷鲁斯锻造，矛头呈鹰喙形。",
+      "battle_legend": "荷鲁斯持此矛与塞特争夺王位，最终获胜成为法老的守护神。",
+      "abilities": [
+        "holy_judgment",
+        "flight",
+        "armor_pierce"
+      ],
+      "symbolism": "王权正统，天空之力",
+      "inscription": "象形文字",
+      "famous_owners": [
+        {
+          "name": "荷鲁斯",
+          "title": "天空之神",
+          "story": "法老的守护神"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "spear_head",
+        "guard_type": "falcon_pattern",
+        "handle_type": "gold_inlaid",
+        "colors": [
+          "#FFD700",
+          "#4169E1",
+          "#FFFFFF"
+        ],
+        "features": [
+          "鹰喙矛头",
+          "王权象征",
+          "天空之力"
+        ]
+      },
+      "image": "weapon_horus_spear.png",
+      "related": [
+        "was_scepter"
+      ],
+      "tags": [
+        "埃及",
+        "神话",
+        "荷鲁斯",
+        "光属性"
+      ]
+    },
+    {
+      "id": "set_axe",
+      "name": {
+        "original": "Set Axe",
+        "cn": "塞特战斧",
+        "en": "Axe of Set"
+      },
+      "culture": "egyptian",
+      "type": "axe",
+      "attributes": {
+        "primary": "chaos"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 92,
+        "defense": 68,
+        "speed": 80,
+        "weight": 6.0
+      },
+      "description": "混乱之神塞特的战斧，象征沙漠风暴与混乱。",
+      "forging_legend": "在沙漠深处锻造，蕴含沙暴与混乱之力。",
+      "battle_legend": "塞特持此斧对抗荷鲁斯，引发沙漠风暴。",
+      "abilities": [
+        "chaos_storm",
+        "critical_strike",
+        "curse"
+      ],
+      "symbolism": "混乱风暴，沙漠之力",
+      "inscription": "象形文字",
+      "famous_owners": [
+        {
+          "name": "塞特",
+          "title": "混乱之神",
+          "story": "沙漠与风暴之神"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "axe_head",
+        "guard_type": "none",
+        "handle_type": "desert_wood",
+        "colors": [
+          "#8B4513",
+          "#FF4500",
+          "#2F4F4F"
+        ],
+        "features": [
+          "混乱气息",
+          "沙暴环绕",
+          "野兽头饰"
+        ]
+      },
+      "image": "weapon_set_axe.png",
+      "related": [
+        "horus_spear"
+      ],
+      "tags": [
+        "埃及",
+        "神话",
+        "塞特",
+        "混沌属性"
+      ]
+    },
+    {
+      "id": "acinaces",
+      "name": {
+        "original": "Acinaces",
+        "cn": "阿奇那刻斯短剑",
+        "en": "Acinaces"
+      },
+      "culture": "persian",
+      "type": "dagger",
+      "attributes": {
+        "primary": "fire"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 80,
+        "defense": 65,
+        "speed": 92,
+        "weight": 1.2
+      },
+      "description": "波斯帝国贵族的仪式短剑，剑身笔直，是权力的象征。",
+      "forging_legend": "波斯工匠为贵族锻造，剑鞘华丽装饰。",
+      "battle_legend": "波斯贵族佩戴此剑出席仪式，象征地位与荣耀。",
+      "abilities": [
+        "critical_strike",
+        "prestige",
+        "armor_pierce"
+      ],
+      "symbolism": "权力象征，贵族荣耀",
+      "inscription": "波斯文",
+      "famous_owners": [
+        {
+          "name": "波斯贵族",
+          "title": "帝国贵族",
+          "story": "权力的象征"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_dagger",
+        "guard_type": "winged",
+        "handle_type": "gold_inlaid",
+        "colors": [
+          "#FFD700",
+          "#C0C0C0",
+          "#FF4500"
+        ],
+        "features": [
+          "笔直剑身",
+          "华丽剑鞘",
+          "翼形护手"
+        ]
+      },
+      "image": "weapon_acinaces.png",
+      "related": [
+        "shamshir_zomorrodnegar"
+      ],
+      "tags": [
+        "波斯",
+        "火属性",
+        "短剑",
+        "贵族"
+      ]
+    },
+    {
+      "id": "khopesh_persian",
+      "name": {
+        "original": "Persian Khopesh",
+        "cn": "波斯镰刀剑",
+        "en": "Persian Khopesh"
+      },
+      "culture": "persian",
+      "type": "sword",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 84,
+        "defense": 70,
+        "speed": 86,
+        "weight": 2.3
+      },
+      "description": "波斯版本的镰刀剑，刀刃弯曲如镰，兼具劈砍与钩拉功能。",
+      "forging_legend": "波斯工匠改进埃及镰刀剑设计，更加轻盈灵活。",
+      "battle_legend": "波斯战士在战场上用此剑勾住敌人盾牌。",
+      "abilities": [
+        "wind_blade",
+        "disarm",
+        "armor_pierce"
+      ],
+      "symbolism": "波斯战术，灵活多变",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "波斯战士",
+          "title": "帝国士兵",
+          "story": "战场利器"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "sickle_sword",
+        "guard_type": "simple",
+        "handle_type": "leather_wrapped",
+        "colors": [
+          "#C0C0C0",
+          "#87CEEB",
+          "#8B4513"
+        ],
+        "features": [
+          "镰刀形态",
+          "轻盈设计",
+          "钩拉功能"
+        ]
+      },
+      "image": "weapon_khopesh_persian.png",
+      "related": [
+        "khopesh"
+      ],
+      "tags": [
+        "波斯",
+        "风属性",
+        "镰刀剑"
+      ]
+    },
+    {
+      "id": "katar",
+      "name": {
+        "original": "कटार",
+        "cn": "卡塔尔拳刃",
+        "en": "Katar"
+      },
+      "culture": "persian",
+      "type": "dagger",
+      "attributes": {
+        "primary": "dark"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 82,
+        "defense": 60,
+        "speed": 95,
+        "weight": 1.0
+      },
+      "description": "印度拳刃，横握使用，刺击力量强大，是刺客的利器。",
+      "forging_legend": "印度工匠创造的独特武器，刀柄横向设计。",
+      "battle_legend": "刺客持此刃暗杀目标，一击致命。",
+      "abilities": [
+        "armor_pierce",
+        "critical_strike",
+        "stealth"
+      ],
+      "symbolism": "刺客之刃，一击必杀",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "印度刺客",
+          "title": "暗杀者",
+          "story": "暗夜杀手"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "push_dagger",
+        "guard_type": "horizontal",
+        "handle_type": "cross_grip",
+        "colors": [
+          "#2F4F4F",
+          "#C0C0C0",
+          "#8B0000"
+        ],
+        "features": [
+          "横向握柄",
+          "三角刀刃",
+          "刺客利器"
+        ]
+      },
+      "image": "weapon_katar.png",
+      "related": [],
+      "tags": [
+        "印度",
+        "波斯",
+        "暗属性",
+        "拳刃"
+      ]
+    },
+    {
+      "id": "atlatl",
+      "name": {
+        "original": "Atlatl",
+        "cn": "投矛器",
+        "en": "Atlatl"
+      },
+      "culture": "mesoamerican",
+      "type": "throwing",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 85,
+        "defense": 50,
+        "speed": 95,
+        "weight": 1.0
+      },
+      "description": "阿兹特克投矛器，利用杠杆原理大幅增加投矛距离和威力。",
+      "forging_legend": "美洲原住民发明的精巧投掷工具，可将标枪投出数百米。",
+      "battle_legend": "阿兹特克战士用投矛器远距离杀伤西班牙征服者。",
+      "abilities": [
+        "long_range",
+        "critical_strike",
+        "armor_pierce"
+      ],
+      "symbolism": "远程利器，智慧结晶",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "阿兹特克战士",
+          "title": "投矛手",
+          "story": "远程打击"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "throwing_stick",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#8B4513",
+          "#228B22",
+          "#FFD700"
+        ],
+        "features": [
+          "杠杆设计",
+          "木质结构",
+          "羽毛装饰"
+        ]
+      },
+      "image": "weapon_atlatl.png",
+      "related": [
+        "macuahuitl"
+      ],
+      "tags": [
+        "中美洲",
+        "阿兹特克",
+        "风属性",
+        "投掷武器"
+      ]
+    },
+    {
+      "id": "tepoztopilli",
+      "name": {
+        "original": "Tepoztopilli",
+        "cn": "特波兹托皮利",
+        "en": "Tepoztopilli"
+      },
+      "culture": "mesoamerican",
+      "type": "spear",
+      "attributes": {
+        "primary": "earth"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 84,
+        "defense": 68,
+        "speed": 80,
+        "weight": 3.5
+      },
+      "description": "阿兹特克长矛，矛头两侧镶嵌黑曜石刀片，锋利无比。",
+      "forging_legend": "阿兹特克工匠在木质矛头两侧嵌入黑曜石刀片。",
+      "battle_legend": "阿兹特克精锐战士持此矛作战，矛尖锋利如剃刀。",
+      "abilities": [
+        "armor_pierce",
+        "critical_strike",
+        "reach"
+      ],
+      "symbolism": "精锐武器，黑曜石之矛",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "阿兹特克鹰战士",
+          "title": "精锐战士",
+          "story": "帝国卫队"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "obsidian_spear",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#8B4513",
+          "#2F4F4F",
+          "#FFD700"
+        ],
+        "features": [
+          "黑曜石刀片",
+          "木质长柄",
+          "锋利矛头"
+        ]
+      },
+      "image": "weapon_tepoztopilli.png",
+      "related": [
+        "macuahuitl"
+      ],
+      "tags": [
+        "中美洲",
+        "阿兹特克",
+        "土属性",
+        "长矛"
+      ]
+    },
+    {
+      "id": "huitzauhqui",
+      "name": {
+        "original": "Huitzauhqui",
+        "cn": "刺棒",
+        "en": "Huitzauhqui"
+      },
+      "culture": "mesoamerican",
+      "type": "club",
+      "attributes": {
+        "primary": "earth"
+      },
+      "rarity": "rare",
+      "stats": {
+        "attack": 78,
+        "defense": 65,
+        "speed": 75,
+        "weight": 4.0
+      },
+      "description": "阿兹特克战棒，木棒上镶嵌尖锐的黑曜石或骨刺。",
+      "forging_legend": "阿兹特克工匠在木棒上嵌入黑曜石或动物骨刺。",
+      "battle_legend": "阿兹特克战士用战棒击打敌人，骨刺造成可怕伤口。",
+      "abilities": [
+        "critical_strike",
+        "bleeding",
+        "stun"
+      ],
+      "symbolism": "战棒利器，原始威力",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "阿兹特克战士",
+          "title": "部落勇士",
+          "story": "部落守护者"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "spiked_club",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#8B4513",
+          "#2F4F4F",
+          "#8B0000"
+        ],
+        "features": [
+          "尖刺装饰",
+          "木质战棒",
+          "骨刺镶嵌"
+        ]
+      },
+      "image": "weapon_huitzauhqui.png",
+      "related": [
+        "macuahuitl"
+      ],
+      "tags": [
+        "中美洲",
+        "阿兹特克",
+        "土属性",
+        "战棒"
+      ]
+    },
+    {
+      "id": "tecpatl",
+      "name": {
+        "original": "Tecpatl",
+        "cn": "祭祀刀",
+        "en": "Tecpatl"
+      },
+      "culture": "mesoamerican",
+      "type": "dagger",
+      "attributes": {
+        "primary": "death"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 80,
+        "defense": 55,
+        "speed": 85,
+        "weight": 0.8
+      },
+      "description": "阿兹特克祭祀用的黑曜石刀，锋利如剃刀，用于献祭仪式。",
+      "forging_legend": "阿兹特克祭司打磨黑曜石制成祭刀，用于神圣仪式。",
+      "battle_legend": "在金字塔顶端，祭司用此刀进行活人献祭以取悦太阳神。",
+      "abilities": [
+        "critical_strike",
+        "sacrifice",
+        "death_mark"
+      ],
+      "symbolism": "献祭之刀，神圣仪式",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "阿兹特克祭司",
+          "title": "大祭司",
+          "story": "献祭仪式"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "obsidian_blade",
+        "guard_type": "none",
+        "handle_type": "wood_wrapped",
+        "colors": [
+          "#2F4F4F",
+          "#8B0000",
+          "#FFD700"
+        ],
+        "features": [
+          "黑曜石刀刃",
+          "极度锋利",
+          "仪式用途"
+        ]
+      },
+      "image": "weapon_tecpatl.png",
+      "related": [],
+      "tags": [
+        "中美洲",
+        "阿兹特克",
+        "死亡属性",
+        "祭祀刀"
+      ]
+    },
+    {
+      "id": "iklwa",
+      "name": {
+        "original": "Iklwa",
+        "cn": "伊克尔瓦短矛",
+        "en": "Iklwa"
+      },
+      "culture": "african",
+      "type": "spear",
+      "attributes": {
+        "primary": "earth"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 86,
+        "defense": 62,
+        "speed": 88,
+        "weight": 2.0
+      },
+      "description": "恰卡王改良的祖鲁短矛，矛头宽大，专为近战设计，发出'iklwa'的声音。",
+      "forging_legend": "恰卡王改良传统投矛，创造出更适合近战的短矛。",
+      "battle_legend": "祖鲁战士用短矛刺入敌人身体后拔出，发出'iklwa'的声音。",
+      "abilities": [
+        "armor_pierce",
+        "critical_strike",
+        "bleeding"
+      ],
+      "symbolism": "祖鲁改革，近战利器",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "恰卡",
+          "title": "祖鲁之王",
+          "story": "军事改革家"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "broad_spear",
+        "guard_type": "none",
+        "handle_type": "wood",
+        "colors": [
+          "#C0C0C0",
+          "#8B4513",
+          "#8B0000"
+        ],
+        "features": [
+          "宽大矛头",
+          "短矛设计",
+          "近战优化"
+        ]
+      },
+      "image": "weapon_iklwa.png",
+      "related": [
+        "assegai"
+      ],
+      "tags": [
+        "非洲",
+        "祖鲁",
+        "土属性",
+        "短矛"
+      ]
+    },
+    {
+      "id": "shotel",
+      "name": {
+        "original": "ሾቴል",
+        "cn": "埃塞俄比亚弯刀",
+        "en": "Shotel"
+      },
+      "culture": "african",
+      "type": "sword",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 84,
+        "defense": 60,
+        "speed": 92,
+        "weight": 1.8
+      },
+      "description": "埃塞俄比亚传统弯刀，刀身极度弯曲如镰，能绕过盾牌攻击。",
+      "forging_legend": "埃塞俄比亚工匠锻造，刀身弯曲超过90度。",
+      "battle_legend": "埃塞俄比亚战士用此刀绕过敌人盾牌直接攻击躯干。",
+      "abilities": [
+        "bypass_shield",
+        "critical_strike",
+        "wind_blade"
+      ],
+      "symbolism": "绕盾攻击，独特战术",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "埃塞俄比亚战士",
+          "title": "高原勇士",
+          "story": "盾牌克星"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "sickle_sword",
+        "guard_type": "simple",
+        "handle_type": "wood",
+        "colors": [
+          "#C0C0C0",
+          "#8B4513",
+          "#87CEEB"
+        ],
+        "features": [
+          "极度弯曲",
+          "镰刀形态",
+          "绕盾设计"
+        ]
+      },
+      "image": "weapon_shotel.png",
+      "related": [
+        "khopesh"
+      ],
+      "tags": [
+        "非洲",
+        "埃塞俄比亚",
+        "风属性",
+        "弯刀"
+      ]
+    },
+    {
+      "id": "makraka",
+      "name": {
+        "original": "Makraka",
+        "cn": "马克拉卡飞刀",
+        "en": "Makraka"
+      },
+      "culture": "african",
+      "type": "throwing",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "rare",
+      "stats": {
+        "attack": 75,
+        "defense": 50,
+        "speed": 98,
+        "weight": 0.6
+      },
+      "description": "中非部落的投掷武器，刀身独特的曲线设计使其飞行轨迹难以预测。",
+      "forging_legend": "中非工匠锻造，刀身呈波浪状弯曲。",
+      "battle_legend": "部落战士投掷此刀，曲线飞行令敌人难以躲避。",
+      "abilities": [
+        "unpredictable",
+        "critical_strike",
+        "return"
+      ],
+      "symbolism": "飞刀利器，曲线杀伤",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "中非战士",
+          "title": "部落猎人",
+          "story": "狩猎与战争"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "curved_throwing",
+        "guard_type": "none",
+        "handle_type": "wrapped",
+        "colors": [
+          "#C0C0C0",
+          "#8B4513",
+          "#228B22"
+        ],
+        "features": [
+          "波浪弯曲",
+          "投掷设计",
+          "曲线飞行"
+        ]
+      },
+      "image": "weapon_makraka.png",
+      "related": [],
+      "tags": [
+        "非洲",
+        "中非",
+        "风属性",
+        "投掷武器"
+      ]
+    },
+    {
+      "id": "mambele",
+      "name": {
+        "original": "Mambele",
+        "cn": "曼贝勒飞刀",
+        "en": "Mambele"
+      },
+      "culture": "african",
+      "type": "throwing",
+      "attributes": {
+        "primary": "dark"
+      },
+      "rarity": "rare",
+      "stats": {
+        "attack": 78,
+        "defense": 52,
+        "speed": 95,
+        "weight": 0.8
+      },
+      "description": "中非和西非的多刃投掷武器，形状如闪电，具有多个锋利边缘。",
+      "forging_legend": "非洲工匠锻造出多刃设计，无论哪个角度击中都能造成伤害。",
+      "battle_legend": "部落战士投掷此武器，多个刀刃确保击中目标。",
+      "abilities": [
+        "multi_blade",
+        "critical_strike",
+        "bleeding"
+      ],
+      "symbolism": "闪电之刃，多重杀伤",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "西非战士",
+          "title": "部落勇士",
+          "story": "投掷大师"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "multi_blade_throwing",
+        "guard_type": "none",
+        "handle_type": "center_grip",
+        "colors": [
+          "#2F4F4F",
+          "#C0C0C0",
+          "#8B4513"
+        ],
+        "features": [
+          "多刃设计",
+          "闪电形状",
+          "投掷武器"
+        ]
+      },
+      "image": "weapon_mambele.png",
+      "related": [
+        "makraka"
+      ],
+      "tags": [
+        "非洲",
+        "西非",
+        "暗属性",
+        "投掷武器"
+      ]
+    },
+    {
+      "id": "tonbo_kiri",
+      "name": {
+        "original": "蜻蛉切",
+        "cn": "蜻蛉切",
+        "en": "Tonbo-kiri"
+      },
+      "culture": "japanese",
+      "type": "spear",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 90,
+        "defense": 70,
+        "speed": 92,
+        "weight": 2.8
+      },
+      "description": "天下三名枪之首，本多忠胜的佩枪，传说蜻蜓落在枪尖被一分为二。",
+      "forging_legend": "村正门人锻造，枪尖锋利无比。",
+      "battle_legend": "本多忠胜持此枪参加五十七次战役未曾受伤，被称为'战国第一猛将'。",
+      "abilities": [
+        "wind_blade",
+        "critical_strike",
+        "armor_pierce"
+      ],
+      "symbolism": "名枪之首，猛将之魂",
+      "inscription": "蜻蛉切",
+      "famous_owners": [
+        {
+          "name": "本多忠胜",
+          "title": "德川四天王",
+          "story": "战国第一猛将"
+        }
+      ],
+      "blacksmith_id": "muramasa_smith",
+      "appearance": {
+        "blade_type": "straight_spear",
+        "guard_type": "cross_guard",
+        "handle_type": "black_lacquer",
+        "colors": [
+          "#C0C0C0",
+          "#2F4F4F",
+          "#8B0000"
+        ],
+        "features": [
+          "极度锋利",
+          "蜻蜓传说",
+          "长柄设计"
+        ]
+      },
+      "image": "weapon_tonbo_kiri.png",
+      "related": [
+        "nihongo",
+        "otegine"
+      ],
+      "tags": [
+        "日本",
+        "战国",
+        "天下三枪",
+        "风属性"
+      ]
+    },
+    {
+      "id": "nihongo",
+      "name": {
+        "original": "日本号",
+        "cn": "日本号",
+        "en": "Nihongo"
+      },
+      "culture": "japanese",
+      "type": "spear",
+      "attributes": {
+        "primary": "fire"
+      },
+      "rarity": "legendary",
+      "stats": {
+        "attack": 88,
+        "defense": 72,
+        "speed": 88,
+        "weight": 3.0
+      },
+      "description": "天下三名枪之一，黑田家传世之宝，枪身粗大威猛。",
+      "forging_legend": "名匠锻造，枪身比普通枪更粗壮。",
+      "battle_legend": "母里太兵卫醉酒从福岛正则处赢得此枪，成为传奇。",
+      "abilities": [
+        "flame_wave",
+        "critical_strike",
+        "stun"
+      ],
+      "symbolism": "豪勇之枪，醉酒传说",
+      "inscription": "日本号",
+      "famous_owners": [
+        {
+          "name": "母里太兵卫",
+          "title": "黑田家臣",
+          "story": "醉酒夺枪"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "thick_spear",
+        "guard_type": "large_cross",
+        "handle_type": "thick_shaft",
+        "colors": [
+          "#C0C0C0",
+          "#8B0000",
+          "#FFD700"
+        ],
+        "features": [
+          "粗壮枪身",
+          "威猛气势",
+          "名枪风范"
+        ]
+      },
+      "image": "weapon_nihongo.png",
+      "related": [
+        "tonbo_kiri",
+        "otegine"
+      ],
+      "tags": [
+        "日本",
+        "战国",
+        "天下三枪",
+        "火属性"
+      ]
+    },
+    {
+      "id": "shuang_gou",
+      "name": {
+        "original": "双钩",
+        "cn": "鸳鸯钩",
+        "en": "Twin Hooks"
+      },
+      "culture": "chinese",
+      "type": "soft_weapon",
+      "attributes": {
+        "primary": "wind"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 82,
+        "defense": 70,
+        "speed": 95,
+        "weight": 2.5
+      },
+      "description": "中国武术特有的双兵器，钩身弯曲，可钩、可刺、可割，变化莫测。",
+      "forging_legend": "武林高手创造的独特兵器，成对使用威力倍增。",
+      "battle_legend": "江湖侠客持双钩行走江湖，钩法飘逸如舞。",
+      "abilities": [
+        "disarm",
+        "chain_attack",
+        "wind_blade"
+      ],
+      "symbolism": "江湖利器，变化莫测",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "江湖侠客",
+          "title": "武林高手",
+          "story": "双钩绝技"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "twin_hooks",
+        "guard_type": "hook_guard",
+        "handle_type": "rope_connected",
+        "colors": [
+          "#C0C0C0",
+          "#87CEEB",
+          "#FFD700"
+        ],
+        "features": [
+          "双钩成对",
+          "钩刺结合",
+          "飘逸灵动"
+        ]
+      },
+      "image": "weapon_shuang_gou.png",
+      "related": [],
+      "tags": [
+        "中国",
+        "武术",
+        "风属性",
+        "双兵器"
+      ]
+    },
+    {
+      "id": "meteor_hammer",
+      "name": {
+        "original": "流星锤",
+        "cn": "流星锤",
+        "en": "Meteor Hammer"
+      },
+      "culture": "chinese",
+      "type": "soft_weapon",
+      "attributes": {
+        "primary": "thunder"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 85,
+        "defense": 60,
+        "speed": 88,
+        "weight": 3.5
+      },
+      "description": "中国古代软兵器，铁链连接铁锤，可远可近，威力巨大。",
+      "forging_legend": "武林高手创制，链锤旋转如流星划过。",
+      "battle_legend": "武林豪杰挥舞流星锤，锤影重重，敌人难以靠近。",
+      "abilities": [
+        "stun",
+        "chain_attack",
+        "reach"
+      ],
+      "symbolism": "软兵利器，流星坠落",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "武林豪杰",
+          "title": "江湖高手",
+          "story": "流星锤法"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "chain_hammer",
+        "guard_type": "none",
+        "handle_type": "chain",
+        "colors": [
+          "#C0C0C0",
+          "#2F4F4F",
+          "#9370DB"
+        ],
+        "features": [
+          "铁链连接",
+          "旋转攻击",
+          "远近兼备"
+        ]
+      },
+      "image": "weapon_meteor_hammer.png",
+      "related": [],
+      "tags": [
+        "中国",
+        "武术",
+        "雷属性",
+        "软兵器"
+      ]
+    },
+    {
+      "id": "xiphos",
+      "name": {
+        "original": "Ξίφος",
+        "cn": "希腊短剑",
+        "en": "Xiphos"
+      },
+      "culture": "greek",
+      "type": "sword",
+      "attributes": {
+        "primary": "fire"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 80,
+        "defense": 72,
+        "speed": 90,
+        "weight": 1.8
+      },
+      "description": "古希腊战士的标准配剑，双刃直剑，配合盾牌使用。",
+      "forging_legend": "希腊工匠以青铜锻造，后改用铁制。",
+      "battle_legend": "斯巴达战士以此剑配合圆盾作战，在温泉关浴血奋战。",
+      "abilities": [
+        "critical_strike",
+        "armor_pierce",
+        "shield_bash"
+      ],
+      "symbolism": "希腊战士，斯巴达精神",
+      "inscription": "ΜΟΛΩΝ ΛΑΒΕ",
+      "famous_owners": [
+        {
+          "name": "列奥尼达",
+          "title": "斯巴达国王",
+          "story": "温泉关之战"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "straight_double_edge",
+        "guard_type": "simple",
+        "handle_type": "wood_wrapped",
+        "colors": [
+          "#CD853F",
+          "#C0C0C0",
+          "#8B0000"
+        ],
+        "features": [
+          "青铜光泽",
+          "双刃直剑",
+          "简洁实用"
+        ]
+      },
+      "image": "weapon_xiphos.png",
+      "related": [],
+      "tags": [
+        "希腊",
+        "古代",
+        "火属性",
+        "斯巴达"
+      ]
+    },
+    {
+      "id": "dory",
+      "name": {
+        "original": "Δόρυ",
+        "cn": "多里长矛",
+        "en": "Dory"
+      },
+      "culture": "greek",
+      "type": "spear",
+      "attributes": {
+        "primary": "earth"
+      },
+      "rarity": "epic",
+      "stats": {
+        "attack": 82,
+        "defense": 75,
+        "speed": 80,
+        "weight": 3.0
+      },
+      "description": "古希腊重装步兵的主要武器，长约2-3米，方阵战术的核心。",
+      "forging_legend": "希腊工匠锻造，矛杆用山茱萸木制成。",
+      "battle_legend": "希腊方阵以长矛林立，铜墙铁壁般推进。",
+      "abilities": [
+        "reach",
+        "formation",
+        "armor_pierce"
+      ],
+      "symbolism": "方阵之矛，团结力量",
+      "inscription": "无",
+      "famous_owners": [
+        {
+          "name": "斯巴达战士",
+          "title": "重装步兵",
+          "story": "方阵战术"
+        }
+      ],
+      "blacksmith_id": null,
+      "appearance": {
+        "blade_type": "spear_head",
+        "guard_type": "none",
+        "handle_type": "wood_shaft",
+        "colors": [
+          "#CD853F",
+          "#C0C0C0",
+          "#8B4513"
+        ],
+        "features": [
+          "长矛设计",
+          "方阵利器",
+          "双头矛尖"
+        ]
+      },
+      "image": "weapon_dory.png",
+      "related": [
+        "xiphos"
+      ],
+      "tags": [
+        "希腊",
+        "古代",
+        "土属性",
+        "长矛"
+      ]
     }
   ]
 }

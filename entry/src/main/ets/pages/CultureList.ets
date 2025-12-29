@@ -270,51 +270,53 @@ struct CultureList {
    */
   @Builder
   CultureIntroSection() {
-    Column() {
-      // 头部信息
-      Row() {
-        Column() {
-          Text(this.selectedCulture!.name_cn.substring(0, 1))
-            .fontSize(32)
-            .fontColor(ThemeColors.ACCENT)
-            .fontWeight(FontWeight.Bold)
-        }
-        .width(64)
-        .height(64)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.CARD_BG)
-        .borderRadius(Spacing.MEDIUM)
-        .border({
-          width: 2,
-          color: ThemeColors.ACCENT
-        })
+    if (this.selectedCulture) {
+      Column() {
+        // 头部信息
+        Row() {
+          Column() {
+            Text(this.selectedCulture.name_cn.substring(0, 1))
+              .fontSize(32)
+              .fontColor(ThemeColors.ACCENT)
+              .fontWeight(FontWeight.Bold)
+          }
+          .width(64)
+          .height(64)
+          .justifyContent(FlexAlign.Center)
+          .backgroundColor(ThemeColors.CARD_BG)
+          .borderRadius(Spacing.MEDIUM)
+          .border({
+            width: 2,
+            color: ThemeColors.ACCENT
+          })
 
-        Column() {
-          Text(this.selectedCulture!.name)
-            .fontSize(FontSizes.TITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
+          Column() {
+            Text(this.selectedCulture.name)
+              .fontSize(FontSizes.TITLE)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(ThemeColors.TEXT_PRIMARY)
 
-          Text(this.selectedCulture!.region)
-            .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.TEXT_SECONDARY)
-            .margin({ top: Spacing.TINY })
+            Text(this.selectedCulture.region)
+              .fontSize(FontSizes.BODY)
+              .fontColor(ThemeColors.TEXT_SECONDARY)
+              .margin({ top: Spacing.TINY })
+          }
+          .alignItems(HorizontalAlign.Start)
+          .margin({ left: Spacing.LARGE })
         }
-        .alignItems(HorizontalAlign.Start)
-        .margin({ left: Spacing.LARGE })
+        .width('100%')
+        .margin({ bottom: Spacing.LARGE })
+
+        // 描述
+        Text(this.selectedCulture.description)
+          .fontSize(FontSizes.BODY)
+          .fontColor(ThemeColors.TEXT_SECONDARY)
+          .lineHeight(24)
       }
       .width('100%')
-      .margin({ bottom: Spacing.LARGE })
-
-      // 描述
-      Text(this.selectedCulture!.description)
-        .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.TEXT_SECONDARY)
-        .lineHeight(24)
+      .padding(Spacing.LARGE)
+      .alignItems(HorizontalAlign.Start)
     }
-    .width('100%')
-    .padding(Spacing.LARGE)
-    .alignItems(HorizontalAlign.Start)
   }
 
   /**
@@ -322,7 +324,7 @@ struct CultureList {
    */
   @Builder
   CharacteristicsSection() {
-    if (this.selectedCulture!.characteristics && this.selectedCulture!.characteristics.length > 0) {
+    if (this.selectedCulture && this.selectedCulture.characteristics && this.selectedCulture.characteristics.length > 0) {
       Column() {
         Text('文化特色')
           .fontSize(FontSizes.SUBTITLE)
@@ -330,7 +332,7 @@ struct CultureList {
           .fontColor(ThemeColors.TEXT_PRIMARY)
           .margin({ bottom: Spacing.MEDIUM })
 
-        ForEach(this.selectedCulture!.characteristics, (char: string, index: number) => {
+        ForEach(this.selectedCulture.characteristics, (char: string, index: number) => {
           Row() {
             Text((index + 1).toString())
               .fontSize(FontSizes.BODY_SMALL)

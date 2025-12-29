@@ -146,113 +146,117 @@ struct TopicDetail {
 
   @Builder
   ContentView() {
-    Scroll(this.scroller) {
-      Column() {
-        // 封面图片
-        Stack({ alignContent: Alignment.BottomStart }) {
-          Image($r(`app.media.${this.topic!.image.replace('.png', '')}`))
-            .width('100%')
-            .height(280)
-            .objectFit(ImageFit.Cover)
+    if (this.topic) {
+      Scroll(this.scroller) {
+        Column() {
+          // 封面图片
+          Stack({ alignContent: Alignment.BottomStart }) {
+            Image($r(`app.media.${this.topic.image.replace('.png', '')}`))
+              .width('100%')
+              .height(280)
+              .objectFit(ImageFit.Cover)
 
-          // 渐变遮罩
-          Column()
-            .width('100%')
-            .height(280)
-            .linearGradient({
-              direction: GradientDirection.Bottom,
-              colors: [['transparent', 0], [ThemeColors.BASE_0, 1]]
-            })
+            // 渐变遮罩
+            Column()
+              .width('100%')
+              .height(280)
+              .linearGradient({
+                direction: GradientDirection.Bottom,
+                colors: [['transparent', 0], [ThemeColors.BASE_0, 1]]
+              })
 
-          // 标题区域
-          Column() {
-            // 分类标签
-            Text(TopicCategoryNames[this.topic!.category] || this.topic!.category)
-              .fontSize(FontSizes.SMALL)
-              .fontColor(ThemeColors.GOLD_PRIMARY)
-              .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-              .backgroundColor(ThemeColors.SURFACE_0)
-              .borderRadius(4)
-              .border({ width: 1, color: ThemeColors.GOLD_PRIMARY })
+            // 标题区域
+            Column() {
+              // 分类标签
+              Text(TopicCategoryNames[this.topic.category] || this.topic.category)
+                .fontSize(FontSizes.SMALL)
+                .fontColor(ThemeColors.GOLD_PRIMARY)
+                .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
+                .backgroundColor(ThemeColors.SURFACE_0)
+                .borderRadius(4)
+                .border({ width: 1, color: ThemeColors.GOLD_PRIMARY })
 
-            // 标题
-            Text(this.topic!.title)
-              .fontSize(24)
-              .fontWeight(FontWeight.Bold)
-              .fontColor(ThemeColors.TEXT_TITLE)
-              .margin({ top: Spacing.SMALL })
+              // 标题
+              Text(this.topic.title)
+                .fontSize(24)
+                .fontWeight(FontWeight.Bold)
+                .fontColor(ThemeColors.TEXT_TITLE)
+                .margin({ top: Spacing.SMALL })
 
-            // 摘要
-            Text(this.topic!.summary)
-              .fontSize(FontSizes.BODY)
-              .fontColor(ThemeColors.TEXT_SECONDARY)
-              .margin({ top: Spacing.SMALL })
+              // 摘要
+              Text(this.topic.summary)
+                .fontSize(FontSizes.BODY)
+                .fontColor(ThemeColors.TEXT_SECONDARY)
+                .margin({ top: Spacing.SMALL })
+            }
+            .alignItems(HorizontalAlign.Start)
+            .padding(Spacing.LARGE)
           }
-          .alignItems(HorizontalAlign.Start)
-          .padding(Spacing.LARGE)
+          .width('100%')
+
+          // 正文内容
+          this.ArticleContent()
+
+          // 相关神兵
+          if (this.relatedWeapons.length > 0) {
+            this.RelatedWeaponsSection()
+          }
+
+          Blank().height(100)
         }
         .width('100%')
-
-        // 正文内容
-        this.ArticleContent()
-
-        // 相关神兵
-        if (this.relatedWeapons.length > 0) {
-          this.RelatedWeaponsSection()
-        }
-
-        Blank().height(100)
       }
       .width('100%')
+      .height('100%')
+      .scrollBar(BarState.Off)
+      .edgeEffect(EdgeEffect.Spring)
     }
-    .width('100%')
-    .height('100%')
-    .scrollBar(BarState.Off)
-    .edgeEffect(EdgeEffect.Spring)
   }
 
   @Builder
   ArticleContent() {
-    Column() {
-      // 将内容按段落分割
-      ForEach(this.topic!.content.split('\n\n'), (paragraph: string, index: number) => {
-        if (paragraph.startsWith('【') && paragraph.includes('】')) {
-          // 小标题样式
-          Text(paragraph)
-            .fontSize(FontSizes.SUBTITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.GOLD_PRIMARY)
-            .margin({ top: index === 0 ? 0 : Spacing.LARGE, bottom: Spacing.SMALL })
-        } else if (paragraph.startsWith('- ') || paragraph.startsWith('• ')) {
-          // 列表项样式
-          Row() {
-            Text('•')
-              .fontSize(FontSizes.BODY)
+    if (this.topic) {
+      Column() {
+        // 将内容按段落分割
+        ForEach(this.topic.content.split('\n\n'), (paragraph: string, index: number) => {
+          if (paragraph.startsWith('【') && paragraph.includes('】')) {
+            // 小标题样式
+            Text(paragraph)
+              .fontSize(FontSizes.SUBTITLE)
+              .fontWeight(FontWeight.Bold)
               .fontColor(ThemeColors.GOLD_PRIMARY)
-              .width(20)
+              .margin({ top: index === 0 ? 0 : Spacing.LARGE, bottom: Spacing.SMALL })
+          } else if (paragraph.startsWith('- ') || paragraph.startsWith('• ')) {
+            // 列表项样式
+            Row() {
+              Text('•')
+                .fontSize(FontSizes.BODY)
+                .fontColor(ThemeColors.GOLD_PRIMARY)
+                .width(20)
 
-            Text(paragraph.replace(/^[-•]\s*/, ''))
+              Text(paragraph.replace(/^[-•]\s*/, ''))
+                .fontSize(FontSizes.BODY)
+                .fontColor(ThemeColors.TEXT_PRIMARY)
+                .lineHeight(24)
+                .layoutWeight(1)
+            }
+            .width('100%')
+            .alignItems(VerticalAlign.Top)
+            .margin({ top: Spacing.SMALL })
+          } else {
+            // 普通段落样式
+            Text(paragraph)
               .fontSize(FontSizes.BODY)
               .fontColor(ThemeColors.TEXT_PRIMARY)
-              .lineHeight(24)
-              .layoutWeight(1)
+              .lineHeight(26)
+              .margin({ top: index === 0 ? 0 : Spacing.MEDIUM })
           }
-          .width('100%')
-          .alignItems(VerticalAlign.Top)
-          .margin({ top: Spacing.SMALL })
-        } else {
-          // 普通段落样式
-          Text(paragraph)
-            .fontSize(FontSizes.BODY)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
-            .lineHeight(26)
-            .margin({ top: index === 0 ? 0 : Spacing.MEDIUM })
-        }
-      })
+        })
+      }
+      .width('100%')
+      .padding(Spacing.LARGE)
+      .alignItems(HorizontalAlign.Start)
     }
-    .width('100%')
-    .padding(Spacing.LARGE)
-    .alignItems(HorizontalAlign.Start)
   }
 
   @Builder

@@ -40,8 +40,8 @@ MODEL = "doubao-seedream-4-5-251128"
 # 项目根目录
 PROJECT_ROOT = Path(__file__).parent.parent
 
-# 鸿蒙资源目录 (不可嵌套文件夹)
-HARMONY_MEDIA_DIR = PROJECT_ROOT / "entry" / "src" / "main" / "resources" / "base" / "media"
+# 鸿蒙资源目录 - rawfile/images (应用代码使用$rawfile读取)
+HARMONY_MEDIA_DIR = PROJECT_ROOT / "entry" / "src" / "main" / "resources" / "rawfile" / "images"
 
 # 日志目录
 LOG_DIR = Path(__file__).parent / "logs"

@@ -312,70 +312,72 @@ struct BlacksmithDetail {
    */
   @Builder
   HeaderSection() {
-    Column() {
-      // 头像区域 - 使用毛玻璃效果
+    if (this.blacksmith) {
       Column() {
-        // 头像
+        // 头像区域 - 使用毛玻璃效果
         Column() {
-          Image($rawfile(`images/${this.blacksmith!.image}`))
-            .width(100)
-            .height(100)
-            .objectFit(ImageFit.Cover)
-            .borderRadius(50)
+          // 头像
+          Column() {
+            Image($rawfile(`images/${this.blacksmith.image}`))
+              .width(100)
+              .height(100)
+              .objectFit(ImageFit.Cover)
+              .borderRadius(50)
+          }
+          .border({
+            width: 3,
+            color: ThemeColors.GOLD_PRIMARY
+          })
+          .borderRadius(53)
+          .shadow({
+            radius: 20,
+            color: 'rgba(212,175,55,0.3)',
+            offsetX: 0,
+            offsetY: 4
+          })
+
+          // 名称
+          Text(this.blacksmith.name.cn)
+            .fontSize(FontSizes.TITLE)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.TEXT_TITLE)
+            .margin({ top: Spacing.LARGE })
+
+          // 称号
+          Text(this.blacksmith.title)
+            .fontSize(FontSizes.BODY)
+            .fontColor(ThemeColors.GOLD_PRIMARY)
+            .margin({ top: Spacing.SMALL })
+
+          // 文化和时代
+          Row() {
+            Text(CultureNames[this.blacksmith.culture] || this.blacksmith.culture)
+              .fontSize(FontSizes.BODY_SMALL)
+              .fontColor(ThemeColors.TEXT_SECONDARY)
+              .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
+              .backgroundColor('rgba(0,0,0,0.4)')
+              .borderRadius(Spacing.LARGE)
+              .border({ width: 1, color: ThemeColors.DIVIDER })
+
+            Text(this.blacksmith.era)
+              .fontSize(FontSizes.BODY_SMALL)
+              .fontColor(ThemeColors.TEXT_SECONDARY)
+              .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
+              .backgroundColor('rgba(0,0,0,0.4)')
+              .borderRadius(Spacing.LARGE)
+              .border({ width: 1, color: ThemeColors.DIVIDER })
+              .margin({ left: Spacing.SMALL })
+          }
+          .margin({ top: Spacing.MEDIUM })
         }
-        .border({
-          width: 3,
-          color: ThemeColors.GOLD_PRIMARY
-        })
-        .borderRadius(53)
-        .shadow({
-          radius: 20,
-          color: 'rgba(212,175,55,0.3)',
-          offsetX: 0,
-          offsetY: 4
-        })
-
-        // 名称
-        Text(this.blacksmith!.name.cn)
-          .fontSize(FontSizes.TITLE)
-          .fontWeight(FontWeight.Bold)
-          .fontColor(ThemeColors.TEXT_TITLE)
-          .margin({ top: Spacing.LARGE })
-
-        // 称号
-        Text(this.blacksmith!.title)
-          .fontSize(FontSizes.BODY)
-          .fontColor(ThemeColors.GOLD_PRIMARY)
-          .margin({ top: Spacing.SMALL })
-
-        // 文化和时代
-        Row() {
-          Text(CultureNames[this.blacksmith!.culture] || this.blacksmith!.culture)
-            .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.TEXT_SECONDARY)
-            .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-            .backgroundColor('rgba(0,0,0,0.4)')
-            .borderRadius(Spacing.LARGE)
-            .border({ width: 1, color: ThemeColors.DIVIDER })
-
-          Text(this.blacksmith!.era)
-            .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(ThemeColors.TEXT_SECONDARY)
-            .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-            .backgroundColor('rgba(0,0,0,0.4)')
-            .borderRadius(Spacing.LARGE)
-            .border({ width: 1, color: ThemeColors.DIVIDER })
-            .margin({ left: Spacing.SMALL })
-        }
-        .margin({ top: Spacing.MEDIUM })
+        .width('100%')
+        .padding({ top: 80, bottom: Spacing.XLARGE })
+        .alignItems(HorizontalAlign.Center)
+        .backgroundColor('rgba(0,0,0,0.3)')
+        .backdropBlur(30)
       }
       .width('100%')
-      .padding({ top: 80, bottom: Spacing.XLARGE })
-      .alignItems(HorizontalAlign.Center)
-      .backgroundColor('rgba(0,0,0,0.3)')
-      .backdropBlur(30)
     }
-    .width('100%')
   }
 
   /**
@@ -383,54 +385,56 @@ struct BlacksmithDetail {
    */
   @Builder
   BioSection() {
-    Column() {
-      // 标题行：人物简介 + 语音播放按钮
-      Row() {
+    if (this.blacksmith) {
+      Column() {
+        // 标题行：人物简介 + 语音播放按钮
         Row() {
-          Column()
-            .width(4)
-            .height(20)
-            .backgroundColor(ThemeColors.ACCENT)
-            .borderRadius(2)
+          Row() {
+            Column()
+              .width(4)
+              .height(20)
+              .backgroundColor(ThemeColors.ACCENT)
+              .borderRadius(2)
 
-          Text('人物简介')
-            .fontSize(FontSizes.SUBTITLE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(ThemeColors.TEXT_PRIMARY)
-            .margin({ left: Spacing.SMALL })
+            Text('人物简介')
+              .fontSize(FontSizes.SUBTITLE)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(ThemeColors.TEXT_PRIMARY)
+              .margin({ left: Spacing.SMALL })
+          }
+
+          Blank()
+
+          // 语音播放按钮
+          Column() {
+            SymbolGlyph($r('sys.symbol.speaker_wave_3'))
+              .fontSize(20)
+              .fontColor([ThemeColors.ACCENT])
+              .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
+          }
+          .width(36)
+          .height(36)
+          .justifyContent(FlexAlign.Center)
+          .backgroundColor(ThemeColors.CARD_BG)
+          .borderRadius(18)
+          .border({
+            width: 1,
+            color: ThemeColors.ACCENT
+          })
+          .onClick(() => this.toggleTTS())
         }
+        .width('100%')
+        .margin({ bottom: Spacing.MEDIUM })
 
-        Blank()
-
-        // 语音播放按钮
-        Column() {
-          SymbolGlyph($r('sys.symbol.speaker_wave_3'))
-            .fontSize(20)
-            .fontColor([ThemeColors.ACCENT])
-            .symbolEffect(new HierarchicalSymbolEffect(EffectFillStyle.ITERATIVE), this.isTTSPlaying)
-        }
-        .width(36)
-        .height(36)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor(ThemeColors.CARD_BG)
-        .borderRadius(18)
-        .border({
-          width: 1,
-          color: ThemeColors.ACCENT
-        })
-        .onClick(() => this.toggleTTS())
+        Text(this.blacksmith.bio || this.blacksmith.description)
+          .fontSize(FontSizes.BODY)
+          .fontColor(ThemeColors.TEXT_SECONDARY)
+          .lineHeight(24)
       }
       .width('100%')
-      .margin({ bottom: Spacing.MEDIUM })
-
-      Text(this.blacksmith!.bio || this.blacksmith!.description)
-        .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.TEXT_SECONDARY)
-        .lineHeight(24)
+      .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })
+      .alignItems(HorizontalAlign.Start)
     }
-    .width('100%')
-    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })
-    .alignItems(HorizontalAlign.Start)
   }
 
   /**
@@ -501,17 +505,19 @@ struct BlacksmithDetail {
    */
   @Builder
   LegendSection() {
-    Column() {
-      this.SectionTitle('传奇事迹')
+    if (this.blacksmith) {
+      Column() {
+        this.SectionTitle('传奇事迹')
 
-      Text(this.blacksmith!.legend)
-        .fontSize(FontSizes.BODY)
-        .fontColor(ThemeColors.TEXT_SECONDARY)
-        .lineHeight(24)
+        Text(this.blacksmith.legend)
+          .fontSize(FontSizes.BODY)
+          .fontColor(ThemeColors.TEXT_SECONDARY)
+          .lineHeight(24)
+      }
+      .width('100%')
+      .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })
+      .alignItems(HorizontalAlign.Start)
     }
-    .width('100%')
-    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })
-    .alignItems(HorizontalAlign.Start)
   }
 
   /**

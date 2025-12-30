@@ -10,6 +10,6 @@
     "vendor": "com.example",
     "minAPIVersion": 10,
     "targetAPIVersion": 12,
-    "debug": true
+    "debug": false
   }
 }

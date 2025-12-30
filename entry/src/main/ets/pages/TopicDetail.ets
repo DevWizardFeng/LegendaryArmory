@@ -47,7 +47,7 @@ struct TopicDetail {
       this.topic = topics.find(t => t.id === topicId) || null
 
       // 加载相关神兵
-      if (this.topic && this.topic.related_weapons.length > 0) {
+      if (this.topic && this.topic.related_weapons?.length > 0) {
         const weapons = await this.dataLoader.loadWeapons()
         this.relatedWeapons = weapons.filter(w =>
           this.topic!.related_weapons.includes(w.id)

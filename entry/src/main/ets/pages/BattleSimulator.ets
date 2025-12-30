@@ -135,6 +135,10 @@ struct BattleSimulator {
   }
 
   randomSelect(): void {
+    if (this.allWeapons.length < 2) {
+      console.warn('[BattleSimulator] 神兵数量不足，无法随机选择')
+      return
+    }
     const shuffled = [...this.allWeapons].sort(() => Math.random() - 0.5)
     this.leftWeapon = shuffled[0]
     this.rightWeapon = shuffled[1]

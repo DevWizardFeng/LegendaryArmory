@@ -2,14 +2,14 @@
   "app": {
     "bundleName": "com.example.legendaryarmory",
     "bundleType": "app",
-    "versionCode": 1000000,
-    "versionName": "1.0.0",
+    "versionCode": 1000002,
+    "versionName": "1.0.2",
     "icon": "$media:app_icon",
     "label": "$string:app_name",
     "description": "$string:app_description",
     "vendor": "com.example",
     "minAPIVersion": 10,
     "targetAPIVersion": 12,
-    "debug": false
+    "debug": true
   }
 }

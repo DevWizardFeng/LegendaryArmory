@@ -231,7 +231,7 @@ struct BlacksmithList {
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
         // 代表作品数量
-        Text(`代表作品: ${blacksmith.masterworks.length} 件`)
+        Text(`代表作品: ${blacksmith.masterworks?.length || 0} 件`)
           .fontSize(FontSizes.CAPTION)
           .fontColor(ThemeColors.TEXT_TERTIARY)
           .margin({ top: Spacing.SMALL })

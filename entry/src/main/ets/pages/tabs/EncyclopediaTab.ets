@@ -289,7 +289,7 @@ struct BlacksmithContent {
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
-        Text(`代表作品: ${blacksmith.masterworks.length} 件`)
+        Text(`代表作品: ${blacksmith.masterworks?.length || 0} 件`)
           .fontSize(FontSizes.CAPTION)
           .fontColor(ThemeColors.TEXT_TERTIARY)
           .margin({ top: Spacing.SMALL })
@@ -894,7 +894,7 @@ struct TopicContent {
           .margin({ top: Spacing.SMALL })
 
         Row() {
-          Text(`${topic.related_weapons.length} 件相关神兵`)
+          Text(`${topic.related_weapons?.length || 0} 件相关神兵`)
             .fontSize(FontSizes.CAPTION)
             .fontColor(ThemeColors.TEXT_TERTIARY)
 

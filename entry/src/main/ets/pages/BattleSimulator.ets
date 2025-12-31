@@ -207,20 +207,27 @@ struct BattleSimulator {
    * 计算对战结果
    */
   calculateBattle(): BattleResult {
-    const left = this.leftWeapon!
-    const right = this.rightWeapon!
+    if (!this.leftWeapon || !this.rightWeapon) {
+      return { winner: 'draw', leftScore: 0, rightScore: 0, details: [] }
+    }
+    const left = this.leftWeapon
+    const right = this.rightWeapon
 
-    // 基础分数
-    let leftScore = left.stats.attack + left.stats.defense + left.stats.speed + (left.stats.critical || 0)
-    let rightScore = right.stats.attack + right.stats.defense + right.stats.speed + (right.stats.critical || 0)
+    // 基础分数 - 添加空值保护
+    const leftStats = left.stats ?? { attack: 0, defense: 0, speed: 0, critical: 0 }
+    const rightStats = right.stats ?? { attack: 0, defense: 0, speed: 0, critical: 0 }
+    let leftScore = (leftStats.attack ?? 0) + (leftStats.defense ?? 0) + (leftStats.speed ?? 0) + (leftStats.critical ?? 0)
+    let rightScore = (rightStats.attack ?? 0) + (rightStats.defense ?? 0) + (rightStats.speed ?? 0) + (rightStats.critical ?? 0)
 
     // 品质加成
     let rarityBonus = new RarityBonus()
-    leftScore += rarityBonus.getBonus(left.rarity)
-    rightScore += rarityBonus.getBonus(right.rarity)
+    leftScore += rarityBonus.getBonus(left.rarity ?? 'rare')
+    rightScore += rarityBonus.getBonus(right.rarity ?? 'rare')
 
     // 属性相克
-    const attributeAdvantage = this.checkAttributeAdvantage(left.attributes.primary, right.attributes.primary)
+    const leftAttr = left.attributes?.primary ?? 'fire'
+    const rightAttr = right.attributes?.primary ?? 'fire'
+    const attributeAdvantage = this.checkAttributeAdvantage(leftAttr, rightAttr)
     if (attributeAdvantage === 'left') leftScore += 30
     else if (attributeAdvantage === 'right') rightScore += 30
 
@@ -247,17 +254,21 @@ struct BattleSimulator {
   generateBattleDetails(left: LegendaryWeapon, right: LegendaryWeapon, advantage: string): BattleDetail[] {
     const details: BattleDetail[] = []
 
+    // 获取名称，添加空值保护
+    const leftName = left?.name?.cn ?? '神兵'
+    const rightName = right?.name?.cn ?? '神兵'
+
     // 开局
     const openings = [
-      `${left.name.cn}气势如虹，率先出击`,
-      `${right.name.cn}不甘示弱，正面迎战`,
+      `${leftName}气势如虹，率先出击`,
+      `${rightName}不甘示弱，正面迎战`,
     ]
     details.push({ round: 1, description: openings[Math.floor(Math.random() * 2)], highlight: false })
 
     // 属性克制
     if (advantage !== 'none') {
-      const leftAttr = AttributeNames[left.attributes.primary] || left.attributes.primary
-      const rightAttr = AttributeNames[right.attributes.primary] || right.attributes.primary
+      const leftAttr = AttributeNames[left?.attributes?.primary ?? 'fire'] ?? left?.attributes?.primary ?? '未知'
+      const rightAttr = AttributeNames[right?.attributes?.primary ?? 'fire'] ?? right?.attributes?.primary ?? '未知'
       if (advantage === 'left') {
         details.push({ round: 2, description: `${leftAttr}属性克制${rightAttr}，占据上风`, highlight: true })
       } else {
@@ -296,10 +307,12 @@ struct BattleSimulator {
   getFilteredWeapons(): LegendaryWeapon[] {
     if (!this.searchText) return this.allWeapons
     const query = this.searchText.toLowerCase()
-    return this.allWeapons.filter(w =>
-      w.name.cn.toLowerCase().includes(query) ||
-      (CultureNames[w.culture] || '').includes(query)
-    )
+    return this.allWeapons.filter(w => {
+      if (!w || !w.name) return false
+      const nameCn = w.name.cn ?? ''
+      const cultureName = CultureNames[w.culture] ?? ''
+      return nameCn.toLowerCase().includes(query) || cultureName.includes(query)
+    })
   }
 
   build() {
@@ -643,9 +656,9 @@ struct BattleSimulator {
     if (this.battleResult.winner === 'draw') {
       return '势均力敌'
     } else if (this.battleResult.winner === 'left') {
-      return `${this.leftWeapon!.name.cn} 获胜`
+      return `${this.leftWeapon?.name?.cn ?? '神兵'} 获胜`
     } else {
-      return `${this.rightWeapon!.name.cn} 获胜`
+      return `${this.rightWeapon?.name?.cn ?? '神兵'} 获胜`
     }
   }
 
@@ -699,18 +712,18 @@ struct BattleSimulator {
         ForEach(this.getFilteredWeapons(), (weapon: LegendaryWeapon) => {
           ListItem() {
             Row() {
-              Image($rawfile(`images/${weapon.image}`))
+              Image($rawfile(`images/${weapon?.image ?? 'weapon_default.png'}`))
                 .width(50)
                 .height(50)
                 .objectFit(ImageFit.Cover)
                 .borderRadius(Spacing.SMALL)
 
               Column() {
-                Text(weapon.name.cn)
+                Text(weapon?.name?.cn ?? '')
                   .fontSize(FontSizes.BODY)
                   .fontColor(ThemeColors.TEXT_PRIMARY)
 
-                Text(`${CultureNames[weapon.culture]} · ${RarityNames[weapon.rarity]}`)
+                Text(`${CultureNames[weapon?.culture] ?? ''} · ${RarityNames[weapon?.rarity] ?? ''}`)
                   .fontSize(FontSizes.CAPTION)
                   .fontColor(ThemeColors.TEXT_TERTIARY)
               }
@@ -720,8 +733,12 @@ struct BattleSimulator {
             .width('100%')
             .padding(Spacing.MEDIUM)
           }
-          .onClick(() => this.selectWeapon(weapon))
-        }, (weapon: LegendaryWeapon) => weapon.id)
+          .onClick(() => {
+            if (weapon) {
+              this.selectWeapon(weapon)
+            }
+          })
+        }, (weapon: LegendaryWeapon) => weapon?.id ?? Math.random().toString())
       }
       .width('100%')
       .layoutWeight(1)

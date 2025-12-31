@@ -57,7 +57,7 @@ export struct Banner {
   BannerCard(item: BannerItem) {
     Stack({ alignContent: Alignment.BottomStart }) {
       // 背景图片
-      Image($rawfile(`images/${item.image}`))
+      Image($rawfile(`images/${item?.image ?? 'weapon_default.png'}`))
         .width('100%')
         .height('100%')
         .objectFit(ImageFit.Cover)
@@ -75,7 +75,7 @@ export struct Banner {
       // 文字信息
       Column() {
         // 品质标签 - 展柜铭牌风格
-        if (item.rarity) {
+        if (item?.rarity) {
           Text(this.getRarityText(item.rarity))
             .fontSize(FontSizes.SMALL)
             .fontColor(getRarityColor(item.rarity))
@@ -91,14 +91,14 @@ export struct Banner {
         }
 
         // 标题使用羊皮纸色
-        Text(item.title)
+        Text(item?.title ?? '')
           .fontSize(FontSizes.TITLE)
           .fontColor(ThemeColors.TEXT_TITLE)
           .fontWeight(FontWeight.Bold)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
-        Text(item.subtitle)
+        Text(item?.subtitle ?? '')
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(ThemeColors.TEXT_SECONDARY)
           .maxLines(1)
@@ -113,7 +113,7 @@ export struct Banner {
     .borderRadius(Spacing.MEDIUM)
     .clip(true)
     .onClick(() => {
-      if (this.onItemClick) {
+      if (this.onItemClick && item) {
         this.onItemClick(item)
       }
     })

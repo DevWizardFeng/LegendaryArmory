@@ -446,7 +446,7 @@ struct CultureContent {
     Column() {
       Row() {
         Column() {
-          Text(culture.name_cn.substring(0, 1))
+          Text(culture.name_cn?.substring(0, 1) ?? '')
             .fontSize(FontSizes.TITLE)
             .fontColor(ThemeColors.GOLD_PRIMARY)
             .fontWeight(FontWeight.Bold)
@@ -459,12 +459,12 @@ struct CultureContent {
         .border({ width: 1, color: ThemeColors.DIVIDER })
 
         Column() {
-          Text(culture.name_cn)
+          Text(culture.name_cn ?? '')
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
             .fontColor(ThemeColors.TEXT_TITLE)
 
-          Text(culture.region)
+          Text(culture.region ?? '')
             .fontSize(FontSizes.BODY_SMALL)
             .fontColor(ThemeColors.TEXT_TERTIARY)
             .margin({ top: Spacing.TINY })
@@ -486,7 +486,7 @@ struct CultureContent {
       }
       .width('100%')
 
-      Text(culture.description || culture.background)
+      Text(culture.description ?? culture.background ?? '')
         .fontSize(FontSizes.BODY_SMALL)
         .fontColor(ThemeColors.TEXT_SECONDARY)
         .maxLines(2)
@@ -494,9 +494,9 @@ struct CultureContent {
         .margin({ top: Spacing.MEDIUM })
         .lineHeight(20)
 
-      if ((culture.characteristics || []).length > 0) {
+      if (culture.characteristics && culture.characteristics.length > 0) {
         Flex({ wrap: FlexWrap.Wrap }) {
-          ForEach((culture.characteristics || []).slice(0, 3), (char: string) => {
+          ForEach(culture.characteristics.slice(0, 3), (char: string) => {
             Text(char)
               .fontSize(FontSizes.SMALL)
               .fontColor(ThemeColors.TEXT_SECONDARY)
@@ -541,7 +541,7 @@ struct CultureContent {
       Column() {
         Row() {
           Column() {
-            Text(this.selectedCulture.name_cn.substring(0, 1))
+            Text(this.selectedCulture.name_cn?.substring(0, 1) ?? '')
               .fontSize(32)
               .fontColor(ThemeColors.GOLD_PRIMARY)
               .fontWeight(FontWeight.Bold)
@@ -558,12 +558,12 @@ struct CultureContent {
           })
 
           Column() {
-            Text(this.selectedCulture.name)
+            Text(this.selectedCulture.name ?? this.selectedCulture.name_cn ?? '')
               .fontSize(FontSizes.TITLE)
               .fontWeight(FontWeight.Bold)
               .fontColor(ThemeColors.TEXT_TITLE)
 
-            Text(this.selectedCulture.region)
+            Text(this.selectedCulture.region ?? '')
               .fontSize(FontSizes.BODY)
               .fontColor(ThemeColors.TEXT_SECONDARY)
               .margin({ top: Spacing.TINY })
@@ -574,7 +574,7 @@ struct CultureContent {
         .width('100%')
         .margin({ bottom: Spacing.LARGE })
 
-        Text(this.selectedCulture.description)
+        Text(this.selectedCulture.description ?? this.selectedCulture.background ?? '')
           .fontSize(FontSizes.BODY)
           .fontColor(ThemeColors.TEXT_PRIMARY)
           .lineHeight(24)
@@ -652,27 +652,27 @@ struct CultureContent {
   @Builder
   WeaponItem(weapon: LegendaryWeapon) {
     Row() {
-      Image($rawfile(`images/${weapon.image}`))
+      Image($rawfile(`images/${weapon.image ?? 'weapon_default.png'}`))
         .width(60)
         .height(60)
         .objectFit(ImageFit.Cover)
         .borderRadius(Spacing.SMALL)
-        .border({ width: 1, color: getRarityDarkColor(weapon.rarity) })
+        .border({ width: 1, color: getRarityDarkColor(weapon.rarity ?? 'rare') })
 
       Column() {
         Row() {
-          Text(weapon.name.cn)
+          Text(weapon.name?.cn ?? '')
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
             .fontColor(ThemeColors.TEXT_TITLE)
 
-          Text(RarityNames[weapon.rarity] || weapon.rarity)
+          Text(RarityNames[weapon.rarity] ?? weapon.rarity ?? '')
             .fontSize(FontSizes.SMALL)
-            .fontColor(getRarityColor(weapon.rarity))
+            .fontColor(getRarityColor(weapon.rarity ?? 'rare'))
             .margin({ left: Spacing.SMALL })
         }
 
-        Text(weapon.description)
+        Text(weapon.description ?? '')
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(ThemeColors.TEXT_TERTIARY)
           .maxLines(1)

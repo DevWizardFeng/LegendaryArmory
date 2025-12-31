@@ -246,142 +246,148 @@ struct DailyDivination {
    */
   @Builder
   ResultView() {
-    Scroll() {
-      Column() {
-        // 日期
-        Text(this.todayDate)
-          .fontSize(FontSizes.BODY)
-          .fontColor(ThemeColors.TEXT_SECONDARY)
-          .margin({ top: Spacing.LARGE })
-
-        // 运势
+    if (this.selectedWeapon && this.fortune) {
+      Scroll() {
         Column() {
-          Text(this.fortune!.level)
-            .fontSize(FontSizes.TITLE_LARGE)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(this.fortune!.color)
-
-          Text(this.fortune!.description)
+          // 日期
+          Text(this.todayDate)
             .fontSize(FontSizes.BODY)
             .fontColor(ThemeColors.TEXT_SECONDARY)
-            .margin({ top: Spacing.SMALL })
-        }
-        .margin({ top: Spacing.LARGE })
+            .margin({ top: Spacing.LARGE })
 
-        // 神兵卡片
-        Column() {
-          // 图片
-          Stack({ alignContent: Alignment.Bottom }) {
-            Image($rawfile(`images/${this.selectedWeapon!.image}`))
-              .width('100%')
-              .aspectRatio(1.2)
-              .objectFit(ImageFit.Cover)
-
-            // 渐变遮罩
-            Column()
-              .width('100%')
-              .height(80)
-              .linearGradient({
-                angle: 180,
-                colors: [['rgba(0,0,0,0)', 0], [ThemeColors.SURFACE_0, 1]]
-              })
-          }
-          .width('100%')
-          .clip(true)
-          .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
-
-          // 信息
+          // 运势
           Column() {
-            // 品质标签
-            Text(RarityNames[this.selectedWeapon!.rarity] || this.selectedWeapon!.rarity)
-              .fontSize(FontSizes.BODY_SMALL)
-              .fontColor(getRarityColor(this.selectedWeapon!.rarity))
+            Text(this.fortune.level)
+              .fontSize(FontSizes.TITLE_LARGE)
               .fontWeight(FontWeight.Bold)
-              .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
-              .backgroundColor('rgba(0,0,0,0.5)')
-              .borderRadius(4)
+              .fontColor(this.fortune.color)
 
-            // 名称
-            Text(this.selectedWeapon!.name.cn)
-              .fontSize(FontSizes.TITLE)
-              .fontWeight(FontWeight.Bold)
-              .fontColor(ThemeColors.TEXT_TITLE)
-              .margin({ top: Spacing.SMALL })
-
-            // 文化和类型
-            Text(`${CultureNames[this.selectedWeapon!.culture]} · ${WeaponTypeNames[this.selectedWeapon!.type]}`)
+            Text(this.fortune.description)
               .fontSize(FontSizes.BODY)
               .fontColor(ThemeColors.TEXT_SECONDARY)
-              .margin({ top: Spacing.TINY })
+              .margin({ top: Spacing.SMALL })
+          }
+          .margin({ top: Spacing.LARGE })
 
-            // 属性
-            Row() {
-              Text(AttributeNames[this.selectedWeapon!.attributes.primary] || this.selectedWeapon!.attributes.primary)
-                .fontSize(FontSizes.BODY_SMALL)
-                .fontColor(ThemeColors.GOLD_PRIMARY)
-                .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-                .backgroundColor(ThemeColors.BASE_1)
-                .borderRadius(4)
+          // 神兵卡片
+          Column() {
+            // 图片
+            Stack({ alignContent: Alignment.Bottom }) {
+              Image($rawfile(`images/${this.selectedWeapon.image ?? 'weapon_default.png'}`))
+                .width('100%')
+                .aspectRatio(1.2)
+                .objectFit(ImageFit.Cover)
 
-              if (this.selectedWeapon!.attributes.secondary) {
-                Text(AttributeNames[this.selectedWeapon!.attributes.secondary] || this.selectedWeapon!.attributes.secondary)
-                  .fontSize(FontSizes.BODY_SMALL)
-                  .fontColor(ThemeColors.GOLD_PRIMARY)
-                  .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
-                  .backgroundColor(ThemeColors.BASE_1)
-                  .borderRadius(4)
-                  .margin({ left: Spacing.SMALL })
-              }
-            }
-            .margin({ top: Spacing.MEDIUM })
-
-            // 描述
-            Text(this.selectedWeapon!.description)
-              .fontSize(FontSizes.BODY)
-              .fontColor(ThemeColors.TEXT_TERTIARY)
-              .margin({ top: Spacing.MEDIUM })
-              .lineHeight(22)
-
-            // 查看详情按钮
-            Column() {
-              Text('查看详情')
-                .fontSize(FontSizes.BODY)
-                .fontColor(ThemeColors.BASE_0)
-                .fontWeight(FontWeight.Bold)
+              // 渐变遮罩
+              Column()
+                .width('100%')
+                .height(80)
+                .linearGradient({
+                  angle: 180,
+                  colors: [['rgba(0,0,0,0)', 0], [ThemeColors.SURFACE_0, 1]]
+                })
             }
             .width('100%')
-            .height(48)
-            .justifyContent(FlexAlign.Center)
-            .backgroundColor(ThemeColors.GOLD_PRIMARY)
-            .borderRadius(24)
-            .margin({ top: Spacing.LARGE })
-            .onClick(() => this.navigateToWeaponDetail())
+            .clip(true)
+            .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
+
+            // 信息
+            Column() {
+              // 品质标签
+              Text(RarityNames[this.selectedWeapon.rarity] ?? this.selectedWeapon.rarity ?? '')
+                .fontSize(FontSizes.BODY_SMALL)
+                .fontColor(getRarityColor(this.selectedWeapon.rarity ?? 'rare'))
+                .fontWeight(FontWeight.Bold)
+                .padding({ left: Spacing.MEDIUM, right: Spacing.MEDIUM, top: Spacing.TINY, bottom: Spacing.TINY })
+                .backgroundColor('rgba(0,0,0,0.5)')
+                .borderRadius(4)
+
+              // 名称
+              Text(this.selectedWeapon.name?.cn ?? '')
+                .fontSize(FontSizes.TITLE)
+                .fontWeight(FontWeight.Bold)
+                .fontColor(ThemeColors.TEXT_TITLE)
+                .margin({ top: Spacing.SMALL })
+
+              // 文化和类型
+              Text(`${CultureNames[this.selectedWeapon.culture] ?? ''} · ${WeaponTypeNames[this.selectedWeapon.type] ?? ''}`)
+                .fontSize(FontSizes.BODY)
+                .fontColor(ThemeColors.TEXT_SECONDARY)
+                .margin({ top: Spacing.TINY })
+
+              // 属性
+              if (this.selectedWeapon.attributes) {
+                Row() {
+                  if (this.selectedWeapon.attributes.primary) {
+                    Text(AttributeNames[this.selectedWeapon.attributes.primary] ?? this.selectedWeapon.attributes.primary)
+                      .fontSize(FontSizes.BODY_SMALL)
+                      .fontColor(ThemeColors.GOLD_PRIMARY)
+                      .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
+                      .backgroundColor(ThemeColors.BASE_1)
+                      .borderRadius(4)
+                  }
+
+                  if (this.selectedWeapon.attributes.secondary) {
+                    Text(AttributeNames[this.selectedWeapon.attributes.secondary] ?? this.selectedWeapon.attributes.secondary)
+                      .fontSize(FontSizes.BODY_SMALL)
+                      .fontColor(ThemeColors.GOLD_PRIMARY)
+                      .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
+                      .backgroundColor(ThemeColors.BASE_1)
+                      .borderRadius(4)
+                      .margin({ left: Spacing.SMALL })
+                  }
+                }
+                .margin({ top: Spacing.MEDIUM })
+              }
+
+              // 描述
+              Text(this.selectedWeapon.description ?? '')
+                .fontSize(FontSizes.BODY)
+                .fontColor(ThemeColors.TEXT_TERTIARY)
+                .margin({ top: Spacing.MEDIUM })
+                .lineHeight(22)
+
+              // 查看详情按钮
+              Column() {
+                Text('查看详情')
+                  .fontSize(FontSizes.BODY)
+                  .fontColor(ThemeColors.BASE_0)
+                  .fontWeight(FontWeight.Bold)
+              }
+              .width('100%')
+              .height(48)
+              .justifyContent(FlexAlign.Center)
+              .backgroundColor(ThemeColors.GOLD_PRIMARY)
+              .borderRadius(24)
+              .margin({ top: Spacing.LARGE })
+              .onClick(() => this.navigateToWeaponDetail())
+            }
+            .width('100%')
+            .padding(Spacing.LARGE)
+            .alignItems(HorizontalAlign.Start)
           }
           .width('100%')
-          .padding(Spacing.LARGE)
-          .alignItems(HorizontalAlign.Start)
+          .backgroundColor(ThemeColors.SURFACE_0)
+          .borderRadius(Spacing.MEDIUM)
+          .margin({ top: Spacing.XLARGE, left: Spacing.LARGE, right: Spacing.LARGE })
+          .border({
+            width: 1,
+            color: getRarityDarkColor(this.selectedWeapon.rarity ?? 'rare')
+          })
+
+          // 再次占卜提示
+          Text('明日再来获取新的神兵运势')
+            .fontSize(FontSizes.BODY_SMALL)
+            .fontColor(ThemeColors.TEXT_TERTIARY)
+            .margin({ top: Spacing.XLARGE })
+
+          Blank().height(Spacing.XXLARGE)
         }
         .width('100%')
-        .backgroundColor(ThemeColors.SURFACE_0)
-        .borderRadius(Spacing.MEDIUM)
-        .margin({ top: Spacing.XLARGE, left: Spacing.LARGE, right: Spacing.LARGE })
-        .border({
-          width: 1,
-          color: getRarityDarkColor(this.selectedWeapon!.rarity)
-        })
-
-        // 再次占卜提示
-        Text('明日再来获取新的神兵运势')
-          .fontSize(FontSizes.BODY_SMALL)
-          .fontColor(ThemeColors.TEXT_TERTIARY)
-          .margin({ top: Spacing.XLARGE })
-
-        Blank().height(Spacing.XXLARGE)
+        .alignItems(HorizontalAlign.Center)
       }
-      .width('100%')
-      .alignItems(HorizontalAlign.Center)
+      .layoutWeight(1)
+      .scrollBar(BarState.Off)
     }
-    .layoutWeight(1)
-    .scrollBar(BarState.Off)
   }
 }

@@ -39,22 +39,22 @@ export struct WeaponCard {
     Column() {
       // 图片区域
       Stack({ alignContent: Alignment.TopEnd }) {
-        Image($rawfile(`images/${this.weapon.image}`))
+        Image($rawfile(`images/${this.weapon?.image ?? 'weapon_default.png'}`))
           .width('100%')
           .height(120)
           .objectFit(ImageFit.Cover)
           .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
 
         // 品质标签 - 展柜铭牌风格
-        Text(RarityNames[this.weapon.rarity] || this.weapon.rarity)
+        Text(RarityNames[this.weapon?.rarity] ?? this.weapon?.rarity ?? '')
           .fontSize(FontSizes.SMALL)
-          .fontColor(getRarityColor(this.weapon.rarity))
+          .fontColor(getRarityColor(this.weapon?.rarity ?? 'rare'))
           .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
           .backgroundColor('rgba(26,34,51,0.85)')
           .borderRadius(4)
           .border({
             width: 1,
-            color: getRarityDarkColor(this.weapon.rarity)
+            color: getRarityDarkColor(this.weapon?.rarity ?? 'rare')
           })
           .margin({ top: Spacing.SMALL, right: Spacing.SMALL })
       }
@@ -63,7 +63,7 @@ export struct WeaponCard {
       // 信息区域
       Column() {
         // 名称使用羊皮纸色
-        Text(this.weapon.name.cn)
+        Text(this.weapon?.name?.cn ?? '')
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
           .fontColor(ThemeColors.TEXT_TITLE)
@@ -71,7 +71,7 @@ export struct WeaponCard {
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
         Row() {
-          Text(CultureNames[this.weapon.culture] || this.weapon.culture)
+          Text(CultureNames[this.weapon?.culture] ?? this.weapon?.culture ?? '')
             .fontSize(FontSizes.CAPTION)
             .fontColor(ThemeColors.TEXT_TERTIARY)
 
@@ -79,7 +79,7 @@ export struct WeaponCard {
             .fontSize(FontSizes.CAPTION)
             .fontColor(ThemeColors.TEXT_TERTIARY)
 
-          Text(WeaponTypeNames[this.weapon.type] || this.weapon.type)
+          Text(WeaponTypeNames[this.weapon?.type] ?? this.weapon?.type ?? '')
             .fontSize(FontSizes.CAPTION)
             .fontColor(ThemeColors.TEXT_TERTIARY)
         }
@@ -87,8 +87,10 @@ export struct WeaponCard {
 
         // 属性标签
         Row() {
-          this.AttributeTag(this.weapon.attributes.primary)
-          if (this.weapon.attributes.secondary) {
+          if (this.weapon?.attributes?.primary) {
+            this.AttributeTag(this.weapon.attributes.primary)
+          }
+          if (this.weapon?.attributes?.secondary) {
             this.AttributeTag(this.weapon.attributes.secondary)
           }
         }
@@ -104,11 +106,11 @@ export struct WeaponCard {
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 1,
-      color: getRarityDarkColor(this.weapon.rarity)
+      color: getRarityDarkColor(this.weapon?.rarity ?? 'rare')
     })
     .shadow({
       radius: 8,
-      color: `${getRarityColor(this.weapon.rarity)}15`,
+      color: `${getRarityColor(this.weapon?.rarity ?? 'rare')}15`,
       offsetX: 0,
       offsetY: 2
     })
@@ -126,7 +128,7 @@ export struct WeaponCard {
   SmallCard() {
     Row() {
       // 图片
-      Image($rawfile(`images/${this.weapon.image}`))
+      Image($rawfile(`images/${this.weapon?.image ?? 'weapon_default.png'}`))
         .width(60)
         .height(60)
         .objectFit(ImageFit.Cover)
@@ -134,22 +136,22 @@ export struct WeaponCard {
 
       // 信息
       Column() {
-        Text(this.weapon.name.cn)
+        Text(this.weapon?.name?.cn ?? '')
           .fontSize(FontSizes.BODY_SMALL)
           .fontWeight(FontWeight.Medium)
           .fontColor(ThemeColors.TEXT_TITLE)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
-        Text(`${CultureNames[this.weapon.culture] || this.weapon.culture} · ${WeaponTypeNames[this.weapon.type] || this.weapon.type}`)
+        Text(`${CultureNames[this.weapon?.culture] ?? this.weapon?.culture ?? ''} · ${WeaponTypeNames[this.weapon?.type] ?? this.weapon?.type ?? ''}`)
           .fontSize(FontSizes.CAPTION)
           .fontColor(ThemeColors.TEXT_TERTIARY)
           .margin({ top: 2 })
 
         Row() {
-          Text(RarityNames[this.weapon.rarity] || this.weapon.rarity)
+          Text(RarityNames[this.weapon?.rarity] ?? this.weapon?.rarity ?? '')
             .fontSize(FontSizes.SMALL)
-            .fontColor(getRarityColor(this.weapon.rarity))
+            .fontColor(getRarityColor(this.weapon?.rarity ?? 'rare'))
         }
         .margin({ top: Spacing.TINY })
       }
@@ -181,7 +183,7 @@ export struct WeaponCard {
     Column() {
       // 图片区域
       Stack({ alignContent: Alignment.BottomStart }) {
-        Image($rawfile(`images/${this.weapon.image}`))
+        Image($rawfile(`images/${this.weapon?.image ?? 'weapon_default.png'}`))
           .width('100%')
           .height(180)
           .objectFit(ImageFit.Cover)
@@ -198,22 +200,24 @@ export struct WeaponCard {
 
         // 品质和属性
         Row() {
-          Text(RarityNames[this.weapon.rarity] || this.weapon.rarity)
+          Text(RarityNames[this.weapon?.rarity] ?? this.weapon?.rarity ?? '')
             .fontSize(FontSizes.BODY_SMALL)
-            .fontColor(getRarityColor(this.weapon.rarity))
+            .fontColor(getRarityColor(this.weapon?.rarity ?? 'rare'))
             .fontWeight(FontWeight.Bold)
             .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
             .backgroundColor('rgba(26,34,51,0.85)')
             .borderRadius(4)
             .border({
               width: 1,
-              color: getRarityDarkColor(this.weapon.rarity)
+              color: getRarityDarkColor(this.weapon?.rarity ?? 'rare')
             })
 
           Blank()
 
-          this.AttributeTag(this.weapon.attributes.primary)
-          if (this.weapon.attributes.secondary) {
+          if (this.weapon?.attributes?.primary) {
+            this.AttributeTag(this.weapon.attributes.primary)
+          }
+          if (this.weapon?.attributes?.secondary) {
             this.AttributeTag(this.weapon.attributes.secondary)
           }
         }
@@ -225,12 +229,12 @@ export struct WeaponCard {
       // 信息区域
       Column() {
         Row() {
-          Text(this.weapon.name.cn)
+          Text(this.weapon?.name?.cn ?? '')
             .fontSize(FontSizes.SUBTITLE)
             .fontWeight(FontWeight.Bold)
             .fontColor(ThemeColors.TEXT_TITLE)
 
-          if (this.weapon.name.en) {
+          if (this.weapon?.name?.en) {
             Text(this.weapon.name.en)
               .fontSize(FontSizes.CAPTION)
               .fontColor(ThemeColors.TEXT_TERTIARY)
@@ -238,12 +242,12 @@ export struct WeaponCard {
           }
         }
 
-        Text(`${CultureNames[this.weapon.culture] || this.weapon.culture} · ${WeaponTypeNames[this.weapon.type] || this.weapon.type}`)
+        Text(`${CultureNames[this.weapon?.culture] ?? this.weapon?.culture ?? ''} · ${WeaponTypeNames[this.weapon?.type] ?? this.weapon?.type ?? ''}`)
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(ThemeColors.TEXT_SECONDARY)
           .margin({ top: Spacing.TINY })
 
-        Text(this.weapon.description)
+        Text(this.weapon?.description ?? '')
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(ThemeColors.TEXT_TERTIARY)
           .maxLines(2)
@@ -260,11 +264,11 @@ export struct WeaponCard {
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 2,
-      color: getRarityDarkColor(this.weapon.rarity)
+      color: getRarityDarkColor(this.weapon?.rarity ?? 'rare')
     })
     .shadow({
       radius: 12,
-      color: `${getRarityColor(this.weapon.rarity)}18`,
+      color: `${getRarityColor(this.weapon?.rarity ?? 'rare')}18`,
       offsetX: 0,
       offsetY: 4
     })
@@ -281,16 +285,16 @@ export struct WeaponCard {
   @Builder
   AttributeTag(attribute: string) {
     Row() {
-      Text(AttributeNames[attribute] || attribute)
+      Text(AttributeNames[attribute] ?? attribute ?? '')
         .fontSize(FontSizes.SMALL)
-        .fontColor(getAttributeLightColor(attribute))
+        .fontColor(getAttributeLightColor(attribute ?? 'fire'))
     }
     .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
     .backgroundColor('rgba(26,34,51,0.7)')
     .borderRadius(4)
     .border({
       width: 1,
-      color: getAttributeColor(attribute)
+      color: getAttributeColor(attribute ?? 'fire')
     })
     .margin({ right: Spacing.TINY })
   }

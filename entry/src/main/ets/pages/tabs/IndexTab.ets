@@ -357,22 +357,22 @@ export struct IndexContent {
     Column() {
       // 图片区域
       Stack({ alignContent: Alignment.TopEnd }) {
-        Image($rawfile(`images/${weapon.image}`))
+        Image($rawfile(`images/${weapon?.image ?? 'weapon_default.png'}`))
           .width('100%')
           .height(120)
           .objectFit(ImageFit.Cover)
           .borderRadius({ topLeft: Spacing.MEDIUM, topRight: Spacing.MEDIUM })
 
         // 品质标签 - 展柜铭牌风格
-        Text(RarityNames[weapon.rarity] || weapon.rarity)
+        Text(RarityNames[weapon?.rarity] ?? weapon?.rarity ?? '')
           .fontSize(FontSizes.SMALL)
-          .fontColor(getRarityColor(weapon.rarity))
+          .fontColor(getRarityColor(weapon?.rarity ?? 'rare'))
           .padding({ left: Spacing.SMALL, right: Spacing.SMALL, top: 2, bottom: 2 })
           .backgroundColor('rgba(26,34,51,0.85)')
           .borderRadius(4)
           .border({
             width: 1,
-            color: getRarityDarkColor(weapon.rarity)
+            color: getRarityDarkColor(weapon?.rarity ?? 'rare')
           })
           .margin({ top: Spacing.SMALL, right: Spacing.SMALL })
       }
@@ -381,7 +381,7 @@ export struct IndexContent {
       // 信息区域
       Column() {
         // 名称使用羊皮纸色
-        Text(weapon.name.cn)
+        Text(weapon?.name?.cn ?? '')
           .fontSize(FontSizes.BODY)
           .fontWeight(FontWeight.Medium)
           .fontColor(ThemeColors.TEXT_TITLE)
@@ -389,7 +389,7 @@ export struct IndexContent {
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
         Row() {
-          Text(CultureNames[weapon.culture] || weapon.culture)
+          Text(CultureNames[weapon?.culture] ?? weapon?.culture ?? '')
             .fontSize(FontSizes.CAPTION)
             .fontColor(ThemeColors.TEXT_TERTIARY)
 
@@ -397,7 +397,7 @@ export struct IndexContent {
             .fontSize(FontSizes.CAPTION)
             .fontColor(ThemeColors.TEXT_TERTIARY)
 
-          Text(WeaponTypeNames[weapon.type] || weapon.type)
+          Text(WeaponTypeNames[weapon?.type] ?? weapon?.type ?? '')
             .fontSize(FontSizes.CAPTION)
             .fontColor(ThemeColors.TEXT_TERTIARY)
         }
@@ -413,14 +413,18 @@ export struct IndexContent {
     .borderRadius(Spacing.MEDIUM)
     .border({
       width: 1,
-      color: getRarityDarkColor(weapon.rarity)
+      color: getRarityDarkColor(weapon?.rarity ?? 'rare')
     })
     .shadow({
       radius: 8,
-      color: `${getRarityColor(weapon.rarity)}15`,
+      color: `${getRarityColor(weapon?.rarity ?? 'rare')}15`,
       offsetX: 0,
       offsetY: 2
     })
-    .onClick(() => this.navigateToWeaponDetail(weapon.id))
+    .onClick(() => {
+      if (weapon?.id) {
+        this.navigateToWeaponDetail(weapon.id)
+      }
+    })
   }
 }

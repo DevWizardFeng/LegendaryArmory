@@ -631,15 +631,15 @@ struct WeaponDetail {
    */
   @Builder
   StatsSection() {
-    if (this.weapon) {
+    if (this.weapon && this.weapon.stats) {
       Column() {
         this.SectionTitle('属性数据')
 
         Row() {
-          this.StatItem('攻击', this.weapon.stats.attack, ThemeColors.RUST)
-          this.StatItem('防御', this.weapon.stats.defense, ThemeColors.INFO)
-          this.StatItem('速度', this.weapon.stats.speed, ThemeColors.SUCCESS)
-          this.StatItem('暴击', this.weapon.stats.critical || 0, ThemeColors.EMBER)
+          this.StatItem('攻击', this.weapon.stats.attack ?? 0, ThemeColors.RUST)
+          this.StatItem('防御', this.weapon.stats.defense ?? 0, ThemeColors.INFO)
+          this.StatItem('速度', this.weapon.stats.speed ?? 0, ThemeColors.SUCCESS)
+          this.StatItem('暴击', this.weapon.stats.critical ?? 0, ThemeColors.EMBER)
         }
         .width('100%')
         .justifyContent(FlexAlign.SpaceAround)
@@ -795,12 +795,12 @@ struct WeaponDetail {
         ForEach(this.weapon.famous_owners, (owner: FamousOwner) => {
           Row() {
             Column() {
-              Text(owner.name)
+              Text(owner?.name ?? '')
                 .fontSize(FontSizes.BODY)
                 .fontWeight(FontWeight.Medium)
                 .fontColor(ThemeColors.TEXT_TITLE)
 
-              Text(owner.story)
+              Text(owner?.story ?? '')
                 .fontSize(FontSizes.BODY_SMALL)
                 .fontColor(ThemeColors.TEXT_TERTIARY)
                 .margin({ top: Spacing.TINY })
@@ -858,22 +858,22 @@ struct WeaponDetail {
   @Builder
   RelatedWeaponCard(weapon: LegendaryWeapon) {
     Column() {
-      Image($rawfile(`images/${weapon.image}`))
+      Image($rawfile(`images/${weapon.image ?? 'weapon_default.png'}`))
         .width(100)
         .height(80)
         .objectFit(ImageFit.Cover)
         .borderRadius({ topLeft: Spacing.SMALL, topRight: Spacing.SMALL })
 
       Column() {
-        Text(weapon.name.cn)
+        Text(weapon.name?.cn ?? '')
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(ThemeColors.TEXT_TITLE)
           .maxLines(1)
           .textOverflow({ overflow: TextOverflow.Ellipsis })
 
-        Text(RarityNames[weapon.rarity] || weapon.rarity)
+        Text(RarityNames[weapon.rarity] ?? weapon.rarity ?? '')
           .fontSize(FontSizes.SMALL)
-          .fontColor(getRarityColor(weapon.rarity))
+          .fontColor(getRarityColor(weapon.rarity ?? 'rare'))
           .margin({ top: 2 })
       }
       .width('100%')
@@ -885,11 +885,11 @@ struct WeaponDetail {
     .borderRadius(Spacing.SMALL)
     .border({
       width: 1,
-      color: getRarityDarkColor(weapon.rarity)
+      color: getRarityDarkColor(weapon.rarity ?? 'rare')
     })
     .shadow({
       radius: 6,
-      color: `${getRarityColor(weapon.rarity)}12`,
+      color: `${getRarityColor(weapon.rarity ?? 'rare')}12`,
       offsetX: 0,
       offsetY: 2
     })

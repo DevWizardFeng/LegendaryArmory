@@ -73,32 +73,45 @@ struct SearchPage {
 
     const query = keyword.toLowerCase().trim()
 
-    // 搜索匹配
+    // 搜索匹配 - 添加完整的空值保护
     this.searchResults = this.allWeapons.filter(weapon => {
+      // 安全检查基本属性
+      if (!weapon || !weapon.name) return false
+
       // 名称匹配
-      if (weapon.name.cn.toLowerCase().includes(query)) return true
+      if (weapon.name.cn && weapon.name.cn.toLowerCase().includes(query)) return true
       if (weapon.name.en && weapon.name.en.toLowerCase().includes(query)) return true
 
       // 文化匹配
-      const cultureName = CultureNames[weapon.culture] || ''
-      if (cultureName.includes(query) || weapon.culture.includes(query)) return true
+      if (weapon.culture) {
+        const cultureName = CultureNames[weapon.culture] || ''
+        if (cultureName.includes(query) || weapon.culture.includes(query)) return true
+      }
 
       // 类型匹配
-      const typeName = WeaponTypeNames[weapon.type] || ''
-      if (typeName.includes(query) || weapon.type.includes(query)) return true
+      if (weapon.type) {
+        const typeName = WeaponTypeNames[weapon.type] || ''
+        if (typeName.includes(query) || weapon.type.includes(query)) return true
+      }
 
       // 品质匹配
-      const rarityName = RarityNames[weapon.rarity] || ''
-      if (rarityName.includes(query) || weapon.rarity.includes(query)) return true
+      if (weapon.rarity) {
+        const rarityName = RarityNames[weapon.rarity] || ''
+        if (rarityName.includes(query) || weapon.rarity.includes(query)) return true
+      }
 
       // 描述匹配
-      if (weapon.description.includes(query)) return true
+      if (weapon.description && weapon.description.includes(query)) return true
 
       // 持有者匹配
-      if (weapon.famous_owners && weapon.famous_owners.some(o => o.name.includes(query))) return true
+      if (weapon.famous_owners && Array.isArray(weapon.famous_owners)) {
+        if (weapon.famous_owners.some(o => o && o.name && o.name.includes(query))) return true
+      }
 
       // 标签匹配
-      if (weapon.tags && weapon.tags.some(t => t.includes(query))) return true
+      if (weapon.tags && Array.isArray(weapon.tags)) {
+        if (weapon.tags.some(t => t && t.includes(query))) return true
+      }
 
       return false
     })
@@ -474,7 +487,7 @@ struct SearchPage {
   SearchResultItem(weapon: LegendaryWeapon) {
     Row() {
       // 图片
-      Image($rawfile(`images/${weapon.image}`))
+      Image($rawfile(`images/${weapon.image ?? 'weapon_default.png'}`))
         .width(80)
         .height(80)
         .objectFit(ImageFit.Cover)
@@ -483,23 +496,23 @@ struct SearchPage {
       // 信息
       Column() {
         Row() {
-          Text(weapon.name.cn)
+          Text(weapon.name?.cn ?? '')
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
             .fontColor(ThemeColors.TEXT_TITLE)
 
-          Text(RarityNames[weapon.rarity] || weapon.rarity)
+          Text(RarityNames[weapon.rarity] ?? weapon.rarity ?? '')
             .fontSize(FontSizes.SMALL)
-            .fontColor(getRarityColor(weapon.rarity))
+            .fontColor(getRarityColor(weapon.rarity ?? 'rare'))
             .margin({ left: Spacing.SMALL })
         }
 
-        Text(`${CultureNames[weapon.culture] || weapon.culture} · ${WeaponTypeNames[weapon.type] || weapon.type}`)
+        Text(`${CultureNames[weapon.culture] ?? weapon.culture ?? ''} · ${WeaponTypeNames[weapon.type] ?? weapon.type ?? ''}`)
           .fontSize(FontSizes.CAPTION)
           .fontColor(ThemeColors.TEXT_TERTIARY)
           .margin({ top: Spacing.TINY })
 
-        Text(weapon.description)
+        Text(weapon.description ?? '')
           .fontSize(FontSizes.BODY_SMALL)
           .fontColor(ThemeColors.TEXT_SECONDARY)
           .maxLines(2)

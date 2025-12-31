@@ -190,7 +190,7 @@ struct FavoriteList {
         ListItem() {
           this.WeaponItem(weapon)
         }
-      }, (weapon: LegendaryWeapon) => weapon.id)
+      }, (weapon: LegendaryWeapon) => weapon?.id ?? Math.random().toString())
     }
     .layoutWeight(1)
     .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.MEDIUM, bottom: Spacing.MEDIUM })
@@ -210,34 +210,34 @@ struct FavoriteList {
   WeaponItem(weapon: LegendaryWeapon) {
     Row() {
       // 图片
-      Image($rawfile(`images/${weapon.image}`))
+      Image($rawfile(`images/${weapon?.image ?? 'weapon_default.png'}`))
         .width(64)
         .height(64)
         .objectFit(ImageFit.Cover)
         .borderRadius(Spacing.SMALL)
-        .border({ width: 2, color: getRarityDarkColor(weapon.rarity) })
+        .border({ width: 2, color: getRarityDarkColor(weapon?.rarity ?? 'rare') })
 
       // 信息
       Column() {
         Row() {
-          Text(weapon.name.cn)
+          Text(weapon?.name?.cn ?? '')
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
             .fontColor(ThemeColors.TEXT_TITLE)
 
-          Text(RarityNames[weapon.rarity] || weapon.rarity)
+          Text(RarityNames[weapon?.rarity] ?? weapon?.rarity ?? '')
             .fontSize(FontSizes.SMALL)
-            .fontColor(getRarityColor(weapon.rarity))
+            .fontColor(getRarityColor(weapon?.rarity ?? 'rare'))
             .margin({ left: Spacing.SMALL })
         }
         .width('100%')
 
-        Text(`${CultureNames[weapon.culture] || weapon.culture} · ${WeaponTypeNames[weapon.type] || weapon.type}`)
+        Text(`${CultureNames[weapon?.culture] ?? weapon?.culture ?? ''} · ${WeaponTypeNames[weapon?.type] ?? weapon?.type ?? ''}`)
           .fontSize(FontSizes.CAPTION)
           .fontColor(ThemeColors.TEXT_TERTIARY)
           .margin({ top: 4 })
 
-        if (weapon.attributes.primary) {
+        if (weapon?.attributes?.primary) {
           Text(`属性: ${weapon.attributes.primary}${weapon.attributes.secondary ? ' / ' + weapon.attributes.secondary : ''}`)
             .fontSize(FontSizes.SMALL)
             .fontColor(ThemeColors.TEXT_SECONDARY)
@@ -260,7 +260,11 @@ struct FavoriteList {
     .borderRadius(Spacing.MEDIUM)
     .border({ width: 1, color: ThemeColors.DIVIDER })
     .margin({ bottom: Spacing.MEDIUM })
-    .onClick(() => this.navigateToWeaponDetail(weapon.id))
+    .onClick(() => {
+      if (weapon?.id) {
+        this.navigateToWeaponDetail(weapon.id)
+      }
+    })
   }
 }
 

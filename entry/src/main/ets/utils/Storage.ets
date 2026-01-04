@@ -71,6 +71,9 @@ export class StorageManager {
       const prefs = this.ensureInit()
       await prefs.put(KEY_FAVORITES, JSON.stringify(favorites))
       await prefs.flush()
+
+      // 同步更新 AppStorage，触发 @StorageLink 监听器
+      AppStorage.setOrCreate('favoriteWeaponIds', favorites)
     }
   }
 
@@ -85,6 +88,9 @@ export class StorageManager {
       const prefs = this.ensureInit()
       await prefs.put(KEY_FAVORITES, JSON.stringify(favorites))
       await prefs.flush()
+
+      // 同步更新 AppStorage，触发 @StorageLink 监听器
+      AppStorage.setOrCreate('favoriteWeaponIds', favorites)
     }
   }
 

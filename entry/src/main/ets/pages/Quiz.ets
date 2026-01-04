@@ -185,7 +185,9 @@ struct Quiz {
     this.isAnswerRevealed = true
 
     const currentQuestion = this.questions[this.currentQuestionIndex]
-    const isCorrect = index === currentQuestion.correct_answer
+    // 确保 correct_answer 为数字类型进行比较
+    const correctAnswerIndex = Number(currentQuestion.correct_answer)
+    const isCorrect = index === correctAnswerIndex
 
     if (isCorrect) {
       this.correctCount++
@@ -601,7 +603,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return this.selectedAnswer === index ? ThemeColors.BASE_0 : ThemeColors.TEXT_PRIMARY
     }
-    const correctAnswer = this.questions[this.currentQuestionIndex].correct_answer
+    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
     if (index === correctAnswer) return ThemeColors.BASE_0
     if (index === this.selectedAnswer) return ThemeColors.BASE_0
     return ThemeColors.TEXT_TERTIARY
@@ -614,7 +616,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return this.selectedAnswer === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.BASE_1
     }
-    const correctAnswer = this.questions[this.currentQuestionIndex].correct_answer
+    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
     if (index === correctAnswer) return ThemeColors.SUCCESS
     if (index === this.selectedAnswer) return ThemeColors.ERROR
     return ThemeColors.BASE_1
@@ -627,7 +629,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return ThemeColors.TEXT_PRIMARY
     }
-    const correctAnswer = this.questions[this.currentQuestionIndex].correct_answer
+    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
     if (index === correctAnswer) return ThemeColors.SUCCESS
     if (index === this.selectedAnswer) return ThemeColors.ERROR
     return ThemeColors.TEXT_TERTIARY
@@ -647,7 +649,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return this.selectedAnswer === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.DIVIDER
     }
-    const correctAnswer = this.questions[this.currentQuestionIndex].correct_answer
+    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
     if (index === correctAnswer) return ThemeColors.SUCCESS
     if (index === this.selectedAnswer) return ThemeColors.ERROR
     return ThemeColors.DIVIDER

@@ -704,7 +704,7 @@ struct WeaponDetail {
    */
   @Builder
   ForgingLegendSection() {
-    if (this.weapon) {
+    if (this.weapon && this.weapon.forging_legend && this.weapon.forging_legend.trim() !== '') {
       Column() {
         this.SectionTitle('铸造传说')
 
@@ -724,7 +724,7 @@ struct WeaponDetail {
    */
   @Builder
   BattleLegendSection() {
-    if (this.weapon) {
+    if (this.weapon && this.weapon.battle_legend && this.weapon.battle_legend.trim() !== '') {
       Column() {
         this.SectionTitle('战斗传说')
 

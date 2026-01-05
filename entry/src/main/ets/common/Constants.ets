@@ -8,7 +8,7 @@
  */
 export class AppConstants {
   static readonly APP_NAME = '神兵图录'
-  static readonly APP_VERSION = '1.0.4'
+  static readonly APP_VERSION = '1.0.5'
   static readonly APP_DESCRIPTION = '传说兵器图鉴'
 }
 

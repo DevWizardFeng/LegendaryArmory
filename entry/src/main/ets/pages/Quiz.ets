@@ -161,6 +161,8 @@ struct Quiz {
     this.wrongCount++
     this.combo = 0
 
+    console.info(`[Quiz] 超时! 当前错误数: ${this.wrongCount}`)
+
     if (this.currentMode === 'endless') {
       this.lives--
       if (this.lives <= 0) {
@@ -171,7 +173,7 @@ struct Quiz {
 
     setTimeout(() => {
       this.nextQuestion()
-    }, 1500)
+    }, 2000) // 延长显示时间到2秒，让用户看清正确答案
   }
 
   /**
@@ -185,9 +187,18 @@ struct Quiz {
     this.isAnswerRevealed = true
 
     const currentQuestion = this.questions[this.currentQuestionIndex]
-    // 确保 correct_answer 为数字类型进行比较
-    const correctAnswerIndex = Number(currentQuestion.correct_answer)
+    // 确保 correct_answer 为数字类型进行比较，强制类型转换避免类型不匹配
+    const correctAnswerIndex = typeof currentQuestion.correct_answer === 'number'
+      ? currentQuestion.correct_answer
+      : parseInt(String(currentQuestion.correct_answer), 10)
+
+    // 添加调试日志
+    console.info(`[Quiz] 题目: ${currentQuestion.question}`)
+    console.info(`[Quiz] 选择答案索引: ${index}, 正确答案索引: ${correctAnswerIndex}`)
+    console.info(`[Quiz] correct_answer原始值: ${currentQuestion.correct_answer}, 类型: ${typeof currentQuestion.correct_answer}`)
+
     const isCorrect = index === correctAnswerIndex
+    console.info(`[Quiz] 判断结果: ${isCorrect ? '正确' : '错误'}`)
 
     if (isCorrect) {
       this.correctCount++
@@ -201,9 +212,11 @@ struct Quiz {
       else if (this.combo >= 5) multiplier = 2
       else if (this.combo >= 3) multiplier = 1.5
       this.score += Math.floor(100 * multiplier)
+      console.info(`[Quiz] 正确! 当前正确数: ${this.correctCount}, 连击: ${this.combo}, 得分: ${this.score}`)
     } else {
       this.wrongCount++
       this.combo = 0
+      console.info(`[Quiz] 错误! 当前错误数: ${this.wrongCount}`)
       if (this.currentMode === 'endless') {
         this.lives--
         if (this.lives <= 0) {
@@ -215,7 +228,7 @@ struct Quiz {
 
     setTimeout(() => {
       this.nextQuestion()
-    }, 1500)
+    }, 2000) // 延长显示时间到2秒，让用户看清正确答案
   }
 
   /**
@@ -524,6 +537,33 @@ struct Quiz {
   }
 
   /**
+   * 获取当前题目的正确答案索引
+   */
+  getCorrectAnswerIndex(): number {
+    if (this.questions.length === 0 || this.currentQuestionIndex >= this.questions.length) {
+      return -1
+    }
+    const currentQuestion = this.questions[this.currentQuestionIndex]
+    return typeof currentQuestion.correct_answer === 'number'
+      ? currentQuestion.correct_answer
+      : parseInt(String(currentQuestion.correct_answer), 10)
+  }
+
+  /**
+   * 判断用户是否回答正确
+   */
+  isAnswerCorrect(): boolean {
+    return this.selectedAnswer === this.getCorrectAnswerIndex() && this.selectedAnswer !== -1
+  }
+
+  /**
+   * 判断是否超时
+   */
+  isTimeoutAnswer(): boolean {
+    return this.selectedAnswer === -1
+  }
+
+  /**
    * 题目区域
    */
   @Builder
@@ -548,6 +588,11 @@ struct Quiz {
           }
           .width('100%')
           .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+
+          // 答题后显示正确答案提示
+          if (this.isAnswerRevealed) {
+            this.AnswerHint()
+          }
         }
         .width('100%')
       }
@@ -556,6 +601,78 @@ struct Quiz {
     }
     .width('100%')
     .layoutWeight(1)
+  }
+
+  /**
+   * 正确答案提示
+   */
+  @Builder
+  AnswerHint() {
+    Column() {
+      // 判断结果提示
+      Row() {
+        // 使用现有的图标资源
+        if (this.isAnswerCorrect()) {
+          Image($r('app.media.icon_favorite_filled'))
+            .width(20)
+            .height(20)
+            .fillColor(ThemeColors.SUCCESS)
+            .margin({ right: Spacing.SMALL })
+        } else {
+          Image($r('app.media.icon_close'))
+            .width(20)
+            .height(20)
+            .fillColor(ThemeColors.ERROR)
+            .margin({ right: Spacing.SMALL })
+        }
+
+        Text(this.isTimeoutAnswer() ? '超时未答！' : (this.isAnswerCorrect() ? '回答正确！' : '回答错误！'))
+          .fontSize(FontSizes.BODY)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(this.isAnswerCorrect() ? ThemeColors.SUCCESS : ThemeColors.ERROR)
+      }
+      .margin({ bottom: Spacing.MEDIUM })
+
+      // 正确答案提示框（绿色边框）
+      Column() {
+        Row() {
+          Text('正确答案：')
+            .fontSize(FontSizes.BODY_SMALL)
+            .fontColor(ThemeColors.TEXT_SECONDARY)
+
+          Text(String.fromCharCode(65 + this.getCorrectAnswerIndex()))
+            .fontSize(FontSizes.BODY)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(ThemeColors.SUCCESS)
+            .margin({ left: Spacing.SMALL, right: Spacing.SMALL })
+
+          Text(this.questions[this.currentQuestionIndex].options[this.getCorrectAnswerIndex()])
+            .fontSize(FontSizes.BODY)
+            .fontColor(ThemeColors.TEXT_PRIMARY)
+            .layoutWeight(1)
+        }
+        .width('100%')
+
+        // 答案解释
+        if (this.questions[this.currentQuestionIndex].explanation) {
+          Text(this.questions[this.currentQuestionIndex].explanation)
+            .fontSize(FontSizes.BODY_SMALL)
+            .fontColor(ThemeColors.TEXT_SECONDARY)
+            .margin({ top: Spacing.SMALL })
+            .lineHeight(20)
+        }
+      }
+      .width('100%')
+      .padding(Spacing.MEDIUM)
+      .backgroundColor(ThemeColors.SURFACE_0)
+      .borderRadius(Spacing.SMALL)
+      .border({
+        width: 2,
+        color: ThemeColors.SUCCESS  // 绿色边框
+      })
+    }
+    .width('100%')
+    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.MEDIUM })
   }
 
   /**

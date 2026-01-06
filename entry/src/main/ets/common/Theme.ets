@@ -169,6 +169,29 @@ export function getAttributeLightColor(attribute: string): string {
 }
 
 /**
+ * 根据属性获取暗色（用于背景）
+ */
+export function getAttributeDarkColor(attribute: string): string {
+  switch (attribute) {
+    case 'fire': return 'rgba(178,58,42,0.3)'
+    case 'water': return 'rgba(42,90,138,0.3)'
+    case 'ice': return 'rgba(46,111,142,0.3)'
+    case 'thunder': return 'rgba(75,63,114,0.3)'
+    case 'wind': return 'rgba(62,123,116,0.3)'
+    case 'earth': return 'rgba(90,69,53,0.3)'
+    case 'light': return 'rgba(199,163,90,0.3)'
+    case 'dark': return 'rgba(27,31,42,0.5)'
+    case 'poison': return 'rgba(47,94,58,0.3)'
+    case 'nature': return 'rgba(58,90,58,0.3)'
+    case 'time_space': return 'rgba(58,58,90,0.3)'
+    case 'death': return 'rgba(42,42,42,0.5)'
+    case 'chaos': return 'rgba(90,42,74,0.3)'
+    case 'special': return 'rgba(90,90,42,0.3)'
+    default: return ThemeColors.SURFACE_0
+  }
+}
+
+/**
  * 字体大小
  */
 export class FontSizes {

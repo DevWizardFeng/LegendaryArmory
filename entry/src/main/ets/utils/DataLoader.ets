@@ -83,10 +83,62 @@ export class DataLoader {
 
   /**
    * 加载题目数据
+   * 对每道题的选项进行随机打乱，并相应更新正确答案索引
    */
   async loadQuestions(): Promise<Question[]> {
     const data = await this.loadJsonFile<QuestionsData>('questions.json')
-    return data.questions
+    const result: Question[] = []
+
+    // 处理每道题目，打乱选项顺序并更新正确答案索引
+    for (let i = 0; i < data.questions.length; i++) {
+      const q = data.questions[i]
+
+      // 确保 correct_answer 是数字类型
+      const originalCorrectIndex = typeof q.correct_answer === 'number'
+        ? q.correct_answer
+        : parseInt(String(q.correct_answer), 10)
+
+      // 如果解析失败，默认为 0
+      const safeCorrectIndex = isNaN(originalCorrectIndex) ? 0 : originalCorrectIndex
+
+      // 获取正确答案的内容
+      const correctAnswerText = q.options[safeCorrectIndex]
+
+      // 复制选项数组用于打乱
+      const shuffledOptions: string[] = []
+      for (let j = 0; j < q.options.length; j++) {
+        shuffledOptions.push(q.options[j])
+      }
+
+      // Fisher-Yates 打乱算法
+      for (let k = shuffledOptions.length - 1; k > 0; k--) {
+        const j = Math.floor(Math.random() * (k + 1))
+        const temp = shuffledOptions[k]
+        shuffledOptions[k] = shuffledOptions[j]
+        shuffledOptions[j] = temp
+      }
+
+      // 找到正确答案在新数组中的位置
+      const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText)
+
+      console.info(`[DataLoader] 题目: ${q.id}, 原正确索引: ${safeCorrectIndex}, 新正确索引: ${newCorrectIndex}`)
+
+      // 创建新的 Question 对象
+      const newQuestion: Question = {
+        id: q.id,
+        category: q.category,
+        difficulty: q.difficulty,
+        question: q.question,
+        options: shuffledOptions,
+        correct_answer: newCorrectIndex,
+        explanation: q.explanation,
+        related_id: q.related_id
+      }
+
+      result.push(newQuestion)
+    }
+
+    return result
   }
 
   /**

@@ -5,8 +5,8 @@
       "category": "weapon",
       "difficulty": "easy",
       "question": "轩辕剑是哪位传说人物的兵器？",
-      "options": ["黄帝", "蚩尤", "炎帝", "神农"],
-      "correct_answer": 0,
+      "options": ["蚩尤", "黄帝", "炎帝", "神农"],
+      "correct_answer": 1,
       "explanation": "轩辕剑是黄帝所铸，用于涿鹿之战斩杀蚩尤。",
       "related_id": "xuanyuan_sword"
     },
@@ -15,8 +15,8 @@
       "category": "weapon",
       "difficulty": "easy",
       "question": "雷神之锤妙尔尼尔属于哪个神话体系？",
-      "options": ["北欧神话", "希腊神话", "日本神话", "印度神话"],
-      "correct_answer": 0,
+      "options": ["希腊神话", "日本神话", "北欧神话", "印度神话"],
+      "correct_answer": 2,
       "explanation": "妙尔尼尔是北欧雷神托尔的神锤。",
       "related_id": "mjolnir"
     },
@@ -25,8 +25,8 @@
       "category": "weapon",
       "difficulty": "easy",
       "question": "王者之剑Excalibur是哪位国王的武器？",
-      "options": ["亚瑟王", "查理曼", "狮心王", "威廉一世"],
-      "correct_answer": 0,
+      "options": ["查理曼", "狮心王", "威廉一世", "亚瑟王"],
+      "correct_answer": 3,
       "explanation": "Excalibur是不列颠传说中亚瑟王的圣剑。",
       "related_id": "excalibur"
     },
@@ -35,8 +35,8 @@
       "category": "weapon",
       "difficulty": "medium",
       "question": "日本三神器之一的草薙剑，又名什么？",
-      "options": ["天丛云剑", "三日月宗近", "童子切安纲", "正宗"],
-      "correct_answer": 0,
+      "options": ["三日月宗近", "天丛云剑", "童子切安纲", "正宗"],
+      "correct_answer": 1,
       "explanation": "草薙剑又名天丛云剑，从八岐大蛇尾中取出。",
       "related_id": "kusanagi"
     },
@@ -45,8 +45,8 @@
       "category": "weapon",
       "difficulty": "medium",
       "question": "波塞冬的神器是什么？",
-      "options": ["三叉戟", "雷霆", "双叉戟", "神弓"],
-      "correct_answer": 0,
+      "options": ["雷霆", "双叉戟", "三叉戟", "神弓"],
+      "correct_answer": 2,
       "explanation": "波塞冬持三叉戟，能掀起海啸、引发地震。",
       "related_id": "poseidon_trident"
     },
@@ -55,8 +55,8 @@
       "category": "blacksmith",
       "difficulty": "easy",
       "question": "中国春秋时期最著名的铸剑师是？",
-      "options": ["欧冶子", "干将", "风胡子", "姜子牙"],
-      "correct_answer": 0,
+      "options": ["干将", "风胡子", "姜子牙", "欧冶子"],
+      "correct_answer": 3,
       "explanation": "欧冶子被誉为铸剑鼻祖，铸有湛卢、泰阿等名剑。",
       "related_id": "ouye"
     },
@@ -75,8 +75,8 @@
       "category": "blacksmith",
       "difficulty": "medium",
       "question": "锻造雷神之锤的是哪对矮人兄弟？",
-      "options": ["布洛克与辛德里", "伊瓦尔迪之子", "杜瓦林与杜林", "费力与法夫纳"],
-      "correct_answer": 0,
+      "options": ["伊瓦尔迪之子", "布洛克与辛德里", "杜瓦林与杜林", "费力与法夫纳"],
+      "correct_answer": 1,
       "explanation": "布洛克与辛德里兄弟为诸神锻造了多件神器。",
       "related_id": "brokk_sindri"
     },
@@ -85,8 +85,8 @@
       "category": "culture",
       "difficulty": "easy",
       "question": "日本刀的标志性特征是什么？",
-      "options": ["弯曲单刃", "双刃直剑", "三叉形态", "锤头形态"],
-      "correct_answer": 0,
+      "options": ["双刃直剑", "三叉形态", "弯曲单刃", "锤头形态"],
+      "correct_answer": 2,
       "explanation": "日本刀以其独特的弯曲刀身和单刃设计著称。"
     },
     {
@@ -94,8 +94,8 @@
       "category": "culture",
       "difficulty": "medium",
       "question": "北欧神话中武器常用什么符文？",
-      "options": ["卢恩符文", "象形文字", "楔形文字", "甲骨文"],
-      "correct_answer": 0,
+      "options": ["象形文字", "楔形文字", "甲骨文", "卢恩符文"],
+      "correct_answer": 3,
       "explanation": "北欧神器常刻有卢恩符文，蕴含魔法力量。"
     },
     {
@@ -112,8 +112,8 @@
       "category": "attribute",
       "difficulty": "medium",
       "question": "光属性与暗属性的关系是？",
-      "options": ["相互克制", "光克暗", "暗克光", "无关系"],
-      "correct_answer": 0,
+      "options": ["光克暗", "暗克光", "相互克制", "无关系"],
+      "correct_answer": 2,
       "explanation": "光与暗是对立属性，互相克制。"
     },
     {
@@ -121,8 +121,8 @@
       "category": "weapon",
       "difficulty": "hard",
       "question": "以下哪把剑被称为'妖刀'？",
-      "options": ["村正", "正宗", "三日月宗近", "童子切安纲"],
-      "correct_answer": 0,
+      "options": ["正宗", "村正", "三日月宗近", "童子切安纲"],
+      "correct_answer": 1,
       "explanation": "村正刀因德川家族多人死于此刀而被称为妖刀。",
       "related_id": "muramasa"
     },
@@ -131,8 +131,8 @@
       "category": "weapon",
       "difficulty": "hard",
       "question": "干将莫邪是一对什么样的剑？",
-      "options": ["雌雄双剑", "日月双剑", "阴阳双剑", "龙凤双剑"],
-      "correct_answer": 0,
+      "options": ["日月双剑", "阴阳双剑", "雌雄双剑", "龙凤双剑"],
+      "correct_answer": 2,
       "explanation": "干将为雄剑，莫邪为雌剑，是夫妻二人所铸。",
       "related_id": "ganjiang_sword"
     },
@@ -160,8 +160,8 @@
       "category": "weapon",
       "difficulty": "medium",
       "question": "凯尔特神话的贯穿死棘之枪的特点是什么？",
-      "options": ["命中必死", "能控制风向", "发出光芒", "召唤海啸"],
-      "correct_answer": 0,
+      "options": ["能控制风向", "命中必死", "发出光芒", "召唤海啸"],
+      "correct_answer": 1,
       "explanation": "盖博尔格之矛投出后会分裂成无数倒刺，命中必死。",
       "related_id": "gae_bolg"
     },
@@ -170,8 +170,8 @@
       "category": "culture",
       "difficulty": "hard",
       "question": "阿兹特克战士使用的黑曜石木剑叫什么？",
-      "options": ["马克胡特尔", "阿特拉特", "特波兹托皮利", "泰克帕特"],
-      "correct_answer": 0,
+      "options": ["阿特拉特", "特波兹托皮利", "马克胡特尔", "泰克帕特"],
+      "correct_answer": 2,
       "explanation": "马克胡特尔是阿兹特克的标志性武器，能斩下马头。",
       "related_id": "macuahuitl"
     },
@@ -180,8 +180,8 @@
       "category": "blacksmith",
       "difficulty": "hard",
       "question": "日本刀圣正宗的作品有什么特点？",
-      "options": ["不含杀意", "极度锋利", "必定嗜血", "能召雷电"],
-      "correct_answer": 0,
+      "options": ["极度锋利", "必定嗜血", "能召雷电", "不含杀意"],
+      "correct_answer": 3,
       "explanation": "正宗的刀以禅意入刀，刀中不含杀意，只斩该斩之物。",
       "related_id": "masamune"
     },
@@ -190,8 +190,8 @@
       "category": "weapon",
       "difficulty": "easy",
       "question": "关羽的兵器叫什么？",
-      "options": ["青龙偃月刀", "方天画戟", "丈八蛇矛", "亮银枪"],
-      "correct_answer": 0,
+      "options": ["方天画戟", "青龙偃月刀", "丈八蛇矛", "亮银枪"],
+      "correct_answer": 1,
       "explanation": "关羽持青龙偃月刀，重八十二斤。",
       "related_id": "qinglong_yanyue_dao"
     },
@@ -200,8 +200,8 @@
       "category": "weapon",
       "difficulty": "medium",
       "question": "天下五剑之首是哪把刀？",
-      "options": ["三日月宗近", "童子切安纲", "�的切国纲", "大典太光世"],
-      "correct_answer": 0,
+      "options": ["童子切安纲", "�的切国纲", "大典太光世", "三日月宗近"],
+      "correct_answer": 3,
       "explanation": "三日月宗近因其优美的刃纹被誉为天下五剑之首。",
       "related_id": "mikazuki_munechika"
     },
@@ -210,8 +210,8 @@
       "category": "culture",
       "difficulty": "medium",
       "question": "印度神话中毁灭之神是谁？",
-      "options": ["湿婆", "毗湿奴", "梵天", "因陀罗"],
-      "correct_answer": 0,
+      "options": ["毗湿奴", "湿婆", "梵天", "因陀罗"],
+      "correct_answer": 1,
       "explanation": "湿婆是印度教三大主神之一，代表毁灭与重生。"
     },
     {
@@ -219,8 +219,8 @@
       "category": "weapon",
       "difficulty": "hard",
       "question": "提尔锋剑有什么诅咒？",
-      "options": ["出鞘必见血", "杀死三位主人", "持有者必疯", "以上皆是"],
-      "correct_answer": 0,
+      "options": ["杀死三位主人", "持有者必疯", "出鞘必见血", "以上皆是"],
+      "correct_answer": 2,
       "explanation": "提尔锋被矮人诅咒，出鞘必须见血才能入鞘。",
       "related_id": "tyrfing"
     },
@@ -229,8 +229,8 @@
       "category": "blacksmith",
       "difficulty": "medium",
       "question": "干将莫邪为何能铸成绝世双剑？",
-      "options": ["莫邪投身炉火", "采集神铁", "雷电淬炼", "龙血浸泡"],
-      "correct_answer": 0,
+      "options": ["采集神铁", "雷电淬炼", "龙血浸泡", "莫邪投身炉火"],
+      "correct_answer": 3,
       "explanation": "莫邪投身炉火使神铁化开，铸成雌雄双剑。",
       "related_id": "ganjiang_moye"
     },
@@ -239,8 +239,8 @@
       "category": "weapon",
       "difficulty": "easy",
       "question": "赤霄剑的主人是谁？",
-      "options": ["刘邦", "项羽", "刘备", "曹操"],
-      "correct_answer": 0,
+      "options": ["项羽", "刘邦", "刘备", "曹操"],
+      "correct_answer": 1,
       "explanation": "刘邦用赤霄剑斩白蛇起义，建立大汉。",
       "related_id": "chixiao_sword"
     },
@@ -249,8 +249,8 @@
       "category": "attribute",
       "difficulty": "medium",
       "question": "雷属性被什么属性克制？",
-      "options": ["土", "水", "风", "火"],
-      "correct_answer": 0,
+      "options": ["水", "风", "火", "土"],
+      "correct_answer": 3,
       "explanation": "土属性能导电接地，因此克制雷属性。"
     },
     {
@@ -258,8 +258,8 @@
       "category": "weapon",
       "difficulty": "hard",
       "question": "苏达尔善神轮有多少个锯齿？",
-      "options": ["一百零八个", "七十二个", "三十六个", "九个"],
-      "correct_answer": 0,
+      "options": ["七十二个", "三十六个", "九个", "一百零八个"],
+      "correct_answer": 3,
       "explanation": "毗湿奴的神轮有一百零八个锯齿，代表宇宙的完整。",
       "related_id": "sudarshana_chakra"
     },
@@ -268,8 +268,8 @@
       "category": "culture",
       "difficulty": "hard",
       "question": "凯尔特四大神器不包括以下哪个？",
-      "options": ["雷神之锤", "光明之剑", "不败之矛", "命运之石"],
-      "correct_answer": 0,
+      "options": ["光明之剑", "不败之矛", "雷神之锤", "命运之石"],
+      "correct_answer": 2,
       "explanation": "雷神之锤是北欧神器，不属于凯尔特四大神器。"
     },
     {
@@ -277,8 +277,8 @@
       "category": "blacksmith",
       "difficulty": "easy",
       "question": "维兰德是哪个神话体系的铁匠？",
-      "options": ["日耳曼", "希腊", "北欧", "凯尔特"],
-      "correct_answer": 0,
+      "options": ["希腊", "日耳曼", "北欧", "凯尔特"],
+      "correct_answer": 1,
       "explanation": "维兰德是日耳曼神话中的传奇铁匠。",
       "related_id": "wayland"
     },
@@ -287,10 +287,190 @@
       "category": "weapon",
       "difficulty": "medium",
       "question": "童子切安纲斩杀了谁？",
-      "options": ["酒吞童子", "茨木童子", "土蜘蛛", "�的面"],
-      "correct_answer": 0,
+      "options": ["茨木童子", "酒吞童子", "土蜘蛛", "般若面"],
+      "correct_answer": 1,
       "explanation": "源赖光用童子切安纲斩杀了大江山的酒吞童子。",
       "related_id": "dojigiri_yasutsuna"
+    },
+    {
+      "id": "q031",
+      "category": "weapon",
+      "difficulty": "easy",
+      "question": "吕布的兵器是什么？",
+      "options": ["青龙偃月刀", "丈八蛇矛", "方天画戟", "亮银枪"],
+      "correct_answer": 2,
+      "explanation": "吕布持方天画戟，被誉为三国第一猛将。"
+    },
+    {
+      "id": "q032",
+      "category": "weapon",
+      "difficulty": "medium",
+      "question": "北欧神话中奥丁的坐骑斯莱普尼尔有几条腿？",
+      "options": ["四条", "六条", "八条", "十条"],
+      "correct_answer": 2,
+      "explanation": "斯莱普尼尔是八足神马，能在九界自由穿行。"
+    },
+    {
+      "id": "q033",
+      "category": "culture",
+      "difficulty": "easy",
+      "question": "中国古代十大名剑中排名第一的是？",
+      "options": ["干将", "莫邪", "湛卢", "轩辕"],
+      "correct_answer": 3,
+      "explanation": "轩辕剑为黄帝所铸，被视为天下第一剑。"
+    },
+    {
+      "id": "q034",
+      "category": "ability",
+      "difficulty": "medium",
+      "question": "宙斯的雷霆由谁锻造？",
+      "options": ["赫菲斯托斯", "独眼巨人", "百臂巨人", "提坦神族"],
+      "correct_answer": 1,
+      "explanation": "独眼巨人为宙斯锻造了雷霆作为武器。"
+    },
+    {
+      "id": "q035",
+      "category": "weapon",
+      "difficulty": "hard",
+      "question": "湛卢剑的特点是什么？",
+      "options": ["至坚无比", "至邪嗜血", "至仁无匹", "至阴至寒"],
+      "correct_answer": 2,
+      "explanation": "湛卢剑代表仁道，只事明主，被称为天下第一剑。"
+    },
+    {
+      "id": "q036",
+      "category": "blacksmith",
+      "difficulty": "medium",
+      "question": "传说中龙泉剑是谁铸造的？",
+      "options": ["干将", "欧冶子", "风胡子", "莫邪"],
+      "correct_answer": 1,
+      "explanation": "欧冶子在龙泉铸造龙泉剑，此地因剑得名。"
+    },
+    {
+      "id": "q037",
+      "category": "culture",
+      "difficulty": "medium",
+      "question": "日本妖刀村正与哪个家族有仇？",
+      "options": ["丰臣家", "织田家", "德川家", "武田家"],
+      "correct_answer": 2,
+      "explanation": "德川家族多人死于村正刀，故将其视为妖刀。"
+    },
+    {
+      "id": "q038",
+      "category": "weapon",
+      "difficulty": "easy",
+      "question": "张飞的兵器是什么？",
+      "options": ["青龙偃月刀", "方天画戟", "丈八蛇矛", "亮银枪"],
+      "correct_answer": 2,
+      "explanation": "张飞使用丈八蛇矛，长一丈八尺。"
+    },
+    {
+      "id": "q039",
+      "category": "attribute",
+      "difficulty": "easy",
+      "question": "冰属性克制什么属性？",
+      "options": ["火", "水", "风", "雷"],
+      "correct_answer": 2,
+      "explanation": "冰能冻结空气流动，因此克制风属性。"
+    },
+    {
+      "id": "q040",
+      "category": "weapon",
+      "difficulty": "hard",
+      "question": "希腊神话中，阿喀琉斯的矛是用什么木材制成？",
+      "options": ["橡木", "梣木", "白蜡木", "紫杉木"],
+      "correct_answer": 2,
+      "explanation": "阿喀琉斯的矛由白蜡木制成，只有他能挥舞。"
+    },
+    {
+      "id": "q041",
+      "category": "culture",
+      "difficulty": "medium",
+      "question": "凯尔特神话中光明之剑属于哪个神族？",
+      "options": ["弗莫尔族", "达努神族", "费尔博格族", "米莱族"],
+      "correct_answer": 1,
+      "explanation": "光明之剑是达努神族四大神器之一。"
+    },
+    {
+      "id": "q042",
+      "category": "weapon",
+      "difficulty": "medium",
+      "question": "北欧神话中弗雷的神剑有什么能力？",
+      "options": ["召唤雷电", "自动战斗", "控制时间", "召唤亡灵"],
+      "correct_answer": 1,
+      "explanation": "弗雷之剑能够自动出鞘战斗，无需持有者操控。"
+    },
+    {
+      "id": "q043",
+      "category": "blacksmith",
+      "difficulty": "hard",
+      "question": "印度神话中工匠之神毗首羯磨的代表作是？",
+      "options": ["金刚杵", "苏达尔善", "因陀罗弓", "以上皆是"],
+      "correct_answer": 3,
+      "explanation": "毗首羯磨是印度神话的工匠之神，锻造了众多神器。"
+    },
+    {
+      "id": "q044",
+      "category": "weapon",
+      "difficulty": "easy",
+      "question": "赵云的兵器是什么？",
+      "options": ["青龙偃月刀", "龙胆亮银枪", "丈八蛇矛", "方天画戟"],
+      "correct_answer": 1,
+      "explanation": "赵云使用龙胆亮银枪，七进七出长坂坡。"
+    },
+    {
+      "id": "q045",
+      "category": "culture",
+      "difficulty": "hard",
+      "question": "埃及神话中太阳神拉的武器是？",
+      "options": ["权杖", "弯刀", "太阳船", "乌加特之眼"],
+      "correct_answer": 3,
+      "explanation": "乌加特之眼是拉神的武器化形态，能发射毁灭性光芒。"
+    },
+    {
+      "id": "q046",
+      "category": "weapon",
+      "difficulty": "medium",
+      "question": "杜兰达尔是哪位骑士的佩剑？",
+      "options": ["兰斯洛特", "罗兰", "高文", "帕西法尔"],
+      "correct_answer": 1,
+      "explanation": "杜兰达尔是查理曼十二骑士之首罗兰的圣剑。"
+    },
+    {
+      "id": "q047",
+      "category": "attribute",
+      "difficulty": "medium",
+      "question": "暗属性克制什么属性？",
+      "options": ["火", "光", "雷", "冰"],
+      "correct_answer": 1,
+      "explanation": "暗与光相互克制，是永恒的对立属性。"
+    },
+    {
+      "id": "q048",
+      "category": "blacksmith",
+      "difficulty": "medium",
+      "question": "北欧神话中谁铸造了黄金假发送给希芙？",
+      "options": ["布洛克", "辛德里", "伊瓦尔迪之子", "德瓦林"],
+      "correct_answer": 2,
+      "explanation": "伊瓦尔迪之子为希芙锻造了能生长的黄金假发。"
+    },
+    {
+      "id": "q049",
+      "category": "weapon",
+      "difficulty": "hard",
+      "question": "波斯神话中绿宝石神剑的主人是？",
+      "options": ["鲁斯塔姆", "扎尔", "卡伊·科斯罗", "法里德"],
+      "correct_answer": 0,
+      "explanation": "鲁斯塔姆是波斯最伟大的英雄，持有绿宝石神剑。"
+    },
+    {
+      "id": "q050",
+      "category": "culture",
+      "difficulty": "easy",
+      "question": "希腊神话中锻造众神武器的神是谁？",
+      "options": ["阿瑞斯", "雅典娜", "赫菲斯托斯", "阿波罗"],
+      "correct_answer": 2,
+      "explanation": "赫菲斯托斯是奥林匹斯的工匠之神。"
     }
   ]
 }

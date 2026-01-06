@@ -44,6 +44,14 @@ export struct GameContent {
       route: RouterPath.DAILY_DIVINATION
     },
     {
+      id: 'attribute_test',
+      title: '属性测试',
+      subtitle: '发现与你相配的神兵属性',
+      icon: $r('app.media.icon_element'),
+      iconBg: ThemeColors.RARITY_EPIC,
+      route: RouterPath.ATTRIBUTE_TEST
+    },
+    {
       id: 'battle',
       title: '对战模拟',
       subtitle: '模拟神兵间的战斗',

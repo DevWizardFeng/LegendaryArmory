@@ -199,4 +199,169 @@ export class StorageManager {
     await prefs.put(KEY_SETTINGS, JSON.stringify(settings))
     await prefs.flush()
   }
+
+  // ==================== 成就系统 ====================
+
+  /**
+   * 默认成就列表
+   */
+  private getDefaultAchievements(): Achievement[] {
+    return [
+      {
+        id: 'first_weapon',
+        name: '初识神兵',
+        description: '浏览第一件神兵',
+        rarity: 'common',
+        unlocked: false
+      },
+      {
+        id: 'collector_10',
+        name: '收藏达人',
+        description: '收藏10件神兵',
+        rarity: 'rare',
+        unlocked: false,
+        progress: 0,
+        total: 10
+      },
+      {
+        id: 'collector_30',
+        name: '神兵鉴赏家',
+        description: '收藏30件神兵',
+        rarity: 'epic',
+        unlocked: false,
+        progress: 0,
+        total: 30
+      },
+      {
+        id: 'quiz_first',
+        name: '知识探索者',
+        description: '完成第一次答题挑战',
+        rarity: 'common',
+        unlocked: false
+      },
+      {
+        id: 'quiz_master',
+        name: '答题达人',
+        description: '在答题中获得500分以上',
+        rarity: 'rare',
+        unlocked: false
+      },
+      {
+        id: 'quiz_legend',
+        name: '神兵学者',
+        description: '在答题中获得1000分以上',
+        rarity: 'epic',
+        unlocked: false
+      },
+      {
+        id: 'combo_5',
+        name: '连击新手',
+        description: '在答题中达成5连击',
+        rarity: 'common',
+        unlocked: false
+      },
+      {
+        id: 'combo_10',
+        name: '连击高手',
+        description: '在答题中达成10连击',
+        rarity: 'rare',
+        unlocked: false
+      },
+      {
+        id: 'divination',
+        name: '命运探寻者',
+        description: '完成第一次每日占卜',
+        rarity: 'common',
+        unlocked: false
+      },
+      {
+        id: 'battle_first',
+        name: '战斗模拟师',
+        description: '完成第一次神兵对战',
+        rarity: 'common',
+        unlocked: false
+      },
+      {
+        id: 'attribute_test',
+        name: '属性觉醒',
+        description: '完成神兵属性测试',
+        rarity: 'common',
+        unlocked: false
+      },
+      {
+        id: 'explorer',
+        name: '百科探索者',
+        description: '浏览20件不同神兵',
+        rarity: 'rare',
+        unlocked: false,
+        progress: 0,
+        total: 20
+      }
+    ]
+  }
+
+  /**
+   * 获取成就列表
+   */
+  async getAchievements(): Promise<Achievement[]> {
+    const prefs = this.ensureInit()
+    const value = await prefs.get(KEY_ACHIEVEMENTS, '')
+    if (!value || value === '') {
+      // 首次使用，初始化默认成就
+      const defaults = this.getDefaultAchievements()
+      await this.saveAchievements(defaults)
+      return defaults
+    }
+    return JSON.parse(value as string) as Achievement[]
+  }
+
+  /**
+   * 保存成就列表
+   */
+  async saveAchievements(achievements: Achievement[]): Promise<void> {
+    const prefs = this.ensureInit()
+    await prefs.put(KEY_ACHIEVEMENTS, JSON.stringify(achievements))
+    await prefs.flush()
+  }
+
+  /**
+   * 解锁成就
+   */
+  async unlockAchievement(achievementId: string): Promise<boolean> {
+    const achievements = await this.getAchievements()
+    const achievement = achievements.find(a => a.id === achievementId)
+    if (achievement && !achievement.unlocked) {
+      achievement.unlocked = true
+      achievement.unlock_time = Date.now()
+      await this.saveAchievements(achievements)
+      return true
+    }
+    return false
+  }
+
+  /**
+   * 更新成就进度
+   */
+  async updateAchievementProgress(achievementId: string, progress: number): Promise<boolean> {
+    const achievements = await this.getAchievements()
+    const achievement = achievements.find(a => a.id === achievementId)
+    if (achievement && !achievement.unlocked && achievement.total) {
+      achievement.progress = progress
+      if (progress >= achievement.total) {
+        achievement.unlocked = true
+        achievement.unlock_time = Date.now()
+      }
+      await this.saveAchievements(achievements)
+      return achievement.unlocked
+    }
+    return false
+  }
+
+  /**
+   * 获取已解锁成就数量
+   */
+  async getUnlockedCount(): Promise<number> {
+    const achievements = await this.getAchievements()
+    return achievements.filter(a => a.unlocked).length
+  }
 }

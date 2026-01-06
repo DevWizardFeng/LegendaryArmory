@@ -8,7 +8,7 @@
  */
 export class AppConstants {
   static readonly APP_NAME = '神兵图录'
-  static readonly APP_VERSION = '1.0.5'
+  static readonly APP_VERSION = '1.0.6'
   static readonly APP_DESCRIPTION = '传说兵器图鉴'
 }
 
@@ -29,6 +29,7 @@ export class RouterPath {
   static readonly QUIZ = 'pages/Quiz'
   static readonly DAILY_DIVINATION = 'pages/DailyDivination'
   static readonly BATTLE_SIMULATOR = 'pages/BattleSimulator'
+  static readonly ATTRIBUTE_TEST = 'pages/AttributeTest'
   static readonly MINE = 'pages/Mine'
   static readonly FAVORITE_LIST = 'pages/FavoriteList'
   static readonly HISTORY_LIST = 'pages/HistoryList'

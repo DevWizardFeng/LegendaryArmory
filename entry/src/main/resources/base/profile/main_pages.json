@@ -14,6 +14,7 @@
     "pages/Quiz",
     "pages/DailyDivination",
     "pages/BattleSimulator",
+    "pages/AttributeTest",
     "pages/FavoriteList",
     "pages/HistoryList"
   ]

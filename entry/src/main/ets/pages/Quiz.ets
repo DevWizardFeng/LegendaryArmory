@@ -187,18 +187,39 @@ struct Quiz {
     this.isAnswerRevealed = true
 
     const currentQuestion = this.questions[this.currentQuestionIndex]
-    // 确保 correct_answer 为数字类型进行比较，强制类型转换避免类型不匹配
-    const correctAnswerIndex = typeof currentQuestion.correct_answer === 'number'
-      ? currentQuestion.correct_answer
-      : parseInt(String(currentQuestion.correct_answer), 10)
+    // 使用 Number() 确保类型统一，并处理各种边界情况
+    const rawCorrectAnswer = currentQuestion.correct_answer
+    let correctAnswerIndex: number
 
-    // 添加调试日志
+    if (typeof rawCorrectAnswer === 'number' && !isNaN(rawCorrectAnswer)) {
+      correctAnswerIndex = rawCorrectAnswer
+    } else if (typeof rawCorrectAnswer === 'string') {
+      correctAnswerIndex = parseInt(rawCorrectAnswer, 10)
+      if (isNaN(correctAnswerIndex)) {
+        correctAnswerIndex = 0
+        console.error(`[Quiz] 无法解析正确答案: ${rawCorrectAnswer}，默认为 0`)
+      }
+    } else {
+      correctAnswerIndex = 0
+      console.error(`[Quiz] 未知的正确答案类型: ${typeof rawCorrectAnswer}，默认为 0`)
+    }
+
+    // 添加详细调试日志
+    console.info(`[Quiz] ========== 答题判断 ==========`)
     console.info(`[Quiz] 题目: ${currentQuestion.question}`)
-    console.info(`[Quiz] 选择答案索引: ${index}, 正确答案索引: ${correctAnswerIndex}`)
-    console.info(`[Quiz] correct_answer原始值: ${currentQuestion.correct_answer}, 类型: ${typeof currentQuestion.correct_answer}`)
+    console.info(`[Quiz] 选项: ${JSON.stringify(currentQuestion.options)}`)
+    console.info(`[Quiz] 用户选择索引: ${index} (类型: ${typeof index})`)
+    console.info(`[Quiz] 正确答案原始值: ${rawCorrectAnswer} (类型: ${typeof rawCorrectAnswer})`)
+    console.info(`[Quiz] 正确答案索引: ${correctAnswerIndex} (类型: ${typeof correctAnswerIndex})`)
 
-    const isCorrect = index === correctAnswerIndex
+    // 使用双等号进行宽松比较，同时确保两者都转为数字
+    const userChoice = Number(index)
+    const correctChoice = Number(correctAnswerIndex)
+    const isCorrect = userChoice === correctChoice
+
+    console.info(`[Quiz] 比较: ${userChoice} === ${correctChoice} = ${isCorrect}`)
     console.info(`[Quiz] 判断结果: ${isCorrect ? '正确' : '错误'}`)
+    console.info(`[Quiz] ================================`)
 
     if (isCorrect) {
       this.correctCount++
@@ -544,9 +565,16 @@ struct Quiz {
       return -1
     }
     const currentQuestion = this.questions[this.currentQuestionIndex]
-    return typeof currentQuestion.correct_answer === 'number'
-      ? currentQuestion.correct_answer
-      : parseInt(String(currentQuestion.correct_answer), 10)
+    const rawAnswer = currentQuestion.correct_answer
+
+    // 统一的类型转换逻辑
+    if (typeof rawAnswer === 'number' && !isNaN(rawAnswer)) {
+      return rawAnswer
+    } else if (typeof rawAnswer === 'string') {
+      const parsed = parseInt(rawAnswer, 10)
+      return isNaN(parsed) ? 0 : parsed
+    }
+    return 0
   }
 
   /**
@@ -720,7 +748,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return this.selectedAnswer === index ? ThemeColors.BASE_0 : ThemeColors.TEXT_PRIMARY
     }
-    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
+    const correctAnswer = this.getCorrectAnswerIndex()
     if (index === correctAnswer) return ThemeColors.BASE_0
     if (index === this.selectedAnswer) return ThemeColors.BASE_0
     return ThemeColors.TEXT_TERTIARY
@@ -733,7 +761,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return this.selectedAnswer === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.BASE_1
     }
-    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
+    const correctAnswer = this.getCorrectAnswerIndex()
     if (index === correctAnswer) return ThemeColors.SUCCESS
     if (index === this.selectedAnswer) return ThemeColors.ERROR
     return ThemeColors.BASE_1
@@ -746,7 +774,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return ThemeColors.TEXT_PRIMARY
     }
-    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
+    const correctAnswer = this.getCorrectAnswerIndex()
     if (index === correctAnswer) return ThemeColors.SUCCESS
     if (index === this.selectedAnswer) return ThemeColors.ERROR
     return ThemeColors.TEXT_TERTIARY
@@ -766,7 +794,7 @@ struct Quiz {
     if (!this.isAnswerRevealed) {
       return this.selectedAnswer === index ? ThemeColors.GOLD_PRIMARY : ThemeColors.DIVIDER
     }
-    const correctAnswer = Number(this.questions[this.currentQuestionIndex].correct_answer)
+    const correctAnswer = this.getCorrectAnswerIndex()
     if (index === correctAnswer) return ThemeColors.SUCCESS
     if (index === this.selectedAnswer) return ThemeColors.ERROR
     return ThemeColors.DIVIDER

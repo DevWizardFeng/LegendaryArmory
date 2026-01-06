@@ -1,6 +1,6 @@
 /**
  * 神兵图录 - 我的Tab
- * 收藏、历史、设置
+ * 收藏、历史、成就、设置
  * 视觉风格：博物馆典藏风
  */
 
@@ -10,7 +10,7 @@ import { RouterPath, RarityNames, CultureNames, WeaponTypeNames, AppConstants } 
 import { DataLoader } from '../../utils/DataLoader'
 import { StorageManager } from '../../utils/Storage'
 import { LegendaryWeapon } from '../../model/LegendaryWeapon'
-import { HistoryItem, UserSettings } from '../../model/UserData'
+import { HistoryItem, UserSettings, Achievement, AchievementRarity } from '../../model/UserData'
 
 /**
  * 我的Tab内容组件
@@ -20,6 +20,9 @@ export struct MineContent {
   @State isLoading: boolean = true
   @State favoriteCount: number = 0
   @State historyCount: number = 0
+  @State achievementCount: number = 0
+  @State totalAchievements: number = 12
+  @State achievements: Achievement[] = []
   @State settings: UserSettings = { theme: 'dark', sound: true, vibration: true }
   @StorageLink('currentTabIndex') @Watch('onTabShow') currentTabIndex: number = 0
   @StorageLink('favoriteWeaponIds') @Watch('onFavoritesChange') favoriteIds: string[] = []
@@ -64,6 +67,8 @@ export struct MineContent {
 
       await this.loadCounts()
       this.settings = await this.storageManager.getSettings()
+      this.achievements = await this.storageManager.getAchievements()
+      this.totalAchievements = this.achievements.length
       this.isLoading = false
     } catch (error) {
       console.error('[MineTab] 加载数据失败:', error)
@@ -82,6 +87,7 @@ export struct MineContent {
       const history = await this.storageManager.getHistory()
       this.favoriteCount = favoriteIds.length
       this.historyCount = history.length
+      this.achievementCount = await this.storageManager.getUnlockedCount()
     } catch (error) {
       console.error('[MineTab] 加载数量失败:', error)
     }
@@ -419,5 +425,133 @@ export struct MineContent {
     .width('100%')
     .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })
     .alignItems(HorizontalAlign.Start)
+  }
+
+  /**
+   * 成就展示区域
+   */
+  @Builder
+  AchievementSection() {
+    Column() {
+      Row() {
+        Text('我的成就')
+          .fontSize(FontSizes.SUBTITLE)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(ThemeColors.TEXT_TITLE)
+
+        Blank()
+
+        Text(`${this.achievementCount}/${this.totalAchievements}`)
+          .fontSize(FontSizes.BODY_SMALL)
+          .fontColor(ThemeColors.TEXT_SECONDARY)
+      }
+      .width('100%')
+      .margin({ bottom: Spacing.MEDIUM })
+
+      // 成就进度条
+      Column() {
+        Progress({
+          value: this.achievementCount,
+          total: this.totalAchievements
+        })
+          .width('100%')
+          .height(8)
+          .color(ThemeColors.GOLD_PRIMARY)
+          .backgroundColor(ThemeColors.SURFACE_0)
+          .borderRadius(4)
+      }
+      .width('100%')
+      .margin({ bottom: Spacing.MEDIUM })
+
+      // 成就网格展示（显示最近解锁的成就）
+      Column() {
+        Grid() {
+          ForEach(this.achievements.slice(0, 6), (achievement: Achievement) => {
+            GridItem() {
+              Column() {
+                // 成就图标
+                Column() {
+                  Text(achievement.unlocked ? this.getAchievementIcon(achievement.rarity) : '?')
+                    .fontSize(20)
+                    .fontColor(achievement.unlocked ?
+                      this.getAchievementColor(achievement.rarity) : ThemeColors.TEXT_TERTIARY)
+                }
+                .width(40)
+                .height(40)
+                .justifyContent(FlexAlign.Center)
+                .backgroundColor(achievement.unlocked ?
+                  this.getAchievementBgColor(achievement.rarity) : ThemeColors.SURFACE_0)
+                .borderRadius(20)
+                .border({
+                  width: 2,
+                  color: achievement.unlocked ?
+                    this.getAchievementColor(achievement.rarity) : ThemeColors.DIVIDER
+                })
+
+                // 成就名称
+                Text(achievement.unlocked ? achievement.name : '???')
+                  .fontSize(FontSizes.CAPTION)
+                  .fontColor(achievement.unlocked ?
+                    ThemeColors.TEXT_PRIMARY : ThemeColors.TEXT_TERTIARY)
+                  .margin({ top: Spacing.TINY })
+                  .maxLines(1)
+                  .textOverflow({ overflow: TextOverflow.Ellipsis })
+              }
+              .width('100%')
+              .padding(Spacing.SMALL)
+            }
+          }, (a: Achievement) => a.id)
+        }
+        .columnsTemplate('1fr 1fr 1fr')
+        .rowsGap(Spacing.SMALL)
+        .columnsGap(Spacing.SMALL)
+        .width('100%')
+      }
+      .width('100%')
+      .padding(Spacing.MEDIUM)
+      .backgroundColor('rgba(26,34,51,0.6)')
+      .backdropBlur(15)
+      .borderRadius(Spacing.MEDIUM)
+      .border({ width: 1, color: ThemeColors.DIVIDER })
+    }
+    .width('100%')
+    .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.XLARGE })
+    .alignItems(HorizontalAlign.Start)
+  }
+
+  /**
+   * 获取成就图标
+   */
+  getAchievementIcon(rarity: AchievementRarity): string {
+    switch (rarity) {
+      case 'legendary': return '★'
+      case 'epic': return '◆'
+      case 'rare': return '●'
+      default: return '○'
+    }
+  }
+
+  /**
+   * 获取成就颜色
+   */
+  getAchievementColor(rarity: AchievementRarity): string {
+    switch (rarity) {
+      case 'legendary': return ThemeColors.RARITY_ARTIFACT
+      case 'epic': return ThemeColors.RARITY_LEGENDARY
+      case 'rare': return ThemeColors.RARITY_EPIC
+      default: return ThemeColors.TEXT_SECONDARY
+    }
+  }
+
+  /**
+   * 获取成就背景色
+   */
+  getAchievementBgColor(rarity: AchievementRarity): string {
+    switch (rarity) {
+      case 'legendary': return 'rgba(255,215,0,0.2)'
+      case 'epic': return 'rgba(157,78,221,0.2)'
+      case 'rare': return 'rgba(76,201,240,0.2)'
+      default: return 'rgba(255,255,255,0.1)'
+    }
   }
 }

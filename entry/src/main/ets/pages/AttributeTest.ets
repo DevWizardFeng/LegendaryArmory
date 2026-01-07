@@ -5,6 +5,8 @@
  */
 
 import { router } from '@kit.ArkUI'
+import { pasteboard } from '@kit.BasicServicesKit'
+import { promptAction } from '@kit.ArkUI'
 import { ThemeColors, FontSizes, Spacing, getAttributeColor, getAttributeDarkColor } from '../common/Theme'
 import { RouterPath, AttributeNames } from '../common/Constants'
 import { DataLoader } from '../utils/DataLoader'
@@ -302,6 +304,43 @@ struct AttributeTest {
   }
 
   /**
+   * 分享测试结果（复制到剪贴板）
+   */
+  async shareResult(): Promise<void> {
+    if (!this.result) return
+
+    try {
+      // 构建分享文本
+      const weaponNames = this.result.weapons.map(w => w.name?.cn || '').join('、')
+      const shareText = `【神兵图录·属性测试】\n\n` +
+        `测试结果：${this.result.name}\n` +
+        `性格特点：${this.result.personality}\n` +
+        `${this.result.description}\n\n` +
+        `推荐神兵：${weaponNames || '暂无'}\n\n` +
+        `来测测你是什么属性的战士吧！`
+
+      // 复制到剪贴板
+      const pasteboardData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, shareText)
+      const systemPasteboard = pasteboard.getSystemPasteboard()
+      await systemPasteboard.setData(pasteboardData)
+
+      // 显示提示
+      promptAction.showToast({
+        message: '测试结果已复制到剪贴板，可以分享给好友了',
+        duration: 2000
+      })
+
+      console.info('[AttributeTest] 分享文本已复制到剪贴板')
+    } catch (error) {
+      console.error('[AttributeTest] 复制失败:', JSON.stringify(error))
+      promptAction.showToast({
+        message: '复制失败，请重试',
+        duration: 2000
+      })
+    }
+  }
+
+  /**
    * 返回上一页
    */
   goBack(): void {
@@ -422,44 +461,12 @@ struct AttributeTest {
       // 选项
       Column() {
         ForEach(this.questions[this.currentQuestionIndex].options, (option: TestOption, index: number) => {
-          Row() {
-            Text(String.fromCharCode(65 + index))
-              .fontSize(FontSizes.BODY)
-              .fontWeight(FontWeight.Bold)
-              .fontColor(this.selectedOption === index ? ThemeColors.BASE_0 : ThemeColors.GOLD_PRIMARY)
-              .width(32)
-              .height(32)
-              .textAlign(TextAlign.Center)
-              .backgroundColor(this.selectedOption === index ?
-                ThemeColors.GOLD_PRIMARY : 'transparent')
-              .borderRadius(16)
-              .border({
-                width: 2,
-                color: ThemeColors.GOLD_PRIMARY
-              })
-
-            Text(option.text)
-              .fontSize(FontSizes.BODY)
-              .fontColor(ThemeColors.TEXT_PRIMARY)
-              .margin({ left: Spacing.MEDIUM })
-              .layoutWeight(1)
-          }
-          .width('100%')
-          .padding(Spacing.MEDIUM)
-          .backgroundColor(this.selectedOption === index ?
-            'rgba(212,175,55,0.2)' : ThemeColors.SURFACE_0)
-          .borderRadius(Spacing.MEDIUM)
-          .border({
-            width: this.selectedOption === index ? 2 : 1,
-            color: this.selectedOption === index ?
-              ThemeColors.GOLD_PRIMARY : ThemeColors.DIVIDER
-          })
-          .margin({ bottom: Spacing.MEDIUM })
-          .onClick(() => this.selectOption(index))
-        }, (opt: TestOption, index: number) => index.toString())
+          this.OptionItem(option, index)
+        }, (opt: TestOption, index: number) => `${this.currentQuestionIndex}_${index}_${opt.text}`)
       }
       .width('100%')
       .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+      .key(`question_${this.currentQuestionIndex}`)
 
       Blank().layoutWeight(1)
     }
@@ -606,6 +613,7 @@ struct AttributeTest {
             .backgroundColor(ThemeColors.GOLD_PRIMARY)
             .borderRadius(22)
             .margin({ left: Spacing.MEDIUM })
+            .onClick(() => this.shareResult())
           }
           .margin({ top: Spacing.XLARGE })
 
@@ -617,5 +625,46 @@ struct AttributeTest {
       .layoutWeight(1)
       .scrollBar(BarState.Off)
     }
+  }
+
+  /**
+   * 选项项
+   */
+  @Builder
+  OptionItem(option: TestOption, index: number) {
+    Row() {
+      Text(String.fromCharCode(65 + index))
+        .fontSize(FontSizes.BODY)
+        .fontWeight(FontWeight.Bold)
+        .fontColor(this.selectedOption === index ? ThemeColors.BASE_0 : ThemeColors.GOLD_PRIMARY)
+        .width(32)
+        .height(32)
+        .textAlign(TextAlign.Center)
+        .backgroundColor(this.selectedOption === index ?
+          ThemeColors.GOLD_PRIMARY : 'transparent')
+        .borderRadius(16)
+        .border({
+          width: 2,
+          color: ThemeColors.GOLD_PRIMARY
+        })
+
+      Text(option.text)
+        .fontSize(FontSizes.BODY)
+        .fontColor(ThemeColors.TEXT_PRIMARY)
+        .margin({ left: Spacing.MEDIUM })
+        .layoutWeight(1)
+    }
+    .width('100%')
+    .padding(Spacing.MEDIUM)
+    .backgroundColor(this.selectedOption === index ?
+      'rgba(212,175,55,0.2)' : ThemeColors.SURFACE_0)
+    .borderRadius(Spacing.MEDIUM)
+    .border({
+      width: this.selectedOption === index ? 2 : 1,
+      color: this.selectedOption === index ?
+        ThemeColors.GOLD_PRIMARY : ThemeColors.DIVIDER
+    })
+    .margin({ bottom: Spacing.MEDIUM })
+    .onClick(() => this.selectOption(index))
   }
 }

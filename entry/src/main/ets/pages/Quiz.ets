@@ -612,10 +612,11 @@ struct Quiz {
           Column() {
             ForEach(this.questions[this.currentQuestionIndex].options, (option: string, index: number) => {
               this.OptionButton(option, index)
-            })
+            }, (option: string, index: number) => `${this.currentQuestionIndex}_${index}_${option}`)
           }
           .width('100%')
           .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
+          .key(`quiz_question_${this.currentQuestionIndex}`)
 
           // 答题后显示正确答案提示
           if (this.isAnswerRevealed) {

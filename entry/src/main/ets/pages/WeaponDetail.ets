@@ -10,6 +10,7 @@ import { DataLoader } from '../utils/DataLoader'
 import { StorageManager } from '../utils/Storage'
 import { LegendaryWeapon, FamousOwner } from '../model/LegendaryWeapon'
 import { AttributeTag } from '../components/AttributeTag'
+import { Weapon3DViewer } from '../components/Weapon3DViewer'
 import { photoAccessHelper } from '@kit.MediaLibraryKit'
 import { fileIo } from '@kit.CoreFileKit'
 import { promptAction } from '@kit.ArkUI'
@@ -31,6 +32,7 @@ struct WeaponDetail {
   @State isFavorite: boolean = false
   @State relatedWeapons: LegendaryWeapon[] = []
   @State isTTSPlaying: boolean = false
+  @State show3D: boolean = false  // 控制3D/2D视图切换
   private dataLoader: DataLoader | null = null
   private storageManager: StorageManager | null = null
   private ttsManager: TTSManager = new TTSManager()
@@ -455,11 +457,22 @@ struct WeaponDetail {
   HeaderSection() {
     if (this.weapon) {
       Stack({ alignContent: Alignment.BottomStart }) {
-        // 背景图片 - 全屏展示
-        Image($rawfile(`images/${this.weapon.image}`))
-          .width('100%')
-          .height('100%')
-          .objectFit(ImageFit.Cover)
+        // 根据show3D状态显示2D图片或3D模型
+        if (this.show3D) {
+          // 3D查看器
+          Weapon3DViewer({
+            weaponId: this.weapon.id,
+            weapon: this.weapon
+          })
+            .width('100%')
+            .height('100%')
+        } else {
+          // 2D背景图片
+          Image($rawfile(`images/${this.weapon.image}`))
+            .width('100%')
+            .height('100%')
+            .objectFit(ImageFit.Cover)
+        }
 
         // 渐变遮罩 - 轻柔渐变，只遮底部文字区域
         Column()
@@ -469,6 +482,37 @@ struct WeaponDetail {
             angle: 180,
             colors: [['rgba(11,13,16,0)', 0], ['rgba(11,13,16,0.8)', 1]]
           })
+
+        // 3D/2D切换按钮（右下角）
+        Row() {
+          Image($r('app.media.icon_3d'))
+            .width(28)
+            .height(28)
+            .fillColor(this.show3D ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_PRIMARY)
+        }
+        .width(56)
+        .height(56)
+        .justifyContent(FlexAlign.Center)
+        .backgroundColor('rgba(0,0,0,0.6)')
+        .backdropBlur(10)
+        .borderRadius(28)
+        .position({ x: '82%', y: 280 })  // 右下角：360高度 - 56按钮 - 24边距
+        .onClick(async () => {
+          try {
+            console.info('[WeaponDetail] 点击3D切换按钮，当前状态:', this.show3D)
+            animateTo({ duration: 300, curve: Curve.EaseInOut }, () => {
+              this.show3D = !this.show3D
+            })
+            console.info('[WeaponDetail] 3D切换成功，新状态:', this.show3D)
+          } catch (error) {
+            console.error('[WeaponDetail] 3D切换失败:', error)
+            promptAction.showToast({
+              message: '3D视图切换失败',
+              duration: 2000,
+              bottom: 100
+            })
+          }
+        })
 
         // 名称和品质
         Column() {

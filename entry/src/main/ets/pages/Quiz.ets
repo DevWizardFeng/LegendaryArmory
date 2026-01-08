@@ -187,38 +187,24 @@ struct Quiz {
     this.isAnswerRevealed = true
 
     const currentQuestion = this.questions[this.currentQuestionIndex]
-    // 使用 Number() 确保类型统一，并处理各种边界情况
-    const rawCorrectAnswer = currentQuestion.correct_answer
-    let correctAnswerIndex: number
-
-    if (typeof rawCorrectAnswer === 'number' && !isNaN(rawCorrectAnswer)) {
-      correctAnswerIndex = rawCorrectAnswer
-    } else if (typeof rawCorrectAnswer === 'string') {
-      correctAnswerIndex = parseInt(rawCorrectAnswer, 10)
-      if (isNaN(correctAnswerIndex)) {
-        correctAnswerIndex = 0
-        console.error(`[Quiz] 无法解析正确答案: ${rawCorrectAnswer}，默认为 0`)
-      }
-    } else {
-      correctAnswerIndex = 0
-      console.error(`[Quiz] 未知的正确答案类型: ${typeof rawCorrectAnswer}，默认为 0`)
-    }
+    // 复用 getCorrectAnswerIndex() 方法，确保判定和显示使用相同的逻辑
+    const correctAnswerIndex = this.getCorrectAnswerIndex()
 
     // 添加详细调试日志
     console.info(`[Quiz] ========== 答题判断 ==========`)
+    console.info(`[Quiz] 题目ID: ${currentQuestion.id}`)
     console.info(`[Quiz] 题目: ${currentQuestion.question}`)
     console.info(`[Quiz] 选项: ${JSON.stringify(currentQuestion.options)}`)
-    console.info(`[Quiz] 用户选择索引: ${index} (类型: ${typeof index})`)
-    console.info(`[Quiz] 正确答案原始值: ${rawCorrectAnswer} (类型: ${typeof rawCorrectAnswer})`)
-    console.info(`[Quiz] 正确答案索引: ${correctAnswerIndex} (类型: ${typeof correctAnswerIndex})`)
+    console.info(`[Quiz] 用户选择索引: ${index}`)
+    console.info(`[Quiz] 正确答案索引: ${correctAnswerIndex}`)
+    console.info(`[Quiz] 正确答案内容: ${currentQuestion.options[correctAnswerIndex]}`)
+    console.info(`[Quiz] 解析: ${currentQuestion.explanation}`)
 
-    // 使用双等号进行宽松比较，同时确保两者都转为数字
-    const userChoice = Number(index)
-    const correctChoice = Number(correctAnswerIndex)
-    const isCorrect = userChoice === correctChoice
+    // 直接比较索引值（都是number类型）
+    const isCorrect = index === correctAnswerIndex
 
-    console.info(`[Quiz] 比较: ${userChoice} === ${correctChoice} = ${isCorrect}`)
-    console.info(`[Quiz] 判断结果: ${isCorrect ? '正确' : '错误'}`)
+    console.info(`[Quiz] 比较: ${index} === ${correctAnswerIndex} = ${isCorrect}`)
+    console.info(`[Quiz] 判断结果: ${isCorrect ? '✅ 正确' : '❌ 错误'}`)
     console.info(`[Quiz] ================================`)
 
     if (isCorrect) {
@@ -561,20 +547,40 @@ struct Quiz {
    * 获取当前题目的正确答案索引
    */
   getCorrectAnswerIndex(): number {
-    if (this.questions.length === 0 || this.currentQuestionIndex >= this.questions.length) {
-      return -1
+    // 边界检查
+    if (this.questions.length === 0 || this.currentQuestionIndex >= this.questions.length || this.currentQuestionIndex < 0) {
+      console.error(`[Quiz] getCorrectAnswerIndex: 无效的题目索引 ${this.currentQuestionIndex}, 题目总数 ${this.questions.length}`)
+      return 0
     }
+
     const currentQuestion = this.questions[this.currentQuestionIndex]
     const rawAnswer = currentQuestion.correct_answer
 
     // 统一的类型转换逻辑
+    let answerIndex: number
+
     if (typeof rawAnswer === 'number' && !isNaN(rawAnswer)) {
-      return rawAnswer
+      answerIndex = rawAnswer
     } else if (typeof rawAnswer === 'string') {
       const parsed = parseInt(rawAnswer, 10)
-      return isNaN(parsed) ? 0 : parsed
+      if (isNaN(parsed)) {
+        console.error(`[Quiz] 无法解析正确答案字符串: "${rawAnswer}", 题目ID: ${currentQuestion.id}`)
+        answerIndex = 0
+      } else {
+        answerIndex = parsed
+      }
+    } else {
+      console.error(`[Quiz] 未知的正确答案类型: ${typeof rawAnswer}, 题目ID: ${currentQuestion.id}`)
+      answerIndex = 0
     }
-    return 0
+
+    // 验证答案索引是否在有效范围内
+    if (answerIndex < 0 || answerIndex >= currentQuestion.options.length) {
+      console.error(`[Quiz] 正确答案索引 ${answerIndex} 超出选项范围 [0, ${currentQuestion.options.length - 1}], 题目ID: ${currentQuestion.id}`)
+      return 0
+    }
+
+    return answerIndex
   }
 
   /**

@@ -735,6 +735,6 @@ const initParams: textToSpeech.CreateEngineParams = {
 
 ---
 
-**文档版本**: v1.0
+**文档版本**: v1.1
 **更新日期**: 2025-12-28
 **适用项目**: 神兵图录 (Legendary Armory)

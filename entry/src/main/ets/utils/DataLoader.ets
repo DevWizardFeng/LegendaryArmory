@@ -13,6 +13,14 @@ import { Question, QuestionsData } from '../model/Question'
 import { Topic, TopicsData } from '../model/Topic'
 
 /**
+ * 带索引的选项，用于打乱选项时跟踪原始位置
+ */
+interface IndexedOption {
+  text: string
+  originalIndex: number
+}
+
+/**
  * 数据加载器类
  * 提供异步加载 JSON 数据的方法
  */
@@ -84,6 +92,7 @@ export class DataLoader {
   /**
    * 加载题目数据
    * 对每道题的选项进行随机打乱，并相应更新正确答案索引
+   * 使用索引映射而非 indexOf，避免重复选项导致的问题
    */
   async loadQuestions(): Promise<Question[]> {
     const data = await this.loadJsonFile<QuestionsData>('questions.json')
@@ -101,27 +110,49 @@ export class DataLoader {
       // 如果解析失败，默认为 0
       const safeCorrectIndex = isNaN(originalCorrectIndex) ? 0 : originalCorrectIndex
 
-      // 获取正确答案的内容
-      const correctAnswerText = q.options[safeCorrectIndex]
+      // 验证索引范围
+      if (safeCorrectIndex < 0 || safeCorrectIndex >= q.options.length) {
+        console.error(`[DataLoader] 题目 ${q.id} 的正确答案索引 ${safeCorrectIndex} 超出范围 [0, ${q.options.length - 1}]`)
+        continue
+      }
 
-      // 复制选项数组用于打乱
-      const shuffledOptions: string[] = []
+      // 创建带索引的选项数组，用于跟踪原始位置
+      const indexedOptions: IndexedOption[] = []
       for (let j = 0; j < q.options.length; j++) {
-        shuffledOptions.push(q.options[j])
+        const option: IndexedOption = { text: q.options[j], originalIndex: j }
+        indexedOptions.push(option)
       }
 
       // Fisher-Yates 打乱算法
-      for (let k = shuffledOptions.length - 1; k > 0; k--) {
+      for (let k = indexedOptions.length - 1; k > 0; k--) {
         const j = Math.floor(Math.random() * (k + 1))
-        const temp = shuffledOptions[k]
-        shuffledOptions[k] = shuffledOptions[j]
-        shuffledOptions[j] = temp
+        const temp = indexedOptions[k]
+        indexedOptions[k] = indexedOptions[j]
+        indexedOptions[j] = temp
       }
 
-      // 找到正确答案在新数组中的位置
-      const newCorrectIndex = shuffledOptions.indexOf(correctAnswerText)
+      // 提取打乱后的选项文本
+      const shuffledOptions: string[] = []
+      for (let m = 0; m < indexedOptions.length; m++) {
+        shuffledOptions.push(indexedOptions[m].text)
+      }
 
-      console.info(`[DataLoader] 题目: ${q.id}, 原正确索引: ${safeCorrectIndex}, 新正确索引: ${newCorrectIndex}`)
+      // 找到正确答案在新数组中的位置（通过原始索引匹配）
+      let newCorrectIndex = -1
+      for (let n = 0; n < indexedOptions.length; n++) {
+        if (indexedOptions[n].originalIndex === safeCorrectIndex) {
+          newCorrectIndex = n
+          break
+        }
+      }
+
+      // 安全检查
+      if (newCorrectIndex === -1) {
+        console.error(`[DataLoader] 题目 ${q.id} 无法找到正确答案的新索引`)
+        newCorrectIndex = 0
+      }
+
+      console.info(`[DataLoader] 题目: ${q.id}, 原正确索引: ${safeCorrectIndex}, 新正确索引: ${newCorrectIndex}, 正确答案: ${shuffledOptions[newCorrectIndex]}`)
 
       // 创建新的 Question 对象
       const newQuestion: Question = {

@@ -5,152 +5,79 @@
  * 注意：仅支持真机，模拟器不支持3D渲染（ArkGraphics3D Kit不支持模拟器）
  */
 
+import { Scene, Camera, Light, LightType, SceneResourceFactory, Vec3, Quaternion } from '@kit.ArkGraphics3D'
 import { deviceInfo } from '@kit.BasicServicesKit'
 import { ThemeColors, FontSizes, Spacing } from '../common/Theme'
 import { LegendaryWeapon } from '../model/LegendaryWeapon'
-
-// 3D相关类型定义（动态导入后使用）
-interface Color4 {
-  r: number
-  g: number
-  b: number
-  a: number
-}
-
-interface Position3D {
-  x: number
-  y: number
-  z: number
-}
-
-interface LightCreateOptions {
-  name: string
-}
-
-interface CameraCreateOptions {
-  name: string
-}
-
-interface Scene3D {
-  animations?: Animation3D[]
-  getResourceFactory(): SceneResourceFactory
-}
-
-interface Animation3D {
-  speed: number
-  start(): void
-  restart(): void
-  onFinished(callback: () => void): void
-}
-
-interface SceneResourceFactory {
-  createCamera(options: CameraCreateOptions): Promise<Camera3D>
-  createLight(options: LightCreateOptions, type: number): Promise<Light3D>
-}
-
-interface Camera3D {
-  enabled: boolean
-  position: Position3D
-  fov: number
-}
-
-interface Light3D {
-  color: Color4
-  intensity: number
-  position: Position3D
-  enabled: boolean
-}
-
-// 动态导入的3D模块引用
-let Graphics3DModule: ESObject | null = null
-let LightTypeEnum: ESObject | null = null
 
 @Component
 export struct Weapon3DViewer {
   @Prop weaponId: string = ''
   @Prop weapon: LegendaryWeapon | null = null
-  @State sceneOpt: SceneOptions | null = null  // 使用系统的SceneOptions类型
+  @State sceneOpt: SceneOptions | null = null
   @State isLoading: boolean = true
   @State loadError: string = ''
   @State autoRotate: boolean = true
-  @State is3DSupported: boolean = false  // 是否支持3D功能
+  @State is3DSupported: boolean = false
+  // 加载失败回调，用于通知父组件切换回2D视图
+  onLoadError: () => void = () => {}
 
-  private scene: ESObject | null = null  // 使用ESObject避免类型冲突
-  private camera: Camera3D | null = null
+  private scene: Scene | null = null
+  private camera: Camera | null = null
   private autoRotateTimer: number = -1
 
   // 相机控制参数
-  private rotationY: number = 0           // 水平旋转角度
-  private rotationX: number = 0           // 垂直旋转角度
-  private cameraDistance: number = 3      // 相机距离
+  private rotationY: number = 0
+  private rotationX: number = 0
+  private cameraDistance: number = 5
   private lastTouchX: number = 0
   private lastTouchY: number = 0
   private lastPinchDistance: number = 0
 
-  async aboutToAppear(): Promise<void> {
-    try {
-      // 首先检测系统是否支持3D功能
-      if (!this.check3DSupport()) {
-        console.warn('[Weapon3DViewer] 当前设备不支持3D功能（模拟器或系统能力不足）')
-        this.is3DSupported = false
-        this.loadError = '3D预览仅支持真机设备，模拟器暂不支持'
-        this.isLoading = false
-        return
-      }
-
-      this.is3DSupported = true
-
-      // 动态导入3D模块
-      const moduleLoaded = await this.loadGraphics3DModule()
-      if (!moduleLoaded) {
-        console.error('[Weapon3DViewer] 无法加载3D模块')
-        this.loadError = '3D模块加载失败，请在真机上运行'
-        this.isLoading = false
-        return
-      }
-
-      console.info(`[Weapon3DViewer] 开始加载3D模型: ${this.weaponId}`)
-      await this.load3DModel()
-      if (this.autoRotate) {
-        this.startAutoRotate()
-      }
-      console.info(`[Weapon3DViewer] 3D模型加载成功: ${this.weaponId}`)
-    } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : String(error)
-      console.error(`[Weapon3DViewer] 初始化失败: ${errorMsg}`, error)
-      this.loadError = `3D模型加载失败: ${errorMsg}`
+  aboutToAppear(): void {
+    // 检测系统是否支持3D功能
+    if (!this.check3DSupport()) {
+      console.warn('[Weapon3DViewer] 当前设备不支持3D功能')
+      this.is3DSupported = false
+      this.loadError = '3D预览仅支持真机设备'
       this.isLoading = false
+      return
     }
+
+    this.is3DSupported = true
+    console.info(`[Weapon3DViewer] 开始加载3D模型: ${this.weaponId}`)
+    this.load3DModel()
+  }
+
+  aboutToDisappear(): void {
+    this.stopAutoRotate()
+    this.scene = null
   }
 
   /**
    * 检测系统是否支持3D功能
-   * 使用 canIUse 检测 SystemCapability.ArkUi.Graphics3D
    */
   private check3DSupport(): boolean {
     try {
-      // 使用 canIUse 检测3D系统能力
       const hasGraphics3D = canIUse('SystemCapability.ArkUi.Graphics3D')
       console.info(`[Weapon3DViewer] SystemCapability.ArkUi.Graphics3D: ${hasGraphics3D}`)
 
       if (!hasGraphics3D) {
-        console.warn('[Weapon3DViewer] 系统不支持 ArkUi.Graphics3D 能力')
         return false
       }
 
-      // 额外检查设备信息作为辅助判断
+      // 检查是否为模拟器
       const brand = deviceInfo.brand || ''
       const productModel = deviceInfo.productModel || ''
       console.info(`[Weapon3DViewer] 设备信息: brand=${brand}, model=${productModel}`)
 
-      // 检查是否包含模拟器关键词
       const emulatorKeywords = ['emulator', 'simulator', 'sdk', 'genymotion']
       const brandLower = brand.toLowerCase()
       const modelLower = productModel.toLowerCase()
 
       for (const keyword of emulatorKeywords) {
         if (brandLower.includes(keyword) || modelLower.includes(keyword)) {
-          console.warn(`[Weapon3DViewer] 检测到模拟器关键词: ${keyword}`)
+          console.warn(`[Weapon3DViewer] 检测到模拟器: ${keyword}`)
           return false
         }
       }
@@ -163,317 +90,188 @@ export struct Weapon3DViewer {
   }
 
   /**
-   * 动态加载 ArkGraphics3D 模块
-   * 避免在不支持的设备上静态导入导致崩溃
+   * 获取模型文件路径
    */
-  private async loadGraphics3DModule(): Promise<boolean> {
-    try {
-      // 动态导入 ArkGraphics3D 模块
-      Graphics3DModule = await import('@kit.ArkGraphics3D')
-      if (Graphics3DModule) {
-        LightTypeEnum = Graphics3DModule.LightType
-        console.info('[Weapon3DViewer] ArkGraphics3D 模块加载成功')
-        return true
-      }
-      return false
-    } catch (error) {
-      console.error('[Weapon3DViewer] ArkGraphics3D 模块加载失败:', error)
-      return false
-    }
-  }
-
-  aboutToDisappear(): void {
-    this.stopAutoRotate()
-    if (this.scene) {
-      // 清理资源
-      this.scene = null
-    }
-  }
-
-  /**
-   * 将武器ID转换为模型文件名
-   * 武器ID格式如 "xuanyuan_sword"，模型文件名为 "xuanyuan.glb"
-   */
-  private getModelFileName(): string {
+  private getModelPath(): string {
     // 武器ID到模型文件名的映射表
     const modelMapping: Record<string, string> = {
-      // 中国神兵
       'xuanyuan_sword': 'xuanyuan',
       'zhanlu_sword': 'zhanlu',
       'chixiao_sword': 'chixiao',
       'ganjiang_sword': 'ganjiang',
       'moye_sword': 'moye',
       'qinglong_yanyue_dao': 'qinglong',
-      // 日本神兵
       'kusanagi': 'kusanagi',
       'mikazuki_munechika': 'mikazuki',
       'muramasa': 'muramasa',
       'honjo_masamune': 'honjo_masamune',
-      // 北欧神兵
       'mjolnir': 'mjolnir',
       'gungnir': 'gungnir',
       'tyrfing': 'tyrfing',
       'gram': 'gram',
-      // 凯尔特神兵
       'fragarach': 'fragarach',
       'gae_bolg': 'gae_bolg',
       'claomh_solais': 'claomh_solais',
       'caladbolg': 'caladbolg',
-      // 欧洲神兵
       'excalibur': 'excalibur',
       'durandal': 'durandal',
-      // 希腊神兵
       'poseidon_trident': 'poseidon_trident',
       'zeus_thunderbolt': 'zeus_thunderbolt',
       'hades_bident': 'hades_bident',
-      // 印度神兵
       'vajra': 'vajra',
       'trishula': 'trishula',
       'pashupatastra': 'pashupatastra',
-      // 中东神兵
       'khopesh': 'khopesh',
       'zulfiqar': 'zulfiqar',
       'shamshir': 'shamshir'
     }
 
-    // 优先使用映射表
-    if (modelMapping[this.weaponId]) {
-      return modelMapping[this.weaponId]
-    }
-
-    // 如果映射表中没有，尝试智能转换：去掉常见后缀
-    let modelName = this.weaponId
-    const suffixes = ['_sword', '_blade', '_dao', '_spear', '_hammer', '_axe', '_bow', '_staff']
-    for (const suffix of suffixes) {
-      if (modelName.endsWith(suffix)) {
-        modelName = modelName.slice(0, -suffix.length)
-        break
+    let modelName = modelMapping[this.weaponId]
+    if (!modelName) {
+      // 智能转换：去掉常见后缀
+      modelName = this.weaponId
+      const suffixes = ['_sword', '_blade', '_dao', '_spear', '_hammer', '_axe', '_bow', '_staff']
+      for (const suffix of suffixes) {
+        if (modelName.endsWith(suffix)) {
+          modelName = modelName.slice(0, -suffix.length)
+          break
+        }
       }
     }
 
-    return modelName
+    return `models/${modelName}.glb`
   }
 
   /**
    * 加载3D模型
    */
-  async load3DModel(): Promise<void> {
-    try {
-      this.isLoading = true
+  private load3DModel(): void {
+    const modelPath = this.getModelPath()
+    console.info(`[Weapon3DViewer] 加载模型: ${modelPath}`)
 
-      // 确保3D模块已加载
-      if (!Graphics3DModule) {
-        console.error('[Weapon3DViewer] 3D模块未加载')
-        this.loadError = '3D模块未初始化'
+    Scene.load($rawfile(modelPath))
+      .then(async (result: Scene) => {
+        this.scene = result
+        console.info('[Weapon3DViewer] 场景加载成功')
+
+        // 获取资源工厂并配置相机和光照
+        const rf: SceneResourceFactory = this.scene.getResourceFactory()
+
+        // 创建相机
+        this.camera = await rf.createCamera({ name: "MainCamera" })
+        this.camera.enabled = true
+        this.camera.fov = 60 * Math.PI / 180
+        this.camera.nearPlane = 0.1
+        this.camera.farPlane = 100
+
+        // 设置初始相机位置和朝向
+        const initialX = Math.sin(this.rotationY) * Math.cos(this.rotationX) * this.cameraDistance
+        const initialY = Math.sin(this.rotationX) * this.cameraDistance + 1
+        const initialZ = Math.cos(this.rotationY) * Math.cos(this.rotationX) * this.cameraDistance
+        this.camera.position = { x: initialX, y: initialY, z: initialZ }
+
+        // 设置相机朝向（看向原点）
+        const eye: Vec3 = { x: initialX, y: initialY, z: initialZ }
+        const center: Vec3 = { x: 0, y: 0, z: 0 }
+        const up: Vec3 = { x: 0, y: 1, z: 0 }
+        this.camera.rotation = this.calculateLookAtRotation(eye, center, up)
+        console.info('[Weapon3DViewer] 相机配置成功')
+
+        // 创建光照
+        try {
+          // 主光（平行光）- 通过rotation设置方向
+          const keyLight: Light = await rf.createLight({ name: "KeyLight" }, LightType.DIRECTIONAL)
+          keyLight.color = { r: 1.0, g: 0.95, b: 0.9, a: 1.0 }
+          keyLight.intensity = 1.5
+          keyLight.enabled = true
+          // 设置光照方向（从右上前方照射）
+          const lightDir: Vec3 = { x: -1, y: -1, z: -1 }
+          const lightUp: Vec3 = { x: 0, y: 1, z: 0 }
+          keyLight.rotation = this.calculateLightRotation(lightDir, lightUp)
+
+          // 补光（平行光）
+          const fillLight: Light = await rf.createLight({ name: "FillLight" }, LightType.DIRECTIONAL)
+          fillLight.color = { r: 0.8, g: 0.85, b: 1.0, a: 1.0 }
+          fillLight.intensity = 0.6
+          fillLight.enabled = true
+          // 设置补光方向（从左下方照射）
+          const fillDir: Vec3 = { x: 1, y: -0.5, z: 1 }
+          fillLight.rotation = this.calculateLightRotation(fillDir, lightUp)
+
+          console.info('[Weapon3DViewer] 光照配置成功')
+        } catch (lightError) {
+          console.warn('[Weapon3DViewer] 光照配置失败，使用默认光照:', lightError)
+        }
+
+        // 配置场景选项
+        this.sceneOpt = {
+          scene: this.scene,
+          modelType: ModelType.SURFACE
+        } as SceneOptions
+
         this.isLoading = false
-        return
-      }
 
-      // 1. 加载GLB模型 - 使用转换后的模型文件名
-      const modelFileName = this.getModelFileName()
-      const modelPath = `models/${modelFileName}.glb`
-      console.info(`[Weapon3DViewer] 武器ID: ${this.weaponId}, 模型文件: ${modelFileName}, 完整路径: ${modelPath}`)
+        // 启动自动旋转
+        if (this.autoRotate) {
+          this.startAutoRotate()
+        }
 
-      try {
-        // 使用动态导入的Scene.load方法
-        const SceneClass: ESObject = Graphics3DModule.Scene
-        this.scene = await SceneClass.load($rawfile(modelPath))
-      } catch (sceneError) {
-        console.error(`[Weapon3DViewer] Scene.load失败:`, sceneError)
-        this.loadError = `无法加载模型文件: ${modelPath}`
+        console.info(`[Weapon3DViewer] 模型加载完成: ${this.weaponId}`)
+      })
+      .catch((error: Error) => {
+        console.error(`[Weapon3DViewer] 模型加载失败: ${error.message}`)
+        this.loadError = `无法加载模型: ${modelPath}`
         this.isLoading = false
-        return
-      }
-
-      if (!this.scene) {
-        console.error('[Weapon3DViewer] 场景加载失败：scene为null')
-        this.loadError = '场景加载失败'
-        this.isLoading = false
-        return
-      }
-
-      console.info(`[Weapon3DViewer] 场景加载成功`)
-
-      // 2. 获取资源工厂
-      const rf: ESObject = this.scene.getResourceFactory()
-      if (!rf) {
-        console.error('[Weapon3DViewer] 无法获取资源工厂')
-        this.loadError = '无法获取资源工厂'
-        this.isLoading = false
-        return
-      }
-
-      // 3. 配置相机
-      try {
-        await this.setupCamera(rf)
-        console.info(`[Weapon3DViewer] 相机配置成功`)
-      } catch (cameraError) {
-        console.error(`[Weapon3DViewer] 相机配置失败:`, cameraError)
-        this.loadError = '相机配置失败'
-        this.isLoading = false
-        return
-      }
-
-      // 4. 配置光照
-      try {
-        await this.setupLighting(rf)
-        console.info(`[Weapon3DViewer] 光照配置成功`)
-      } catch (lightError) {
-        console.error(`[Weapon3DViewer] 光照配置失败:`, lightError)
-        // 光照配置失败不是致命错误，继续
-        console.warn(`[Weapon3DViewer] 光照配置失败，使用默认光照`)
-      }
-
-      // 5. 增强材质(如果需要)
-      try {
-        await this.setupMaterials(rf)
-        console.info(`[Weapon3DViewer] 材质配置成功`)
-      } catch (materialError) {
-        console.error(`[Weapon3DViewer] 材质配置失败:`, materialError)
-        // 材质配置失败不是致命错误，继续
-        console.warn(`[Weapon3DViewer] 材质配置失败，使用默认材质`)
-      }
-
-      // 6. 播放待机动画(如果有)
-      try {
-        this.playIdleAnimation()
-      } catch (animError) {
-        console.error(`[Weapon3DViewer] 动画播放失败:`, animError)
-        // 动画失败不是致命错误，继续
-      }
-
-      // 7. 配置场景选项 - 直接使用动态加载的scene对象
-      this.sceneOpt = {
-        scene: this.scene,
-        modelType: ModelType.SURFACE
-      }
-
-      this.isLoading = false
-      console.info(`[Weapon3DViewer] 模型加载完成: ${this.weaponId}`)
-
-    } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : String(error)
-      console.error(`[Weapon3DViewer] 模型加载失败 ${this.weaponId}: ${errorMsg}`, error)
-      this.loadError = `无法加载${this.weaponId}的3D模型: ${errorMsg}`
-      this.isLoading = false
-      // 不再抛出错误，而是设置错误状态让UI显示
-    }
+      })
   }
 
   /**
-   * 配置相机
+   * 计算光照方向的旋转四元数
+   * 平行光的方向由其rotation决定，默认朝向-Z轴
    */
-  async setupCamera(rf: ESObject): Promise<void> {
-    const cameraOpts: CameraCreateOptions = { name: "MainCamera" }
-    this.camera = await rf.createCamera(cameraOpts)
+  private calculateLightRotation(direction: Vec3, up: Vec3): Quaternion {
+    // 归一化方向向量
+    const dir = this.normalize(direction)
+    // 计算从默认方向(0,0,-1)到目标方向的旋转
+    const defaultDir: Vec3 = { x: 0, y: 0, z: -1 }
 
-    if (!this.camera) {
-      throw new Error('相机创建失败')
+    // 使用叉积和点积计算旋转
+    const dot = this.dot(defaultDir, dir)
+    if (dot > 0.9999) {
+      // 方向相同，返回单位四元数
+      return { x: 0, y: 0, z: 0, w: 1 }
+    }
+    if (dot < -0.9999) {
+      // 方向相反，绕Y轴旋转180度
+      return { x: 0, y: 1, z: 0, w: 0 }
     }
 
-    // 设置相机初始位置
-    this.camera.enabled = true
-    this.camera.position.z = this.cameraDistance
-    this.camera.position.y = 1
-
-    // 设置相机视角参数
-    this.camera.fov = 60 * Math.PI / 180  // 60度视角转弧度
-  }
-
-  /**
-   * 配置三点式光照系统
-   */
-  async setupLighting(rf: ESObject): Promise<void> {
-    // 确保LightType已加载
-    if (!LightTypeEnum) {
-      console.warn('[Weapon3DViewer] LightType未加载，跳过光照配置')
-      return
+    const cross = this.cross(defaultDir, dir)
+    const w = Math.sqrt(1 + dot)
+    const scale = 1 / (2 * w)
+    return {
+      x: cross.x * scale,
+      y: cross.y * scale,
+      z: cross.z * scale,
+      w: w / 2
     }
-
-    // 主光(Key Light) - 暖色调平行光
-    const keyLightOpts: LightCreateOptions = { name: "KeyLight" }
-    const keyLight: Light3D = await rf.createLight(keyLightOpts, LightTypeEnum.DIRECTIONAL)
-    const keyLightColor: Color4 = { r: 1.0, g: 0.95, b: 0.9, a: 1.0 }
-    const keyLightPos: Position3D = { x: 5, y: 10, z: 5 }
-    keyLight.color = keyLightColor
-    keyLight.intensity = 1.2
-    keyLight.position = keyLightPos
-    keyLight.enabled = true
-
-    // 补光(Fill Light) - 冷色调柔和光
-    const fillLightOpts: LightCreateOptions = { name: "FillLight" }
-    const fillLight: Light3D = await rf.createLight(fillLightOpts, LightTypeEnum.DIRECTIONAL)
-    const fillLightColor: Color4 = { r: 0.8, g: 0.85, b: 1.0, a: 1.0 }
-    const fillLightPos: Position3D = { x: -5, y: 5, z: 5 }
-    fillLight.color = fillLightColor
-    fillLight.intensity = 0.5
-    fillLight.position = fillLightPos
-    fillLight.enabled = true
-
-    // 轮廓光(Rim Light) - 白色边缘光
-    const rimLightOpts: LightCreateOptions = { name: "RimLight" }
-    const rimLight: Light3D = await rf.createLight(rimLightOpts, LightTypeEnum.DIRECTIONAL)
-    const rimLightColor: Color4 = { r: 1.0, g: 1.0, b: 1.0, a: 1.0 }
-    const rimLightPos: Position3D = { x: 0, y: 5, z: -10 }
-    rimLight.color = rimLightColor
-    rimLight.intensity = 0.8
-    rimLight.position = rimLightPos
-    rimLight.enabled = true
-  }
-
-  /**
-   * 配置材质增强
-   * 注意：当前HarmonyOS API不支持动态材质修改，此功能暂时简化
-   */
-  async setupMaterials(rf: ESObject): Promise<void> {
-    // 材质增强功能依赖高级API，当前版本暂不支持
-    // 保留方法以便future升级
-    console.info('[Weapon3DViewer] 材质配置已简化')
-  }
-
-  /**
-   * 判断武器是否需要发光效果
-   */
-  weaponHasGlow(): boolean {
-    if (!this.weapon) return false
-    return this.weapon.rarity === 'artifact' || this.weapon.rarity === 'legendary'
-  }
-
-  /**
-   * 播放待机动画
-   */
-  playIdleAnimation(): void {
-    if (!this.scene || !this.scene.animations || this.scene.animations.length === 0) {
-      return
-    }
-
-    // 播放第一个动画(通常是待机动画)
-    const idleAnim: Animation3D = this.scene.animations[0]
-    idleAnim.speed = 1.0
-    idleAnim.start()
-
-    idleAnim.onFinished(() => {
-      // 循环播放
-      idleAnim.restart()
-    })
   }
 
   /**
    * 开始自动旋转
    */
-  startAutoRotate(): void {
+  private startAutoRotate(): void {
     this.stopAutoRotate()
-
     this.autoRotateTimer = setInterval(() => {
-      this.rotationY += 0.01  // 每帧旋转0.01弧度
+      this.rotationY += 0.01
       this.updateCameraPosition()
-    }, 16)  // 约60fps
+    }, 16)
   }
 
   /**
    * 停止自动旋转
    */
-  stopAutoRotate(): void {
+  private stopAutoRotate(): void {
     if (this.autoRotateTimer !== -1) {
       clearInterval(this.autoRotateTimer)
       this.autoRotateTimer = -1
@@ -481,27 +279,108 @@ export struct Weapon3DViewer {
   }
 
   /**
-   * 更新相机位置
+   * 更新相机位置和朝向
    */
-  updateCameraPosition(): void {
+  private updateCameraPosition(): void {
     if (!this.camera) return
 
     const x = Math.sin(this.rotationY) * Math.cos(this.rotationX) * this.cameraDistance
-    const y = Math.sin(this.rotationX) * this.cameraDistance
+    const y = Math.sin(this.rotationX) * this.cameraDistance + 1
     const z = Math.cos(this.rotationY) * Math.cos(this.rotationX) * this.cameraDistance
 
+    // 设置相机位置
     this.camera.position.x = x
     this.camera.position.y = y
     this.camera.position.z = z
+
+    // 设置相机朝向（看向原点）
+    const eye: Vec3 = { x: x, y: y, z: z }
+    const center: Vec3 = { x: 0, y: 0, z: 0 }
+    const up: Vec3 = { x: 0, y: 1, z: 0 }
+    this.camera.rotation = this.calculateLookAtRotation(eye, center, up)
+  }
+
+  /**
+   * 计算 lookAt 旋转四元数
+   * 根据相机位置、目标点和上方向计算相机的旋转
+   */
+  private calculateLookAtRotation(eye: Vec3, center: Vec3, up: Vec3): Quaternion {
+    // 计算前向向量（从相机指向目标）
+    const f = this.normalize(this.sub(center, eye))
+    // 计算右向量
+    const m0 = this.normalize(this.cross(f, up))
+    // 计算真正的上向量
+    const m1 = this.cross(m0, f)
+    // 反转前向向量（相机看向-Z方向）
+    const m2: Vec3 = { x: -f.x, y: -f.y, z: -f.z }
+
+    let t: number
+    let q: Quaternion = { x: 0, y: 0, z: 0, w: 1 }
+
+    if (m2.z < 0) {
+      if (m0.x > m1.y) {
+        t = 1.0 + m0.x - m1.y - m2.z
+        q = { x: t, y: m0.y + m1.x, z: m2.x + m0.z, w: m1.z - m2.y }
+      } else {
+        t = 1.0 - m0.x + m1.y - m2.z
+        q = { x: m0.y + m1.x, y: t, z: m1.z + m2.y, w: m2.x - m0.z }
+      }
+    } else {
+      if (m0.x < -m1.y) {
+        t = 1.0 - m0.x - m1.y + m2.z
+        q = { x: m2.x + m0.z, y: m1.z + m2.y, z: t, w: m0.y - m1.x }
+      } else {
+        t = 1.0 + m0.x + m1.y + m2.z
+        q = { x: m1.z - m2.y, y: m2.x - m0.z, z: m0.y - m1.x, w: t }
+      }
+    }
+
+    // 归一化四元数
+    const scale = 0.5 / Math.sqrt(t)
+    return { x: q.x * scale, y: q.y * scale, z: q.z * scale, w: q.w * scale }
+  }
+
+  /**
+   * 向量减法
+   */
+  private sub(l: Vec3, r: Vec3): Vec3 {
+    return { x: l.x - r.x, y: l.y - r.y, z: l.z - r.z }
+  }
+
+  /**
+   * 向量点积
+   */
+  private dot(l: Vec3, r: Vec3): number {
+    return l.x * r.x + l.y * r.y + l.z * r.z
+  }
+
+  /**
+   * 向量归一化
+   */
+  private normalize(l: Vec3): Vec3 {
+    const d = Math.sqrt(this.dot(l, l))
+    if (d === 0) return { x: 0, y: 0, z: 1 }
+    return { x: l.x / d, y: l.y / d, z: l.z / d }
+  }
+
+  /**
+   * 向量叉积
+   */
+  private cross(l: Vec3, r: Vec3): Vec3 {
+    return {
+      x: l.y * r.z - l.z * r.y,
+      y: l.z * r.x - l.x * r.z,
+      z: l.x * r.y - l.y * r.x
+    }
   }
 
   /**
    * 重置相机视角
    */
-  resetCamera(): void {
+  private resetCamera(): void {
     this.rotationY = 0
     this.rotationX = 0
-    this.cameraDistance = 3
+    this.cameraDistance = 5
     this.updateCameraPosition()
 
     if (!this.autoRotate) {
@@ -513,7 +392,7 @@ export struct Weapon3DViewer {
   /**
    * 处理触控事件
    */
-  handleTouch(event: TouchEvent): void {
+  private handleTouch(event: TouchEvent): void {
     if (event.type === TouchType.Down) {
       this.stopAutoRotate()
       this.autoRotate = false
@@ -526,33 +405,25 @@ export struct Weapon3DViewer {
       }
     } else if (event.type === TouchType.Move) {
       if (event.touches.length === 1) {
-        // 单指拖动 = 旋转
         const deltaX = event.touches[0].x - this.lastTouchX
         const deltaY = event.touches[0].y - this.lastTouchY
 
         this.rotationY += deltaX * 0.01
         this.rotationX += deltaY * 0.01
-
-        // 限制垂直旋转角度(-80° to 80°)
         this.rotationX = Math.max(-1.4, Math.min(1.4, this.rotationX))
 
         this.updateCameraPosition()
 
         this.lastTouchX = event.touches[0].x
         this.lastTouchY = event.touches[0].y
-
       } else if (event.touches.length === 2) {
-        // 双指捏合 = 缩放
         const distance = this.getTouchDistance(event.touches)
         const scale = distance / this.lastPinchDistance
 
         this.cameraDistance *= (1 / scale)
-
-        // 限制缩放范围(1.5 to 10)
-        this.cameraDistance = Math.max(1.5, Math.min(10, this.cameraDistance))
+        this.cameraDistance = Math.max(2, Math.min(15, this.cameraDistance))
 
         this.updateCameraPosition()
-
         this.lastPinchDistance = distance
       }
     }
@@ -561,31 +432,25 @@ export struct Weapon3DViewer {
   /**
    * 计算两个触点之间的距离
    */
-  getTouchDistance(touches: TouchObject[]): number {
+  private getTouchDistance(touches: TouchObject[]): number {
     if (touches.length < 2) return 0
-
     const dx = touches[0].x - touches[1].x
     const dy = touches[0].y - touches[1].y
-
     return Math.sqrt(dx * dx + dy * dy)
   }
 
   build() {
     Stack() {
       if (this.isLoading) {
-        // 加载状态
         this.LoadingView()
       } else if (this.loadError) {
-        // 错误状态
         this.ErrorView()
       } else if (this.sceneOpt && this.is3DSupported) {
-        // 3D视图 - 仅在支持3D的设备上渲染
         Component3D(this.sceneOpt)
           .width('100%')
           .height('100%')
           .onTouch((event: TouchEvent) => this.handleTouch(event))
 
-        // 控制UI浮层
         this.ControlOverlay()
       }
     }
@@ -594,9 +459,6 @@ export struct Weapon3DViewer {
     .backgroundColor(ThemeColors.BASE_0)
   }
 
-  /**
-   * 加载视图
-   */
   @Builder
   LoadingView() {
     Column() {
@@ -615,9 +477,6 @@ export struct Weapon3DViewer {
     .justifyContent(FlexAlign.Center)
   }
 
-  /**
-   * 错误视图
-   */
   @Builder
   ErrorView() {
     Column() {
@@ -630,30 +489,31 @@ export struct Weapon3DViewer {
         .fontSize(FontSizes.BODY)
         .fontColor(ThemeColors.TEXT_SECONDARY)
         .margin({ top: Spacing.MEDIUM })
+        .textAlign(TextAlign.Center)
+        .padding({ left: Spacing.LARGE, right: Spacing.LARGE })
 
       Text('点击返回2D视图')
         .fontSize(FontSizes.BODY_SMALL)
-        .fontColor(ThemeColors.TEXT_TERTIARY)
-        .margin({ top: Spacing.SMALL })
+        .fontColor(ThemeColors.GOLD_PRIMARY)
+        .margin({ top: Spacing.MEDIUM })
+        .padding({ left: Spacing.LARGE, right: Spacing.LARGE, top: Spacing.SMALL, bottom: Spacing.SMALL })
+        .backgroundColor(ThemeColors.SURFACE_0)
+        .borderRadius(Spacing.MEDIUM)
     }
     .width('100%')
     .height('100%')
     .justifyContent(FlexAlign.Center)
+    .onClick(() => {
+      this.onLoadError()
+    })
   }
 
-  /**
-   * 控制UI浮层
-   * 注意：顶部区域留空，避免与页面导航栏重叠
-   */
   @Builder
   ControlOverlay() {
     Column() {
-      // 顶部留空区域（避免与页面导航栏重叠）
       Blank()
 
-      // 底部控制区域
       Column() {
-        // 控制按钮行
         Row() {
           // 自动旋转开关
           Row() {
@@ -697,7 +557,6 @@ export struct Weapon3DViewer {
         .width('100%')
         .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.SMALL })
 
-        // 底部提示信息
         Column() {
           if (this.weapon) {
             Text(this.weapon.name.cn)

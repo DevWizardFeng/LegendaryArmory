@@ -462,7 +462,13 @@ struct WeaponDetail {
           // 3D查看器
           Weapon3DViewer({
             weaponId: this.weapon.id,
-            weapon: this.weapon
+            weapon: this.weapon,
+            onLoadError: () => {
+              // 3D加载失败时，自动切换回2D视图
+              animateTo({ duration: 300, curve: Curve.EaseInOut }, () => {
+                this.show3D = false
+              })
+            }
           })
             .width('100%')
             .height('100%')

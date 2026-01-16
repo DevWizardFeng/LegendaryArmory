@@ -27,9 +27,10 @@ export struct Weapon3DViewer {
   private autoRotateTimer: number = -1
 
   // 相机控制参数
+  // 注意：当前模型是水平平面(Y=0)，需要从上方俯视才能看到
   private rotationY: number = 0
-  private rotationX: number = 0
-  private cameraDistance: number = 5
+  private rotationX: number = 1.5  // 约86度俯视角，接近垂直向下看
+  private cameraDistance: number = 3  // 拉近距离
   private lastTouchX: number = 0
   private lastTouchY: number = 0
   private lastPinchDistance: number = 0
@@ -379,8 +380,8 @@ export struct Weapon3DViewer {
    */
   private resetCamera(): void {
     this.rotationY = 0
-    this.rotationX = 0
-    this.cameraDistance = 5
+    this.rotationX = 1.5  // 俯视角度
+    this.cameraDistance = 3
     this.updateCameraPosition()
 
     if (!this.autoRotate) {

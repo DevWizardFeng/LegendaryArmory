@@ -26,6 +26,7 @@ interface IndexedOption {
  */
 export class DataLoader {
   private context: Context
+  private questionsCache: Question[] | null = null  // 缓存打乱后的题目
 
   constructor(context: Context) {
     this.context = context
@@ -90,11 +91,18 @@ export class DataLoader {
   }
 
   /**
-   * 加载题目数据
+   * 加载题目数据（带缓存）
    * 对每道题的选项进行随机打乱，并相应更新正确答案索引
    * 使用索引映射而非 indexOf，避免重复选项导致的问题
+   * 注意：打乱结果会被缓存，确保同一实例返回相同结果
    */
   async loadQuestions(): Promise<Question[]> {
+    // 如果已有缓存，直接返回
+    if (this.questionsCache !== null) {
+      console.info('[DataLoader] 使用缓存的题目数据')
+      return this.questionsCache
+    }
+
     const data = await this.loadJsonFile<QuestionsData>('questions.json')
     const result: Question[] = []
 
@@ -169,6 +177,9 @@ export class DataLoader {
       result.push(newQuestion)
     }
 
+    // 缓存结果
+    this.questionsCache = result
+    console.info('[DataLoader] 题目数据已缓存，共', result.length, '道题')
     return result
   }
 
@@ -201,6 +212,14 @@ export class DataLoader {
   async getBlacksmithById(id: string): Promise<Blacksmith | undefined> {
     const blacksmiths = await this.loadBlacksmiths()
     return blacksmiths.find(b => b.id === id)
+  }
+
+  /**
+   * 根据ID获取技能
+   */
+  async getAbilityById(id: string): Promise<Ability | undefined> {
+    const abilities = await this.loadAbilities()
+    return abilities.find(a => a.id === id)
   }
 
   /**

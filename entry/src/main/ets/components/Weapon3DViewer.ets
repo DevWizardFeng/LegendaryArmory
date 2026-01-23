@@ -42,11 +42,22 @@ export struct Weapon3DViewer {
       this.is3DSupported = false
       this.loadError = '3D预览仅支持真机设备'
       this.isLoading = false
+      this.onLoadError()
+      return
+    }
+
+    // 检查模型是否存在
+    if (!Weapon3DViewer.hasModel(this.weaponId)) {
+      console.warn(`[Weapon3DViewer] 武器 ${this.weaponId} 暂无3D模型`)
+      this.is3DSupported = false
+      this.loadError = '该神兵暂无3D模型'
+      this.isLoading = false
+      this.onLoadError()
       return
     }
 
     this.is3DSupported = true
-    console.info(`[Weapon3DViewer] 开始加载3D模型: ${this.weaponId}`)
+    console.info(`[Weapon3DViewer] 开始加载3D��型: ${this.weaponId}`)
     this.load3DModel()
   }
 
@@ -93,8 +104,21 @@ export struct Weapon3DViewer {
   /**
    * 获取模型文件路径
    */
+  /**
+   * 检查武器是否有可用的3D模型
+   */
+  static hasModel(weaponId: string): boolean {
+    // 只包含实际存在的模型文件（截至当前共14个）
+    const availableModels = [
+      'xuanyuan_sword', 'zhanlu_sword', 'chixiao_sword', 'ganjiang_sword', 'moye_sword',
+      'qinglong_yanyue_dao', 'kusanagi', 'mikazuki_munechika', 'muramasa', 'honjo_masamune',
+      'mjolnir', 'gungnir', 'tyrfing', 'gram'
+    ]
+    return availableModels.includes(weaponId)
+  }
+
   private getModelPath(): string {
-    // 武器ID到模型文件名的映射表
+    // 武器ID到模型文件名的映射表（只包含实际存在的模型）
     const modelMapping: Record<string, string> = {
       'xuanyuan_sword': 'xuanyuan',
       'zhanlu_sword': 'zhanlu',
@@ -109,22 +133,7 @@ export struct Weapon3DViewer {
       'mjolnir': 'mjolnir',
       'gungnir': 'gungnir',
       'tyrfing': 'tyrfing',
-      'gram': 'gram',
-      'fragarach': 'fragarach',
-      'gae_bolg': 'gae_bolg',
-      'claomh_solais': 'claomh_solais',
-      'caladbolg': 'caladbolg',
-      'excalibur': 'excalibur',
-      'durandal': 'durandal',
-      'poseidon_trident': 'poseidon_trident',
-      'zeus_thunderbolt': 'zeus_thunderbolt',
-      'hades_bident': 'hades_bident',
-      'vajra': 'vajra',
-      'trishula': 'trishula',
-      'pashupatastra': 'pashupatastra',
-      'khopesh': 'khopesh',
-      'zulfiqar': 'zulfiqar',
-      'shamshir': 'shamshir'
+      'gram': 'gram'
     }
 
     let modelName = modelMapping[this.weaponId]
@@ -223,6 +232,12 @@ export struct Weapon3DViewer {
         console.error(`[Weapon3DViewer] 模型加载失败: ${error.message}`)
         this.loadError = `无法加载模型: ${modelPath}`
         this.isLoading = false
+
+        // 自动调用错误回调，通知父组件切换回2D视图
+        if (this.onLoadError) {
+          console.info('[Weapon3DViewer] 调用 onLoadError 回调')
+          this.onLoadError()
+        }
       })
   }
 

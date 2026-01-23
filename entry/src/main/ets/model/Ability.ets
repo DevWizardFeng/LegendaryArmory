@@ -30,9 +30,9 @@ export interface Ability {
   id: string                     // 唯一标识
   name_cn: string                // 中文名称
   name_en: string                // 英文名称
-  name: string                   // 显示名称（兼容）
+  name?: string                  // 显示名称（兼容，可选）
   category: AbilityCategory      // 技能分类
-  type: AbilityCategory          // 技能类型（兼容）
+  type?: AbilityCategory         // 技能类型（兼容，可选）
   description: string            // 技能描述
   attribute?: AttributeType      // 相关属性（可选）
   element?: AttributeType        // 元素属性（兼容）

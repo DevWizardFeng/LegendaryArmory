@@ -213,9 +213,9 @@ struct AbilityList {
       Row() {
         // 技能图标区
         Column() {
-          Text(ability.name.substring(0, 1))
+          Text((ability.name_cn || ability.name || ability.id).substring(0, 1))
             .fontSize(FontSizes.TITLE)
-            .fontColor(this.getTypeColor(ability.type))
+            .fontColor(this.getTypeColor(ability.type || ability.category))
             .fontWeight(FontWeight.Bold)
         }
         .width(48)
@@ -225,20 +225,20 @@ struct AbilityList {
         .borderRadius(Spacing.SMALL)
         .border({
           width: 1,
-          color: this.getTypeColor(ability.type)
+          color: this.getTypeColor(ability.type || ability.category)
         })
 
         // 名称和类型
         Column() {
-          Text(ability.name)
+          Text(ability.name_cn || ability.name || ability.id)
             .fontSize(FontSizes.BODY)
             .fontWeight(FontWeight.Medium)
             .fontColor(ThemeColors.TEXT_PRIMARY)
 
           Row() {
-            Text(this.getTypeName(ability.type))
+            Text(this.getTypeName(ability.type || ability.category))
               .fontSize(FontSizes.CAPTION)
-              .fontColor(this.getTypeColor(ability.type))
+              .fontColor(this.getTypeColor(ability.type || ability.category))
 
             if (ability.element) {
               Text(' · ')

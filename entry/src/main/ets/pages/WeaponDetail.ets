@@ -9,6 +9,7 @@ import { RouterPath, CultureNames, WeaponTypeNames, RarityNames, AttributeNames 
 import { DataLoader } from '../utils/DataLoader'
 import { StorageManager } from '../utils/Storage'
 import { LegendaryWeapon, FamousOwner } from '../model/LegendaryWeapon'
+import { Ability } from '../model/Ability'
 import { AttributeTag } from '../components/AttributeTag'
 import { Weapon3DViewer } from '../components/Weapon3DViewer'
 import { photoAccessHelper } from '@kit.MediaLibraryKit'
@@ -33,6 +34,7 @@ struct WeaponDetail {
   @State relatedWeapons: LegendaryWeapon[] = []
   @State isTTSPlaying: boolean = false
   @State show3D: boolean = false  // 控制3D/2D视图切换
+  @State weaponAbilities: Ability[] = []  // 存储神兵的技能数据
   private dataLoader: DataLoader | null = null
   private storageManager: StorageManager | null = null
   private ttsManager: TTSManager = new TTSManager()
@@ -107,6 +109,18 @@ struct WeaponDetail {
       if (this.weapon?.related && this.weapon.related.length > 0) {
         const allWeapons = await this.dataLoader.loadWeapons()
         this.relatedWeapons = allWeapons.filter(w => this.weapon?.related.includes(w.id))
+      }
+
+      // 加载神兵技能数据
+      if (this.weapon?.abilities && this.weapon.abilities.length > 0) {
+        const abilities: Ability[] = []
+        for (const abilityId of this.weapon.abilities) {
+          const ability = await this.dataLoader.getAbilityById(abilityId)
+          if (ability) {
+            abilities.push(ability)
+          }
+        }
+        this.weaponAbilities = abilities
       }
 
       this.isLoading = false
@@ -202,13 +216,19 @@ struct WeaponDetail {
     const parts: string[] = []
 
     // 名称和品质
-    parts.push(`${this.weapon.name.cn}，${RarityNames[this.weapon.rarity]}品质神兵。`)
+    if (this.weapon.name?.cn && this.weapon.rarity) {
+      parts.push(`${this.weapon.name.cn}，${RarityNames[this.weapon.rarity] || this.weapon.rarity}品质神兵。`)
+    }
 
     // 分类
-    parts.push(`来自${CultureNames[this.weapon.culture]}文化，属于${WeaponTypeNames[this.weapon.type]}类兵器。`)
+    if (this.weapon.culture && this.weapon.type) {
+      parts.push(`来自${CultureNames[this.weapon.culture] || this.weapon.culture}文化，属于${WeaponTypeNames[this.weapon.type] || this.weapon.type}类兵器。`)
+    }
 
     // 描述
-    parts.push(this.weapon.description)
+    if (this.weapon.description) {
+      parts.push(this.weapon.description)
+    }
 
     // 铭文
     if (this.weapon.inscription) {
@@ -216,10 +236,14 @@ struct WeaponDetail {
     }
 
     // 铸造传说
-    parts.push(`铸造传说：${this.weapon.forging_legend}`)
+    if (this.weapon.forging_legend) {
+      parts.push(`铸造传说：${this.weapon.forging_legend}`)
+    }
 
     // 战斗传说
-    parts.push(`战斗传说：${this.weapon.battle_legend}`)
+    if (this.weapon.battle_legend) {
+      parts.push(`战斗传说：${this.weapon.battle_legend}`)
+    }
 
     return parts.join(' ')
   }
@@ -489,36 +513,38 @@ struct WeaponDetail {
             colors: [['rgba(11,13,16,0)', 0], ['rgba(11,13,16,0.8)', 1]]
           })
 
-        // 3D/2D切换按钮（右下角）
-        Row() {
-          Image($r('app.media.icon_3d'))
-            .width(28)
-            .height(28)
-            .fillColor(this.show3D ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_PRIMARY)
-        }
-        .width(56)
-        .height(56)
-        .justifyContent(FlexAlign.Center)
-        .backgroundColor('rgba(0,0,0,0.6)')
-        .backdropBlur(10)
-        .borderRadius(28)
-        .position({ x: '82%', y: 280 })  // 右下角：360高度 - 56按钮 - 24边距
-        .onClick(async () => {
-          try {
-            console.info('[WeaponDetail] 点击3D切换按钮，当前状态:', this.show3D)
-            animateTo({ duration: 300, curve: Curve.EaseInOut }, () => {
-              this.show3D = !this.show3D
-            })
-            console.info('[WeaponDetail] 3D切换成功，新状态:', this.show3D)
-          } catch (error) {
-            console.error('[WeaponDetail] 3D切换失败:', error)
-            promptAction.showToast({
-              message: '3D视图切换失败',
-              duration: 2000,
-              bottom: 100
-            })
+        // 3D/2D切换按钮（右下角）- 只在有3D模型时显示
+        if (Weapon3DViewer.hasModel(this.weapon.id)) {
+          Row() {
+            Image($r('app.media.icon_3d'))
+              .width(28)
+              .height(28)
+              .fillColor(this.show3D ? ThemeColors.GOLD_PRIMARY : ThemeColors.TEXT_PRIMARY)
           }
-        })
+          .width(56)
+          .height(56)
+          .justifyContent(FlexAlign.Center)
+          .backgroundColor('rgba(0,0,0,0.6)')
+          .backdropBlur(10)
+          .borderRadius(28)
+          .position({ x: '82%', y: 280 })  // 右下角：360高度 - 56按钮 - 24边距
+          .onClick(async () => {
+            try {
+              console.info('[WeaponDetail] 点击3D切换按钮，当前状态:', this.show3D)
+              animateTo({ duration: 300, curve: Curve.EaseInOut }, () => {
+                this.show3D = !this.show3D
+              })
+              console.info('[WeaponDetail] 3D切换成功，新状态:', this.show3D)
+            } catch (error) {
+              console.error('[WeaponDetail] 3D切换失败:', error)
+              promptAction.showToast({
+                message: '3D视图切换失败',
+                duration: 2000,
+                bottom: 100
+              })
+            }
+          })
+        }
 
         // 名称和品质
         Column() {
@@ -798,7 +824,7 @@ struct WeaponDetail {
       Column() {
         this.SectionTitle('神兵技能')
 
-        ForEach(this.weapon.abilities, (abilityId: string, index: number) => {
+        ForEach(this.weaponAbilities, (ability: Ability, index: number) => {
           Row() {
             Column() {
               Text((index + 1).toString())
@@ -811,10 +837,24 @@ struct WeaponDetail {
             .backgroundColor(ThemeColors.SURFACE_0)
             .borderRadius(12)
 
-            Text(abilityId)
-              .fontSize(FontSizes.BODY)
-              .fontColor(ThemeColors.TEXT_PRIMARY)
-              .margin({ left: Spacing.MEDIUM })
+            Column() {
+              Text(ability.name_cn || ability.name || ability.id)
+                .fontSize(FontSizes.BODY)
+                .fontWeight(FontWeight.Medium)
+                .fontColor(ThemeColors.TEXT_PRIMARY)
+
+              if (ability.description) {
+                Text(ability.description)
+                  .fontSize(FontSizes.BODY_SMALL)
+                  .fontColor(ThemeColors.TEXT_SECONDARY)
+                  .margin({ top: Spacing.TINY })
+                  .maxLines(2)
+                  .textOverflow({ overflow: TextOverflow.Ellipsis })
+              }
+            }
+            .alignItems(HorizontalAlign.Start)
+            .margin({ left: Spacing.MEDIUM })
+            .layoutWeight(1)
           }
           .width('100%')
           .padding(Spacing.MEDIUM)
@@ -825,7 +865,7 @@ struct WeaponDetail {
             width: 1,
             color: ThemeColors.DIVIDER
           })
-        })
+        }, (ability: Ability) => ability.id)
       }
       .width('100%')
       .padding({ left: Spacing.LARGE, right: Spacing.LARGE, bottom: Spacing.LARGE })
